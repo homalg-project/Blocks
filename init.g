@@ -8,4 +8,6 @@
 ##
 #############################################################################
 
+ReadPackage( "Blocks", "gap/Groups.gd" );
+
 ReadPackage( "Blocks", "gap/Blocks.gd" );
