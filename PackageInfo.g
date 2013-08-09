@@ -56,8 +56,9 @@ PackageDoc := rec(
 Dependencies := rec(
   GAP := ">=4.4",
   NeededOtherPackages := [
-                   [ "AutoDoc", ">= 2013.08.08" ],
+                   [ "AutoDoc", ">= 2013.08.08.20:20" ],
                    [ "Modules", ">= 2013.07.05" ],
+                   [ "LAGUNA", ">= 3.6.3" ],
                    [ "GAPDoc", ">= 1.1" ]
                    ],
   SuggestedOtherPackages := [ ],
