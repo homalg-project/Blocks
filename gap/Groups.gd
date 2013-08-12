@@ -10,6 +10,22 @@
 
 ####################################
 #
+# properties:
+#
+####################################
+
+DeclarePropertyWithDocumentation( "IsReal",
+        CategoryCollections(IsMultiplicativeElementWithInverse),
+        [ "Checks whether the conjugacy class <A>K</A> is real or not,",
+          "i.e, if <A>K</A><M>=</M><C>Involution</C><M>(</M><A>K</A><M>)</M>",
+          "(&see; <Ref Oper=\"Involution\" Label=\"for CategoryCollections(IsMultiplicativeElementWithInverse)\"/>).",
+          "<#Include Label=\"IsReal:cc\">" ],
+        "K",
+        [ "Groups", "Property" ]
+        );
+
+####################################
+#
 # attributes:
 #
 ####################################
@@ -78,5 +94,16 @@ DeclareOperationWithDocumentation( "DefectGroup",
           "<#Include Label=\"DefectGroup:cc\">" ],
         "a subgroup of <M>G</M>",
         "K, p",
+        [ "Groups", "Operations" ]
+        );
+
+DeclareOperationWithDocumentation( "Involution",
+        [ CategoryCollections(IsMultiplicativeElementWithInverse) ],
+        [ "Computes the conjugacy class of <M>g^{-1}</M>",
+          "where <M>g=</M><C>Representative</C><M>(</M><A>K</A><M>)</M>",
+          "is a representative of the conjugacy class <A>K</A><M>=g^G</M>",
+          "(&see; <Ref Prop=\"IsReal\" Label=\"for CategoryCollections(IsMultiplicativeElementWithInverse)\"/>)." ],
+        "a conjugacy class in <M>G</M>",
+        "K",
         [ "Groups", "Operations" ]
         );

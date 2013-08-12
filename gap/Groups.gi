@@ -9,6 +9,17 @@
 #############################################################################
 
 ##
+InstallMethod( IsReal,
+        [ CategoryCollections(IsMultiplicativeElementWithInverse) ],
+        
+  function( K )
+    
+    ## this is efficient by a special method for =
+    return K = Involution( K );
+    
+end );
+
+##
 InstallMethod( SerreCharacteristicSubgroup,
         [ IsGroup ],
         
@@ -83,3 +94,17 @@ InstallMethod( DefectGroup,
 end );
 ##  ]]></Listing>
 ##  <#/GAPDoc>
+
+##
+InstallMethod( Involution,
+        [ CategoryCollections(IsMultiplicativeElementWithInverse) ],
+        
+  function( K )
+    local G, g;
+    
+    G := ActingDomain( K );
+    g := Representative( K );
+    
+    return ConjugacyClass( G, g^-1 );
+    
+end );

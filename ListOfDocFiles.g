@@ -11,6 +11,7 @@ list := [
          "../examples/doc/NumberOfQuadraticEquationsOfUnitaryGroup.g",
          "../examples/doc/DimensionOfUnitaryGroup.g",
          "../examples/doc/DefectGroup.g",
+         "../examples/doc/IsReal.g",
          "../examples/doc/DefectsOfBlocks.g",
          "../examples/doc/CharacterDegreesOfBlocks.g",
          "../examples/doc/BrauerCharacterDegreesOfBlocks.g",
