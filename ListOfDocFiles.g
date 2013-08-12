@@ -1,6 +1,7 @@
 list := [
          "../gap/AutoDocEntries.g",
          "../gap/Blocks.gi",
+         "../gap/Groups.gi",
          "../examples/doc/RadicalOfAlgebraPowers.g",
          "../examples/doc/AugmentationIdealPowers.g",
          "../examples/doc/HighestPowerOfAugmentationIdeal.g",
@@ -9,6 +10,7 @@ list := [
          "../examples/doc/SerreFactorGroup.g",
          "../examples/doc/NumberOfQuadraticEquationsOfUnitaryGroup.g",
          "../examples/doc/DimensionOfUnitaryGroup.g",
+         "../examples/doc/DefectGroup.g",
          "../examples/doc/DefectsOfBlocks.g",
          "../examples/doc/CharacterDegreesOfBlocks.g",
          "../examples/doc/BrauerCharacterDegreesOfBlocks.g",

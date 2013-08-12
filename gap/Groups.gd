@@ -56,7 +56,7 @@ DeclareAttributeWithDocumentation( "DimensionOfUnitaryGroup",
           "<#Include Label=\"DimensionOfUnitaryGroup\">" ],
         "a nonnegative integer",
         "G",
-        [ "Groups", "Operations" ],
+        [ "Groups", "Attributes" ],
         rec( function_label := "for IsGroup" )
         );
 
@@ -68,3 +68,15 @@ DeclareAttributeWithDocumentation( "DimensionOfUnitaryGroup",
 
 # basic operations:
 
+DeclareOperationWithDocumentation( "DefectGroup",
+        [ CategoryCollections(IsMultiplicativeElementWithInverse), IsInt ],
+        [ "Computes the defect <A>p</A>-group of a representative",
+          "<M>g=</M><C>Representative</C><M>(</M><A>K</A><M>)</M>",
+          "of the conjugacy class <A>K</A><M>=g^G</M> as a subgroup of",
+          "<M>G=</M><C>ActingDomain</C><M>(</M><A>K</A><M>)</M>.",
+          "<#Include Label=\"DefectGroup_code:cc\">",
+          "<#Include Label=\"DefectGroup:cc\">" ],
+        "a subgroup of <M>G</M>",
+        "K, p",
+        [ "Groups", "Operations" ]
+        );

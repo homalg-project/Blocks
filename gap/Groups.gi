@@ -62,3 +62,24 @@ InstallMethod( DimensionOfUnitaryGroup,
     return 1/2 * ( Size( G ) + Length( G2 ) ) - 1;
     
 end );
+
+##  <#GAPDoc Label="DefectGroup_code:cc">
+##  <Listing Type="Code"><![CDATA[
+InstallMethod( DefectGroup,
+        [ CategoryCollections(IsMultiplicativeElementWithInverse), IsInt ],
+        
+  function( K, p )
+    local G, g;
+    
+    if not IsPrime( p ) then
+        Error( "the second argument must be a prime\n" );
+    fi;
+    
+    G := ActingDomain( K );
+    g := Representative( K );
+    
+    return SylowSubgroup( Centralizer( G, g ), p );
+    
+end );
+##  ]]></Listing>
+##  <#/GAPDoc>
