@@ -34,3 +34,6 @@ DeclareOperationWithDocumentation( "FieldOfGroupRingElements",
 
 DeclareOperation( "Coerce",
         [ IsHomalgRing, IsRingElement, IsElementOfFreeMagmaRing ] );
+
+DeclareOperation( "Coefficients",
+        [ IsHomalgModule, IsElementOfFreeMagmaRing ] );

@@ -15,3 +15,5 @@ ReadPackage( "Blocks", "gap/Algebras.gi" );
 ReadPackage( "Blocks", "gap/Blocks.gi" );
 
 ReadPackage( "Blocks", "gap/Tools.gi" );
+
+ReadPackage( "Blocks", "gap/Modules.gi" );

@@ -77,3 +77,8 @@ DeclareAttributeWithDocumentation( "CentralIdempotentsOfInvolutiveAlgebra",
 
 # basic operations:
 
+DeclareOperation( "UnderlyingModule",
+        [ IsRing, IsAlgebra ] );
+
+DeclareOperation( "InducedFiltration",
+        [ IsRing, IsList ] );
