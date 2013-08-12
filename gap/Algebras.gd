@@ -21,7 +21,7 @@ DeclareAttributeWithDocumentation( "RadicalOfAlgebraPowers",
           "<#Include Label=\"RadicalOfAlgebraPowers\">" ],
         "a record",
         "A",
-        [ "Algebras", "Operations" ],
+        [ "Algebras", "Attributes" ],
         rec( function_label := "for IsAlgebra" )
         );
 
@@ -32,7 +32,7 @@ DeclareAttributeWithDocumentation( "RadicalOfAlgebraPowersAsIntersection",
           "(&see; <Ref Attr=\"RadicalOfAlgebraPowers\" Label=\"for IsAlgebra\"/>)." ],
         "a record",
         "A",
-        [ "Algebras", "Operations" ],
+        [ "Algebras", "Attributes" ],
         rec( function_label := "for IsAlgebra" )
         );
 
@@ -43,7 +43,7 @@ DeclareAttributeWithDocumentation( "AugmentationIdealPowers",
           "<#Include Label=\"AugmentationIdealPowers\">" ],
         "a record",
         "kG",
-        [ "Algebras", "Operations" ],
+        [ "Algebras", "Attributes" ],
         rec( function_label := "for IsAlgebraWithOne" )
         );
 
@@ -55,7 +55,7 @@ DeclareAttributeWithDocumentation( "HighestPowerOfAugmentationIdeal",
           "<#Include Label=\"HighestPowerOfAugmentationIdeal\">" ],
         "a two-sided ideal",
         "kG",
-        [ "Algebras", "Operations" ],
+        [ "Algebras", "Attributes" ],
         rec( function_label := "for IsAlgebraWithOne" )
         );
 
@@ -65,7 +65,7 @@ DeclareAttributeWithDocumentation( "CentralIdempotentsOfInvolutiveAlgebra",
           "<#Include Label=\"CentralIdempotentsOfInvolutiveAlgebra\">" ],
         "a list",
         "A",
-        [ "Algebras", "Operations" ],
+        [ "Algebras", "Attributes" ],
         rec( function_label := "for IsAlgebraWithOne" )
         );
 

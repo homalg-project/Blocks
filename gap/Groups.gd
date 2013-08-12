@@ -21,7 +21,7 @@ DeclareAttributeWithDocumentation( "SerreCharacteristicSubgroup",
           "<#Include Label=\"SerreCharacteristicSubgroup\">" ],
         "a subgroup of <A>G</A>",
         "G",
-        [ "Groups", "Operations" ],
+        [ "Groups", "Attributes" ],
         rec( function_label := "for IsGroup" )
         );
 
@@ -33,7 +33,7 @@ DeclareAttributeWithDocumentation( "SerreFactorGroup",
           "<#Include Label=\"SerreFactorGroup\">" ],
         "a factor group of <A>G</A>",
         "G",
-        [ "Groups", "Operations" ],
+        [ "Groups", "Attributes" ],
         rec( function_label := "for IsGroup" )
         );
 
@@ -45,7 +45,7 @@ DeclareAttributeWithDocumentation( "NumberOfQuadraticEquationsOfUnitaryGroup",
           "<#Include Label=\"NumberOfQuadraticEquationsOfUnitaryGroup\">" ],
         "a nonnegative integer",
         "G",
-        [ "Groups", "Operations" ],
+        [ "Groups", "Attributes" ],
         rec( function_label := "for IsGroup" )
         );
 
