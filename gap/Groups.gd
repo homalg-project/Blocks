@@ -84,6 +84,26 @@ DeclareAttributeWithDocumentation( "DimensionOfUnitaryGroup",
 
 # basic operations:
 
+DeclareOperationWithDocumentation( "IsRegular",
+        [ IsMultiplicativeElementWithInverse, IsInt ],
+        [ "Checks if the group element <A>g</A> is <A>p</A>-regular",
+          "<#Include Label=\"IsRegular_code\">",
+          "<#Include Label=\"IsRegular\">" ],
+        "<C>true</C> or <C>false</C>",
+        "g",
+        [ "Groups", "Operations" ]
+        );
+
+DeclareOperationWithDocumentation( "IsRegular",
+        [ CategoryCollections(IsMultiplicativeElementWithInverse), IsInt ],
+        [ "Checks whether a representative <M>g=</M><C>Representative</C><M>(</M><A>K</A><M>)</M>",
+          "of the conjugacy class <A>K</A><M>=g^G</M> is <A>p</A>-regular",
+          "(&see; <Ref Prop=\"IsRegular\" Label=\"for IsMultiplicativeElementWithInverse, IsInt\"/>)." ],
+        "<C>true</C> or <C>false</C>",
+        "K",
+        [ "Groups", "Operations" ]
+        );
+
 DeclareOperationWithDocumentation( "DefectGroup",
         [ CategoryCollections(IsMultiplicativeElementWithInverse), IsInt ],
         [ "Computes the defect <A>p</A>-group of a representative",

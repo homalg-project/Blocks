@@ -74,6 +74,36 @@ InstallMethod( DimensionOfUnitaryGroup,
     
 end );
 
+##  <#GAPDoc Label="IsRegular_code">
+##  <Listing Type="Code"><![CDATA[
+InstallMethod( IsRegular,
+        [ IsMultiplicativeElementWithInverse, IsInt ],
+        
+  function( g, p )
+    
+    if not IsPrime( p ) then
+        Error( "the second argument must be a prime\n" );
+    fi;
+    
+    return Gcd( Order( g ), p ) in [ 1, -1 ];
+    
+end );
+##  ]]></Listing>
+##  <#/GAPDoc>
+
+##
+InstallMethod( IsRegular,
+        [ CategoryCollections(IsMultiplicativeElementWithInverse), IsInt ],
+        
+  function( K, p )
+    local g;
+    
+    g := Representative( K );
+    
+    return IsRegular( g, p );
+    
+end );
+
 ##  <#GAPDoc Label="DefectGroup_code:cc">
 ##  <Listing Type="Code"><![CDATA[
 InstallMethod( DefectGroup,
