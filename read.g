@@ -17,3 +17,5 @@ ReadPackage( "Blocks", "gap/Blocks.gi" );
 ReadPackage( "Blocks", "gap/Tools.gi" );
 
 ReadPackage( "Blocks", "gap/Modules.gi" );
+
+ReadPackage( "Blocks", "gap/UnitaryGroup.gi" );
