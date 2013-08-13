@@ -138,3 +138,32 @@ InstallMethod( Involution,
     return ConjugacyClass( G, g^-1 );
     
 end );
+
+##
+InstallMethod( Coefficient,
+        [ IsElementOfFreeMagmaRing, IsMultiplicativeElementWithInverse ],
+        
+  function( b, g )
+    local coeffs, pos;
+    
+    coeffs := CoefficientsAndMagmaElements( b );
+    
+    pos := Position( coeffs, g );
+    
+    if pos = fail then
+        return Zero( coeffs[2] );
+    fi;
+    
+    return coeffs[pos + 1];
+    
+end );
+
+##
+InstallMethod( Coefficient,
+        [ IsElementOfFreeMagmaRing, CategoryCollections(IsMultiplicativeElementWithInverse) ],
+        
+  function( b, K )
+    
+    return Coefficient( b, Representative( K ) );
+    
+end );

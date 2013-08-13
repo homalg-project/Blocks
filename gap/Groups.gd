@@ -127,3 +127,23 @@ DeclareOperationWithDocumentation( "Involution",
         "K",
         [ "Groups", "Operations" ]
         );
+
+DeclareOperationWithDocumentation( "Coefficient",
+        [ IsElementOfFreeMagmaRing, IsMultiplicativeElementWithInverse ],
+        [ "Computes the coefficient of the group element <A>g</A>",
+          "in the group ring element <A>b</A>.",
+          "<#Include Label=\"Coefficient\">" ],
+        "a ring element",
+        "b, g",
+        [ "Groups", "Operations" ]
+        );
+
+DeclareOperationWithDocumentation( "Coefficient",
+        [ IsElementOfFreeMagmaRing, CategoryCollections(IsMultiplicativeElementWithInverse) ],
+        [ "Computes the coefficient of the conjugacy class <A>K</A>",
+          "in the group ring element <A>b</A>, where <A>b</A> his assumed to be central",
+          "(&see; <Ref Prop=\"Coefficient\" Label=\"for IsElementOfFreeMagmaRing, IsMultiplicativeElementWithInverse\"/>)." ],
+        "a ring element",
+        "b, K",
+        [ "Groups", "Operations" ]
+        );
