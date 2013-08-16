@@ -70,6 +70,23 @@ InstallMethod( CartanMatricesOfBlocks,
     
 end );
 
+##
+InstallMethod( CentralCharactersOfBlocks,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    local ordtbl, blocks, omegas;
+    
+    ordtbl := OrdinaryCharacterTable( modtbl );
+    
+    blocks := BlocksInfo( modtbl );
+    
+    omegas := List( blocks, b -> CentralCharacter( Irr( ordtbl )[b.ordchars[1]] ) );
+    
+    return List( omegas, a -> List( a, b -> FrobeniusCharacterValue( b, 2 ) ) );
+    
+end );
+
 ####################################
 #
 # methods for operations:
@@ -153,5 +170,25 @@ InstallMethod( CartanMatricesOfBlocks,
   function( G, p )
     
     return CartanMatricesOfBlocks( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( CentralCharactersOfBlocks,
+        [ IsCharacterTable, IsInt ],
+        
+  function( ordtbl, p )
+    
+    return CentralCharactersOfBlocks( ordtbl mod p );
+    
+end );
+
+##
+InstallMethod( CentralCharactersOfBlocks,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    
+    return CentralCharactersOfBlocks( CharacterTable( G ), p );
     
 end );

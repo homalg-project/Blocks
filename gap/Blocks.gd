@@ -68,6 +68,17 @@ DeclareAttributeWithDocumentation( "CartanMatricesOfBlocks",
         rec( group := "CartanMatricesOfBlocks" )
         );
 
+DeclareAttributeWithDocumentation( "CentralCharactersOfBlocks",
+        IsBrauerTable,
+        [ "Computes the central character for each <A>p</A>-block of the group <A>G</A>",
+          "with <A>p</A>-modular character table <A>modtbl</A>",
+          "and underlying ordinary character table <A>ordtbl</A>." ],
+        "a list",
+        "modtbl",
+        [ "Blocks", "Attributes" ],
+        rec( group := "CentralCharactersOfBlocks" )
+        );
+
 ####################################
 #
 # global functions and operations:
@@ -146,4 +157,22 @@ DeclareOperationWithDocumentation( "CartanMatricesOfBlocks",
         "G, p",
         [ "Blocks", "Operations" ],
         rec( group := "CartanMatricesOfBlocks" )
+        );
+
+DeclareOperationWithDocumentation( "CentralCharactersOfBlocks",
+        [ IsCharacterTable, IsInt ],
+        "",
+        "a list",
+        "ordtbl, p",
+        [ "Blocks", "Operations" ],
+        rec( group := "CentralCharactersOfBlocks" )
+        );
+
+DeclareOperationWithDocumentation( "CentralCharactersOfBlocks",
+        [ IsGroup, IsInt ],
+        "<#Include Label=\"CentralCharactersOfBlocks\">",
+        "a list",
+        "G, p",
+        [ "Blocks", "Operations" ],
+        rec( group := "CentralCharactersOfBlocks" )
         );

@@ -18,5 +18,6 @@ list := [
          "../examples/doc/CharacterDegreesOfBlocks.g",
          "../examples/doc/BrauerCharacterDegreesOfBlocks.g",
          "../examples/doc/CartanMatricesOfBlocks.g",
+         "../examples/doc/CentralCharactersOfBlocks.g",
          "../examples/doc/FieldOfGroupRingElements.g",
          ];
