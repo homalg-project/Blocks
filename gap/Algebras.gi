@@ -164,10 +164,10 @@ end );
 InstallMethod( CentralIdempotentsOfInvolutiveAlgebra,
         [ IsAlgebraWithOne ],
         
-  function( kG )
+  function( A )
     local e;
     
-    e := CentralIdempotentsOfAlgebra( kG );
+    e := CentralIdempotentsOfAlgebra( A );
     
     e := List( e, function( c ) if c = Involution( c ) then return c; fi; return c + Involution( c ); end );
     
