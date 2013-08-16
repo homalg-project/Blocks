@@ -184,6 +184,42 @@ InstallMethod( CentralIdempotentsOfInvolutiveAlgebra,
 end );
 
 ##
+InstallMethod( UnderlyingBrauerTable,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local kG, G, p, modtbl, omegas;
+    
+    ## see CentralIdempotentsOfInvolutiveAlgebra
+    if not IsBound( b![1001] ) then
+        Error( "unable to extract the underlying algebra" );
+    fi;
+    
+    kG := b![1001];
+    
+    if HasLeftActingRingOfIdeal( kG ) then
+        kG := LeftActingRingOfIdeal( kG );
+        if HasLeftActingRingOfIdeal( kG ) then
+            kG := LeftActingRingOfIdeal( kG );
+        fi;
+    fi;
+    
+    if not ( HasIsGroupAlgebra( kG ) and IsGroupAlgebra( kG ) and HasUnderlyingMagma( kG ) ) then
+        ## I still do not know how to extend the scalars of an algebra
+        ## with an external homalg ring R; luckily GroupRing( R, G ) works
+        ## which is the reason we need a group here
+        Error( "no underlying magma found\n" );
+    fi;
+    
+    G := UnderlyingMagma( kG );
+    
+    p := Characteristic( LeftActingDomain( kG ) );
+    
+    return BrauerTable( G, p );
+    
+end );
+
+##
 InstallMethod( UnderlyingModule,
         [ IsRing, IsAlgebra ],
         

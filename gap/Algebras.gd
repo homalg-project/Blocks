@@ -77,6 +77,9 @@ DeclareAttributeWithDocumentation( "CentralIdempotentsOfInvolutiveAlgebra",
 
 # basic operations:
 
+DeclareOperation( "UnderlyingBrauerTable",
+        [ IsElementOfFreeMagmaRing ] );
+
 DeclareOperation( "UnderlyingModule",
         [ IsRing, IsAlgebra ] );
 
