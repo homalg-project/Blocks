@@ -18,6 +18,58 @@ DeclareGlobalVariable( "BLOCKS" );
 
 ####################################
 #
+# attributes:
+#
+####################################
+
+DeclareAttributeWithDocumentation( "DefectsOfBlocks",
+        IsBrauerTable,
+        [ "Computes the list of defects of the <A>p</A>-blocks of the group <A>G</A>",
+          "with <A>p</A>-modular character table <A>modtbl</A>",
+          "and underlying ordinary character table <A>ordtbl</A>." ],
+        "a list",
+        "modtbl",
+        [ "Blocks", "Attributes" ],
+        rec( group := "DefectsOfBlocks" )
+        );
+
+DeclareAttributeWithDocumentation( "CharacterDegreesOfBlocks",
+        IsBrauerTable,
+        [ "Computes the list of lists of degrees of ordinary characters",
+          "associated to the <A>p</A>-blocks of the group <A>G</A>",
+          "with <A>p</A>-modular character table <A>modtbl</A>",
+          "and underlying ordinary character table <A>ordtbl</A>." ],
+        "a list",
+        "modtbl",
+        [ "Blocks", "Attributes" ],
+        rec( group := "CharacterDegreesOfBlocks" )
+        );
+
+DeclareAttributeWithDocumentation( "BrauerCharacterDegreesOfBlocks",
+        IsBrauerTable,
+        [ "Computes the list of lists of degrees of Brauer characters",
+          "associated to the <A>p</A>-blocks of the group <A>G</A>",
+          "with <A>p</A>-modular character table <A>modtbl</A>",
+          "and underlying ordinary character table <A>ordtbl</A>." ],
+        "a list",
+        "modtbl",
+        [ "Blocks", "Attributes" ],
+        rec( group := "BrauerCharacterDegreesOfBlocks" )
+        );
+
+DeclareAttributeWithDocumentation( "CartanMatricesOfBlocks",
+        IsBrauerTable,
+        [ "Computes the list of Cartan matrices of the <A>p</A>-blocks of the group <A>G</A>",
+          "with <A>p</A>-modular character table <A>modtbl</A>",
+          "and underlying ordinary character table <A>ordtbl</A>." ],
+        "a list",
+        "modtbl",
+        [ "Blocks", "Attributes" ],
+        rec( group := "CartanMatricesOfBlocks" )
+        );
+
+####################################
+#
 # global functions and operations:
 #
 ####################################
@@ -26,10 +78,9 @@ DeclareGlobalVariable( "BLOCKS" );
 
 DeclareOperationWithDocumentation( "DefectsOfBlocks",
         [ IsCharacterTable, IsInt ],
-        [ "Computes the list of defects of the <A>p</A>-blocks of the group <A>G</A>",
-          "or the underlying ordinary character table <A>tbl</A>." ],
+        "",
         "a list",
-        "tbl, p",
+        "ordtbl, p",
         [ "Blocks", "Operations" ],
         rec( group := "DefectsOfBlocks" )
         );
@@ -45,11 +96,9 @@ DeclareOperationWithDocumentation( "DefectsOfBlocks",
 
 DeclareOperationWithDocumentation( "CharacterDegreesOfBlocks",
         [ IsCharacterTable, IsInt ],
-        [ "Computes the list of lists of degrees of ordinary characters",
-          "associated to the <A>p</A>-blocks of the group <A>G</A>",
-          "or the underlying ordinary character table <A>tbl</A>." ],
+        "",
         "a list",
-        "tbl, p",
+        "ordtbl, p",
         [ "Blocks", "Operations" ],
         rec( group := "CharacterDegreesOfBlocks" )
         );
@@ -65,11 +114,9 @@ DeclareOperationWithDocumentation( "CharacterDegreesOfBlocks",
 
 DeclareOperationWithDocumentation( "BrauerCharacterDegreesOfBlocks",
         [ IsCharacterTable, IsInt ],
-        [ "Computes the list of lists of degrees of Brauer characters",
-          "associated to the <A>p</A>-blocks of the group <A>G</A>",
-          "or the underlying ordinary character table <A>tbl</A>." ],
+        "",
         "a list",
-        "tbl, p",
+        "ordtbl, p",
         [ "Blocks", "Operations" ],
         rec( group := "BrauerCharacterDegreesOfBlocks" )
         );
@@ -85,10 +132,9 @@ DeclareOperationWithDocumentation( "BrauerCharacterDegreesOfBlocks",
 
 DeclareOperationWithDocumentation( "CartanMatricesOfBlocks",
         [ IsCharacterTable, IsInt ],
-        [ "Computes the list of Cartan matrices of the <A>p</A>-blocks of the group <A>G</A>",
-          "or the underlying ordinary character table <A>tbl</A>." ],
+        "",
         "a list",
-        "tbl, p",
+        "ordtbl, p",
         [ "Blocks", "Operations" ],
         rec( group := "CartanMatricesOfBlocks" )
         );

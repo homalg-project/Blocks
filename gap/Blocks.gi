@@ -8,16 +8,81 @@
 ##
 #############################################################################
 
+####################################
+#
+# methods for attributes:
+#
+####################################
+
+##
+InstallMethod( DefectsOfBlocks,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    local blocks;
+    
+    blocks := BlocksInfo( modtbl );
+    
+    return List( blocks, b -> b.defect );
+    
+end );
+
+##
+InstallMethod( CharacterDegreesOfBlocks,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    local ordtbl, blocks;
+    
+    ordtbl := OrdinaryCharacterTable( modtbl );
+    
+    blocks := BlocksInfo( modtbl );
+    
+    return List( blocks, b -> List( Irr( ordtbl ){b.ordchars}, Degree ) );
+    
+end );
+
+##
+InstallMethod( BrauerCharacterDegreesOfBlocks,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    local blocks;
+    
+    blocks := BlocksInfo( modtbl );
+    
+    return List( blocks, b -> List( Irr( modtbl ){b.modchars}, Degree ) );
+    
+end );
+
+##
+InstallMethod( CartanMatricesOfBlocks,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    local blocks, decmats;
+    
+    blocks := BlocksInfo( modtbl );
+    
+    decmats := List( [ 1 .. Length( blocks ) ], i -> DecompositionMatrix( modtbl, i ) );
+    
+    return List( decmats, decmat -> TransposedMat( decmat ) * decmat );
+    
+end );
+
+####################################
+#
+# methods for operations:
+#
+####################################
+
 ##
 InstallMethod( DefectsOfBlocks,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
-    local blocks;
     
-    blocks := BlocksInfo( ordtbl mod p );
-    
-    return List( blocks, b -> b.defect );
+    return DefectsOfBlocks( ordtbl mod p );
     
 end );
 
@@ -36,11 +101,8 @@ InstallMethod( CharacterDegreesOfBlocks,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
-    local blocks;
     
-    blocks := BlocksInfo( ordtbl mod p );
-    
-    return List( blocks, b -> List( Irr( ordtbl ){b.ordchars}, Degree ) );
+    return CharacterDegreesOfBlocks( ordtbl mod p );
     
 end );
 
@@ -59,13 +121,8 @@ InstallMethod( BrauerCharacterDegreesOfBlocks,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
-    local modtbl, blocks;
     
-    modtbl := ordtbl mod p;
-    
-    blocks := BlocksInfo( modtbl );
-    
-    return List( blocks, b -> List( Irr( modtbl ){b.modchars}, Degree ) );
+    return BrauerCharacterDegreesOfBlocks( ordtbl mod p );
     
 end );
 
@@ -84,15 +141,8 @@ InstallMethod( CartanMatricesOfBlocks,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
-    local modtbl, blocks, decmats;
     
-    modtbl := ordtbl mod p;
-    
-    blocks := BlocksInfo( modtbl );
-    
-    decmats := List( [ 1 .. Length( blocks ) ], i -> DecompositionMatrix( modtbl, i ) );
-    
-    return List( decmats, decmat -> TransposedMat( decmat ) * decmat );
+    return CartanMatricesOfBlocks( ordtbl mod p );
     
 end );
 
