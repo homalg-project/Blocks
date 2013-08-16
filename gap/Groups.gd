@@ -147,3 +147,13 @@ DeclareOperationWithDocumentation( "Coefficient",
         "b, K",
         [ "Groups", "Operations" ]
         );
+
+DeclareOperationWithDocumentation( "Coefficients",
+        [ IsElementOfFreeMagmaRing ],
+        [ "Computes the coefficients of all conjugacy classes",
+          "in the group ring element <A>b</A>, where <A>b</A> his assumed to be central",
+          "(&see; <Ref Prop=\"Coefficient\" Label=\"for IsElementOfFreeMagmaRing, CategoryCollections(IsMultiplicativeElementWithInverse)\"/>)." ],
+        "a list",
+        "b",
+        [ "Groups", "Operations" ]
+        );

@@ -14,6 +14,7 @@ list := [
          "../examples/doc/IsReal.g",
          "../examples/doc/IsRegular.g",
          "../examples/doc/Coefficient.g",
+         "../examples/doc/Coefficients.g",
          "../examples/doc/DefectsOfBlocks.g",
          "../examples/doc/CharacterDegreesOfBlocks.g",
          "../examples/doc/BrauerCharacterDegreesOfBlocks.g",
