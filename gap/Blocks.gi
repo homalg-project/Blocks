@@ -87,6 +87,34 @@ InstallMethod( CentralCharactersOfBlocks,
     
 end );
 
+##
+InstallMethod( BlockIdempotentInfo,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local modtbl, omegas, coeffs, prod, pos, block;
+    
+    modtbl := UnderlyingBrauerTable( b );
+    
+    omegas := CentralCharactersOfBlocks( modtbl );
+    
+    coeffs := Coefficients( b );
+    
+    prod := List( omegas, omega -> Sum( ListN( omega, coeffs, \* ) ) );
+    
+    pos := PositionProperty( prod, a -> not IsZero( a ) );
+    
+    Assert( 0, IsOne( prod[pos] ) );
+    Assert( 0, PositionProperty( prod, a -> not IsZero( a ), pos + 1 ) = fail );
+    
+    block := BlocksInfo( modtbl )[pos];
+    
+    block!.BlockIdempotent := b;
+    
+    return block;
+    
+end );
+
 ####################################
 #
 # methods for operations:
