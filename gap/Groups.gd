@@ -90,7 +90,7 @@ DeclareOperationWithDocumentation( "IsRegular",
           "<#Include Label=\"IsRegular_code\">",
           "<#Include Label=\"IsRegular\">" ],
         "<C>true</C> or <C>false</C>",
-        "g",
+        "g, p",
         [ "Groups", "Operations" ]
         );
 
@@ -100,7 +100,7 @@ DeclareOperationWithDocumentation( "IsRegular",
           "of the conjugacy class <A>K</A><M>=g^G</M> is <A>p</A>-regular",
           "(&see; <Ref Prop=\"IsRegular\" Label=\"for IsMultiplicativeElementWithInverse, IsInt\"/>)." ],
         "<C>true</C> or <C>false</C>",
-        "K",
+        "K, p",
         [ "Groups", "Operations" ]
         );
 
