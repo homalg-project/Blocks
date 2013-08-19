@@ -184,11 +184,11 @@ InstallMethod( CentralIdempotentsOfInvolutiveAlgebra,
 end );
 
 ##
-InstallMethod( UnderlyingBrauerTable,
+InstallMethod( UnderlyingGroupAlgebra,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local kG, G, p, modtbl, omegas;
+    local kG;
     
     ## see CentralIdempotentsOfInvolutiveAlgebra
     if not IsBound( b![1001] ) then
@@ -211,9 +211,22 @@ InstallMethod( UnderlyingBrauerTable,
         Error( "no underlying magma found\n" );
     fi;
     
+    return kG;
+    
+end );
+
+##
+InstallMethod( UnderlyingBrauerTable,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local kG, G, p;
+    
+    kG := UnderlyingGroupAlgebra( b );
+    
     G := UnderlyingMagma( kG );
     
-    p := Characteristic( LeftActingDomain( kG ) );
+    p := Characteristic( kG );
     
     return BrauerTable( G, p );
     
