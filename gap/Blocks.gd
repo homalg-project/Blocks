@@ -79,16 +79,16 @@ DeclareAttributeWithDocumentation( "CentralCharactersOfBlocks",
         rec( group := "CentralCharactersOfBlocks" )
         );
 
-DeclareAttributeWithDocumentation( "BlockIdempotentInfo",
-        IsElementOfFreeMagmaRing,
-        [ "Associates to a <M>p</M>-block idempotent <A>b</A> of a group <M>G</M>",
+DeclareAttributeWithDoc( "BlockIdempotentInfo",
+        IsElementOfFreeMagmaRing, "mutable" :
+        description := [ "Associates to a <M>p</M>-block idempotent <A>b</A> of a group <M>G</M>",
           "with <A>p</A>-modular character table <M>modtbl</M>",
           "the corresponding record in <C>BlocksInfo</C>(<M>modtbl</M>)",
           "(&see; <Ref Attr=\"BlocksInfo\" BookName=\"Reference\"/>)." ],
-        "a record",
-        "b",
-        [ "Blocks", "Attributes" ],
-        rec( group := "BlockIdempotentInfo" )
+        return_value := "a record",
+        arguments := "b",
+        chapter_info := [ "Blocks", "Attributes" ],
+        group := "BlockIdempotentInfo"
         );
 
 ####################################
