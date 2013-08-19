@@ -83,7 +83,11 @@ InstallMethod( CentralCharactersOfBlocks,
     
     omegas := List( blocks, b -> CentralCharacter( Irr( ordtbl )[b.ordchars[1]] ) );
     
-    return List( omegas, a -> List( a, b -> FrobeniusCharacterValue( b, 2 ) ) );
+    omegas := List( omegas, a -> List( a, b -> FrobeniusCharacterValue( b, 2 ) ) );
+    
+    Perform( [ 1 .. Length( blocks ) ], function( i ) blocks[i]!.CentralCharacterOfBlock := omegas[i]; end );
+    
+    return omegas;
     
 end );
 
