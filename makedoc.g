@@ -6,7 +6,7 @@
 
 LoadPackage( "AutoDoc" );
 
-CreateAutomaticDocumentation( "Blocks", "gap/AutoDocEntries.g", "doc/", false );
+CreateAutomaticDocumentation( "Blocks", "doc/", false );
 
 LoadPackage( "Modules" );
 

@@ -1,5 +1,4 @@
 list := [
-         "../gap/AutoDocEntries.g",
          "../gap/Blocks.gi",
          "../gap/Groups.gi",
          "../examples/doc/RadicalOfAlgebraPowers.g",
