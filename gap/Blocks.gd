@@ -104,7 +104,6 @@ DeclareOperationWithDocumentation( "DefectsOfBlocks",
         "",
         "a list",
         "ordtbl, p",
-        [ "Blocks", "Operations" ],
         rec( group := "DefectsOfBlocks" )
         );
 
@@ -113,7 +112,6 @@ DeclareOperationWithDocumentation( "DefectsOfBlocks",
         "<#Include Label=\"DefectsOfBlocks\">",
         "a list",
         "G, p",
-        [ "Blocks", "Operations" ],
         rec( group := "DefectsOfBlocks" )
         );
 
@@ -122,7 +120,6 @@ DeclareOperationWithDocumentation( "CharacterDegreesOfBlocks",
         "",
         "a list",
         "ordtbl, p",
-        [ "Blocks", "Operations" ],
         rec( group := "CharacterDegreesOfBlocks" )
         );
 
@@ -131,7 +128,6 @@ DeclareOperationWithDocumentation( "CharacterDegreesOfBlocks",
         "<#Include Label=\"CharacterDegreesOfBlocks\">",
         "a list",
         "G, p",
-        [ "Blocks", "Operations" ],
         rec( group := "CharacterDegreesOfBlocks" )
         );
 
@@ -140,7 +136,6 @@ DeclareOperationWithDocumentation( "BrauerCharacterDegreesOfBlocks",
         "",
         "a list",
         "ordtbl, p",
-        [ "Blocks", "Operations" ],
         rec( group := "BrauerCharacterDegreesOfBlocks" )
         );
 
@@ -149,7 +144,6 @@ DeclareOperationWithDocumentation( "BrauerCharacterDegreesOfBlocks",
         "<#Include Label=\"BrauerCharacterDegreesOfBlocks\">",
         "a list",
         "G, p",
-        [ "Blocks", "Operations" ],
         rec( group := "BrauerCharacterDegreesOfBlocks" )
         );
 
@@ -158,7 +152,6 @@ DeclareOperationWithDocumentation( "CartanMatricesOfBlocks",
         "",
         "a list",
         "ordtbl, p",
-        [ "Blocks", "Operations" ],
         rec( group := "CartanMatricesOfBlocks" )
         );
 
@@ -167,7 +160,6 @@ DeclareOperationWithDocumentation( "CartanMatricesOfBlocks",
         "<#Include Label=\"CartanMatricesOfBlocks\">",
         "a list",
         "G, p",
-        [ "Blocks", "Operations" ],
         rec( group := "CartanMatricesOfBlocks" )
         );
 
@@ -176,7 +168,6 @@ DeclareOperationWithDocumentation( "CentralCharactersOfBlocks",
         "",
         "a list",
         "ordtbl, p",
-        [ "Blocks", "Operations" ],
         rec( group := "CentralCharactersOfBlocks" )
         );
 
@@ -185,6 +176,5 @@ DeclareOperationWithDocumentation( "CentralCharactersOfBlocks",
         "<#Include Label=\"CentralCharactersOfBlocks\">",
         "a list",
         "G, p",
-        [ "Blocks", "Operations" ],
         rec( group := "CentralCharactersOfBlocks" )
         );
