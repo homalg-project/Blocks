@@ -53,10 +53,10 @@ InstallMethod( NumberOfQuadraticEquationsOfUnitaryGroup,
   function( G )
     local G2;
     
-    ## we are dealing with small groups
-    G2 := Filtered( List( G ), a -> Order( a ) <= 2 );
+    G2 := Filtered( ConjugacyClasses( G ),
+                  a -> Order( Representative( a ) ) <= 2 );
     
-    return 1/2 * ( Size( G ) - Length( G2 ) );
+    return 1/2 * ( Size( G ) - Sum( G2, Size ) );
     
 end );
 
@@ -67,10 +67,10 @@ InstallMethod( DimensionOfUnitaryGroup,
   function( G )
     local G2;
     
-    ## we are dealing with small groups
-    G2 := Filtered( List( G ), a -> Order( a ) <= 2 );
+    G2 := Filtered( ConjugacyClasses( G ),
+                  a -> Order( Representative( a ) ) <= 2 );
     
-    return 1/2 * ( Size( G ) + Length( G2 ) ) - 1;
+    return 1/2 * ( Size( G ) + Sum( G2, Size ) ) - 1;
     
 end );
 
