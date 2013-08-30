@@ -428,7 +428,7 @@ InstallMethod( InducedFiltration,
         
         indets := indets * ( R * MatrixOfMap( map ) );
         
-        I := UnitaryGroup( M );
+        I := DefiningIdealOfUnitaryGroup( M );
         
         S := F * Concatenation( "y1..", String( Rank( N ) ) );
         

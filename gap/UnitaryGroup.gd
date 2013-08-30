@@ -23,31 +23,31 @@
 
 # basic operations:
 
-DeclareOperation( "UnitaryGroup",
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsHomalgModule ] );
 
-DeclareOperation( "UnitaryGroup",
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
-DeclareOperation( "UnitaryGroupModuloIdeal",
+DeclareOperation( "DefiningIdealOfUnitaryGroupModuloIdeal",
         [ IsHomalgFiltration ] );
 
-DeclareOperation( "UnitaryGroup",
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra, IsAlgebra ] );
 
-DeclareOperation( "SemiSimplePartOfUnitaryGroup",
+DeclareOperation( "DefiningIdealOfSemiSimplePartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
-DeclareOperation( "CotangentPartOfUnitaryGroup",
+DeclareOperation( "DefiningIdealOfCotangentPartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
 DeclareOperation( "IsCotangentPartUnionOfAffineSpaces",
         [ IsRing, IsAlgebra ] );
 
-DeclareOperation( "RadicalPartOfUnitaryGroup",
+DeclareOperation( "DefiningIdealOfRadicalPartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
-DeclareOperation( "LowerPartOfUnitaryGroup",
+DeclareOperation( "DefiningIdealOfLowerPartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
 DeclareOperation( "IsLowerPartExtensionOfAffineSpaces",

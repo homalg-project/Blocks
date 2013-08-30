@@ -9,7 +9,7 @@
 #############################################################################
 
 ##
-InstallMethod( UnitaryGroup,
+InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsHomalgModule and IsZero ],
         
   function( M )
@@ -18,9 +18,8 @@ InstallMethod( UnitaryGroup,
     
 end );
 
-
 ##
-InstallMethod( UnitaryGroup,
+InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsHomalgModule and HasBasis ],
         
   function( M )
@@ -41,7 +40,7 @@ InstallMethod( UnitaryGroup,
 end );
 
 ##
-InstallMethod( UnitaryGroup,
+InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsRing, IsAlgebra ],
         
   function( F, I )
@@ -49,12 +48,12 @@ InstallMethod( UnitaryGroup,
     
     M := UnderlyingModule( F, I );
     
-    return UnitaryGroup( M );
+    return DefiningIdealOfUnitaryGroup( M );
     
 end );
 
 ##
-InstallMethod( UnitaryGroupModuloIdeal,
+InstallMethod( DefiningIdealOfUnitaryGroupModuloIdeal,
         [ IsHomalgFiltration ],
         
   function( filt )
@@ -69,7 +68,7 @@ InstallMethod( UnitaryGroupModuloIdeal,
 end );
 
 ##
-InstallMethod( UnitaryGroup,
+InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsRing, IsAlgebra, IsAlgebra ],
         
   function( F, I, J )
@@ -77,19 +76,20 @@ InstallMethod( UnitaryGroup,
     
     filt := InducedFiltration( F, [ I, J ] );
     
-    return UnitaryGroupModuloIdeal( filt );
+    return DefiningIdealOfUnitaryGroupModuloIdeal( filt );
     
 end );
 
 ##
-InstallMethod( SemiSimplePartOfUnitaryGroup,
+InstallMethod( DefiningIdealOfSemiSimplePartOfUnitaryGroup,
         [ IsRing, IsAlgebra ],
         
   function( F, A )
     local r, I;
     
-    if IsBound( A!.SemiSimplePartOfUnitaryGroup ) and IsIdenticalObj( A!.SemiSimplePartOfUnitaryGroup[1], F ) then
-        return A!.SemiSimplePartOfUnitaryGroup[2];
+    if IsBound( A!.DefiningIdealOfSemiSimplePartOfUnitaryGroup ) and
+       IsIdenticalObj( A!.DefiningIdealOfSemiSimplePartOfUnitaryGroup[1], F ) then
+        return A!.DefiningIdealOfSemiSimplePartOfUnitaryGroup[2];
     fi;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
@@ -98,23 +98,24 @@ InstallMethod( SemiSimplePartOfUnitaryGroup,
     
     r := RadicalOfAlgebraPowersAsIntersection( A );
     
-    I := UnitaryGroup( F, A, r.1 );
+    I := DefiningIdealOfUnitaryGroup( F, A, r.1 );
     
-    A!.SemiSimplePartOfUnitaryGroup := [ F, I ];
+    A!.DefiningIdealOfSemiSimplePartOfUnitaryGroup := [ F, I ];
     
     return I;
     
 end );
 
 ##
-InstallMethod( RadicalPartOfUnitaryGroup,
+InstallMethod( DefiningIdealOfRadicalPartOfUnitaryGroup,
         [ IsRing, IsAlgebra ],
         
   function( F, A )
     local r, I;
     
-    if IsBound( A!.RadicalPartOfUnitaryGroup ) and IsIdenticalObj( A!.RadicalPartOfUnitaryGroup[1], F ) then
-        return A!.RadicalPartOfUnitaryGroup[2];
+    if IsBound( A!.DefiningIdealOfRadicalPartOfUnitaryGroup ) and
+       IsIdenticalObj( A!.DefiningIdealOfRadicalPartOfUnitaryGroup[1], F ) then
+        return A!.DefiningIdealOfRadicalPartOfUnitaryGroup[2];
     fi;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
@@ -123,23 +124,24 @@ InstallMethod( RadicalPartOfUnitaryGroup,
     
     r := RadicalOfAlgebraPowersAsIntersection( A );
     
-    I := UnitaryGroup( F, r.1 );
+    I := DefiningIdealOfUnitaryGroup( F, r.1 );
     
-    A!.RadicalPartOfUnitaryGroup := [ F, I ];
+    A!.DefiningIdealOfRadicalPartOfUnitaryGroup := [ F, I ];
     
     return I;
     
 end );
 
 ##
-InstallMethod( CotangentPartOfUnitaryGroup,
+InstallMethod( DefiningIdealOfCotangentPartOfUnitaryGroup,
         [ IsRing, IsAlgebra ],
         
   function( F, A )
     local r, I;
     
-    if IsBound( A!.CotangentPartOfUnitaryGroup ) and IsIdenticalObj( A!.CotangentPartOfUnitaryGroup[1], F ) then
-        return A!.CotangentPartOfUnitaryGroup[2];
+    if IsBound( A!.DefiningIdealOfCotangentPartOfUnitaryGroup ) and
+       IsIdenticalObj( A!.DefiningIdealOfCotangentPartOfUnitaryGroup[1], F ) then
+        return A!.DefiningIdealOfCotangentPartOfUnitaryGroup[2];
     fi;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
@@ -149,12 +151,12 @@ InstallMethod( CotangentPartOfUnitaryGroup,
     r := RadicalOfAlgebraPowersAsIntersection( A );
     
     if not IsBound( r.2 ) then
-        I := UnitaryGroup( F, r.1 );
+        I := DefiningIdealOfUnitaryGroup( F, r.1 );
     else
-        I := UnitaryGroup( F, r.1, r.2 );
+        I := DefiningIdealOfUnitaryGroup( F, r.1, r.2 );
     fi;
     
-    A!.CotangentPartOfUnitaryGroup := [ F, I ];
+    A!.DefiningIdealOfCotangentPartOfUnitaryGroup := [ F, I ];
     
     return I;
     
@@ -167,7 +169,7 @@ InstallMethod( IsCotangentPartUnionOfAffineSpaces,
   function( F, A )
     local I, rad, d;
     
-    I := CotangentPartOfUnitaryGroup( F, A );
+    I := DefiningIdealOfCotangentPartOfUnitaryGroup( F, A );
     
     rad := RadicalDecomposition( I );
     
@@ -182,14 +184,15 @@ InstallMethod( IsCotangentPartUnionOfAffineSpaces,
 end );
 
 ##
-InstallMethod( LowerPartOfUnitaryGroup,
+InstallMethod( DefiningIdealOfLowerPartOfUnitaryGroup,
         [ IsRing, IsAlgebra ],
         
   function( F, A )
     local r, I;
     
-    if IsBound( A!.LowerPartOfUnitaryGroup ) and IsIdenticalObj( A!.LowerPartOfUnitaryGroup[1], F ) then
-        return A!.LowerPartOfUnitaryGroup[2];
+    if IsBound( A!.DefiningIdealOfLowerPartOfUnitaryGroup ) and
+       IsIdenticalObj( A!.DefiningIdealOfLowerPartOfUnitaryGroup[1], F ) then
+        return A!.DefiningIdealOfLowerPartOfUnitaryGroup[2];
     fi;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
@@ -201,10 +204,10 @@ InstallMethod( LowerPartOfUnitaryGroup,
     if not IsBound( r.2 ) then
         I := ZeroLeftSubmodule( F );
     else
-        I := UnitaryGroup( F, r.2 );
+        I := DefiningIdealOfUnitaryGroup( F, r.2 );
     fi;
     
-    A!.LowerPartOfUnitaryGroup := [ F, I ];
+    A!.DefiningIdealOfLowerPartOfUnitaryGroup := [ F, I ];
     
     return I;
     
@@ -247,7 +250,7 @@ InstallMethod( IsLowerPartExtensionOfAffineSpaces,
     
     for i in powers{[ 2 .. l - 1 ]} do
         
-        I := UnitaryGroup( F, r.(i), r.(i + 1) );
+        I := DefiningIdealOfUnitaryGroup( F, r.(i), r.(i + 1) );
         d := AffineDegree( I );
         
         if d = 0 then
@@ -257,7 +260,7 @@ InstallMethod( IsLowerPartExtensionOfAffineSpaces,
         fi;
     od;
     
-    I := UnitaryGroup( F, r.(l) );
+    I := DefiningIdealOfUnitaryGroup( F, r.(l) );
     d := AffineDegree( I );
     
     if d = 0 then
