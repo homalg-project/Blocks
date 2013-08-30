@@ -13,8 +13,13 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsHomalgModule and IsZero ],
         
   function( M )
+    local I;
     
-    return ZeroLeftSubmodule( HomalgRing( M ) );
+    I := ZeroLeftSubmodule( HomalgRing( M ) );
+    
+    I!.HomalgModule := M;
+    
+    return I;
     
 end );
 
@@ -23,7 +28,7 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsHomalgModule and HasBasis ],
         
   function( M )
-    local x, S, a;
+    local x, S, a, I;
     
     x := GeneralElement( M );
     
@@ -35,7 +40,11 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
         a := x + ( x * S ) + x * ( x * S );
     fi;
     
-    return ExtractDefiningIdeal( a );
+    I := ExtractDefiningIdeal( a );
+    
+    I!.HomalgModule := M;
+    
+    return I;
     
 end );
 
@@ -57,13 +66,17 @@ InstallMethod( DefiningIdealOfUnitaryGroupModuloIdeal,
         [ IsHomalgFiltration ],
         
   function( filt )
-    local N, phi;
+    local N, phi, I;
     
     N := CertainObject( filt, 0 );
     
     phi := N!.RingMap( );
     
-    return KernelSubobject( phi );
+    I := KernelSubobject( phi );
+    
+    I!.HomalgFiltration := filt;
+    
+    return I;
     
 end );
 
