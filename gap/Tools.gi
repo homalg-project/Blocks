@@ -38,7 +38,8 @@ end );
 
 ##
 InstallMethod( Coefficients,
-        [ IsFinitelyPresentedModuleRep and HasBasis, IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep ],
+        [ IsFinitelyPresentedModuleRep and HasBasis,
+          IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep ],
         
   function( M, c )
     local mon, z, n, R, bas, m;
