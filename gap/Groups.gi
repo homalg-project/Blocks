@@ -74,6 +74,21 @@ InstallMethod( DimensionOfUnitaryGroup,
     
 end );
 
+##
+InstallMethod( ConjugacyClassesOfNormalSubgroup,
+        [ IsGroup and HasParentAttr ],
+        
+  function( N )
+    local G, KK;
+    
+    G := Parent( N );
+    
+    KK := ConjugacyClasses( G );
+    
+    return Filtered( KK, K -> Representative( K ) in N );
+    
+end );
+
 ##  <#GAPDoc Label="IsRegular_code">
 ##  <Listing Type="Code"><![CDATA[
 InstallMethod( IsRegular,

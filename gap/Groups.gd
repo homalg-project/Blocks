@@ -76,6 +76,17 @@ DeclareAttributeWithDocumentation( "DimensionOfUnitaryGroup",
         rec( function_label := "for IsGroup" )
         );
 
+DeclareAttributeWithDocumentation( "ConjugacyClassesOfNormalSubgroup",
+        IsGroup,
+        [ "Computes the conjugacy classes of <M>G</M>",
+          "in which <A>N</A> is a normal subgroup.",
+          "<#Include Label=\"ConjugacyClassesOfNormalSubgroup\">" ],
+        "a list of conjugacy classes of <M>G</M>",
+        "N",
+        [ "Groups", "Attributes" ],
+        rec( function_label := "for IsGroup" )
+        );
+
 ####################################
 #
 # global functions and operations:

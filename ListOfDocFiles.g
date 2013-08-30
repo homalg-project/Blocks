@@ -9,6 +9,7 @@ list := [
          "../examples/doc/SerreFactorGroup.g",
          "../examples/doc/NumberOfQuadraticEquationsOfUnitaryGroup.g",
          "../examples/doc/DimensionOfUnitaryGroup.g",
+         "../examples/doc/ConjugacyClassesOfNormalSubgroup.g",
          "../examples/doc/DefectGroup.g",
          "../examples/doc/IsReal.g",
          "../examples/doc/IsRegular.g",
