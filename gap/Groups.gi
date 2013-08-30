@@ -8,6 +8,12 @@
 ##
 #############################################################################
 
+####################################
+#
+# methods for attributes:
+#
+####################################
+
 ##
 InstallMethod( IsReal,
         [ CategoryCollections(IsMultiplicativeElementWithInverse) ],
@@ -88,6 +94,12 @@ InstallMethod( ConjugacyClassesOfNormalSubgroup,
     return Filtered( KK, K -> Representative( K ) in N );
     
 end );
+
+####################################
+#
+# methods for operations:
+#
+####################################
 
 ##  <#GAPDoc Label="IsRegular_code">
 ##  <Listing Type="Code"><![CDATA[
