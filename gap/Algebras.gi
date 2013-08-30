@@ -311,7 +311,7 @@ InstallMethod( UnderlyingModule,
     fi;
     
     one := One( RG );
-    BAS := List( bas, b -> Coerce( R, one, b ) );
+    BAS := List( bas, b -> Coerce( one, b ) );
     
     gens := HomalgGeneratorsForLeftModule( BAS, k );
     gens!.ring := R;

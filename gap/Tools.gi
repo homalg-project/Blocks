@@ -24,9 +24,15 @@ end );
 
 ##
 InstallMethod( Coerce,
-        [ IsHomalgRing, IsRingElement, IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep ],
+        [ IsRingElement,
+          IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep ],
         
-  function( F, o, r )
+  function( o, r )
+    local F;
+    
+    o := One( o );
+    
+    F := HomalgRing( CoefficientsAndMagmaElements( o )[2] );
     
     r := CoefficientsAndMagmaElements( r );
     
