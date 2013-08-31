@@ -70,7 +70,7 @@ InstallMethod( CartanMatricesOfBlocks,
     
 end );
 
-##
+## the notion is used in [RG] and the algorithm in [GM00]
 InstallMethod( CentralCharactersOfBlocks,
         [ IsBrauerTable ],
         
@@ -81,11 +81,19 @@ InstallMethod( CentralCharactersOfBlocks,
     
     blocks := BlocksInfo( modtbl );
     
-    omegas := List( blocks, b -> CentralCharacter( Irr( ordtbl )[b.ordchars[1]] ) );
+    ## for each block B compute the central character omega_chi,
+    ## where chi is some ordinary character belonging to B
+    omegas := List( blocks,
+                    B -> CentralCharacter( Irr( ordtbl )[B.ordchars[1]] ) );
     
-    omegas := List( omegas, a -> List( a, b -> FrobeniusCharacterValue( b, 2 ) ) );
+    ## for each block B compute its central character omega
+    omegas := List( omegas,
+                    o -> List( o, b -> FrobeniusCharacterValue( b, 2 ) ) );
     
-    Perform( [ 1 .. Length( blocks ) ], function( i ) blocks[i]!.CentralCharacterOfBlock := omegas[i]; end );
+    Perform( [ 1 .. Length( blocks ) ],
+            function( i )
+              blocks[i]!.CentralCharacterOfBlock := omegas[i];
+            end );
     
     return omegas;
     
