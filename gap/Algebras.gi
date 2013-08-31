@@ -176,7 +176,7 @@ InstallMethod( CentralIdempotentsOfInvolutiveAlgebra,
     Assert( 0, IsOne( Sum( e ) ) );
     
     ## FIXME: undocumented, figure out how to add a `component' to IsMagmaRingObjDefaultRep
-    ## see UnderlyingBrauerTable
+    ## see UnderlyingGroupAlgebra
     Perform( e, function( c ) c![1001] := A; end );
     
     return e;
