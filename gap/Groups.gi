@@ -16,7 +16,8 @@
 
 ##
 InstallMethod( IsReal,
-        [ CategoryCollections(IsMultiplicativeElementWithInverse) ],
+        [ CategoryCollections(IsMultiplicativeElementWithInverse) and
+          IsExternalSet ],
         
   function( K )
     
