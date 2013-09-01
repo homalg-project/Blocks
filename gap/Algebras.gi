@@ -169,13 +169,24 @@ InstallMethod( CentralIdempotentsOfInvolutiveAlgebra,
     
     e := CentralIdempotentsOfAlgebra( A );
     
-    e := List( e, function( c ) if c = Involution( c ) then return c; fi; return c + Involution( c ); end );
+    e := List( e,
+               function( c )
+                 if not c = Involution( c ) then
+                     ## c is an idempotent of a complex block
+                     c := c + Involution( c );
+                     c![999] := false;
+                 else
+                     ## c is an idempotent of a real block
+                     c![999] := true;
+                 fi;
+                 return c;
+               end );
     
     e := DuplicateFreeList( e );
     
     Assert( 0, IsOne( Sum( e ) ) );
     
-    ## FIXME: undocumented, figure out how to add a `component' to IsMagmaRingObjDefaultRep
+    ## FIXME: undocumented, is there a way to add a `component' to IsMagmaRingObjDefaultRep
     ## see UnderlyingGroupAlgebra
     Perform( e, function( c ) c![1001] := A; end );
     
