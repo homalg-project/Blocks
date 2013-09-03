@@ -93,6 +93,61 @@ InstallMethod( PrincipalBlock,
     
 end );
 
+##
+InstallMethod( AssociatedProjectionMatrix,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    local kG, G, b, bas, proj, k, c, d;
+    
+    kG := UnderlyingGroupAlgebra( B );
+    
+    G := UnderlyingMagma( kG );
+    
+    b := One( B );
+    
+    bas := Basis( B );
+    
+    proj := List( G, g -> b * g );
+    
+    return List( proj, a -> Coefficients( bas, a ) );
+    
+end );
+
+##
+InstallMethod( AssociatedProjection,
+        [ IsHomalgModule ],
+        
+  function( M )
+    local G, b, proj, mat, R, k, kG;
+    
+    if not IsBound( M!.GroupAlgebra ) then
+        TryNextMethod( );
+    fi;
+    
+    G := Basis( M!.GroupAlgebra );
+    
+    b := M!.UnitOfAlgebraicGroup;
+    
+    b := AsElementOfAlgebra( b );
+    
+    proj := List( G, g -> b * g );
+    
+    mat := List( proj, a -> Coefficients( M, a ) );
+    
+    R := HomalgRing( M );
+    
+    mat := HomalgMatrix( mat, R );
+    
+    kG := UnderlyingGroupAlgebra( M!.UnderlyingAlgebra );
+    
+    kG := Dimension( kG ) * R;
+    
+    return HomalgMap( mat, kG, M );
+    
+end );
+
+##
 InstallMethod( DefectsOfBlocks,
         [ IsBrauerTable ],
         

@@ -62,6 +62,26 @@ DeclareAttributeWithDocumentation( "PrincipalBlock",
         [ "Blocks", "Attributes" ]
         );
 
+DeclareAttributeWithDocumentation( "AssociatedProjectionMatrix",
+        IsAlgebra,
+        [ "Computes the canonical projection matrix of the",
+          "group algebra <M>kG</M> onto <M>p</M>-block <A>B</A>." ],
+        "a subgroup",
+        "B",
+        [ "Blocks", "Attributes" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
+DeclareAttributeWithDocumentation( "AssociatedProjection",
+        IsHomalgModule,
+        [ "Computes the canonical projection of the",
+          "group algebra <M>kG</M> onto <M>p</M>-block <A>B</A>.",
+          "<#Include Label=\"AssociatedProjection\">" ],
+        "a homalg morphism",
+        "B",
+        [ "Blocks", "Attributes" ]
+        );
+
 DeclareAttributeWithDocumentation( "DefectsOfBlocks",
         IsBrauerTable,
         [ "Computes the list of defects of the <A>p</A>-blocks of the group <A>G</A>",

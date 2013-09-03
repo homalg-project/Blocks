@@ -58,6 +58,8 @@ Dependencies := rec(
   NeededOtherPackages := [
                    [ "AutoDoc", ">= 2013.08.08.20:20" ],
                    [ "Modules", ">= 2013.07.05" ],
+                   [ "RingsForHomalg", ">= 2013.08.22" ],
+                   [ "GaussForHomalg", ">= 2013.06.26" ],
                    [ "LAGUNA", ">= 3.6.3" ],
                    [ "GAPDoc", ">= 1.1" ]
                    ],

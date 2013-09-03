@@ -12,6 +12,7 @@ list := [
          "../examples/doc/ConjugacyClassesOfNormalSubgroup.g",
          "../examples/doc/DefectGroup.g",
          "../examples/doc/PrincipalBlock.g",
+         "../examples/doc/AssociatedProjection.g",
          "../examples/doc/IsReal.g",
          "../examples/doc/IsRegular.g",
          "../examples/doc/Coefficient.g",
