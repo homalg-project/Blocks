@@ -18,6 +18,29 @@ DeclareGlobalVariable( "BLOCKS" );
 
 ####################################
 #
+# properties:
+#
+####################################
+
+DeclarePropertyWithDocumentation( "IsBlock",
+        IsAlgebra,
+        [ "Check if the ideal <A>B</A> of a group algebra",
+          " is a block." ],
+        "B",
+        [ "Blocks", "Properties" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
+DeclarePropertyWithDocumentation( "IsReal",
+        IsAlgebra,
+        [ "Check if the block <A>B</A> is real." ],
+        "B",
+        [ "Blocks", "Properties" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
+####################################
+#
 # attributes:
 #
 ####################################

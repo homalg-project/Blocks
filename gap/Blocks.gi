@@ -10,6 +10,46 @@
 
 ####################################
 #
+# methods for properties:
+#
+####################################
+
+##
+InstallMethod( IsBlock,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    local b;
+    
+    b := One( B );
+    
+    if IsBound( b![999] ) and b![999] = false then
+        return false;
+    fi;
+    
+    TryNextMethod( );
+    
+end );
+
+##
+InstallMethod( IsReal,
+        [ IsAlgebra and HasOne and IsBlock ],
+        
+  function( B )
+    local b;
+    
+    b := One( B );
+    
+    if not b = Involution( b ) then
+        return false;
+    fi;
+    
+    TryNextMethod( );
+    
+end );
+
+####################################
+#
 # methods for attributes:
 #
 ####################################
