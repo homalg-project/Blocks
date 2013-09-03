@@ -44,11 +44,11 @@ InstallMethod( GeneralElementsOfFiltration,
     
     n := NrGenerators( M );
     
-    if not IsBound( M!.Algebra ) then
-        Error( "the component \"Algebra\" not found\n" );
+    if not IsBound( M!.GroupAlgebra ) then
+        Error( "the component \"GroupAlgebra\" not found\n" );
     fi;
     
-    R := LeftActingDomain( M!.Algebra );
+    R := LeftActingDomain( M!.GroupAlgebra );
     
     indets := Indeterminates( R );
     

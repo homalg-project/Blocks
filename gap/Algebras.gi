@@ -350,7 +350,8 @@ InstallMethod( UnderlyingModule,
     M := Presentation( gens, rels );
     SetAsOriginalPresentation( M );
     SetIsFinite( RG, false );
-    M!.Algebra := RG;
+    M!.UnderlyingAlgebra := J;
+    M!.GroupAlgebra := RG;
     RJ := FreeLeftModule( RG, BAS, "basis" );
     M!.info := NiceFreeLeftModuleInfo( RJ );
     basis := GeneratorsOfLeftOperatorAdditiveGroup( NiceFreeLeftModule( RJ ) );
