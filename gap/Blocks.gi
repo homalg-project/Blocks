@@ -55,6 +55,44 @@ end );
 ####################################
 
 ##
+InstallMethod( PrincipalBlockIdempotent,
+        [ IsGroupAlgebra ],
+        
+  function( kG )
+    local e, b0;
+    
+    ## CentralIdempotentsOfAlgebra does not store kG in the e's
+    e := CentralIdempotentsOfInvolutiveAlgebra( kG );
+    
+    b0 := First( e, b -> IsOne( Sum( CoefficientsBySupport( b ) ) ) );
+    
+    ## FIXME: undocumented, figure out how to add a `component' to IsMagmaRingObjDefaultRep
+    ## see UnderlyingGroupAlgebra
+    b0![1001] := kG;
+    
+    return b0;
+    
+end );
+
+##
+InstallMethod( PrincipalBlock,
+        [ IsGroupAlgebra ],
+        
+  function( kG )
+    local b0, B0;
+    
+    b0 := PrincipalBlockIdempotent( kG );
+    
+    B0 := TwoSidedIdeal( kG, [ b0 ] );
+    
+    SetOne( B0, b0 );
+    SetIsBlock( B0, true );
+    SetIsReal( B0, true );
+    
+    return B0;
+    
+end );
+
 InstallMethod( DefectsOfBlocks,
         [ IsBrauerTable ],
         

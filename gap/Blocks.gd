@@ -45,6 +45,23 @@ DeclarePropertyWithDocumentation( "IsReal",
 #
 ####################################
 
+DeclareAttributeWithDocumentation( "PrincipalBlockIdempotent",
+        IsGroupAlgebra,
+        [ "Computes the principal block idempotent of the group algebra <A>kG</A>." ],
+        "a ring element",
+        "kG",
+        [ "Blocks", "Attributes" ]
+        );
+
+DeclareAttributeWithDocumentation( "PrincipalBlock",
+        IsGroupAlgebra,
+        [ "Computes the principal block of the group algebra <A>kG</A>.",
+          "<#Include Label=\"PrincipalBlock\">" ],
+        "an algebra with one",
+        "kG",
+        [ "Blocks", "Attributes" ]
+        );
+
 DeclareAttributeWithDocumentation( "DefectsOfBlocks",
         IsBrauerTable,
         [ "Computes the list of defects of the <A>p</A>-blocks of the group <A>G</A>",
