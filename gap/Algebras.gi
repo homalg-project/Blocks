@@ -196,17 +196,12 @@ end );
 
 ##
 InstallMethod( UnderlyingGroupAlgebra,
-        [ IsElementOfFreeMagmaRing ],
+        [ IsAlgebra and HasOne ],
         
-  function( b )
+  function( B )
     local kG;
     
-    ## see CentralIdempotentsOfInvolutiveAlgebra
-    if not IsBound( b![1001] ) then
-        Error( "unable to extract the underlying algebra" );
-    fi;
-    
-    kG := b![1001];
+    kG := B;
     
     if HasLeftActingRingOfIdeal( kG ) then
         kG := LeftActingRingOfIdeal( kG );
@@ -223,6 +218,21 @@ InstallMethod( UnderlyingGroupAlgebra,
     fi;
     
     return kG;
+    
+end );
+
+##
+InstallMethod( UnderlyingGroupAlgebra,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    
+    ## see CentralIdempotentsOfInvolutiveAlgebra
+    if not IsBound( b![1001] ) then
+        Error( "unable to extract the underlying algebra" );
+    fi;
+    
+    return UnderlyingGroupAlgebra( b![1001] );
     
 end );
 
