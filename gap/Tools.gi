@@ -86,6 +86,10 @@ InstallMethod( Coefficients,
     
     c := RightDivide( c, bas );
     
+    if not IsHomalgMatrix( c ) then
+        Error( "element not contained in the module\n" );
+    fi;
+    
     return EntriesOfHomalgMatrix( c );
     
 end );
