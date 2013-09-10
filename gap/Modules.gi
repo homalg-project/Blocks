@@ -141,42 +141,12 @@ InstallOtherMethod( \*,
         M := N;
     fi;
     
-    if not IsBound( M!.Basis ) then
-        TryNextMethod( );
-    fi;
-    
     a := AsElementOfAlgebra( a );
     b := AsElementOfAlgebra( b );
     
     c := a * b;
     
-    bas := M!.Basis;
-    
-    ## FIXME: for backward compatibility to legacy code
-    ## we cannot always assume that M!.Basis is a function
-    if IsFunction( bas ) then
-        bas := bas( );
-    fi;
-    
-    if IsCanonicalBasisFreeMagmaRingRep( bas ) then
-        c := Coefficients( bas, c );
-        
-        n := Length( bas );
-        
-        R := HomalgRing( M );
-        
-        T := TransitionMatrix( M, 1, PositionOfTheDefaultPresentation( M ) );
-        
-        if IsHomalgLeftObjectOrMorphismOfLeftObjects( M ) then
-            c := HomalgMatrix( c, 1, n, R );
-            c := c * T;
-        else
-            c := HomalgMatrix( c, n, 1, R );
-            c := T * c;
-        fi;
-    else
-        c := Coefficients( M, c );
-    fi;
+    c := Coefficients( M, c );
     
     c := HomalgModuleElement( c, M );
     
