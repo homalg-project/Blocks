@@ -466,3 +466,15 @@ InstallMethod( InducedFiltration,
     return filt;
     
 end );
+
+##
+InstallMethod( InducedFiltration,
+        [ IsRing, IsRecord ],
+        
+  function( F, L )
+    
+    L := List( SortedList( List( NamesOfComponents( L ), Int ) ), c -> L.(c) );
+    
+    return InducedFiltration( F, L );
+    
+end );

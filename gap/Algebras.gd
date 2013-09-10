@@ -91,3 +91,6 @@ DeclareOperation( "UnderlyingModule",
 
 DeclareOperation( "InducedFiltration",
         [ IsRing, IsList ] );
+
+DeclareOperation( "InducedFiltration",
+        [ IsRing, IsRecord ] );
