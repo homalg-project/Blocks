@@ -101,7 +101,9 @@ InstallMethod( Antipode,
   function( M )
     local x, Sx, S, n, R;
     
-    x := MatrixOfGenerators( M, 1 );
+    LockObjectOnCertainPresentation( M );
+    
+    x := MatrixOfGenerators( M );
     x := EntriesOfHomalgMatrix( x );
     
     Sx := List( x, Involution );
@@ -116,7 +118,11 @@ InstallMethod( Antipode,
     
     S := HomalgMatrix( S, n, n, R );
     
-    return HomalgMap( S, [ M, 1 ], [ M, 1 ] );
+    S := HomalgMap( S, M, M );
+    
+    UnlockObject( M );
+    
+    return S;
     
 end );
 
