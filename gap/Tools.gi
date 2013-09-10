@@ -48,11 +48,15 @@ InstallMethod( Coefficients,
           IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep ],
         
   function( M, c )
-    local mon, z, n, R, bas, m;
+    local bas, info, mon, z, n, R, m;
     
-    mon := M!.info!.monomials;
+    bas := Basis( M )();
     
-    z := ShallowCopy( M!.info!.zerovector );
+    info := GeneratorsOfModule( M )!.info;
+    
+    mon := info!.monomials;
+    
+    z := ShallowCopy( info!.zerovector );
     
     c := CoefficientsAndMagmaElements( c );
     
@@ -75,8 +79,6 @@ InstallMethod( Coefficients,
     R := HomalgRing( M );
     
     c := HomalgMatrix( c, 1, n, R );
-    
-    bas := Basis( M );
     
     m := Length( bas );
     

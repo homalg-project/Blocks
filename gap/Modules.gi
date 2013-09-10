@@ -152,6 +152,12 @@ InstallOtherMethod( \*,
     
     bas := M!.Basis;
     
+    ## FIXME: for backward compatibility to legacy code
+    ## we cannot always assume that M!.Basis is a function
+    if IsFunction( bas ) then
+        bas := bas( );
+    fi;
+    
     if IsCanonicalBasisFreeMagmaRingRep( bas ) then
         c := Coefficients( bas, c );
         

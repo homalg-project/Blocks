@@ -352,13 +352,28 @@ InstallMethod( UnderlyingModule,
     SetIsFinite( RG, false );
     M!.UnderlyingAlgebra := J;
     M!.GroupAlgebra := RG;
-    RJ := FreeLeftModule( RG, BAS, "basis" );
-    M!.info := NiceFreeLeftModuleInfo( RJ );
-    basis := GeneratorsOfLeftOperatorAdditiveGroup( NiceFreeLeftModule( RJ ) );
-    if not Length( basis ) = n then
-        Error( "this is not a basis\n" );
-    fi;
-    SetBasis( M, basis );
+    
+    ## FIXME: this is a dirty hack and has to be revisited once we
+    ## have a clear and clean categorical concept of generators
+    SetBasis( M, function( )
+        local gens, BAS, RJ, basis;
+        
+        ## get the current generators, not the ones set above
+        gens := GeneratorsOfModule( M );
+        if not IsBound( gens!.Basis ) then
+            BAS := MatrixOfGenerators( gens );
+            BAS := EntriesOfHomalgMatrix( BAS );
+            RJ := FreeLeftModule( RG, BAS, "basis" );
+            gens!.info := NiceFreeLeftModuleInfo( RJ );
+            basis := GeneratorsOfLeftOperatorAdditiveGroup( NiceFreeLeftModule( RJ ) );
+            if not Length( basis ) = NrGenerators( gens ) then
+                Error( "this is not a basis\n" );
+            fi;
+            gens!.Basis := basis;
+        fi;
+        return gens!.Basis;
+    end );
+    
     LockObjectOnCertainPresentation( M );
     
     if HasOne( J ) then
