@@ -134,7 +134,11 @@ InstallMethod( DefiningIdealOfSemiSimplePartOfUnitaryGroup,
     
     r := RadicalOfAlgebraPowersAsIntersection( A );
     
-    I := DefiningIdealOfUnitaryGroup( F, A, r.1 );
+    #I := DefiningIdealOfUnitaryGroup( F, A, r.1 );
+    ## a basis adapted to the complete filtration
+    ## leads to much faster computations than the one
+    ## adapted to the 2-step subfiltration
+    I := DefiningIdealOfUnitaryGroup( F, r );
     
     A!.DefiningIdealOfSemiSimplePartOfUnitaryGroup := [ F, I ];
     
@@ -189,7 +193,13 @@ InstallMethod( DefiningIdealOfCotangentPartOfUnitaryGroup,
     if not IsBound( r.2 ) then
         I := DefiningIdealOfUnitaryGroup( F, r.1 );
     else
-        I := DefiningIdealOfUnitaryGroup( F, r.1, r.2 );
+        r := ShallowCopy( r );
+        Unbind( r.0 );
+        #I := DefiningIdealOfUnitaryGroup( F, r.1, r.2 );
+        ## a basis adapted to the complete filtration
+        ## leads to much faster computations than the one
+        ## adapted to the 2-step subfiltration
+        I := DefiningIdealOfUnitaryGroup( F, r );
     fi;
     
     A!.DefiningIdealOfCotangentPartOfUnitaryGroup := [ F, I ];
@@ -237,10 +247,17 @@ InstallMethod( DefiningIdealOfLowerPartOfUnitaryGroup,
     
     r := RadicalOfAlgebraPowersAsIntersection( A );
     
-    if not IsBound( r.2 ) then
+    if not IsBound( r.2 ) or Dimension( r.2 ) = 0 then
         I := ZeroLeftSubmodule( F );
     else
-        I := DefiningIdealOfUnitaryGroup( F, r.2 );
+        r := ShallowCopy( r );
+        Unbind( r.0 );
+        Unbind( r.1 );
+        #I := DefiningIdealOfUnitaryGroup( F, r.2 );
+        ## a basis adapted to the complete filtration
+        ## leads to much faster computations than the one
+        ## adapted to the 2-step subfiltration
+        I := DefiningIdealOfUnitaryGroup( F, r );
     fi;
     
     A!.DefiningIdealOfLowerPartOfUnitaryGroup := [ F, I ];
