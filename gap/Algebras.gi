@@ -429,7 +429,8 @@ InstallMethod( InducedFiltration,
     for gens in L{[ 2 .. l ]} do
         gens := List( Basis( gens ) );
         if gens = [ ] then
-            gens := HomalgZeroMatrix( 0, Rank( M ), R );
+            break;
+            #gens := HomalgZeroMatrix( 0, Rank( M ), R );
         else
             gens := List( gens, v -> Coefficients( bas, v ) );
             gens := R * HomalgMatrix( gens, k );
@@ -437,6 +438,8 @@ InstallMethod( InducedFiltration,
         gens := HomalgMap( gens, "free", M );
         Add( prefilt, gens );
     od;
+    
+    l := Length( prefilt );
     
     degrees := [ -l + 1 .. 0 ];
     
