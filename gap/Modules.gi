@@ -13,7 +13,13 @@ InstallMethod( GeneralElement,
         [ IsHomalgModule and HasBasis ],
         
   function( M )
-    local R, indets;
+    local gens, R, indets;
+    
+    gens := GeneratorsOfModule( M );
+    
+    if IsBound( gens!.GeneralElement ) then
+        return gens!.GeneralElement;
+    fi;
     
     R := HomalgRing( M );
     
@@ -24,6 +30,8 @@ InstallMethod( GeneralElement,
     if IsBound( M!.UnitOfAlgebraicGroup ) then
         SetOneImmutable( indets, M!.UnitOfAlgebraicGroup );
     fi;
+    
+    gens!.GeneralElement := indets;
     
     return indets;
     

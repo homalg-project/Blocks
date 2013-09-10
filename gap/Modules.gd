@@ -14,9 +14,6 @@
 #
 ####################################
 
-DeclareAttribute( "GeneralElement",
-        IsHomalgModule );
-
 DeclareAttribute( "GeneralElementsOfFiltration",
         IsHomalgFiltration );
 
@@ -33,6 +30,9 @@ DeclareAttribute( "Antipode",
 ####################################
 
 # basic operations:
+
+DeclareOperation( "GeneralElement",
+        [ IsHomalgModule ] );
 
 DeclareOperation( "GradedPartsOfFilteredMorphism",
         [ IsHomalgMorphism, IsHomalgFiltration ] );
