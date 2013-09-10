@@ -446,6 +446,8 @@ InstallMethod( InducedFiltration,
     
     filt := HomalgAscendingFiltration( filt );
     
+    OnPresentationAdaptedToFiltration( filt );
+    
     N := CertainObject( filt, 0 );
     
     if IsBound( M!.UnitOfAlgebraicGroup ) then
