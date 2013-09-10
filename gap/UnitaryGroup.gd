@@ -33,6 +33,12 @@ DeclareOperation( "DefiningIdealOfUnitaryGroupModuloIdeal",
         [ IsHomalgFiltration ] );
 
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
+        [ IsRing, IsList ] );
+
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
+        [ IsRing, IsRecord ] );
+
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra, IsAlgebra ] );
 
 DeclareOperation( "DefiningIdealOfSemiSimplePartOfUnitaryGroup",

@@ -82,14 +82,37 @@ end );
 
 ##
 InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsRing, IsRecord ],
+        
+  function( F, L )
+    local filt;
+    
+    filt := InducedFiltration( F, L );
+    
+    return DefiningIdealOfUnitaryGroupModuloIdeal( filt );
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsRing, IsList ],
+        
+  function( F, L )
+    local filt;
+    
+    filt := InducedFiltration( F, L );
+    
+    return DefiningIdealOfUnitaryGroupModuloIdeal( filt );
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsRing, IsAlgebra, IsAlgebra ],
         
   function( F, I, J )
-    local filt;
     
-    filt := InducedFiltration( F, [ I, J ] );
-    
-    return DefiningIdealOfUnitaryGroupModuloIdeal( filt );
+    return DefiningIdealOfUnitaryGroup( F, [ I, J ] );
     
 end );
 
