@@ -463,8 +463,6 @@ InstallMethod( InducedFiltration,
         
     end;
     
-    UnlockObject( M );
-    
     return filt;
     
 end );
