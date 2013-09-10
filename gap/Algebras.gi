@@ -376,6 +376,8 @@ InstallMethod( UnderlyingModule,
     
     J!.HomalgModule := [ F, M ];
     
+    UnlockObject( M );
+    
     return M;
     
 end );
