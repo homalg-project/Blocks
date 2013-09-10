@@ -140,22 +140,22 @@ InstallOtherMethod( \*,
     
     if IsCanonicalBasisFreeMagmaRingRep( bas ) then
         c := Coefficients( bas, c );
+        
+        n := Length( bas );
+        
+        R := HomalgRing( M );
+        
+        T := TransitionMatrix( M, 1, PositionOfTheDefaultPresentation( M ) );
+        
+        if IsHomalgLeftObjectOrMorphismOfLeftObjects( M ) then
+            c := HomalgMatrix( c, 1, n, R );
+            c := c * T;
+        else
+            c := HomalgMatrix( c, n, 1, R );
+            c := T * c;
+        fi;
     else
         c := Coefficients( M, c );
-    fi;
-    
-    n := Length( bas );
-    
-    R := HomalgRing( M );
-    
-    T := TransitionMatrix( M, 1, PositionOfTheDefaultPresentation( M ) );
-    
-    if IsHomalgLeftObjectOrMorphismOfLeftObjects( M ) then
-        c := HomalgMatrix( c, 1, n, R );
-        c := c * T;
-    else
-        c := HomalgMatrix( c, n, 1, R );
-        c := T * c;
     fi;
     
     c := HomalgModuleElement( c, M );
