@@ -134,9 +134,9 @@ InstallOtherMethod( \*,
     a := AsElementOfAlgebra( a );
     b := AsElementOfAlgebra( b );
     
-    bas := M!.Basis;
-    
     c := a * b;
+    
+    bas := M!.Basis;
     
     if IsCanonicalBasisFreeMagmaRingRep( bas ) then
         c := Coefficients( bas, c );
