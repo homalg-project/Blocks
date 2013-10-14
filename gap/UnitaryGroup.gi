@@ -82,6 +82,46 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
 end );
 
 ##
+InstallMethod( SizeOfUnitaryGroupOfGroupRing,
+        [ IsRing, IsGroup ],
+
+  function( F, G )
+    local k, kG, I;
+    
+    k := GF( Characteristic( F )^DegreeOverPrimeField( F ) );
+    
+    kG := GroupRing( k, G );
+    
+    I := DefiningIdealOfUnitaryGroup( F, kG );
+    
+    return AffineDegree( IdealOfRationalPoints( I, F ) );
+    
+end );
+
+## this is inspired by Bovdi and Ross
+InstallMethod( NaiveSizeOfUnitaryGroupOfGroupRing,
+        [ IsRing, IsGroup ],
+
+  function( F, G )
+    local c, G_G0, dim, K;
+    
+    c := Characteristic( F );
+    
+    if not c = 2 then
+        TryNextMethod( );
+    fi;
+    
+    G_G0 := Size( SerreFactorGroup( G ) );
+    
+    dim := DimensionOfUnitaryGroup( G );
+    
+    K := c^DegreeOverPrimeField( F );
+    
+    return G_G0 * K^dim;
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfUnitaryGroupModuloIdeal,
         [ IsHomalgFiltration ],
         

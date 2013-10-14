@@ -35,6 +35,12 @@ DeclareOperation( "DefiningIdealOfUnitaryGroup",
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
+DeclareOperation( "SizeOfUnitaryGroupOfGroupRing",
+        [ IsRing, IsGroup ] );
+
+DeclareOperation( "NaiveSizeOfUnitaryGroupOfGroupRing",
+        [ IsRing, IsGroup ] );
+
 DeclareOperation( "DefiningIdealOfUnitaryGroupModuloIdeal",
         [ IsHomalgFiltration ] );
 
