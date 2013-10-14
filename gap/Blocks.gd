@@ -159,6 +159,24 @@ DeclareAttributeWithDoc( "BlockIdempotentInfo",
 
 # basic operations:
 
+DeclareOperationWithDocumentation( "CorrespondingMaximalIdeal",
+        [ IsMultiplicativeElementWithInverse, IsHomalgModule ],
+        "Compute the maximal ideal corresponding to the group element <A>g</A>.",
+        "a &homalg; ideal",
+        "g, M",
+        [ "Blocks", "Operations" ],
+        rec( function_label := "for IsMultiplicativeElementWithInverse, IsHomalgModule" )
+        );
+
+DeclareOperationWithDocumentation( "CorrespondingMaximalIdeal",
+        [ IsMultiplicativeElementWithInverse, IsHomalgFiltration ],
+        "Compute the maximal ideal corresponding to the group element <A>g</A>.",
+        "a &homalg; ideal",
+        "g, filt",
+        [ "Blocks", "Operations" ],
+        rec( function_label := "for IsMultiplicativeElementWithInverse, IsHomalgFiltration" )
+        );
+
 DeclareOperationWithDocumentation( "DefectsOfBlocks",
         [ IsCharacterTable, IsInt ],
         "",

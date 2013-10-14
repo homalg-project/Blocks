@@ -267,6 +267,63 @@ end );
 ####################################
 
 ##
+InstallMethod( CorrespondingMaximalIdeal,
+        [ IsMultiplicativeElementWithInverse, IsHomalgModule ],
+        
+  function( g, M )
+    local b, m;
+    
+    if not IsBound( M!.UnitOfAlgebra ) then
+        Error( "component `UnitOfAlgebra' unbound\n" );
+    fi;
+    
+    b := M!.UnitOfAlgebra;
+    
+    g := Coefficients( M, Coerce( One( M!.GroupAlgebra ), b ) * g );
+    
+    if g = fail then
+        return fail;
+    fi;
+    
+    m := GeneralElement( M );
+    m := UnderlyingMorphism( m );
+    m := MatrixOfMap( m );
+    m := EntriesOfHomalgMatrix( m );
+    
+    return LeftSubmodule( m - g );
+    
+end );
+
+##
+InstallMethod( CorrespondingMaximalIdeal,
+        [ IsMultiplicativeElementWithInverse, IsHomalgFiltration ],
+        
+  function( g, filt )
+    local M, b, N, n;
+    
+    M := UnderlyingObject( filt );
+    
+    if not IsBound( M!.UnitOfAlgebra ) then
+        Error( "component `M!.UnitOfAlgebra' unbound\n" );
+    fi;
+    
+    b := M!.UnitOfAlgebra;
+    
+    g := Coefficients( filt, Coerce( One( M!.GroupAlgebra ), b ) * g );
+    
+    if g = fail then
+        return fail;
+    fi;
+    
+    N := CertainObject( filt, 0 );
+    
+    n := Indeterminates( N!.AffineCoordinateRing );
+    
+    return LeftSubmodule( n - g );
+    
+end );
+
+##
 InstallMethod( DefectsOfBlocks,
         [ IsCharacterTable, IsInt ],
         
