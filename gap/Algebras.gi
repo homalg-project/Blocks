@@ -266,6 +266,7 @@ InstallMethod( UnderlyingModule,
     
     if HasLeftActingRingOfIdeal( J ) then
         kG := LeftActingRingOfIdeal( J );
+        ## the previous kG might still be the block
         if HasLeftActingRingOfIdeal( kG ) then
             kG := LeftActingRingOfIdeal( kG );
         fi;
