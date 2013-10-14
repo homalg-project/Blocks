@@ -296,6 +296,35 @@ InstallMethod( DefectClasses,
     
 end );
 
+##
+InstallMethod( DefectGroup,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local kG, p, classes, K;
+    
+    kG := UnderlyingGroupAlgebra( b );
+    
+    p := Characteristic( kG );
+    
+    classes := DefectClasses( b );
+    
+    K := classes[1];
+    
+    return DefectGroup( K, p );
+    
+end );
+
+##
+InstallMethod( DefectGroup,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return DefectGroup( One( B ) );
+    
+end );
+
 ####################################
 #
 # methods for operations:

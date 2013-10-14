@@ -172,6 +172,26 @@ DeclareAttributeWithDocumentation( "DefectClasses",
         rec( group := "DefectClasses" )
         );
 
+DeclareAttributeWithDocumentation( "DefectGroup",
+        IsElementOfFreeMagmaRing,
+        [ "Computes a defect group of the <M>p</M>-block idempotent <A>b</A>",
+          "of a group <M>G</M> as a subgroup of <M>G</M>." ],
+        "a subgroup",
+        "b",
+        [ "Blocks", "Attributes" ],
+        rec( group := "DefectGroup" )
+        );
+
+DeclareAttributeWithDocumentation( "DefectGroup",
+        IsAlgebra,
+        [ "Computes a defect group of the <M>p</M>-block <A>B</A>",
+          "of a group <M>G</M> as a subgroup of <M>G</M>." ],
+        "a subgroup",
+        "B",
+        [ "Blocks", "Attributes" ],
+        rec( group := "DefectGroup" )
+        );
+
 ####################################
 #
 # global functions and operations:
