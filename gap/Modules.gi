@@ -21,7 +21,11 @@ InstallMethod( GeneralElement,
         return gens!.GeneralElement;
     fi;
     
-    R := HomalgRing( M );
+    if not IsBound( M!.AffineCoordinateRing ) then
+        TryNextMethod( );
+    fi;
+    
+    R := M!.AffineCoordinateRing;
     
     indets := Indeterminates( R );
     

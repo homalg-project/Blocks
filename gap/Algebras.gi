@@ -353,6 +353,7 @@ InstallMethod( UnderlyingModule,
     SetIsFinite( RG, false );
     M!.UnderlyingAlgebra := J;
     M!.GroupAlgebra := RG;
+    M!.AffineCoordinateRing := R;
     
     ## FIXME: this is a dirty hack and has to be revisited once we
     ## have a clear and clean categorical concept of generators
@@ -403,7 +404,7 @@ InstallMethod( InducedFiltration,
         [ IsRing, IsList ],
         
   function( F, L )
-    local l, J, M, n, k, R, bas, prefilt, gens, degrees, filt, N;
+    local l, J, M, n, k, R, bas, prefilt, gens, degrees, filt, N, S;
     
     l := Length( L );
     
@@ -459,9 +460,12 @@ InstallMethod( InducedFiltration,
           HomalgElement( PostDivide( UnderlyingMorphism( M!.UnitOfAlgebraicGroup ), NaturalGeneralizedEmbedding( N ) ) );
     fi;
     
+    S := F * Concatenation( "y1..", String( Rank( N ) ) );
+    N!.AffineCoordinateRing := S;
+    
     N!.RingMap :=
       function( )
-        local R, map, indets, I, S;
+        local R, map, indets, I;
         
         R := HomalgRing( M );
         
@@ -474,8 +478,6 @@ InstallMethod( InducedFiltration,
         indets := indets * ( R * MatrixOfMap( map ) );
         
         I := DefiningIdealOfUnitaryGroup( M );
-        
-        S := F * Concatenation( "y1..", String( Rank( N ) ) );
         
         map := RingMap( indets, S, R / I );
         SetIsMorphism( map, true );
