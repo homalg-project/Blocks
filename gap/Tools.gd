@@ -37,3 +37,6 @@ DeclareOperation( "Coerce",
 
 DeclareOperation( "Coefficients",
         [ IsHomalgModule, IsElementOfFreeMagmaRing ] );
+
+DeclareOperation( "Coefficients",
+        [ IsHomalgFiltration, IsElementOfFreeMagmaRing ] );

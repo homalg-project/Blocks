@@ -95,3 +95,29 @@ InstallMethod( Coefficients,
     return EntriesOfHomalgMatrix( c );
     
 end );
+
+##
+InstallMethod( Coefficients,
+        [ IsHomalgFiltration,
+          IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep ],
+        
+  function( filt, c )
+    local M, N, n, R;
+    
+    M := OnPresentationAdaptedToFiltration( filt );
+    
+    N := CertainObject( filt, 0 );
+    
+    c := Coefficients( M, c );
+    
+    if c = fail then
+        return fail;
+    fi;
+    
+    n := NrGenerators( N );
+    
+    R := N!.AffineCoordinateRing;
+    
+    return List( c{[ 1 .. n ]}, a -> a / R );
+    
+end );
