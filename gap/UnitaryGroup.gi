@@ -9,6 +9,26 @@
 #############################################################################
 
 ##
+InstallMethod( NormalizedUnitaryGroup,
+        [ IsGroupRing ],
+        
+  function( kG )
+    
+    return UnitarySubgroup( NormalizedUnitGroup( kG ) );
+    
+end );
+
+##
+InstallMethod( NormalizedUnitaryGroup,
+        [ IsField, IsGroup ],
+        
+  function( k, G )
+    
+    return NormalizedUnitaryGroup( GroupRing( k, G ) );
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsHomalgModule and IsZero ],
         

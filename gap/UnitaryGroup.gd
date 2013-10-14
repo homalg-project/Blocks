@@ -23,6 +23,12 @@
 
 # basic operations:
 
+DeclareOperation( "NormalizedUnitaryGroup",
+        [ IsRing ] );
+
+DeclareOperation( "NormalizedUnitaryGroup",
+        [ IsField, IsGroup ] );
+
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsHomalgModule ] );
 
