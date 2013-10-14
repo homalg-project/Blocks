@@ -379,6 +379,9 @@ InstallMethod( UnderlyingModule,
     LockObjectOnCertainPresentation( M );
     
     if HasOne( J ) then
+        
+        M!.UnitOfAlgebra := One( J );
+        
         one := Coefficients( bas, One( J ) );
         one := [ List( one, e -> e / k ) ];
         one := R * HomalgMatrix( one, k );
@@ -389,6 +392,11 @@ InstallMethod( UnderlyingModule,
         SetIsOne( one, true );
         
         M!.UnitOfAlgebraicGroup := one;
+    elif HasLeftActingRingOfIdeal( J ) and
+      HasOne( LeftActingRingOfIdeal( J ) ) then
+        
+        M!.UnitOfAlgebra := One( LeftActingRingOfIdeal( J ) );
+        
     fi;
     
     J!.HomalgModule := [ F, M ];
