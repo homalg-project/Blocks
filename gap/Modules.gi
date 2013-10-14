@@ -53,7 +53,7 @@ InstallMethod( GeneralElementsOfFiltration,
     n := NrGenerators( M );
     
     if not IsBound( M!.GroupAlgebra ) then
-        Error( "the component \"GroupAlgebra\" not found\n" );
+        Error( "the component `GroupAlgebra' not found\n" );
     fi;
     
     R := LeftActingDomain( M!.GroupAlgebra );
