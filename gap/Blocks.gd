@@ -151,6 +151,27 @@ DeclareAttributeWithDoc( "BlockIdempotentInfo",
         group := "BlockIdempotentInfo"
         );
 
+DeclareAttributeWithDocumentation( "DefectClasses",
+        IsElementOfFreeMagmaRing,
+        [ "Computes the list of defect classes of the <M>p</M>-block idempotent <A>b</A>",
+          "of a group <M>G</M>." ],
+        "a list",
+        "b",
+        [ "Blocks", "Attributes" ],
+        rec( group := "DefectClasses" )
+        );
+
+DeclareAttributeWithDocumentation( "DefectClasses",
+        IsBrauerTable,
+        [ "Computes the list of defect classes for each <A>p</A>-block of the group <A>G</A>",
+          "with <A>p</A>-modular character table <A>modtbl</A>",
+          "and underlying ordinary character table <A>ordtbl</A>." ],
+        "a list",
+        "modtbl",
+        [ "Blocks", "Attributes" ],
+        rec( group := "DefectClasses" )
+        );
+
 ####################################
 #
 # global functions and operations:
@@ -255,4 +276,21 @@ DeclareOperationWithDocumentation( "CentralCharactersOfBlocks",
         "a list",
         "G, p",
         rec( group := "CentralCharactersOfBlocks" )
+        );
+
+DeclareOperationWithDocumentation( "DefectClasses",
+        [ IsCharacterTable, IsInt ],
+        "",
+        "a list",
+        "ordtbl, p",
+        rec( group := "DefectClasses" )
+        );
+
+DeclareOperationWithDocumentation( "DefectClasses",
+        [ IsGroup, IsInt ],
+        ## "<#Include Label=\"DefectClasses\">",
+        "",
+        "a list",
+        "G, p",
+        rec( group := "DefectClasses" )
         );

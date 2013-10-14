@@ -260,6 +260,42 @@ InstallMethod( BlockIdempotentInfo,
     
 end );
 
+##
+InstallMethod( DefectClasses,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local modtbl, ordtbl, classes, block, omega, pos;
+    
+    modtbl := UnderlyingBrauerTable( b );
+    
+    ordtbl := OrdinaryCharacterTable( modtbl );
+    
+    classes := ConjugacyClasses( ordtbl );
+    
+    CentralCharactersOfBlocks( modtbl );
+    
+    block := BlockIdempotentInfo( b );
+    
+    omega := block!.CentralCharacterOfBlock;
+    
+    pos := Filtered( [ 1 .. Length( classes ) ],
+                   function( K )
+                     if IsZero( omega[K] ) or
+                        IsZero( Coefficient( b, classes[K] ) ) then
+                         return false;
+                     fi;
+                     return true;
+                   end );
+    
+    classes := classes{pos};
+    
+    block!.DefectClassesOfBlock := classes;
+    
+    return classes;
+    
+end );
+
 ####################################
 #
 # methods for operations:
@@ -420,5 +456,25 @@ InstallMethod( CentralCharactersOfBlocks,
   function( G, p )
     
     return CentralCharactersOfBlocks( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( DefectClasses,
+        [ IsCharacterTable, IsInt ],
+        
+  function( ordtbl, p )
+    
+    return DefectClasses( ordtbl mod p );
+    
+end );
+
+##
+InstallMethod( DefectClasses,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    
+    return DefectClasses( CharacterTable( G ), p );
     
 end );
