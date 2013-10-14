@@ -96,6 +96,45 @@ InstallMethod( ConjugacyClassesOfNormalSubgroup,
     
 end );
 
+##
+InstallMethod( ConjugacyClassesOfComplementOfNormalSubgroup,
+        [ IsGroup and HasParentAttr ],
+        
+  function( N )
+    local G, KK;
+    
+    G := Parent( N );
+    
+    KK := ConjugacyClasses( G );
+    
+    return Difference( KK, ConjugacyClassesOfNormalSubgroup( N ) );
+    
+end );
+
+##
+InstallMethod( ConjugacyInvolutoryClassesOfComplementOfNormalSubgroup,
+        [ IsGroup and HasParentAttr ],
+        
+  function( N )
+    local KK;
+    
+    KK := ConjugacyClassesOfComplementOfNormalSubgroup( N );
+    
+    KK := List( KK,
+                function( K )
+                  local iK;
+                  iK := Involution( K );
+                  if K = iK then
+                      return [ K ];
+                  else
+                      return Set( [ K, iK ] );
+                  fi;
+                end );
+    
+    return Set( KK );
+    
+end );
+
 ####################################
 #
 # methods for operations:
@@ -208,5 +247,22 @@ InstallMethod( Coefficients,
     classes := ConjugacyClasses( OrdinaryCharacterTable( modtbl ) );
     
     return List( classes, K -> Coefficient( b, K ) );
+    
+end );
+
+##
+InstallMethod( ConjugacyInvolutoryClassesOfComplementOfNormalSubgroup,
+        [ IsAlgebra, IsGroup and HasParentAttr ],
+        
+  function( kG, N )
+    local KK, o;
+    
+    KK := ConjugacyInvolutoryClassesOfComplementOfNormalSubgroup( N );
+    
+    KK := List( KK, s -> List( s, List ) );
+    
+    o := One( kG );
+    
+    return List( KK, k -> List( List( k, g -> o * g ), Sum ) );
     
 end );

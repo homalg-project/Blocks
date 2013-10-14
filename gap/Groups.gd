@@ -87,6 +87,27 @@ DeclareAttributeWithDocumentation( "ConjugacyClassesOfNormalSubgroup",
         rec( function_label := "for IsGroup" )
         );
 
+DeclareAttributeWithDocumentation( "ConjugacyClassesOfComplementOfNormalSubgroup",
+        IsGroup,
+        [ "Computes the list of conjugacy classes of the group <M>G</M>",
+          "which do <E>not</E> lie in the normal subgroup <A>N</A> <M>\\leq G</M>." ],
+        "a list of conjugacy classes of <M>G</M>",
+        "N",
+        [ "Groups", "Attributes" ],
+        rec( function_label := "for IsGroup" )
+        );
+
+DeclareAttributeWithDocumentation( "ConjugacyInvolutoryClassesOfComplementOfNormalSubgroup",
+        IsGroup,
+        [ "Computes a list of sets of conjugacy classes",
+          "and their inverse classes of the group <M>G</M>",
+          "which do <E>not</E> lie in the normal subgroup <A>N</A> <M>\\leq G</M>." ],
+        "a list of conjugacy classes of <M>G</M>",
+        "N",
+        [ "Groups", "Attributes" ],
+        rec( function_label := "for IsGroup" )
+        );
+
 ####################################
 #
 # global functions and operations:
@@ -167,4 +188,15 @@ DeclareOperationWithDocumentation( "Coefficients",
         "a list",
         "b",
         [ "Groups", "Operations" ]
+        );
+
+DeclareOperationWithDocumentation( "ConjugacyInvolutoryClassesOfComplementOfNormalSubgroup",
+        [ IsAlgebra, IsGroup ],
+        [ "Computes a list of <A>kG</A>-sums of conjugacy classes",
+          "and their inverse classes of the group <M>G</M>",
+          "which do <E>not</E> lie in the normal subgroup <A>N</A> <M>\\leq G</M>." ],
+        "a list of conjugacy classes of <M>G</M>",
+        "kG,N",
+        [ "Groups", "Operations" ],
+        rec( function_label := "for IsAlgebra, IsGroup" )
         );
