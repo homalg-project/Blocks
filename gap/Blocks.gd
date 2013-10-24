@@ -189,7 +189,8 @@ DeclareAttributeWithDocumentation( "DefectGroup",
         "a subgroup",
         "B",
         [ "Blocks", "Attributes" ],
-        rec( group := "DefectGroup" )
+        rec( group := "DefectGroup",
+             function_label := "for IsAlgebra" )
         );
 
 ####################################
