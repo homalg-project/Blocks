@@ -5,7 +5,7 @@ PackageName := "Blocks",
 Subtitle := "Tools for block theory",
 
 Version := Maximum( [
-                   "2013.09.03", ## Mohamed's version
+                   "2013.10.20", ## Mohamed's version
                    ## this line prevents merge conflicts
                    ] ),
 
