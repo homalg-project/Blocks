@@ -328,6 +328,32 @@ end );
 ####################################
 
 ##
+InstallMethod( BlockOfIdempotent,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( e )
+    local kG, B;
+    
+    ## see CentralIdempotentsOfInvolutiveAlgebra
+    if not IsBound( e![1001] ) then
+        TryNextMethod( );
+    fi;
+    
+    kG := e![1001];
+    
+    B := TwoSidedIdeal( kG, [ e ] );
+    
+    SetOne( B, e );
+    
+    if IsBound( e![999] ) and e![999] = false then
+        SetIsBlock( B, false );
+    fi;
+    
+    return B;
+    
+end );
+
+##
 InstallMethod( CorrespondingMaximalIdeal,
         [ IsMultiplicativeElementWithInverse, IsHomalgModule ],
         

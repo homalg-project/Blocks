@@ -201,6 +201,14 @@ DeclareAttributeWithDocumentation( "DefectGroup",
 
 # basic operations:
 
+DeclareOperationWithDocumentation( "BlockOfIdempotent",
+        [ IsElementOfFreeMagmaRing ],
+        "Computes the block of the idempotent <A>e</A> of a group algebra <M>kG</M>.",
+        "an algebra with one",
+        "e",
+        [ "Blocks", "Operations" ]
+        );
+
 DeclareOperationWithDocumentation( "CorrespondingMaximalIdeal",
         [ IsMultiplicativeElementWithInverse, IsHomalgModule ],
         "Compute the maximal ideal corresponding to the group element <A>g</A>.",
