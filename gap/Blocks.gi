@@ -66,10 +66,6 @@ InstallMethod( PrincipalBlockIdempotent,
     
     b0 := First( e, b -> IsOne( Sum( CoefficientsBySupport( b ) ) ) );
     
-    ## FIXME: undocumented, figure out how to add a `component' to IsMagmaRingObjDefaultRep
-    ## see UnderlyingGroupAlgebra
-    b0![1001] := kG;
-    
     return b0;
     
 end );
