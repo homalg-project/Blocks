@@ -79,9 +79,8 @@ InstallMethod( PrincipalBlock,
     
     b0 := PrincipalBlockIdempotent( kG );
     
-    B0 := TwoSidedIdeal( kG, [ b0 ] );
+    B0 := BlockOfIdempotent( b0 );
     
-    SetOne( B0, b0 );
     SetIsBlock( B0, true );
     SetIsReal( B0, true );
     
