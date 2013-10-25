@@ -14,6 +14,19 @@
 #
 ####################################
 
+## IsElementOfFreeMagmaRing is not an IsAttributeStoringRep
+DeclareAttribute( "UnderlyingGroupAlgebra",
+        IsElementOfFreeMagmaRing );
+
+DeclareAttributeWithDocumentation( "UnderlyingGroupAlgebra",
+        IsAlgebra,
+        "The group algebra containing the algebra <A>B</A> as an ideal.",
+        "a group algebra",
+        "A",
+        [ "Algebras", "Attributes" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
 DeclareAttributeWithDocumentation( "RadicalOfAlgebraPowers",
         IsAlgebra,
         [ "Computes the list of powers <M>rad^i</M> of the radical <M>rad</M> of <A>A</A>,",
@@ -76,12 +89,6 @@ DeclareAttributeWithDocumentation( "CentralIdempotentsOfInvolutiveAlgebra",
 ####################################
 
 # basic operations:
-
-DeclareOperation( "UnderlyingGroupAlgebra",
-        [ IsAlgebra ] );
-
-DeclareOperation( "UnderlyingGroupAlgebra",
-        [ IsElementOfFreeMagmaRing ] );
 
 DeclareOperation( "UnderlyingBrauerTable",
         [ IsElementOfFreeMagmaRing ] );
