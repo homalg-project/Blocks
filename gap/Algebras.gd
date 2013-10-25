@@ -14,6 +14,15 @@
 #
 ####################################
 
+DeclareAttributeWithDocumentation( "CoefficientsRingForPolynomialAlgebra",
+        IsAlgebra,
+        "The coefficients ring over which &homalg; can define a polynomial ring.",
+        "a group algebra",
+        "A",
+        [ "Algebras", "Attributes" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
 ## IsElementOfFreeMagmaRing is not an IsAttributeStoringRep
 DeclareAttribute( "UnderlyingGroupAlgebra",
         IsElementOfFreeMagmaRing );

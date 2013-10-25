@@ -348,6 +348,11 @@ InstallMethod( BlockOfIdempotent,
         SetIsBlock( B, false );
     fi;
     
+    if HasCoefficientsRingForPolynomialAlgebra( kG ) then
+        SetCoefficientsRingForPolynomialAlgebra( B,
+                CoefficientsRingForPolynomialAlgebra( kG ) );
+    fi;
+    
     return B;
     
 end );
