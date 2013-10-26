@@ -14,6 +14,9 @@
 #
 ####################################
 
+DeclareAttribute( "DefiningIdealOfUnitaryGroup",
+        IsHomalgModule );
+
 
 ####################################
 #
@@ -28,9 +31,6 @@ DeclareOperation( "NormalizedUnitaryGroup",
 
 DeclareOperation( "NormalizedUnitaryGroup",
         [ IsField, IsGroup ] );
-
-DeclareOperation( "DefiningIdealOfUnitaryGroup",
-        [ IsHomalgModule ] );
 
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
