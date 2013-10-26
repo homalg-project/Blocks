@@ -333,6 +333,10 @@ InstallMethod( BlockOfIdempotent,
   function( e )
     local kG, B;
     
+    if IsBound( e![1234] ) and IsAlgebra( e![1234] ) then
+        return e![1234];
+    fi;
+    
     ## see CentralIdempotentsOfInvolutiveAlgebra
     if not IsBound( e![1001] ) and IsAlgebra( e![1001] ) then
         TryNextMethod( );
@@ -352,6 +356,9 @@ InstallMethod( BlockOfIdempotent,
         SetCoefficientsRingForPolynomialAlgebra( B,
                 CoefficientsRingForPolynomialAlgebra( kG ) );
     fi;
+    
+    ## FIXME: undocumented, is there a way to add a `component' to IsMagmaRingObjDefaultRep
+    e![1234] := B;
     
     return B;
     
