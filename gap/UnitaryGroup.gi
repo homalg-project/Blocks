@@ -42,6 +42,77 @@ end );
 
 ####################################
 #
+# methods for attributes:
+#
+####################################
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningIdealOfUnitaryGroup( k, B );
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfSemiSimplePartOfUnitaryGroup,
+        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningIdealOfSemiSimplePartOfUnitaryGroup( k, B );
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfCotangentPartOfUnitaryGroup,
+        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningIdealOfCotangentPartOfUnitaryGroup( k, B );
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfRadicalPartOfUnitaryGroup,
+        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningIdealOfRadicalPartOfUnitaryGroup( k, B );
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfLowerPartOfUnitaryGroup,
+        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningIdealOfLowerPartOfUnitaryGroup( k, B );
+    
+end );
+
+####################################
+#
 # methods for operations:
 #
 ####################################
@@ -221,9 +292,9 @@ InstallMethod( DefiningIdealOfSemiSimplePartOfUnitaryGroup,
   function( F, A )
     local r, I;
     
-    if IsBound( A!.DefiningIdealOfSemiSimplePartOfUnitaryGroup ) and
-       IsIdenticalObj( A!.DefiningIdealOfSemiSimplePartOfUnitaryGroup[1], F ) then
-        return A!.DefiningIdealOfSemiSimplePartOfUnitaryGroup[2];
+    if IsBound( A!._DefiningIdealOfSemiSimplePartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningIdealOfSemiSimplePartOfUnitaryGroup[1], F ) then
+        return A!._DefiningIdealOfSemiSimplePartOfUnitaryGroup[2];
     fi;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
@@ -238,7 +309,7 @@ InstallMethod( DefiningIdealOfSemiSimplePartOfUnitaryGroup,
     ## adapted to the 2-step subfiltration
     I := DefiningIdealOfUnitaryGroup( F, r );
     
-    A!.DefiningIdealOfSemiSimplePartOfUnitaryGroup := [ F, I ];
+    A!._DefiningIdealOfSemiSimplePartOfUnitaryGroup := [ F, I ];
     
     return I;
     
@@ -251,9 +322,9 @@ InstallMethod( DefiningIdealOfRadicalPartOfUnitaryGroup,
   function( F, A )
     local r, I;
     
-    if IsBound( A!.DefiningIdealOfRadicalPartOfUnitaryGroup ) and
-       IsIdenticalObj( A!.DefiningIdealOfRadicalPartOfUnitaryGroup[1], F ) then
-        return A!.DefiningIdealOfRadicalPartOfUnitaryGroup[2];
+    if IsBound( A!._DefiningIdealOfRadicalPartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningIdealOfRadicalPartOfUnitaryGroup[1], F ) then
+        return A!._DefiningIdealOfRadicalPartOfUnitaryGroup[2];
     fi;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
@@ -264,7 +335,7 @@ InstallMethod( DefiningIdealOfRadicalPartOfUnitaryGroup,
     
     I := DefiningIdealOfUnitaryGroup( F, r.1 );
     
-    A!.DefiningIdealOfRadicalPartOfUnitaryGroup := [ F, I ];
+    A!._DefiningIdealOfRadicalPartOfUnitaryGroup := [ F, I ];
     
     return I;
     
@@ -277,9 +348,9 @@ InstallMethod( DefiningIdealOfCotangentPartOfUnitaryGroup,
   function( F, A )
     local r, I;
     
-    if IsBound( A!.DefiningIdealOfCotangentPartOfUnitaryGroup ) and
-       IsIdenticalObj( A!.DefiningIdealOfCotangentPartOfUnitaryGroup[1], F ) then
-        return A!.DefiningIdealOfCotangentPartOfUnitaryGroup[2];
+    if IsBound( A!._DefiningIdealOfCotangentPartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningIdealOfCotangentPartOfUnitaryGroup[1], F ) then
+        return A!._DefiningIdealOfCotangentPartOfUnitaryGroup[2];
     fi;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
@@ -300,7 +371,7 @@ InstallMethod( DefiningIdealOfCotangentPartOfUnitaryGroup,
         I := DefiningIdealOfUnitaryGroup( F, r );
     fi;
     
-    A!.DefiningIdealOfCotangentPartOfUnitaryGroup := [ F, I ];
+    A!._DefiningIdealOfCotangentPartOfUnitaryGroup := [ F, I ];
     
     return I;
     
@@ -334,9 +405,9 @@ InstallMethod( DefiningIdealOfLowerPartOfUnitaryGroup,
   function( F, A )
     local r, I;
     
-    if IsBound( A!.DefiningIdealOfLowerPartOfUnitaryGroup ) and
-       IsIdenticalObj( A!.DefiningIdealOfLowerPartOfUnitaryGroup[1], F ) then
-        return A!.DefiningIdealOfLowerPartOfUnitaryGroup[2];
+    if IsBound( A!._DefiningIdealOfLowerPartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningIdealOfLowerPartOfUnitaryGroup[1], F ) then
+        return A!._DefiningIdealOfLowerPartOfUnitaryGroup[2];
     fi;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
@@ -358,7 +429,7 @@ InstallMethod( DefiningIdealOfLowerPartOfUnitaryGroup,
         I := DefiningIdealOfUnitaryGroup( F, r );
     fi;
     
-    A!.DefiningIdealOfLowerPartOfUnitaryGroup := [ F, I ];
+    A!._DefiningIdealOfLowerPartOfUnitaryGroup := [ F, I ];
     
     return I;
     

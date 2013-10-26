@@ -38,9 +38,53 @@ DeclarePropertyWithDocumentation( "IsLowerPartExtensionOfAffineSpaces",
 #
 ####################################
 
+DeclareAttributeWithDocumentation( "DefiningIdealOfUnitaryGroup",
+        IsAlgebra,
+        "The defining ideal of the unitary group of the involutive algebra <A>A</A>.",
+        "an ideal",
+        "A",
+        [ "Unitary groups", "Attributes" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
 DeclareAttribute( "DefiningIdealOfUnitaryGroup",
         IsHomalgModule );
 
+DeclareAttributeWithDocumentation( "DefiningIdealOfSemiSimplePartOfUnitaryGroup",
+        IsAlgebra,
+        "The defining ideal of the <Q>semisimple part</Q> of the unitary group of the involutive algebra <A>A</A>.",
+        "an ideal",
+        "A",
+        [ "Unitary groups", "Attributes" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
+DeclareAttributeWithDocumentation( "DefiningIdealOfCotangentPartOfUnitaryGroup",
+        IsAlgebra,
+        "The defining ideal of the <Q>cotangent part</Q> of the unitary group of the involutive algebra <A>A</A>.",
+        "an ideal",
+        "A",
+        [ "Unitary groups", "Attributes" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
+DeclareAttributeWithDocumentation( "DefiningIdealOfRadicalPartOfUnitaryGroup",
+        IsAlgebra,
+        "The defining ideal of the <Q>radical part</Q> of the unitary group of the involutive algebra <A>A</A>.",
+        "an ideal",
+        "A",
+        [ "Unitary groups", "Attributes" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
+DeclareAttributeWithDocumentation( "DefiningIdealOfLowerPartOfUnitaryGroup",
+        IsAlgebra,
+        "The defining ideal of the <Q>lower part</Q> of the unitary group of the involutive algebra <A>A</A>.",
+        "an ideal",
+        "A",
+        [ "Unitary groups", "Attributes" ],
+        rec( function_label := "for IsAlgebra" )
+        );
 
 ####################################
 #
