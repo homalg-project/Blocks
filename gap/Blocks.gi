@@ -334,7 +334,7 @@ InstallMethod( BlockOfIdempotent,
     local kG, B;
     
     ## see CentralIdempotentsOfInvolutiveAlgebra
-    if not IsBound( e![1001] ) then
+    if not IsBound( e![1001] ) and IsAlgebra( e![1001] ) then
         TryNextMethod( );
     fi;
     
