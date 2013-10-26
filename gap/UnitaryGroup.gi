@@ -10,6 +10,38 @@
 
 ####################################
 #
+# methods for properties:
+#
+####################################
+
+##
+InstallMethod( IsCotangentPartUnionOfAffineSpaces,
+        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return IsCotangentPartUnionOfAffineSpaces( k, B );
+    
+end );
+
+##
+InstallMethod( IsLowerPartExtensionOfAffineSpaces,
+        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return IsLowerPartExtensionOfAffineSpaces( k, B );
+    
+end );
+
+####################################
+#
 # methods for operations:
 #
 ####################################

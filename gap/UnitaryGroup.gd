@@ -10,6 +10,30 @@
 
 ####################################
 #
+# properties:
+#
+####################################
+
+DeclarePropertyWithDocumentation( "IsCotangentPartUnionOfAffineSpaces",
+        IsAlgebra,
+        [ "Check if the <Q>cotangent part</Q> of the unitary group of the involutive algebra <A>A</A>",
+          "is a union of affine spaces." ],
+        "A",
+        [ "Unitary groups", "Properties" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
+DeclarePropertyWithDocumentation( "IsLowerPartExtensionOfAffineSpaces",
+        IsAlgebra,
+        [ "Check if the <Q>lower part</Q> of the unitary group of the involutive algebra <A>A</A>",
+          "is a extension of affine spaces." ],
+        "A",
+        [ "Unitary groups", "Properties" ],
+        rec( function_label := "for IsAlgebra" )
+        );
+
+####################################
+#
 # attributes:
 #
 ####################################
