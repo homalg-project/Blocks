@@ -50,7 +50,7 @@ DeclareAttributeWithDocumentation( "DefiningIdealOfUnitaryGroup",
 DeclareAttribute( "DefiningIdealOfUnitaryGroup",
         IsHomalgModule );
 
-DeclareAttributeWithDocumentation( "DefiningIdealOfSemiSimplePartOfUnitaryGroup",
+DeclareAttributeWithDocumentation( "DefiningIdealOfUpperPartOfUnitaryGroup",
         IsAlgebra,
         "The defining ideal of the <Q>semisimple part</Q> of the unitary group of the involutive algebra <A>A</A>.",
         "an ideal",
@@ -121,7 +121,7 @@ DeclareOperation( "DefiningIdealOfUnitaryGroup",
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra, IsAlgebra ] );
 
-DeclareOperation( "DefiningIdealOfSemiSimplePartOfUnitaryGroup",
+DeclareOperation( "DefiningIdealOfUpperPartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
 DeclareOperation( "DefiningIdealOfCotangentPartOfUnitaryGroup",

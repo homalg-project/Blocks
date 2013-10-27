@@ -60,7 +60,7 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
 end );
 
 ##
-InstallMethod( DefiningIdealOfSemiSimplePartOfUnitaryGroup,
+InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
         [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
         
   function( B )
@@ -68,7 +68,7 @@ InstallMethod( DefiningIdealOfSemiSimplePartOfUnitaryGroup,
     
     k := CoefficientsRingForPolynomialAlgebra( B );
     
-    return DefiningIdealOfSemiSimplePartOfUnitaryGroup( k, B );
+    return DefiningIdealOfUpperPartOfUnitaryGroup( k, B );
     
 end );
 
@@ -286,15 +286,15 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
 end );
 
 ##
-InstallMethod( DefiningIdealOfSemiSimplePartOfUnitaryGroup,
+InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
         [ IsRing, IsAlgebra ],
         
   function( F, A )
     local r, I;
     
-    if IsBound( A!._DefiningIdealOfSemiSimplePartOfUnitaryGroup ) and
-       IsIdenticalObj( A!._DefiningIdealOfSemiSimplePartOfUnitaryGroup[1], F ) then
-        return A!._DefiningIdealOfSemiSimplePartOfUnitaryGroup[2];
+    if IsBound( A!._DefiningIdealOfUpperPartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningIdealOfUpperPartOfUnitaryGroup[1], F ) then
+        return A!._DefiningIdealOfUpperPartOfUnitaryGroup[2];
     fi;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
@@ -309,7 +309,7 @@ InstallMethod( DefiningIdealOfSemiSimplePartOfUnitaryGroup,
     ## adapted to the 2-step subfiltration
     I := DefiningIdealOfUnitaryGroup( F, r );
     
-    A!._DefiningIdealOfSemiSimplePartOfUnitaryGroup := [ F, I ];
+    A!._DefiningIdealOfUpperPartOfUnitaryGroup := [ F, I ];
     
     return I;
     
