@@ -14,7 +14,7 @@
 #
 ####################################
 
-DeclarePropertyWithDocumentation( "IsCotangentPartUnionOfAffineSpaces",
+DeclarePropertyWithDocumentation( "IsMiddlePartUnionOfAffineSpaces",
         IsAlgebra,
         [ "Check if the <Q>cotangent part</Q> of the unitary group of the involutive algebra <A>A</A>",
           "is a union of affine spaces." ],
@@ -59,7 +59,7 @@ DeclareAttributeWithDocumentation( "DefiningIdealOfUpperPartOfUnitaryGroup",
         rec( function_label := "for IsAlgebra" )
         );
 
-DeclareAttributeWithDocumentation( "DefiningIdealOfCotangentPartOfUnitaryGroup",
+DeclareAttributeWithDocumentation( "DefiningIdealOfMiddlePartOfUnitaryGroup",
         IsAlgebra,
         "The defining ideal of the <Q>cotangent part</Q> of the unitary group of the involutive algebra <A>A</A>.",
         "an ideal",
@@ -124,10 +124,10 @@ DeclareOperation( "DefiningIdealOfUnitaryGroup",
 DeclareOperation( "DefiningIdealOfUpperPartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
-DeclareOperation( "DefiningIdealOfCotangentPartOfUnitaryGroup",
+DeclareOperation( "DefiningIdealOfMiddlePartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
-DeclareOperation( "IsCotangentPartUnionOfAffineSpaces",
+DeclareOperation( "IsMiddlePartUnionOfAffineSpaces",
         [ IsRing, IsAlgebra ] );
 
 DeclareOperation( "DefiningIdealOfRadicalPartOfUnitaryGroup",

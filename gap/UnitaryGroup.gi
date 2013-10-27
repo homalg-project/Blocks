@@ -15,7 +15,7 @@
 ####################################
 
 ##
-InstallMethod( IsCotangentPartUnionOfAffineSpaces,
+InstallMethod( IsMiddlePartUnionOfAffineSpaces,
         [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
         
   function( B )
@@ -23,7 +23,7 @@ InstallMethod( IsCotangentPartUnionOfAffineSpaces,
     
     k := CoefficientsRingForPolynomialAlgebra( B );
     
-    return IsCotangentPartUnionOfAffineSpaces( k, B );
+    return IsMiddlePartUnionOfAffineSpaces( k, B );
     
 end );
 
@@ -73,7 +73,7 @@ InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
 end );
 
 ##
-InstallMethod( DefiningIdealOfCotangentPartOfUnitaryGroup,
+InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroup,
         [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
         
   function( B )
@@ -81,7 +81,7 @@ InstallMethod( DefiningIdealOfCotangentPartOfUnitaryGroup,
     
     k := CoefficientsRingForPolynomialAlgebra( B );
     
-    return DefiningIdealOfCotangentPartOfUnitaryGroup( k, B );
+    return DefiningIdealOfMiddlePartOfUnitaryGroup( k, B );
     
 end );
 
@@ -342,15 +342,15 @@ InstallMethod( DefiningIdealOfRadicalPartOfUnitaryGroup,
 end );
 
 ##
-InstallMethod( DefiningIdealOfCotangentPartOfUnitaryGroup,
+InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroup,
         [ IsRing, IsAlgebra ],
         
   function( F, A )
     local r, I;
     
-    if IsBound( A!._DefiningIdealOfCotangentPartOfUnitaryGroup ) and
-       IsIdenticalObj( A!._DefiningIdealOfCotangentPartOfUnitaryGroup[1], F ) then
-        return A!._DefiningIdealOfCotangentPartOfUnitaryGroup[2];
+    if IsBound( A!._DefiningIdealOfMiddlePartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningIdealOfMiddlePartOfUnitaryGroup[1], F ) then
+        return A!._DefiningIdealOfMiddlePartOfUnitaryGroup[2];
     fi;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
@@ -371,20 +371,20 @@ InstallMethod( DefiningIdealOfCotangentPartOfUnitaryGroup,
         I := DefiningIdealOfUnitaryGroup( F, r );
     fi;
     
-    A!._DefiningIdealOfCotangentPartOfUnitaryGroup := [ F, I ];
+    A!._DefiningIdealOfMiddlePartOfUnitaryGroup := [ F, I ];
     
     return I;
     
 end );
 
 ##
-InstallMethod( IsCotangentPartUnionOfAffineSpaces,
+InstallMethod( IsMiddlePartUnionOfAffineSpaces,
         [ IsRing, IsAlgebra ],
         
   function( F, A )
     local I, rad, d;
     
-    I := DefiningIdealOfCotangentPartOfUnitaryGroup( F, A );
+    I := DefiningIdealOfMiddlePartOfUnitaryGroup( F, A );
     
     rad := RadicalDecomposition( I );
     
