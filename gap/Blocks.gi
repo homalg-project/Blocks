@@ -59,14 +59,12 @@ InstallMethod( PrincipalBlockIdempotent,
         [ IsGroupAlgebra ],
         
   function( kG )
-    local e, b0;
+    local e;
     
     ## CentralIdempotentsOfAlgebra does not store kG in the e's
     e := CentralIdempotentsOfInvolutiveAlgebra( kG );
     
-    b0 := First( e, b -> IsOne( Sum( CoefficientsBySupport( b ) ) ) );
-    
-    return b0;
+    return First( e, b -> IsOne( Sum( CoefficientsBySupport( b ) ) ) );
     
 end );
 
