@@ -62,6 +62,16 @@ DeclareAttributeWithDocumentation( "PrincipalBlock",
         [ "Blocks", "Attributes" ]
         );
 
+DeclareAttributeWithDocumentation( "CentralNonPrincipalIdempotentsOfGroupAlgebra",
+        IsGroupAlgebra,
+        [ "Computes the list of central non-principle primitive idempotents of the group algebra <A>kG</A>,",
+          "viewed as an <E>involutive</E> algebra." ],
+        "a list",
+        "kG",
+        [ "Algebras", "Attributes" ],
+        rec( function_label := "for IsAlgebraWithOne" )
+        );
+
 DeclareAttributeWithDocumentation( "AssociatedProjectionMatrix",
         IsAlgebra,
         [ "Computes the canonical projection matrix of the",

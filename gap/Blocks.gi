@@ -87,6 +87,26 @@ InstallMethod( PrincipalBlock,
 end );
 
 ##
+InstallMethod( CentralNonPrincipalIdempotentsOfGroupAlgebra,
+        [ IsGroupAlgebra ],
+        
+  function( kG )
+    local e, pos;
+    
+    ## CentralIdempotentsOfAlgebra does not store kG in the e's
+    e := CentralIdempotentsOfInvolutiveAlgebra( kG );
+    
+    e := ShallowCopy( e );
+    
+    pos := PositionProperty( e, b -> IsOne( Sum( CoefficientsBySupport( b ) ) ) );
+    
+    Remove( e, pos );
+    
+    return e;
+    
+end );
+
+##
 InstallMethod( AssociatedProjectionMatrix,
         [ IsAlgebra and HasOne ],
         
