@@ -16,7 +16,7 @@
 
 ##
 InstallMethod( IsMiddlePartUnionOfAffineSpaces,
-        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
   function( B )
     local k;
@@ -29,7 +29,7 @@ end );
 
 ##
 InstallMethod( IsLowerPartExtensionOfAffineSpaces,
-        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
   function( B )
     local k;
@@ -100,7 +100,7 @@ end );
 
 ##
 InstallMethod( DefiningIdealOfUnitaryGroup,
-        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
   function( B )
     local k;
@@ -113,7 +113,7 @@ end );
 
 ##
 InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
-        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
   function( B )
     local k;
@@ -126,7 +126,7 @@ end );
 
 ##
 InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroup,
-        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
   function( B )
     local k;
@@ -139,7 +139,7 @@ end );
 
 ##
 InstallMethod( DefiningIdealOfRadicalPartOfUnitaryGroup,
-        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
   function( B )
     local k;
@@ -152,7 +152,7 @@ end );
 
 ##
 InstallMethod( DefiningIdealOfLowerPartOfUnitaryGroup,
-        [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
   function( B )
     local k;
