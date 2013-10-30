@@ -53,29 +53,6 @@ DeclareAttributeWithDocumentation( "SerreFactorGroup",
         rec( function_label := "for IsGroup" )
         );
 
-DeclareAttributeWithDocumentation( "NumberOfQuadraticEquationsOfUnitaryGroup",
-        IsGroup,
-        [ "Computes the number of quadratic equations",
-          "defining the unitary group of the group ring of <A>G</A>",
-          "in characteristic <M>2</M>.",
-          "<#Include Label=\"NumberOfQuadraticEquationsOfUnitaryGroup\">" ],
-        "a nonnegative integer",
-        "G",
-        [ "Groups", "Attributes" ],
-        rec( function_label := "for IsGroup" )
-        );
-
-DeclareAttributeWithDocumentation( "DimensionOfUnitaryGroup",
-        IsGroup,
-        [ "Computes the dimension of the unitary group",
-          "of the group ring of <A>G</A> in characteristic <M>2</M>.",
-          "<#Include Label=\"DimensionOfUnitaryGroup\">" ],
-        "a nonnegative integer",
-        "G",
-        [ "Groups", "Attributes" ],
-        rec( function_label := "for IsGroup" )
-        );
-
 DeclareAttributeWithDocumentation( "ConjugacyClassesOfNormalSubgroup",
         IsGroup,
         [ "Computes the list of conjugacy classes of the group <M>G</M>",

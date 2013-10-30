@@ -38,6 +38,29 @@ DeclarePropertyWithDocumentation( "IsLowerPartExtensionOfAffineSpaces",
 #
 ####################################
 
+DeclareAttributeWithDocumentation( "NumberOfQuadraticEquationsOfUnitaryGroup",
+        IsGroupAlgebra,
+        [ "Computes the number of quadratic equations",
+          "defining the unitary group of the group ring of <A>kG</A>",
+          "of a group <M>G</M>.",
+          "<#Include Label=\"NumberOfQuadraticEquationsOfUnitaryGroup\">" ],
+        "a nonnegative integer",
+        "kG",
+        [ "Unitary groups", "Attributes" ],
+        rec( function_label := "for IsGroupAlgebra" )
+        );
+
+DeclareAttributeWithDocumentation( "DimensionOfUnitaryGroup",
+        IsGroupAlgebra,
+        [ "Computes the dimension of the unitary group",
+          "of the group ring <A>kG</A> of a group <M>G</M>.",
+          "<#Include Label=\"DimensionOfUnitaryGroup\">" ],
+        "a nonnegative integer",
+        "kG",
+        [ "Unitary groups", "Attributes" ],
+        rec( function_label := "for IsGroupAlgebra" )
+        );
+
 DeclareAttributeWithDocumentation( "DefiningIdealOfUnitaryGroup",
         IsAlgebra,
         "The defining ideal of the unitary group of the involutive algebra <A>A</A>.",

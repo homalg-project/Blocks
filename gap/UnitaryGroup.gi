@@ -47,6 +47,58 @@ end );
 ####################################
 
 ##
+InstallMethod( NumberOfQuadraticEquationsOfUnitaryGroup,
+        [ IsGroupAlgebra ],
+        
+  function( kG )
+    local k, G, G2;
+    
+    k := LeftActingDomain( kG );
+    
+    if not ( HasCharacteristic( k ) and Characteristic( k ) = 2 ) then
+        TryNextMethod( );
+    fi;
+    
+    if not ( HasUnderlyingMagma( kG ) and IsGroup( UnderlyingMagma( kG ) ) ) then
+        TryNextMethod( );
+    fi;
+    
+    G := UnderlyingMagma( kG );
+    
+    G2 := Filtered( ConjugacyClasses( G ),
+                  a -> Order( Representative( a ) ) <= 2 );
+    
+    return 1/2 * ( Size( G ) - Sum( G2, Size ) );
+    
+end );
+
+##
+InstallMethod( DimensionOfUnitaryGroup,
+        [ IsGroupAlgebra ],
+        
+  function( kG )
+    local k, G, G2;
+    
+    k := LeftActingDomain( kG );
+    
+    if not ( HasCharacteristic( k ) and Characteristic( k ) = 2 ) then
+        TryNextMethod( );
+    fi;
+    
+    if not ( HasUnderlyingMagma( kG ) and IsGroup( UnderlyingMagma( kG ) ) ) then
+        TryNextMethod( );
+    fi;
+    
+    G := UnderlyingMagma( kG );
+    
+    G2 := Filtered( ConjugacyClasses( G ),
+                  a -> Order( Representative( a ) ) <= 2 );
+    
+    return 1/2 * ( Size( G ) + Sum( G2, Size ) ) - 1;
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsAlgebra and HasOne and HasCoefficientsRingForPolynomialAlgebra ],
         

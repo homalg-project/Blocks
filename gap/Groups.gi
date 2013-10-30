@@ -54,34 +54,6 @@ InstallMethod( SerreFactorGroup,
 end );
 
 ##
-InstallMethod( NumberOfQuadraticEquationsOfUnitaryGroup,
-        [ IsGroup ],
-        
-  function( G )
-    local G2;
-    
-    G2 := Filtered( ConjugacyClasses( G ),
-                  a -> Order( Representative( a ) ) <= 2 );
-    
-    return 1/2 * ( Size( G ) - Sum( G2, Size ) );
-    
-end );
-
-##
-InstallMethod( DimensionOfUnitaryGroup,
-        [ IsGroup ],
-        
-  function( G )
-    local G2;
-    
-    G2 := Filtered( ConjugacyClasses( G ),
-                  a -> Order( Representative( a ) ) <= 2 );
-    
-    return 1/2 * ( Size( G ) + Sum( G2, Size ) ) - 1;
-    
-end );
-
-##
 InstallMethod( ConjugacyClassesOfNormalSubgroup,
         [ IsGroup and HasParentAttr ],
         
