@@ -15,7 +15,7 @@ test:	doc
 	gap maketest.g
 
 archive: test
-	(mkdir -p ../tar; cd ..; tar czvf tar/Blocks.tar.gz --exclude ".DS_Store" --exclude "*~" Blocks/doc/*.* Blocks/doc/clean Blocks/gap/*.{gi,gd} Blocks/{CHANGES,PackageInfo.g,README,VERSION,init.g,read.g,makedoc.g,makefile,maketest.g,ListOfDocFiles.g,createautodoc.g} Blocks/examples/*.g Blocks/examples/doc/*.g)
+	(mkdir -p ../tar; cd ..; tar czvf tar/Blocks.tar.gz --exclude ".DS_Store" --exclude "*~" Blocks/doc/*.* Blocks/doc/clean Blocks/gap/*.{gi,gd} Blocks/{PackageInfo.g,README,VERSION,init.g,read.g,makedoc.g,makefile,maketest.g,ListOfDocFiles.g} Blocks/examples/*.g Blocks/examples/doc/*.g)
 
 WEBPOS=public_html
 WEBPOS_FINAL=~/Sites/homalg-project/Blocks
