@@ -496,6 +496,7 @@ InstallMethod( IsLowerPartExtensionOfAffineSpaces,
     fi;
     
     r := RadicalOfAlgebraPowersAsIntersection( A );
+    r := ShallowCopy( r );
     
     powers := NamesOfComponents( r );
     
@@ -519,9 +520,18 @@ InstallMethod( IsLowerPartExtensionOfAffineSpaces,
         return true;
     fi;
     
+    Unbind( r.0 );
+    
     for i in powers{[ 2 .. l - 1 ]} do
         
-        I := DefiningIdealOfUnitaryGroup( F, r.(i), r.(i + 1) );
+        ## instead of:
+        #I := DefiningIdealOfUnitaryGroup( F, r.(i), r.(i + 1) );
+        
+        ## a basis adapted to the complete filtration
+        ## leads to much faster computations than the one
+        ## adapted to the 2-step subfiltration
+        Unbind( r.(i - 1) );
+        I := DefiningIdealOfUnitaryGroup( F, r );
         d := AffineDegree( I );
         
         if d = 0 then
