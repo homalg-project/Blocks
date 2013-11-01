@@ -355,7 +355,9 @@ InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
     
     r := RadicalOfAlgebraPowersAsIntersection( A );
     
-    #I := DefiningIdealOfUnitaryGroup( F, A, r.1 );
+    ## instead of:
+    #I := DefiningIdealOfUnitaryGroup( F, r.0, r.1 );
+    
     ## a basis adapted to the complete filtration
     ## leads to much faster computations than the one
     ## adapted to the 2-step subfiltration
@@ -414,12 +416,14 @@ InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroup,
     if not IsBound( r.2 ) then
         I := DefiningIdealOfUnitaryGroup( F, r.1 );
     else
-        r := ShallowCopy( r );
-        Unbind( r.0 );
+        ## instead of:
         #I := DefiningIdealOfUnitaryGroup( F, r.1, r.2 );
+        
         ## a basis adapted to the complete filtration
         ## leads to much faster computations than the one
         ## adapted to the 2-step subfiltration
+        r := ShallowCopy( r );
+        Unbind( r.0 );
         I := DefiningIdealOfUnitaryGroup( F, r );
     fi;
     
