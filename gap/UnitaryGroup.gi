@@ -475,14 +475,7 @@ InstallMethod( DefiningIdealOfLowerPartOfUnitaryGroup,
     if not IsBound( r.2 ) or Dimension( r.2 ) = 0 then
         I := ZeroLeftSubmodule( F );
     else
-        r := ShallowCopy( r );
-        Unbind( r.0 );
-        Unbind( r.1 );
-        #I := DefiningIdealOfUnitaryGroup( F, r.2 );
-        ## a basis adapted to the complete filtration
-        ## leads to much faster computations than the one
-        ## adapted to the 2-step subfiltration
-        I := DefiningIdealOfUnitaryGroup( F, r );
+        I := DefiningIdealOfUnitaryGroup( F, r.2 );
     fi;
     
     A!._DefiningIdealOfLowerPartOfUnitaryGroup := [ F, I ];
