@@ -1,15 +1,9 @@
-##  <#GAPDoc Label="SerreCharacteristicSubgroup">
-##  <Example><![CDATA[
-##  gap> G := SmallGroup( 28, 1 );; StructureDescription( G );; G;
-##  C7 : C4
-##  gap> G0 := SerreCharacteristicSubgroup( G );;
-##  gap> StructureDescription( G0 );; G0;
-##  C14
-##  ]]></Example>
-##  <#/GAPDoc>
+#! @System SerreCharacteristicSubgroup
 
-LoadPackage( "Blocks" );
-
+#! @Example
 G := SmallGroup( 28, 1 );; StructureDescription( G );; G;
-G0 := SerreCharacteristicSubgroup( G );
-Assert( 0, StructureDescription( G0 ) = "C14" );
+#! C7 : C4
+G0 := SerreCharacteristicSubgroup( G );;
+StructureDescription( G0 );; G0;
+#! C14
+#! @EndExample

@@ -31,6 +31,5 @@ doc/*.toc
 doc/*.out
 doc/manual.lab
 *.DS_Store
-doc/AutoDocMainFile.xml
-gap/AutoDocEntries.g
-doc/Chapter*.xml
+doc/*.xml
+maketest.g

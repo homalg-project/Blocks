@@ -8,9 +8,11 @@
 ##
 #############################################################################
 
+# @Chapter Modules
+
 ####################################
 #
-# attributes:
+# @Section Attributes
 #
 ####################################
 
@@ -25,17 +27,18 @@ DeclareAttribute( "Antipode",
 
 ####################################
 #
-# global functions and operations:
+#! @Section Operations
 #
 ####################################
 
-# basic operations:
-
+#!
 DeclareOperation( "GeneralElement",
         [ IsHomalgModule ] );
 
+#!
 DeclareOperation( "GradedPartsOfFilteredMorphism",
         [ IsHomalgMorphism, IsHomalgFiltration ] );
 
+#!
 DeclareOperation( "ExtractDefiningIdeal",
         [ IsHomalgModuleElement ] );

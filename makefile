@@ -2,9 +2,9 @@ all: doc test
 
 doc: doc/manual.six
 
-doc/manual.six: makedoc.g maketest.g ListOfDocFiles.g \
+doc/manual.six: makedoc.g \
 		PackageInfo.g \
-		doc/Blocks.bib doc/*.xml \
+		doc/Blocks.bib \
 		gap/*.gd gap/*.gi examples/*.g examples/doc/*.g
 	        gap makedoc.g
 
@@ -15,7 +15,7 @@ test:	doc
 	gap maketest.g
 
 archive: test
-	(mkdir -p ../tar; cd ..; tar czvf tar/Blocks.tar.gz --exclude ".DS_Store" --exclude "*~" Blocks/doc/*.* Blocks/doc/clean Blocks/gap/*.{gi,gd} Blocks/{PackageInfo.g,README,COPYING,VERSION,init.g,read.g,makedoc.g,makefile,maketest.g,ListOfDocFiles.g} Blocks/examples/*.g Blocks/examples/doc/*.g)
+	(mkdir -p ../tar; cd ..; tar czvf tar/Blocks.tar.gz --exclude ".DS_Store" --exclude "*~" Blocks/doc/*.* Blocks/doc/clean Blocks/gap/*.{gi,gd} Blocks/{PackageInfo.g,README,COPYING,VERSION,init.g,read.g,makedoc.g,makefile,maketest.g} Blocks/examples/*.g Blocks/examples/doc/*.g)
 
 WEBPOS=public_html
 WEBPOS_FINAL=~/Sites/homalg-project/Blocks

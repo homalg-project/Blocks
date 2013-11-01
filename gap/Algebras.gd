@@ -8,105 +8,102 @@
 ##
 #############################################################################
 
+#! @Chapter Algebras
+
 ####################################
 #
-# attributes:
+#! @Section Attributes
 #
 ####################################
 
-DeclareAttributeWithDocumentation( "CoefficientsRingForPolynomialAlgebra",
-        IsAlgebra,
-        "The coefficients ring over which &homalg; can define a polynomial ring.",
-        "a group algebra",
-        "A",
-        [ "Algebras", "Attributes" ],
-        rec( function_label := "for IsAlgebra" )
-        );
+#! @Description
+#!  The coefficients ring over which &homalg; can define a polynomial ring.
+#! @Arguments A
+#! @Returns a group algebra
+#! @Label for IsAlgebra
+DeclareAttribute( "CoefficientsRingForPolynomialAlgebra",
+        IsAlgebra );
 
 ## IsElementOfFreeMagmaRing is not an IsAttributeStoringRep
 DeclareAttribute( "UnderlyingGroupAlgebra",
         IsElementOfFreeMagmaRing );
 
-DeclareAttributeWithDocumentation( "UnderlyingGroupAlgebra",
-        IsAlgebra,
-        "The group algebra containing the algebra <A>B</A> as an ideal.",
-        "a group algebra",
-        "A",
-        [ "Algebras", "Attributes" ],
-        rec( function_label := "for IsAlgebra" )
-        );
+#! @Description
+#!  The group algebra containing the algebra <A>B</A> as an ideal.
+#! @Arguments A
+#! @Returns a group algebra
+#! @Label for IsAlgebra
+DeclareAttribute( "UnderlyingGroupAlgebra",
+        IsAlgebra );
 
-DeclareAttributeWithDocumentation( "RadicalOfAlgebraPowers",
-        IsAlgebra,
-        [ "Computes the list of powers <M>rad^i</M> of the radical <M>rad</M> of <A>A</A>,",
-          "starting with the algebra <A>A</A>, regarded as the <M>0</M>-th power.",
-          "<#Include Label=\"RadicalOfAlgebraPowers\">" ],
-        "a record",
-        "A",
-        [ "Algebras", "Attributes" ],
-        rec( function_label := "for IsAlgebra" )
-        );
+#! @Description
+#!  Computes the list of powers <M>rad^i</M> of the radical <M>rad</M> of <A>A</A>,
+#!  starting with the algebra <A>A</A>, regarded as the <M>0</M>-th power.
+#! @Arguments A
+#! @Returns a record
+#! @Label for IsAlgebra
+DeclareAttribute( "RadicalOfAlgebraPowers",
+        IsAlgebra );
+#! @InsertSystem RadicalOfAlgebraPowers
 
-DeclareAttributeWithDocumentation( "RadicalOfAlgebraPowersAsIntersection",
-        IsAlgebra,
-        [ "Computes the list of powers <M>rad^i</M> of the radical <M>rad</M> of the subalgebra <A>A</A>",
-          "of some algebra <M>B</M> as the intersection of the powers of radical of <M>B</M> with <A>A</A>",
-          "(&see; <Ref Attr=\"RadicalOfAlgebraPowers\" Label=\"for IsAlgebra\"/>)." ],
-        "a record",
-        "A",
-        [ "Algebras", "Attributes" ],
-        rec( function_label := "for IsAlgebra" )
-        );
+#! @Description
+#!  Computes the list of powers <M>rad^i</M> of the radical <M>rad</M> of the subalgebra <A>A</A>
+#!  of some algebra <M>B</M> as the intersection of the powers of radical of <M>B</M> with <A>A</A>
+#!  (see <Ref Attr="RadicalOfAlgebraPowers" Label="for IsAlgebra"/>).
+#! @Arguments A
+#! @Returns a record
+#! @Label for IsAlgebra
+DeclareAttribute( "RadicalOfAlgebraPowersAsIntersection",
+        IsAlgebra );
 
-DeclareAttributeWithDocumentation( "AugmentationIdealPowers",
-        IsAlgebraWithOne,
-        [ "Computes the list of powers <M>I^i</M> of the augmentation ideal <M>I</M> of the group algebra <A>kG</A>",
-          "starting with the algebra <A>A</A>, regarded as the <M>0</M>-th power.",
-          "<#Include Label=\"AugmentationIdealPowers\">" ],
-        "a record",
-        "kG",
-        [ "Algebras", "Attributes" ],
-        rec( function_label := "for IsAlgebraWithOne" )
-        );
+#! @Description
+#!  Computes the list of powers <M>I^i</M> of the augmentation ideal <M>I</M> of the group algebra <A>kG</A>
+#!  starting with the algebra <A>A</A>, regarded as the <M>0</M>-th power.
+#! @Arguments kG
+#! @Returns a record
+#! @Label for IsAlgebraWithOne
+DeclareAttribute( "AugmentationIdealPowers",
+        IsAlgebraWithOne );
+#! @InsertSystem AugmentationIdealPowers
 
-DeclareAttributeWithDocumentation( "HighestPowerOfAugmentationIdeal",
-        IsAlgebraWithOne,
-        [ "Computes <M>I^i</M> such that <M>I^{{i+1}} = I^i</M>",
-          "where <M>I</M> is the augmentation ideal of the group algebra <A>kG</A>",
-          "(&see; <Ref Attr=\"AugmentationIdealPowers\" Label=\"for IsAlgebraWithOne\"/>).",
-          "<#Include Label=\"HighestPowerOfAugmentationIdeal\">" ],
-        "a two-sided ideal",
-        "kG",
-        [ "Algebras", "Attributes" ],
-        rec( function_label := "for IsAlgebraWithOne" )
-        );
+#! @Description
+#!  Computes <M>I^i</M> such that <M>I^{{i+1}} = I^i</M>
+#!  where <M>I</M> is the augmentation ideal of the group algebra <A>kG</A>
+#!  (see <Ref Attr="AugmentationIdealPowers" Label="for IsAlgebraWithOne"/>).
+#! @Arguments kG
+#! @Returns a two-sided ideal
+#! @Label for IsAlgebraWithOne
+DeclareAttribute( "HighestPowerOfAugmentationIdeal",
+        IsAlgebraWithOne );
+#! @InsertSystem HighestPowerOfAugmentationIdeal
 
-DeclareAttributeWithDocumentation( "CentralIdempotentsOfInvolutiveAlgebra",
-        IsAlgebraWithOne,
-        [ "Computes the list of central primitive idempotents of the <E>involutive</E> algebra <A>A</A>.",
-          "<#Include Label=\"CentralIdempotentsOfInvolutiveAlgebra\">" ],
-        "a list",
-        "A",
-        [ "Algebras", "Attributes" ],
-        rec( function_label := "for IsAlgebraWithOne" )
-        );
+#! @Description
+#!  Computes the list of central primitive idempotents of the <E>involutive</E> algebra <A>A</A>.
+#! @Arguments A
+#! @Returns a list
+#! @Label for IsAlgebraWithOne
+DeclareAttribute( "CentralIdempotentsOfInvolutiveAlgebra",
+        IsAlgebraWithOne );
+#! @InsertSystem CentralIdempotentsOfInvolutiveAlgebra
 
 ####################################
 #
-# global functions and operations:
+#! @Section Operations
 #
 ####################################
 
-# basic operations:
-
+#!
 DeclareOperation( "UnderlyingBrauerTable",
         [ IsElementOfFreeMagmaRing ] );
 
+#!
 DeclareOperation( "UnderlyingModule",
         [ IsRing, IsAlgebra ] );
 
+#!
 DeclareOperation( "InducedFiltration",
         [ IsRing, IsList ] );
 
+#!
 DeclareOperation( "InducedFiltration",
         [ IsRing, IsRecord ] );

@@ -1,28 +1,25 @@
-##  this creates the documentation, needs: GAPDoc package, latex, pdflatex,
-##  mkindex, dvips
-##  
-##  Call this with GAP.
-##
-
 LoadPackage( "AutoDoc" );
 
-CreateAutomaticDocumentation( "Blocks", "doc/", false );
-
-LoadPackage( "Modules" );
-
-SetGapDocLaTeXOptions( "utf8" );
-
-bib := ParseBibFiles( "doc/Blocks.bib" );
-WriteBibXMLextFile( "doc/BlocksBib.xml", bib );
-
-Read( "ListOfDocFiles.g" );
-
-PrintTo( "VERSION", PackageInfo( "Blocks" )[1].Version );
-
-MakeGAPDocDoc( "doc", "Blocks", list, "Blocks", "MathJax" );
-
-CopyHTMLStyleFiles( "doc" );
-
-GAPDocManualLab( "Blocks" );
+AutoDoc( "Blocks" :
+        
+        scaffold := rec( entities := [ "homalg", "GAP4" ],
+                         ),
+        
+        autodoc := true,
+        
+        maketest := rec( folder := ".",
+                         commands :=
+                         [ "LoadPackage( \"Blocks\" );",
+                           "LoadPackage( \"IO_ForHomalg\" );",
+                           "HOMALG_IO.show_banners := false;",
+                           "HOMALG_IO.suppress_PID := true;",
+                           "HOMALG_IO.use_common_stream := true;",
+                           "HOMALG.SuppressParityInViewObjForCommutativeStructureObjects := true;",
+                           ],
+                         ),
+        
+        Bibliography := "Blocks.bib"
+        
+);
 
 QUIT;
