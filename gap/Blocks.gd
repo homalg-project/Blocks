@@ -186,8 +186,8 @@ DeclareAttribute( "DefectGroup",
 #!  of a group <M>G</M> as a subgroup of <M>G</M>.
 #! @Arguments B
 #! @Returns a subgroup
-#! @Group DefectGroup
 #! @Label for IsAlgebra
+#! @Group DefectGroup
 DeclareAttribute( "DefectGroup",
         IsAlgebra );
 
