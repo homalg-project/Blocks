@@ -22,4 +22,7 @@ AutoDoc( "Blocks" :
         
 );
 
+# Create VERSION file for "make towww"
+PrintTo( "VERSION", PackageInfo( "Blocks" )[1].Version );
+
 QUIT;
