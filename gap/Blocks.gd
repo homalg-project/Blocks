@@ -221,73 +221,61 @@ DeclareOperation( "CorrespondingMaximalIdeal",
         [ IsMultiplicativeElementWithInverse, IsHomalgFiltration ] );
 
 #! @Arguments ordtbl, p
-#! @Returns a list
 #! @Group DefectsOfBlocks
 DeclareOperation( "DefectsOfBlocks",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Returns a list
 #! @Group DefectsOfBlocks
 DeclareOperation( "DefectsOfBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
-#! @Returns a list
 #! @Group CharacterDegreesOfBlocks
 DeclareOperation( "CharacterDegreesOfBlocks",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Returns a list
 #! @Group CharacterDegreesOfBlocks
 DeclareOperation( "CharacterDegreesOfBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
-#! @Returns a list
 #! @Group BrauerCharacterDegreesOfBlocks
 DeclareOperation( "BrauerCharacterDegreesOfBlocks",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Returns a list
 #! @Group BrauerCharacterDegreesOfBlocks
 DeclareOperation( "BrauerCharacterDegreesOfBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
-#! @Returns a list
 #! @Group CartanMatricesOfBlocks
 DeclareOperation( "CartanMatricesOfBlocks",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Returns a list
 #! @Group CartanMatricesOfBlocks
 DeclareOperation( "CartanMatricesOfBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
-#! @Returns a list
 #! @Group CentralCharactersOfBlocks
 DeclareOperation( "CentralCharactersOfBlocks",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Returns a list
 #! @Group CentralCharactersOfBlocks
 DeclareOperation( "CentralCharactersOfBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
-#! @Returns a list
 #! @Group DefectClasses
 DeclareOperation( "DefectClasses",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Returns a list
 #! @Group DefectClasses
 DeclareOperation( "DefectClasses",
         [ IsGroup, IsInt ] );
