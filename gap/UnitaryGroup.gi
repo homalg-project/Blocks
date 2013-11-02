@@ -138,6 +138,19 @@ InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroup,
 end );
 
 ##
+InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroupUsingAdaptedBasis,
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningIdealOfMiddlePartOfUnitaryGroupUsingAdaptedBasis( k, B );
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfRadicalPartOfUnitaryGroup,
         [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
@@ -415,14 +428,58 @@ InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroup,
     if not IsBound( r.2 ) then
         I := DefiningIdealOfUnitaryGroup( F, r.1 );
     else
+        I := DefiningIdealOfUnitaryGroup( F, r.1, r.2 );
+        
         ## astonishingly, a basis adapted to the complete filtration
         ## leads for F_2[A_5] to much slower computations than the one
         ## adapted to the 2-step subfiltration
         #r := ShallowCopy( r );
         #Unbind( r.0 );
         #I := DefiningIdealOfUnitaryGroup( F, r );
+    fi;
+    
+    A!._DefiningIdealOfMiddlePartOfUnitaryGroup := [ F, I ];
+    
+    return I;
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroupUsingAdaptedBasis,
+        [ IsRing, IsAlgebra ],
         
-        I := DefiningIdealOfUnitaryGroup( F, r.1, r.2 );
+  function( F, A )
+    local r, I;
+    
+    if IsBound( A!._DefiningIdealOfMiddlePartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningIdealOfMiddlePartOfUnitaryGroup[1], F ) then
+        return A!._DefiningIdealOfMiddlePartOfUnitaryGroup[2];
+    fi;
+    
+    if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
+        Error( "the algebra does not contain a one\n" );
+    fi;
+    
+    r := RadicalOfAlgebraPowersAsIntersection( A );
+    
+    if not IsBound( r.2 ) then
+        I := DefiningIdealOfUnitaryGroup( F, r.1 );
+    else
+        ## instead of:
+        #I := DefiningIdealOfUnitaryGroup( F, r.1, r.2 );
+        
+        ## a basis adapted to the complete filtration leads
+        ## for F_2[SL(2,3)] to a set of defining relations
+        ## of the defining ideal of the codomain of the defining morphism.
+        ## The Gröbner basis computation of this set is much faster than when
+        ## the basis is adapted to the 2-step subfiltration;
+        ## with the new version of MatricesForHomalg 2013.10.25 this particular
+        ## Gröbner basis computation is avoided and the difference in speed
+        ## between subsequent computations with both bases is negligible
+        r := ShallowCopy( r );
+        Unbind( r.0 );
+        I := DefiningIdealOfUnitaryGroup( F, r );
+        
     fi;
     
     A!._DefiningIdealOfMiddlePartOfUnitaryGroup := [ F, I ];

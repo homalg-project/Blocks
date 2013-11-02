@@ -107,6 +107,16 @@ DeclareAttribute( "DefiningIdealOfMiddlePartOfUnitaryGroup",
         IsAlgebra );
 
 #! @Description
+#!  Computes the defining ideal of the <Q>middle part</Q> of the unitary group of the involutive algebra <A>A</A>
+#!  using a basis adapted to the complete chain of radical powers of <A>A</A>.
+#! @Arguments A
+#! @Returns an ideal
+#! @Label for IsAlgebra
+#! @Group DefiningIdealOfMiddlePartOfUnitaryGroupUsingAdaptedBasis
+DeclareAttribute( "DefiningIdealOfMiddlePartOfUnitaryGroupUsingAdaptedBasis",
+        IsAlgebra );
+
+#! @Description
 #!  Computes the defining ideal of the <Q>radical part</Q> of the unitary group of the involutive algebra <A>A</A>.
 #! @Arguments A
 #! @Returns an ideal
@@ -179,6 +189,11 @@ DeclareOperation( "DefiningIdealOfUpperPartOfUnitaryGroup",
 #! @Arguments k, A
 #! @Group DefiningIdealOfMiddlePartOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfMiddlePartOfUnitaryGroup",
+        [ IsRing, IsAlgebra ] );
+
+#! @Arguments k, A
+#! @Group DefiningIdealOfMiddlePartOfUnitaryGroupUsingAdaptedBasis
+DeclareOperation( "DefiningIdealOfMiddlePartOfUnitaryGroupUsingAdaptedBasis",
         [ IsRing, IsAlgebra ] );
 
 #! @Arguments k, A
