@@ -220,8 +220,6 @@ DeclareOperation( "CorrespondingMaximalIdeal",
 DeclareOperation( "CorrespondingMaximalIdeal",
         [ IsMultiplicativeElementWithInverse, IsHomalgFiltration ] );
 
-#! @Description
-#!  Compute the maximal ideal corresponding to the group element <A>g</A>.
 #! @Arguments ordtbl, p
 #! @Returns a list
 #! @Group DefectsOfBlocks
