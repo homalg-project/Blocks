@@ -129,7 +129,7 @@ DeclareOperation( "NaiveSizeOfUnitaryGroupOfGroupRing",
         [ IsRing, IsGroup ] );
 
 #!
-DeclareOperation( "DefiningIdealOfUnitaryGroupModuloIdeal",
+DeclareOperation( "DefiningIdealOfUnitary",
         [ IsHomalgFiltration ] );
 
 #!

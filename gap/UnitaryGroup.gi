@@ -283,7 +283,7 @@ InstallMethod( NaiveSizeOfUnitaryGroupOfGroupRing,
 end );
 
 ##
-InstallMethod( DefiningIdealOfUnitaryGroupModuloIdeal,
+InstallMethod( DefiningIdealOfUnitary,
         [ IsHomalgFiltration ],
         
   function( filt )
@@ -310,7 +310,7 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
     
     filt := InducedFiltration( F, L );
     
-    return DefiningIdealOfUnitaryGroupModuloIdeal( filt );
+    return DefiningIdealOfUnitary( filt );
     
 end );
 
@@ -323,7 +323,7 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
     
     filt := InducedFiltration( F, L );
     
-    return DefiningIdealOfUnitaryGroupModuloIdeal( filt );
+    return DefiningIdealOfUnitary( filt );
     
 end );
 
