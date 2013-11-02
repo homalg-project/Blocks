@@ -21,6 +21,7 @@
 #!  is a union of affine spaces.
 #! @Arguments A
 #! @Label for IsAlgebra
+#! @Group IsMiddlePartUnionOfAffineSpaces
 DeclareProperty( "IsMiddlePartUnionOfAffineSpaces",
         IsAlgebra );
 
@@ -29,6 +30,7 @@ DeclareProperty( "IsMiddlePartUnionOfAffineSpaces",
 #!  is a extension of affine spaces.
 #! @Arguments A
 #! @Label for IsAlgebra
+#! @Group IsLowerPartExtensionOfAffineSpaces
 DeclareProperty( "IsLowerPartExtensionOfAffineSpaces",
         IsAlgebra );
 
@@ -60,13 +62,29 @@ DeclareAttribute( "DimensionOfUnitaryGroup",
 #! @InsertSystem DimensionOfUnitaryGroup
 
 #! @Description
-#!  Computes the defining ideal of the unitary group of the involutive algebra <A>A</A>.
+#!  Computes the defining ideal of the unitary group of the involutive algebra <A>A</A>
+#!  (with or without one, in the latter case it has to be a two-sided ideal in an involutive algebra with one)
+#!  with <C>CoefficientsRingForPolynomialAlgebra</C>( <A>A</A> ) set to <A>k</A> and
+#!  <A>M</A> := <C>UnderlyingModule</C>( <A>k</A>, <A>A</A> ),
+#!  the underlying &homalg; module <A>M</A> (over the polynomial <A>k</A>-algebra
+#!  in as many indeterminates as <M>\dim</M><A>A</A> and which still knows about <A>A</A>).
+#!  In the other cases it computes the relative unitary group
+#!  of <A>A</A> relative to a involution-stable two-side ideal <A>I</A>
+#!  (caution: the latter is in characteristic <M>2</M> generally <E>not</E> the unitary group of <A>A</A><M>/</M><A>I</A>).
+#!  If one specifies a chain of stable ideals as a list <A>L</A>,
+#!  or a filtration <A>filt</A> (with <A>M</A> = <C>UnderlyingObject</C>( <A>filt</A> )),
+#!  or a record <A>r</A> with successive nonnegative integers, then <A>A</A>
+#!  is set to the first entry and <A>I</A> to the second and the basis of <A>A</A> and <A>I</A> is adapted to the whole chain,
+#!  which occasionally provides a big computational advantage.
 #! @Arguments A
 #! @Returns an ideal
 #! @Label for IsAlgebra
+#! @Group DefiningIdealOfUnitaryGroup
 DeclareAttribute( "DefiningIdealOfUnitaryGroup",
         IsAlgebra );
 
+#! @Arguments M
+#! @Group DefiningIdealOfUnitaryGroup
 DeclareAttribute( "DefiningIdealOfUnitaryGroup",
         IsHomalgModule );
 
@@ -75,6 +93,7 @@ DeclareAttribute( "DefiningIdealOfUnitaryGroup",
 #! @Arguments A
 #! @Returns an ideal
 #! @Label for IsAlgebra
+#! @Group DefiningIdealOfUpperPartOfUnitaryGroup
 DeclareAttribute( "DefiningIdealOfUpperPartOfUnitaryGroup",
         IsAlgebra );
 
@@ -83,6 +102,7 @@ DeclareAttribute( "DefiningIdealOfUpperPartOfUnitaryGroup",
 #! @Arguments A
 #! @Returns an ideal
 #! @Label for IsAlgebra
+#! @Group DefiningIdealOfMiddlePartOfUnitaryGroup
 DeclareAttribute( "DefiningIdealOfMiddlePartOfUnitaryGroup",
         IsAlgebra );
 
@@ -91,6 +111,7 @@ DeclareAttribute( "DefiningIdealOfMiddlePartOfUnitaryGroup",
 #! @Arguments A
 #! @Returns an ideal
 #! @Label for IsAlgebra
+#! @Group DefiningIdealOfRadicalPartOfUnitaryGroup
 DeclareAttribute( "DefiningIdealOfRadicalPartOfUnitaryGroup",
         IsAlgebra );
 
@@ -99,6 +120,7 @@ DeclareAttribute( "DefiningIdealOfRadicalPartOfUnitaryGroup",
 #! @Arguments A
 #! @Returns an ideal
 #! @Label for IsAlgebra
+#! @Group DefiningIdealOfLowerPartOfUnitaryGroup
 DeclareAttribute( "DefiningIdealOfLowerPartOfUnitaryGroup",
         IsAlgebra );
 
@@ -108,15 +130,16 @@ DeclareAttribute( "DefiningIdealOfLowerPartOfUnitaryGroup",
 #
 ####################################
 
-#!
+#! @Group NormalizedUnitaryGroup
 DeclareOperation( "NormalizedUnitaryGroup",
         [ IsRing ] );
 
-#!
+#! @Group NormalizedUnitaryGroup
 DeclareOperation( "NormalizedUnitaryGroup",
         [ IsField, IsGroup ] );
 
-#!
+#! @Arguments k, A
+#! @Group DefiningIdealOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
@@ -128,42 +151,52 @@ DeclareOperation( "SizeOfUnitaryGroupOfGroupRing",
 DeclareOperation( "NaiveSizeOfUnitaryGroupOfGroupRing",
         [ IsRing, IsGroup ] );
 
-#!
+#! @Arguments filt
+#! @Group DefiningIdealOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfUnitary",
         [ IsHomalgFiltration ] );
 
-#!
+#! @Arguments k, L
+#! @Group DefiningIdealOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsList ] );
 
-#!
+#! @Arguments k, r
+#! @Group DefiningIdealOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsRecord ] );
 
-#!
+#! @Arguments k, A, I
+#! @Group DefiningIdealOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra, IsAlgebra ] );
 
-#!
+#! @Arguments k, A
+#! @Group DefiningIdealOfUpperPartOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfUpperPartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
-#!
+#! @Arguments k, A
+#! @Group DefiningIdealOfMiddlePartOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfMiddlePartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
-#!
+#! @Arguments k, A
+#! @Group IsMiddlePartUnionOfAffineSpaces
 DeclareOperation( "IsMiddlePartUnionOfAffineSpaces",
         [ IsRing, IsAlgebra ] );
 
-#!
+#! @Arguments k, A
+#! @Group DefiningIdealOfRadicalPartOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfRadicalPartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
-#!
+#! @Arguments k, A
+#! @Group DefiningIdealOfLowerPartOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfLowerPartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
-#!
+#! @Arguments k, A
+#! @Group IsLowerPartExtensionOfAffineSpaces
 DeclareOperation( "IsLowerPartExtensionOfAffineSpaces",
         [ IsRing, IsAlgebra ] );
