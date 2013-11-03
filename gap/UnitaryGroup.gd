@@ -88,6 +88,11 @@ DeclareAttribute( "DefiningIdealOfUnitaryGroup",
 DeclareAttribute( "DefiningIdealOfUnitaryGroup",
         IsHomalgModule );
 
+#! @Arguments filt
+#! @Group DefiningIdealOfUnitaryGroup
+DeclareAttribute( "DefiningIdealOfUnitaryGroup",
+        IsHomalgFiltration );
+
 #! @Description
 #!  Computes the defining ideal of the <Q>upper part</Q> of the unitary group of the involutive algebra <A>A</A>.
 #! @Arguments A
@@ -160,11 +165,6 @@ DeclareOperation( "SizeOfUnitaryGroupOfGroupRing",
 #!
 DeclareOperation( "NaiveSizeOfUnitaryGroupOfGroupRing",
         [ IsRing, IsGroup ] );
-
-#! @Arguments filt
-#! @Group DefiningIdealOfUnitaryGroup
-DeclareOperation( "DefiningIdealOfUnitary",
-        [ IsHomalgFiltration ] );
 
 #! @Arguments k, L
 #! @Group DefiningIdealOfUnitaryGroup

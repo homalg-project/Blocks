@@ -112,6 +112,25 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
 end );
 
 ##
+InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsHomalgFiltration ],
+        
+  function( filt )
+    local N, phi, I;
+    
+    N := CertainObject( filt, 0 );
+    
+    phi := N!.RingMap( );
+    
+    I := KernelSubobject( phi );
+    
+    I!.HomalgFiltration := filt;
+    
+    return I;
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
         [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
@@ -296,25 +315,6 @@ InstallMethod( NaiveSizeOfUnitaryGroupOfGroupRing,
 end );
 
 ##
-InstallMethod( DefiningIdealOfUnitary,
-        [ IsHomalgFiltration ],
-        
-  function( filt )
-    local N, phi, I;
-    
-    N := CertainObject( filt, 0 );
-    
-    phi := N!.RingMap( );
-    
-    I := KernelSubobject( phi );
-    
-    I!.HomalgFiltration := filt;
-    
-    return I;
-    
-end );
-
-##
 InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsRing, IsRecord ],
         
@@ -323,7 +323,7 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
     
     filt := InducedFiltration( F, L );
     
-    return DefiningIdealOfUnitary( filt );
+    return DefiningIdealOfUnitaryGroup( filt );
     
 end );
 
@@ -336,7 +336,7 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
     
     filt := InducedFiltration( F, L );
     
-    return DefiningIdealOfUnitary( filt );
+    return DefiningIdealOfUnitaryGroup( filt );
     
 end );
 
