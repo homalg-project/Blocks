@@ -101,7 +101,9 @@ DeclareAttribute( "DefiningMorphismOfUnitaryGroup",
         IsHomalgFiltration );
 
 #! @Description
-#!  Computes the defining ideal of the <Q>upper part</Q> of the unitary group of the involutive algebra <A>A</A>.
+#!  Computes the defining ideal of the <Q>upper part</Q> of the unitary group of the involutive algebra <A>A</A>
+#!  as the kernel of <M>\varphi_{A / \mathfrak{r}} :=</M> <C>DefiningIdealOfUpperPartOfUnitaryGroup</C>( <A>A</A> ),
+#!  where <M>\mathfrak{r}</M> denotes the radical of <A>A</A>.
 #! @Arguments A
 #! @Returns an ideal
 #! @Label for IsAlgebra
@@ -109,13 +111,23 @@ DeclareAttribute( "DefiningMorphismOfUnitaryGroup",
 DeclareAttribute( "DefiningIdealOfUpperPartOfUnitaryGroup",
         IsAlgebra );
 
+#! @Group DefiningIdealOfUpperPartOfUnitaryGroup
+DeclareAttribute( "DefiningMorphismOfUpperPartOfUnitaryGroup",
+        IsAlgebra );
+
 #! @Description
-#!  Computes the defining ideal of the <Q>middle part</Q> of the unitary group of the involutive algebra <A>A</A>.
+#!  Computes the defining ideal of the <Q>middle part</Q> of the unitary group of the involutive algebra <A>A</A>
+#!  as the kernel of <M>\varphi_{\mathfrak{r} / \mathfrak{r}^2} :=</M> <C>DefiningIdealOfMiddlePartOfUnitaryGroup</C>( <A>A</A> ),
+#!  where <M>\mathfrak{r}</M> denotes the radical of <A>A</A>.
 #! @Arguments A
 #! @Returns an ideal
 #! @Label for IsAlgebra
 #! @Group DefiningIdealOfMiddlePartOfUnitaryGroup
 DeclareAttribute( "DefiningIdealOfMiddlePartOfUnitaryGroup",
+        IsAlgebra );
+
+#! @Group DefiningIdealOfMiddlePartOfUnitaryGroup
+DeclareAttribute( "DefiningMorphismOfMiddlePartOfUnitaryGroup",
         IsAlgebra );
 
 #! @Description
@@ -194,8 +206,18 @@ DeclareOperation( "DefiningIdealOfUpperPartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
 #! @Arguments k, A
+#! @Group DefiningIdealOfUpperPartOfUnitaryGroup
+DeclareOperation( "DefiningMorphismOfUpperPartOfUnitaryGroup",
+        [ IsRing, IsAlgebra ] );
+
+#! @Arguments k, A
 #! @Group DefiningIdealOfMiddlePartOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfMiddlePartOfUnitaryGroup",
+        [ IsRing, IsAlgebra ] );
+
+#! @Arguments k, A
+#! @Group DefiningIdealOfMiddlePartOfUnitaryGroup
+DeclareOperation( "DefiningMorphismOfMiddlePartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
 #! @Arguments k, A

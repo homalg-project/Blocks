@@ -195,6 +195,19 @@ InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
 end );
 
 ##
+InstallMethod( DefiningMorphismOfUpperPartOfUnitaryGroup,
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningMorphismOfUpperPartOfUnitaryGroup( k, B );
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroup,
         [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
@@ -204,6 +217,19 @@ InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroup,
     k := CoefficientsRingForPolynomialAlgebra( B );
     
     return DefiningIdealOfMiddlePartOfUnitaryGroup( k, B );
+    
+end );
+
+##
+InstallMethod( DefiningMorphismOfMiddlePartOfUnitaryGroup,
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningMorphismOfMiddlePartOfUnitaryGroup( k, B );
     
 end );
 
@@ -362,6 +388,41 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
 end );
 
 ##
+InstallMethod( DefiningMorphismOfUpperPartOfUnitaryGroup,
+        [ IsRing, IsAlgebra ],
+        
+  function( F, A )
+    local r, filt, phi;
+    
+    if IsBound( A!._DefiningMorphismOfUpperPartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningMorphismOfUpperPartOfUnitaryGroup[1], F ) then
+        return A!._DefiningMorphismOfUpperPartOfUnitaryGroup[2];
+    fi;
+    
+    if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
+        Error( "the algebra does not contain a one\n" );
+    fi;
+    
+    r := RadicalOfAlgebraPowersAsIntersection( A );
+    
+    ## astonishingly, a basis adapted to the complete filtration
+    ## leads for F_2[C_16] to a set of defining relations
+    ## of the defining ideal of the codomain of the defining morphism.
+    ## The Gröbner basis computation of this set is much slower than when
+    ## the basis is adapted to the 2-step subfiltration
+    #filt := InducedFiltration( F, r );
+    
+    filt := InducedFiltration( F, [ r.0, r.1 ] );
+    
+    phi := DefiningMorphismOfUnitaryGroup( filt );
+    
+    A!._DefiningMorphismOfUpperPartOfUnitaryGroup := [ F, phi ];
+    
+    return phi;
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
         [ IsRing, IsAlgebra ],
         
@@ -415,6 +476,50 @@ InstallMethod( DefiningIdealOfRadicalPartOfUnitaryGroup,
     A!._DefiningIdealOfRadicalPartOfUnitaryGroup := [ F, I ];
     
     return I;
+    
+end );
+
+##
+InstallMethod( DefiningMorphismOfMiddlePartOfUnitaryGroup,
+        [ IsRing, IsAlgebra ],
+        
+  function( F, A )
+    local r, filt, phi;
+    
+    if IsBound( A!._DefiningMorphismOfMiddlePartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningMorphismOfMiddlePartOfUnitaryGroup[1], F ) then
+        return A!._DefiningMorphismOfMiddlePartOfUnitaryGroup[2];
+    fi;
+    
+    if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
+        Error( "the algebra does not contain a one\n" );
+    fi;
+    
+    r := RadicalOfAlgebraPowersAsIntersection( A );
+    
+    ## astonishingly, a basis adapted to the complete filtration
+    ## leads for F_2[A_5] to a set of defining relations
+    ## of the defining ideal of the codomain of the defining morphism.
+    ## The Gröbner basis computation of this set is much slower than when
+    ## the basis is adapted to the 2-step subfiltration
+    #r := ShallowCopy( r );
+    #Unbind( r.0 );
+    #filt := InducedFiltration( F, r );
+    
+    if not IsBound( r.2 ) then
+        if not Dimension( r.1 ) = 0 then
+            Error( "the zero ideal is missing\n" );
+        fi;
+        filt := InducedFiltration( F, [ r.1, r.1 ] );
+    else
+        filt := InducedFiltration( F, [ r.1, r.2 ] );
+    fi;
+    
+    phi := DefiningMorphismOfUnitaryGroup( filt );
+    
+    A!._DefiningMorphismOfMiddlePartOfUnitaryGroup := [ F, phi ];
+    
+    return phi;
     
 end );
 
