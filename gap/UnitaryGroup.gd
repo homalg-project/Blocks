@@ -69,12 +69,12 @@ DeclareAttribute( "DimensionOfUnitaryGroup",
 #!  the underlying &homalg; module <A>M</A> (over the polynomial <A>k</A>-algebra
 #!  in as many indeterminates as <M>\dim</M><A>A</A> and which still knows about <A>A</A>).
 #!  In the other cases it computes the relative unitary group
-#!  of <A>A</A> relative to a involution-stable two-side ideal <A>I</A>
-#!  (caution: the latter is in characteristic <M>2</M> generally <E>not</E> the unitary group of <A>A</A><M>/</M><A>I</A>).
+#!  of <A>A</A> relative to a involution-stable two-side ideal <A>J</A>
+#!  (caution: the latter is in characteristic <M>2</M> generally <E>not</E> the unitary group of <A>A</A><M>/</M><A>J</A>).
 #!  If one specifies a chain of stable ideals as a list <A>L</A>,
 #!  or a filtration <A>filt</A> (with <A>M</A> = <C>UnderlyingObject</C>( <A>filt</A> )),
 #!  or a record <A>r</A> with successive nonnegative integers, then <A>A</A>
-#!  is set to the first entry and <A>I</A> to the second and the basis of <A>A</A> and <A>I</A> is adapted to the whole chain,
+#!  is set to the first entry and <A>J</A> to the second and the basis of <A>A</A> and <A>J</A> is adapted to the whole chain,
 #!  which occasionally provides a big computational advantage.
 #! @Arguments A
 #! @Returns an ideal
@@ -176,7 +176,7 @@ DeclareOperation( "DefiningIdealOfUnitaryGroup",
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsRecord ] );
 
-#! @Arguments k, A, I
+#! @Arguments k, A, J
 #! @Group DefiningIdealOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra, IsAlgebra ] );
