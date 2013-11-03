@@ -152,15 +152,26 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
 end );
 
 ##
+InstallMethod( DefiningMorphismOfUnitaryGroup,
+        [ IsHomalgFiltration ],
+        
+  function( filt )
+    local N;
+    
+    N := CertainObject( filt, 0 );
+    
+    return N!.RingMap( );
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsHomalgFiltration ],
         
   function( filt )
-    local N, phi, I;
+    local phi, I;
     
-    N := CertainObject( filt, 0 );
-    
-    phi := N!.RingMap( );
+    phi := DefiningMorphismOfUnitaryGroup( filt );
     
     I := KernelSubobject( phi );
     

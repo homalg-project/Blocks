@@ -76,6 +76,8 @@ DeclareAttribute( "DimensionOfUnitaryGroup",
 #!  or a record <A>r</A> with successive nonnegative integers, then <A>A</A>
 #!  is set to the first entry and <A>J</A> to the second and the basis of <A>A</A> and <A>J</A> is adapted to the whole chain,
 #!  which occasionally provides a big computational advantage.
+#!  The defining ideal in the relative case is computed as the kernel of the ring morphism
+#!  <M>\varphi_{A/J} :=</M> <C>DefiningMorphismOfUnitaryGroup</C>( <A>filt</A> ).
 #! @Arguments A
 #! @Returns an ideal
 #! @Label for IsAlgebra
@@ -91,6 +93,11 @@ DeclareAttribute( "DefiningIdealOfUnitaryGroup",
 #! @Arguments filt
 #! @Group DefiningIdealOfUnitaryGroup
 DeclareAttribute( "DefiningIdealOfUnitaryGroup",
+        IsHomalgFiltration );
+
+#! @Arguments filt
+#! @Group DefiningIdealOfUnitaryGroup
+DeclareAttribute( "DefiningMorphismOfUnitaryGroup",
         IsHomalgFiltration );
 
 #! @Description
