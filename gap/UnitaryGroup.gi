@@ -427,25 +427,16 @@ InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
         [ IsRing, IsAlgebra ],
         
   function( F, A )
-    local r, I;
+    local phi, I;
     
     if IsBound( A!._DefiningIdealOfUpperPartOfUnitaryGroup ) and
        IsIdenticalObj( A!._DefiningIdealOfUpperPartOfUnitaryGroup[1], F ) then
         return A!._DefiningIdealOfUpperPartOfUnitaryGroup[2];
     fi;
     
-    if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
-        Error( "the algebra does not contain a one\n" );
-    fi;
+    phi := DefiningMorphismOfUpperPartOfUnitaryGroup( F, A );
     
-    r := RadicalOfAlgebraPowersAsIntersection( A );
-    
-    ## astonishingly, a basis adapted to the complete filtration
-    ## leads for F_2[C_16] to much slower computations than the one
-    ## adapted to the 2-step subfiltration
-    #I := DefiningIdealOfUnitaryGroup( F, r );
-    
-    I := DefiningIdealOfUnitaryGroup( F, r.0, r.1 );
+    I := KernelSubobject( phi );
     
     A!._DefiningIdealOfUpperPartOfUnitaryGroup := [ F, I ];
     
@@ -528,31 +519,16 @@ InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroup,
         [ IsRing, IsAlgebra ],
         
   function( F, A )
-    local r, I;
+    local phi, I;
     
     if IsBound( A!._DefiningIdealOfMiddlePartOfUnitaryGroup ) and
        IsIdenticalObj( A!._DefiningIdealOfMiddlePartOfUnitaryGroup[1], F ) then
         return A!._DefiningIdealOfMiddlePartOfUnitaryGroup[2];
     fi;
     
-    if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
-        Error( "the algebra does not contain a one\n" );
-    fi;
+    phi := DefiningMorphismOfMiddlePartOfUnitaryGroup( F, A );
     
-    r := RadicalOfAlgebraPowersAsIntersection( A );
-    
-    if not IsBound( r.2 ) then
-        I := DefiningIdealOfUnitaryGroup( F, r.1 );
-    else
-        I := DefiningIdealOfUnitaryGroup( F, r.1, r.2 );
-        
-        ## astonishingly, a basis adapted to the complete filtration
-        ## leads for F_2[A_5] to much slower computations than the one
-        ## adapted to the 2-step subfiltration
-        #r := ShallowCopy( r );
-        #Unbind( r.0 );
-        #I := DefiningIdealOfUnitaryGroup( F, r );
-    fi;
+    I := KernelSubobject( phi );
     
     A!._DefiningIdealOfMiddlePartOfUnitaryGroup := [ F, I ];
     
