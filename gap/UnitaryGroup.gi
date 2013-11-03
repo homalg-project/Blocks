@@ -113,6 +113,46 @@ end );
 
 ##
 InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsHomalgModule and IsZero ],
+        
+  function( M )
+    local I;
+    
+    I := ZeroLeftSubmodule( HomalgRing( M ) );
+    
+    I!.HomalgModule := M;
+    
+    return I;
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsHomalgModule and HasBasis ],
+        
+  function( M )
+    local x, S, a, I;
+    
+    x := GeneralElement( M );
+    
+    S := Antipode( M );
+    
+    if IsBound( M!.UnitOfAlgebraicGroup ) then
+        a := x * ( x * S ) - One( x );
+    else
+        a := x + ( x * S ) + x * ( x * S );
+    fi;
+    
+    I := ExtractDefiningIdeal( a );
+    
+    I!.HomalgModule := M;
+    
+    return I;
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsHomalgFiltration ],
         
   function( filt )
@@ -218,46 +258,6 @@ InstallMethod( NormalizedUnitaryGroup,
   function( k, G )
     
     return NormalizedUnitaryGroup( GroupRing( k, G ) );
-    
-end );
-
-##
-InstallMethod( DefiningIdealOfUnitaryGroup,
-        [ IsHomalgModule and IsZero ],
-        
-  function( M )
-    local I;
-    
-    I := ZeroLeftSubmodule( HomalgRing( M ) );
-    
-    I!.HomalgModule := M;
-    
-    return I;
-    
-end );
-
-##
-InstallMethod( DefiningIdealOfUnitaryGroup,
-        [ IsHomalgModule and HasBasis ],
-        
-  function( M )
-    local x, S, a, I;
-    
-    x := GeneralElement( M );
-    
-    S := Antipode( M );
-    
-    if IsBound( M!.UnitOfAlgebraicGroup ) then
-        a := x * ( x * S ) - One( x );
-    else
-        a := x + ( x * S ) + x * ( x * S );
-    fi;
-    
-    I := ExtractDefiningIdeal( a );
-    
-    I!.HomalgModule := M;
-    
-    return I;
     
 end );
 
