@@ -482,10 +482,14 @@ InstallMethod( InducedFiltration,
         map := NaturalGeneralizedEmbedding( N )^-1;
         Assert( 0, IsEpimorphism( map ) );
         
-        indets := Indeterminates( R );
-        indets := HomalgMatrix( indets, 1, Length( indets ), R );
-        
-        indets := indets * ( R * MatrixOfMap( map ) );
+        if HasIndeterminatesOfPolynomialRing( R ) then
+            indets := Indeterminates( R );
+            indets := HomalgMatrix( indets, 1, Length( indets ), R );
+            
+            indets := indets * ( R * MatrixOfMap( map ) );
+        else
+            indets := [ ];
+        fi;
         
         I := DefiningIdealOfUnitaryGroup( M );
         
