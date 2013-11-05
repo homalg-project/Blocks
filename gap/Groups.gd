@@ -89,7 +89,7 @@ DeclareAttribute( "ConjugacyInvolutoryClassesOfComplementOfNormalSubgroup",
 
 #! @Description
 #!  Checks if the group element <A>g</A> is <A>p</A>-regular.
-#  <#Include Label="IsRegular_code">
+#!  <#Include Label="IsRegular_code">
 #! @Arguments g, p
 #! @Returns <C>true</C> or <C>false</C>
 DeclareOperation( "IsRegular",
@@ -111,7 +111,7 @@ DeclareOperation( "IsRegular",
 #!  <M>g=</M><C>Representative</C><M>(</M><A>K</A><M>)</M>
 #!  of the conjugacy class <A>K</A><M>=g^G</M> as a subgroup of
 #!  <M>G=</M><C>ActingDomain</C><M>(</M><A>K</A><M>)</M>.
-#  <#Include Label="DefectGroup_code:cc">
+#!  <#Include Label="DefectGroup_code:cc">
 #! @Arguments K, p
 #! @Returns a subgroup of <M>G</M>
 DeclareOperation( "DefectGroup",
