@@ -17,7 +17,7 @@
 ####################################
 
 #! @Description
-#!  Check if the <Q>cotangent part</Q> of the unitary group of the involutive algebra <A>A</A>
+#!  Check if the <Q>middle part</Q> of the unitary group of the involutive algebra <A>A</A>
 #!  is a union of affine spaces.
 #! @Arguments A
 #! @Label for IsAlgebra
