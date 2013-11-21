@@ -225,7 +225,7 @@ InstallMethod( UnderlyingModule,
     if not ( HasIsGroupAlgebra( kG ) and IsGroupAlgebra( kG ) and HasUnderlyingMagma( kG ) ) then
         ## I still do not know how to extend the scalars of an algebra
         ## with an external homalg ring R; luckily GroupRing( R, G ) works
-        ## which is the reason we need a group here
+        ## which is the reason why we need a group here
         Error( "no underlying magma found\n" );
     fi;
     
