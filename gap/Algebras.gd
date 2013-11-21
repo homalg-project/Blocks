@@ -96,14 +96,14 @@ DeclareAttribute( "CentralIdempotentsOfInvolutiveAlgebra",
 DeclareOperation( "UnderlyingBrauerTable",
         [ IsElementOfFreeMagmaRing ] );
 
-#!
+#! @Arguments k, B
 DeclareOperation( "UnderlyingModule",
         [ IsRing, IsAlgebra ] );
 
-#!
+#! @Arguments k, filt
 DeclareOperation( "InducedFiltration",
         [ IsRing, IsList ] );
 
-#!
+#! @Arguments k, r
 DeclareOperation( "InducedFiltration",
         [ IsRing, IsRecord ] );

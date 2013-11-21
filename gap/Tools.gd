@@ -31,14 +31,14 @@ DeclareOperation( "FieldOfGroupRingElements",
         [ IsList ] );
 #! @InsertSystem FieldOfGroupRingElements
 
-#!
+#! @Arguments o, r
 DeclareOperation( "Coerce",
         [ IsRingElement, IsElementOfFreeMagmaRing ] );
 
-#!
+#! @Arguments M, c
 DeclareOperation( "Coefficients",
         [ IsHomalgModule, IsElementOfFreeMagmaRing ] );
 
-#!
+#! @Arguments filt, c
 DeclareOperation( "Coefficients",
         [ IsHomalgFiltration, IsElementOfFreeMagmaRing ] );

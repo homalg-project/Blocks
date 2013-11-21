@@ -16,12 +16,15 @@
 #
 ####################################
 
+#! @Arguments filt
 DeclareAttribute( "GeneralElementsOfFiltration",
         IsHomalgFiltration );
 
+#! @Arguments m
 DeclareAttribute( "AsElementOfAlgebra",
         IsHomalgModuleElement );
 
+#! @Arguments M
 DeclareAttribute( "Antipode",
         IsHomalgModule );
 
@@ -31,14 +34,14 @@ DeclareAttribute( "Antipode",
 #
 ####################################
 
-#!
+#! @Arguments M
 DeclareOperation( "GeneralElement",
         [ IsHomalgModule ] );
 
-#!
+#! @Arguments phi, filt
 DeclareOperation( "GradedPartsOfFilteredMorphism",
         [ IsHomalgMorphism, IsHomalgFiltration ] );
 
-#!
+#! @Arguments m
 DeclareOperation( "ExtractDefiningIdeal",
         [ IsHomalgModuleElement ] );

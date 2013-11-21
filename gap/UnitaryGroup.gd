@@ -111,6 +111,7 @@ DeclareAttribute( "DefiningMorphismOfUnitaryGroup",
 DeclareAttribute( "DefiningIdealOfUpperPartOfUnitaryGroup",
         IsAlgebra );
 
+#! @Arguments A
 #! @Group DefiningIdealOfUpperPartOfUnitaryGroup
 DeclareAttribute( "DefiningMorphismOfUpperPartOfUnitaryGroup",
         IsAlgebra );
@@ -126,6 +127,7 @@ DeclareAttribute( "DefiningMorphismOfUpperPartOfUnitaryGroup",
 DeclareAttribute( "DefiningIdealOfMiddlePartOfUnitaryGroup",
         IsAlgebra );
 
+#! @Arguments A
 #! @Group DefiningIdealOfMiddlePartOfUnitaryGroup
 DeclareAttribute( "DefiningMorphismOfMiddlePartOfUnitaryGroup",
         IsAlgebra );
@@ -164,10 +166,12 @@ DeclareAttribute( "DefiningIdealOfLowerPartOfUnitaryGroup",
 #
 ####################################
 
+#! @Arguments kG
 #! @Group NormalizedUnitaryGroup
 DeclareOperation( "NormalizedUnitaryGroup",
         [ IsRing ] );
 
+#! @Arguments k, G
 #! @Group NormalizedUnitaryGroup
 DeclareOperation( "NormalizedUnitaryGroup",
         [ IsField, IsGroup ] );
@@ -177,11 +181,11 @@ DeclareOperation( "NormalizedUnitaryGroup",
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
-#!
+#! @Arguments k, G
 DeclareOperation( "SizeOfUnitaryGroupOfGroupRing",
         [ IsRing, IsGroup ] );
 
-#!
+#! @Arguments k, G
 DeclareOperation( "NaiveSizeOfUnitaryGroupOfGroupRing",
         [ IsRing, IsGroup ] );
 
