@@ -84,7 +84,7 @@ DeclareAttribute( "CentralIdempotentsOfInvolutiveAlgebra",
 DeclareOperation( "UnderlyingModule",
         [ IsRing, IsAlgebra ] );
 
-#! @Arguments k, filt
+#! @Arguments k, L
 DeclareOperation( "InducedFiltration",
         [ IsRing, IsList ] );
 
