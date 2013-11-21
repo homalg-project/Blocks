@@ -7,12 +7,13 @@ G := SmallGroup( 12, 1 );; StructureDescription( G );; G;
 #! C3 : C4
 kG := GroupRing( GF(2), G );
 #! <algebra-with-one over GF(2), with 3 generators>
+k := HomalgRingOfIntegersInSingular( 2 );
+#! GF(2)
+SetCoefficientsRingForPolynomialAlgebra( kG, k );
 B0 := PrincipalBlock( kG );
 #! <two-sided ideal in <algebra-with-one over GF(2), with 3 generators>,
 #!  (1 generators)>
-k := HomalgRingOfIntegersInSingular( 2 );
-#! GF(2)
-M0 := UnderlyingModule( k, B0 );
+M0 := UnderlyingModule( B0 );
 #! <A free left module of rank 4 on free generators>
 pi := AssociatedProjection( M0 );
 #! <A homomorphism of left modules>
