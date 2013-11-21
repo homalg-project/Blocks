@@ -10,7 +10,7 @@
 
 ####################################
 #
-# methods for attributes:
+# methods for properties:
 #
 ####################################
 
@@ -25,6 +25,12 @@ InstallMethod( IsReal,
     return K = Involution( K );
     
 end );
+
+####################################
+#
+# methods for attributes:
+#
+####################################
 
 ##
 InstallMethod( SerreCharacteristicSubgroup,
