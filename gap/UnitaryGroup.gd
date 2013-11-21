@@ -169,7 +169,7 @@ DeclareAttribute( "DefiningIdealOfLowerPartOfUnitaryGroup",
 #! @Arguments kG
 #! @Group NormalizedUnitaryGroup
 DeclareOperation( "NormalizedUnitaryGroup",
-        [ IsRing ] );
+        [ IsGroupRing ] );
 
 #! @Arguments k, G
 #! @Group NormalizedUnitaryGroup
