@@ -287,6 +287,7 @@ InstallMethod( DefectClasses,
     
     classes := ConjugacyClasses( ordtbl );
     
+    ## trigger computing all central characters of which one is needed below
     CentralCharactersOfBlocks( modtbl );
     
     block := BlockIdempotentInfo( b );
