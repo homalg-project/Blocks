@@ -165,6 +165,7 @@ DeclareAttribute( "DefectClasses",
 #!  Computes the list of defect classes for each <A>p</A>-block of the group <A>G</A>
 #!  with <A>p</A>-modular character table <A>modtbl</A>
 #!  and underlying ordinary character table <A>ordtbl</A>.
+#!  <#Include Label="DefectClasses_code">
 #! @Arguments modtbl
 #! @Returns a list
 #! @Group DefectClasses

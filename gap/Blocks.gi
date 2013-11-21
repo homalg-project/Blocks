@@ -273,7 +273,8 @@ InstallMethod( BlockIdempotentInfo,
     
 end );
 
-##
+##  <#GAPDoc Label="DefectClasses_code">
+##  <Listing Type="Code"><![CDATA[
 InstallMethod( DefectClasses,
         [ IsElementOfFreeMagmaRing ],
         
@@ -308,6 +309,8 @@ InstallMethod( DefectClasses,
     return classes;
     
 end );
+##  ]]></Listing>
+##  <#/GAPDoc>
 
 ##
 InstallMethod( DefectGroup,
