@@ -177,6 +177,7 @@ DeclareAttribute( "DefectClasses",
 #! @Description
 #!  Computes a defect group of the <M>p</M>-block idempotent <A>b</A>
 #!  of a group <M>G</M> as a subgroup of <M>G</M>.
+#!  <#Include Label="DefectGroup_code">
 #! @Arguments b
 #! @Returns a subgroup
 #! @Group DefectGroup

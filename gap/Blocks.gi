@@ -313,7 +313,8 @@ end );
 ##  ]]></Listing>
 ##  <#/GAPDoc>
 
-##
+##  <#GAPDoc Label="DefectGroup_code">
+##  <Listing Type="Code"><![CDATA[
 InstallMethod( DefectGroup,
         [ IsElementOfFreeMagmaRing ],
         
@@ -331,6 +332,8 @@ InstallMethod( DefectGroup,
     return DefectGroup( K, p );
     
 end );
+##  ]]></Listing>
+##  <#/GAPDoc>
 
 ##
 InstallMethod( DefectGroup,
