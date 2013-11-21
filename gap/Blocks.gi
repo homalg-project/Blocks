@@ -55,6 +55,23 @@ end );
 ####################################
 
 ##
+InstallMethod( CoefficientsRingForPolynomialAlgebra,
+        [ IsAlgebra ],
+        
+  function( B )
+    local kG;
+    
+    kG := UnderlyingGroupAlgebra( B );
+    
+    if not HasCoefficientsRingForPolynomialAlgebra( kG ) then
+        TryNextMethod( );
+    fi;
+    
+    return CoefficientsRingForPolynomialAlgebra( kG );
+    
+end );
+    
+##
 InstallMethod( UnderlyingGroupAlgebra,
         [ IsAlgebra and HasOne ],
         
