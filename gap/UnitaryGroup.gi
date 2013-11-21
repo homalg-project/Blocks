@@ -617,7 +617,7 @@ InstallMethod( DefiningIdealOfLowerPartOfUnitaryGroup,
         Error( "the algebra does not contain a one\n" );
     fi;
     
-    r := RadicalOfAlgebraPowersAsIntersection( A );
+    r := RadicalOfAlgebraPowers( A );
     
     if not IsBound( r.2 ) or Dimension( r.2 ) = 0 then
         I := ZeroLeftSubmodule( F );
