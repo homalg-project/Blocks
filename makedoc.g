@@ -5,7 +5,7 @@ AutoDoc( "Blocks" :
         scaffold := rec( entities := [ "homalg", "GAP4" ],
                          ),
         
-        autodoc := true,
+        autodoc := rec( files := [ "doc/Intros.g" ] ),
         
         maketest := rec( folder := ".",
                          commands :=
