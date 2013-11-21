@@ -172,14 +172,13 @@ InstallMethod( CentralIdempotentsOfInvolutiveAlgebra,
     e := List( e,
                function( c )
                  if not c = Involution( c ) then
-                     ## c is an idempotent of a complex block if the field is a splitting field
+                     ## c cannot be an idempotent of a real block
                      c := c + Involution( c );
-                     c![999] := false;
                      ## now this redefined c cannot be an idempotent of a block
-                 else
+                     c![999] := false;
+                 else;
                      ## c is an idempotent of a real block if the field is a splitting field
                      c![999] := true;
-                     ## c is an idempotent of a real block if the field is a splitting field
                  fi;
                  return c;
                end );
