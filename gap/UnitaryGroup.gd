@@ -186,7 +186,7 @@ DeclareOperation( "SizeOfUnitaryGroupOfGroupRing",
         [ IsRing, IsGroup ] );
 
 #! @Arguments k, G
-DeclareOperation( "NaiveSizeOfUnitaryGroupOfGroupRing",
+DeclareOperation( "ExpectedSizeOfUnitaryGroupOfGroupRingOf2Group",
         [ IsRing, IsGroup ] );
 
 #! @Arguments k, L

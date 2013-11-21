@@ -329,7 +329,7 @@ InstallMethod( SizeOfUnitaryGroupOfGroupRing,
 end );
 
 ## this is inspired by Bovdi and Ross
-InstallMethod( NaiveSizeOfUnitaryGroupOfGroupRing,
+InstallMethod( ExpectedSizeOfUnitaryGroupOfGroupRingOf2Group,
         [ IsRing, IsGroup ],
 
   function( F, G )
