@@ -80,7 +80,7 @@ DeclareAttribute( "CentralIdempotentsOfInvolutiveAlgebra",
 #
 ####################################
 
-#! @Arguments k, B
+#! @Arguments k, J
 DeclareOperation( "UnderlyingModule",
         [ IsRing, IsAlgebra ] );
 
