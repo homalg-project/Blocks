@@ -356,6 +356,19 @@ InstallMethod( UnderlyingModule,
 end );
 
 ##
+InstallMethod( UnderlyingModule,
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( J )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( J );
+    
+    return UnderlyingModule( k, J );
+    
+end );
+
+##
 InstallMethod( InducedFiltration,
         [ IsRing, IsList ],
         

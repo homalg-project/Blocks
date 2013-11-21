@@ -74,6 +74,16 @@ DeclareAttribute( "CentralIdempotentsOfInvolutiveAlgebra",
         IsAlgebraWithOne );
 #! @InsertSystem CentralIdempotentsOfInvolutiveAlgebra
 
+#! @Description
+#!  Computes the underlying module of the (not necessarily unitial) <A>k</A>-algbra <A>J</A>
+#!  (with <C>CoefficientsRingForPolynomialAlgebra</C>( <A>A</A> ) set to <A>k</A>) over the polynomial <A>k</A>-algebra
+#!  in as many indeterminates as <M>\dim</M><A>A</A>.
+#! @Arguments J
+#! @Returns a &homalg; module
+#! @Group UnderlyingModule
+DeclareAttribute( "UnderlyingModule",
+        IsAlgebra );
+
 ####################################
 #
 #! @Section Operations
@@ -81,6 +91,7 @@ DeclareAttribute( "CentralIdempotentsOfInvolutiveAlgebra",
 ####################################
 
 #! @Arguments k, J
+#! @Group UnderlyingModule
 DeclareOperation( "UnderlyingModule",
         [ IsRing, IsAlgebra ] );
 
