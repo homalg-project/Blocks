@@ -24,18 +24,6 @@
 DeclareAttribute( "CoefficientsRingForPolynomialAlgebra",
         IsAlgebra );
 
-## IsElementOfFreeMagmaRing is not an IsAttributeStoringRep
-DeclareAttribute( "UnderlyingGroupAlgebra",
-        IsElementOfFreeMagmaRing );
-
-#! @Description
-#!  The group algebra containing the algebra <A>B</A> as an ideal.
-#! @Arguments A
-#! @Returns a group algebra
-#! @Label for IsAlgebra
-DeclareAttribute( "UnderlyingGroupAlgebra",
-        IsAlgebra );
-
 #! @Description
 #!  Computes the list of powers <M>rad^i</M> of the radical <M>rad</M> of <A>A</A>,
 #!  starting with the algebra <A>A</A>, regarded as the <M>0</M>-th power.
@@ -91,10 +79,6 @@ DeclareAttribute( "CentralIdempotentsOfInvolutiveAlgebra",
 #! @Section Operations
 #
 ####################################
-
-#!
-DeclareOperation( "UnderlyingBrauerTable",
-        [ IsElementOfFreeMagmaRing ] );
 
 #! @Arguments k, B
 DeclareOperation( "UnderlyingModule",

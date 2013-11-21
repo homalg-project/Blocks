@@ -55,6 +55,103 @@ end );
 ####################################
 
 ##
+InstallMethod( UnderlyingGroupAlgebra,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    local kG;
+    
+    kG := B;
+    
+    if HasLeftActingRingOfIdeal( kG ) then
+        kG := LeftActingRingOfIdeal( kG );
+        if HasLeftActingRingOfIdeal( kG ) then
+            kG := LeftActingRingOfIdeal( kG );
+        fi;
+    fi;
+    
+    if not ( HasIsGroupAlgebra( kG ) and IsGroupAlgebra( kG ) and HasUnderlyingMagma( kG ) ) then
+        ## I still do not know how to extend the scalars of an algebra
+        ## with an external homalg ring R; luckily GroupRing( R, G ) works
+        ## which is the reason we need a group here
+        Error( "no underlying magma found\n" );
+    fi;
+    
+    return kG;
+    
+end );
+
+##
+InstallMethod( UnderlyingGroupAlgebra,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    
+    ## see CentralIdempotentsOfInvolutiveAlgebra
+    if not IsBound( b![1001] ) then
+        Error( "unable to extract the underlying algebra" );
+    fi;
+    
+    return UnderlyingGroupAlgebra( b![1001] );
+    
+end );
+
+##
+InstallMethod( UnderlyingBrauerTable,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local kG, G, p;
+    
+    kG := UnderlyingGroupAlgebra( b );
+    
+    G := UnderlyingMagma( kG );
+    
+    p := Characteristic( kG );
+    
+    return BrauerTable( G, p );
+    
+end );
+
+##
+InstallMethod( BlockOfIdempotent,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( e )
+    local kG, B;
+    
+    if IsBound( e![1234] ) and IsAlgebra( e![1234] ) then
+        return e![1234];
+    fi;
+    
+    ## see CentralIdempotentsOfInvolutiveAlgebra
+    if not IsBound( e![1001] ) and IsAlgebra( e![1001] ) then
+        TryNextMethod( );
+    fi;
+    
+    kG := e![1001];
+    
+    B := TwoSidedIdeal( kG, [ e ] );
+    
+    SetOne( B, e );
+    
+    if IsBound( e![999] ) and e![999] = false then
+        SetIsBlock( B, false );
+    fi;
+    
+    if HasCoefficientsRingForPolynomialAlgebra( kG ) then
+        SetCoefficientsRingForPolynomialAlgebra( B,
+                CoefficientsRingForPolynomialAlgebra( kG ) );
+    fi;
+    
+    ## FIXME: undocumented, is there a way to add a `component' to IsMagmaRingObjDefaultRep
+    e![1234] := B;
+    
+    return B;
+    
+end );
+
+##
 InstallMethod( PrincipalBlockIdempotent,
         [ IsGroupAlgebra ],
         
@@ -350,44 +447,6 @@ end );
 # methods for operations:
 #
 ####################################
-
-##
-InstallMethod( BlockOfIdempotent,
-        [ IsElementOfFreeMagmaRing ],
-        
-  function( e )
-    local kG, B;
-    
-    if IsBound( e![1234] ) and IsAlgebra( e![1234] ) then
-        return e![1234];
-    fi;
-    
-    ## see CentralIdempotentsOfInvolutiveAlgebra
-    if not IsBound( e![1001] ) and IsAlgebra( e![1001] ) then
-        TryNextMethod( );
-    fi;
-    
-    kG := e![1001];
-    
-    B := TwoSidedIdeal( kG, [ e ] );
-    
-    SetOne( B, e );
-    
-    if IsBound( e![999] ) and e![999] = false then
-        SetIsBlock( B, false );
-    fi;
-    
-    if HasCoefficientsRingForPolynomialAlgebra( kG ) then
-        SetCoefficientsRingForPolynomialAlgebra( B,
-                CoefficientsRingForPolynomialAlgebra( kG ) );
-    fi;
-    
-    ## FIXME: undocumented, is there a way to add a `component' to IsMagmaRingObjDefaultRep
-    e![1234] := B;
-    
-    return B;
-    
-end );
 
 ##
 InstallMethod( CorrespondingMaximalIdeal,

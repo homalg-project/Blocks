@@ -44,6 +44,42 @@ DeclareProperty( "IsReal",
 ####################################
 
 #! @Description
+#!  The group algebra <M>kG</M> containing the algebra <A>B</A> as an ideal of which <A>b</A> is an element
+#!  (e.g., <A>B</A> is a block of <M>kG</M> and <A>b</A> its block idempotent).
+#! @Arguments B
+#! @Returns a group algebra
+#! @Label for IsAlgebra
+#! @Group UnderlyingGroupAlgebra
+DeclareAttribute( "UnderlyingGroupAlgebra",
+        IsAlgebra );
+
+#! @Arguments b
+#! @Group UnderlyingGroupAlgebra
+DeclareAttribute( "UnderlyingGroupAlgebra",
+        IsElementOfFreeMagmaRing );
+## IsElementOfFreeMagmaRing is not an IsAttributeStoringRep but
+## UnderlyingGroupAlgebra was declared as an attribute
+
+#! @Description
+#!  The Brauer table of the modular group algebra <M>kG :=</M><C>UnderlyingGroupAlgebra</C>(<A>b</A>)
+#!  containing the algebra <M>B</M> as an ideal of which <A>b</A> is an element.
+#! @Arguments b
+#! @Returns a Brauer table
+DeclareAttribute( "UnderlyingBrauerTable",
+        IsElementOfFreeMagmaRing );
+## IsElementOfFreeMagmaRing is not an IsAttributeStoringRep but
+## we want to declare UnderlyingBrauerTable as an attribute
+
+#! @Description
+#!  Computes the block of the idempotent <A>e</A> of a group algebra <M>kG</M>.
+#! @Arguments e
+#! @Returns an algebra with one
+DeclareAttribute( "BlockOfIdempotent",
+        IsElementOfFreeMagmaRing );
+## IsElementOfFreeMagmaRing is not an IsAttributeStoringRep but
+## we want to declare BlockOfIdempotent as an attribute
+
+#! @Description
 #!  Computes the principal block idempotent of the group algebra <A>kG</A>.
 #! @Arguments kG
 #! @Returns a ring element
@@ -199,13 +235,6 @@ DeclareAttribute( "DefectGroup",
 #! @Section Operations
 #
 ####################################
-
-#! @Description
-#!  Computes the block of the idempotent <A>e</A> of a group algebra <M>kG</M>.
-#! @Arguments e
-#! @Returns an algebra with one
-DeclareOperation( "BlockOfIdempotent",
-        [ IsElementOfFreeMagmaRing ] );
 
 #! @Description
 #!  Compute the maximal ideal corresponding to the group element <A>g</A>.
