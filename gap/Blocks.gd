@@ -104,7 +104,7 @@ DeclareAttribute( "CentralNonPrincipalIdempotentsOfGroupAlgebra",
 
 #! @Description
 #!  Computes the canonical projection matrix of the
-#!  group algebra <M>kG</M> onto <M>p</M>-block <A>B</A>.
+#!  group algebra <M>kG</M> onto the <M>p</M>-block <A>B</A>.
 #! @Arguments B
 #! @Returns a subgroup
 #! @Label for IsAlgebra
@@ -114,7 +114,7 @@ DeclareAttribute( "AssociatedProjectionMatrix",
 #! @Description
 #!  Computes the canonical projection of the
 #!  group algebra <M>kG</M> onto <M>p</M>-block <A>B</A>.
-#! @Arguments B
+#! @Arguments M
 #! @Returns a homalg morphism
 DeclareAttribute( "AssociatedProjection",
         IsHomalgModule );
