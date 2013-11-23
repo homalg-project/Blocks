@@ -407,8 +407,8 @@ InstallMethod( DefiningMorphismOfUpperPartOfUnitaryGroup,
     
     ## astonishingly, a basis adapted to the complete filtration
     ## leads for F_2[C_16] to a set of defining relations
-    ## of the defining ideal of the codomain of the defining morphism.
-    ## The Gröbner basis computation of this set is much slower than when
+    ## of the defining ideal of the codomain of the defining morphism
+    ## for which the Gröbner basis computation is much slower than when
     ## the basis is adapted to the 2-step subfiltration
     #filt := InducedFiltration( F, r );
     
