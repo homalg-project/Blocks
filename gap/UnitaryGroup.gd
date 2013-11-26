@@ -100,6 +100,11 @@ DeclareAttribute( "DefiningIdealOfUnitaryGroup",
 DeclareAttribute( "DefiningMorphismOfUnitaryGroup",
         IsHomalgFiltration );
 
+#! @Arguments filt
+#! @Returns an ideal
+DeclareAttribute( "DefiningIdealOfUnitaryGroupOfHead",
+        IsHomalgFiltration );
+
 #! @Description
 #!  Computes the defining ideal of the <Q>upper part</Q> of the unitary group of the involutive algebra <A>A</A>
 #!  as the kernel of <M>\varphi_{A / \mathfrak{r}} :=</M> <C>DefiningIdealOfUpperPartOfUnitaryGroup</C>( <A>A</A> ),

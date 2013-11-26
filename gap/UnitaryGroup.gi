@@ -182,6 +182,26 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
 end );
 
 ##
+InstallMethod( DefiningIdealOfUnitaryGroupOfHead,
+        [ IsHomalgFiltration ],
+        
+  function( filt )
+    local x, M, S, a;
+    
+    x := GeneralElementsOfFiltration( filt )[1];
+    
+    M := UnderlyingObject( filt );
+    
+    S := Antipode( M );
+    S := GradedPartsOfFilteredMorphism( S, filt )[1];
+    
+    a := x * ( x * S ) - One( x );
+    
+    return ExtractDefiningIdeal( a );
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
         [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
