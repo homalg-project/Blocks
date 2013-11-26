@@ -202,6 +202,19 @@ InstallMethod( DefiningIdealOfUnitaryGroupOfHead,
 end );
 
 ##
+InstallMethod( DefiningIdealOfUnitaryGroupOfSemiSimpleFactor,
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningIdealOfUnitaryGroupOfSemiSimpleFactor( k, B );
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
         [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
@@ -404,6 +417,37 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
   function( F, I, J )
     
     return DefiningIdealOfUnitaryGroup( F, [ I, J ] );
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroupOfSemiSimpleFactor,
+        [ IsRing, IsAlgebra ],
+        
+  function( F, A )
+    local r, filt, phi;
+    
+    if IsBound( A!._DefiningIdealOfUnitaryGroupOfSemiSimpleFactor ) and
+       IsIdenticalObj( A!._DefiningIdealOfUnitaryGroupOfSemiSimpleFactor[1], F ) then
+        return A!._DefiningIdealOfUnitaryGroupOfSemiSimpleFactor[2];
+    fi;
+    
+    if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
+        Error( "the algebra does not contain a one\n" );
+    fi;
+    
+    r := RadicalOfAlgebraPowers( A );
+    
+    ## astonishingly, a basis adapted to the complete filtration
+    ## leads for F_2[C_16] to a set of defining relations
+    ## of the defining ideal of the codomain of the defining morphism
+    ## for which the Gröbner basis computation is much slower than when
+    ## the basis is adapted to the 2-step subfiltration
+    #filt := InducedFiltration( F, r );
+    
+    filt := InducedFiltration( F, [ r.0, r.1 ] );
+    
+    return DefiningIdealOfUnitaryGroupOfHead( filt );
     
 end );
 

@@ -106,6 +106,16 @@ DeclareAttribute( "DefiningIdealOfUnitaryGroupOfHead",
         IsHomalgFiltration );
 
 #! @Description
+#!  Computes the defining ideal of the unitary group of the semi-simple factor <A>A</A><M>/\mathfrak{r}</M>
+#!  of the involutive algebra <A>A</A> modulo its radical <M>\mathfrak{r}</M>.
+#! @Arguments A
+#! @Returns an ideal
+#! @Label for IsAlgebra
+#! @Group DefiningIdealOfUnitaryGroupOfSemiSimpleFactor
+DeclareAttribute( "DefiningIdealOfUnitaryGroupOfSemiSimpleFactor",
+        IsAlgebra );
+
+#! @Description
 #!  Computes the defining ideal of the <Q>upper part</Q> of the unitary group of the involutive algebra <A>A</A>
 #!  as the kernel of <M>\varphi_{A / \mathfrak{r}} :=</M> <C>DefiningIdealOfUpperPartOfUnitaryGroup</C>( <A>A</A> ),
 #!  where <M>\mathfrak{r}</M> denotes the radical of <A>A</A>.
@@ -208,6 +218,11 @@ DeclareOperation( "DefiningIdealOfUnitaryGroup",
 #! @Group DefiningIdealOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra, IsAlgebra ] );
+
+#! @Arguments k, A
+#! @Group DefiningIdealOfUnitaryGroupOfSemiSimpleFactor
+DeclareOperation( "DefiningIdealOfUnitaryGroupOfSemiSimpleFactor",
+        [ IsRing, IsAlgebra ] );
 
 #! @Arguments k, A
 #! @Group DefiningIdealOfUpperPartOfUnitaryGroup
