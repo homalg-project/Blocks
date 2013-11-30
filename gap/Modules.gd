@@ -16,6 +16,10 @@
 #
 ####################################
 
+#! @Arguments M
+DeclareAttribute( "GeneralElement",
+        IsHomalgModule );
+
 #! @Arguments filt
 DeclareAttribute( "GeneralElementsOfFiltration",
         IsHomalgFiltration );
@@ -33,10 +37,6 @@ DeclareAttribute( "Antipode",
 #! @Section Operations
 #
 ####################################
-
-#! @Arguments M
-DeclareOperation( "GeneralElement",
-        [ IsHomalgModule ] );
 
 #! @Arguments phi, filt
 DeclareOperation( "GradedPartsOfFilteredMorphism",
