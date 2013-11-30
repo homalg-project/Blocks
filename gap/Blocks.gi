@@ -40,11 +40,7 @@ InstallMethod( IsReal,
     
     b := One( B );
     
-    if not b = Involution( b ) then
-        return false;
-    fi;
-    
-    TryNextMethod( );
+    return b = Involution( b );
     
 end );
 
