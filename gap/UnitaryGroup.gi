@@ -186,7 +186,7 @@ InstallMethod( DefiningIdealOfUnitaryGroupOfHead,
         [ IsHomalgFiltration ],
         
   function( filt )
-    local x, M, S, a;
+    local x, M, S, a, R;
     
     x := GeneralElementsOfFiltration( filt )[1];
     
@@ -197,7 +197,9 @@ InstallMethod( DefiningIdealOfUnitaryGroupOfHead,
     
     a := ( x * S ) * x - One( x );
     
-    return ExtractDefiningIdeal( a );
+    R := CertainObject( filt, 0 )!.RingOfGeneralElement;
+    
+    return R * ExtractDefiningIdeal( a );
     
 end );
 
