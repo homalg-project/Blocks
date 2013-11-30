@@ -40,7 +40,7 @@ InstallMethod( GeneralElementsOfFiltration,
         [ IsHomalgFiltration ],
         
   function( filt )
-    local degrees, l, M, n, R, indets, vars;
+    local degrees, l, M, n, R, indets, vars, r;
     
     degrees := DegreesOfFiltration( filt );
     
@@ -63,6 +63,14 @@ InstallMethod( GeneralElementsOfFiltration,
     vars := List( [ 1 .. l ], i -> [ n - Sum( vars{[ 1 .. i ]} ) + 1 .. n - Sum( vars{[ 1 .. i - 1 ]} ) ] );
     
     vars := List( vars, a -> indets{a} );
+    
+    if HasBaseRing( R ) then
+        r := BaseRing( R );
+    else
+        r := CoefficientsRing( R );
+    fi;
+    
+    Perform( [ 1 .. l ], function( i ) CertainObject( filt, degrees[i] )!.RingOfGeneralElement := r * List( vars[i], Name ); end );
     
     vars := List( [ 1 .. l ], i -> HomalgModuleElement( vars[i], CertainObject( filt, degrees[i] ) ) );
     
