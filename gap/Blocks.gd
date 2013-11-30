@@ -156,6 +156,17 @@ DeclareAttribute( "BrauerCharacterDegreesOfBlocks",
 #! @InsertSystem BrauerCharacterDegreesOfBlocks
 
 #! @Description
+#!  Computes the list of decomposition matrices of the <A>p</A>-blocks of the group <A>G</A>
+#!  with <A>p</A>-modular character table <A>modtbl</A>
+#!  and underlying ordinary character table <A>ordtbl</A>.
+#! @Arguments modtbl
+#! @Returns a list
+#! @Group DecompositionMatricesOfBlocks
+DeclareAttribute( "DecompositionMatricesOfBlocks",
+        IsBrauerTable );
+#! @InsertSystem DecompositionMatricesOfBlocks
+
+#! @Description
 #!  Computes the list of Cartan matrices of the <A>p</A>-blocks of the group <A>G</A>
 #!  with <A>p</A>-modular character table <A>modtbl</A>
 #!  and underlying ordinary character table <A>ordtbl</A>.
@@ -280,6 +291,16 @@ DeclareOperation( "BrauerCharacterDegreesOfBlocks",
 #! @Arguments G, p
 #! @Group BrauerCharacterDegreesOfBlocks
 DeclareOperation( "BrauerCharacterDegreesOfBlocks",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments ordtbl, p
+#! @Group DecompositionMatricesOfBlocks
+DeclareOperation( "DecompositionMatricesOfBlocks",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group DecompositionMatricesOfBlocks
+DeclareOperation( "DecompositionMatricesOfBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
