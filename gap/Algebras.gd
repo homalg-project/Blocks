@@ -12,6 +12,20 @@
 
 ####################################
 #
+#! @Section Properties
+#
+####################################
+
+#! @Description
+#!  Check if the algebra <A>A</A> is defined over a splitting field, i.e.,
+#!  <C>CentralIdempotentsOfAlgebra</C>(<A>A</A>) is not altered by base field extensions.
+#! @Arguments A
+#! @Label for IsDefinedOverSplittingField
+DeclareProperty( "IsDefinedOverSplittingField",
+        IsAlgebra );
+
+####################################
+#
 #! @Section Attributes
 #
 ####################################

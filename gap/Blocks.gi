@@ -23,8 +23,13 @@ InstallMethod( IsBlock,
     
     b := One( B );
     
-    if IsBound( b![999] ) and b![999] = false then
-        return false;
+    if IsBound( b![999] ) then
+        ## if block then real;
+        ## see CentralIdempotentsOfInvolutiveAlgebra
+        if b![999] then
+            SetIsReal( B, true );
+        fi;
+        return b![999];
     fi;
     
     TryNextMethod( );
@@ -148,8 +153,13 @@ InstallMethod( BlockOfIdempotent,
     
     SetOne( B, e );
     
-    if IsBound( e![999] ) and e![999] = false then
-        SetIsBlock( B, false );
+    if IsBound( e![999] ) then
+        SetIsBlock( B, e![999] );
+        ## if block then real;
+            ## see CentralIdempotentsOfInvolutiveAlgebra
+        if e![999] then
+            SetIsReal( B, true );
+        fi;
     fi;
     
     if HasCoefficientsRingForPolynomialAlgebra( kG ) then

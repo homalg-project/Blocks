@@ -171,9 +171,11 @@ InstallMethod( CentralIdempotentsOfInvolutiveAlgebra,
         [ IsAlgebraWithOne ],
         
   function( A )
-    local e;
+    local e, b;
     
     e := CentralIdempotentsOfAlgebra( A );
+    
+    b := HasIsDefinedOverSplittingField( A ) and IsDefinedOverSplittingField( A );
     
     e := List( e,
                function( c )
@@ -182,7 +184,7 @@ InstallMethod( CentralIdempotentsOfInvolutiveAlgebra,
                      c := c + Involution( c );
                      ## now this redefined c cannot be an idempotent of a block
                      c![999] := false;
-                 else;
+                 elif b then
                      ## c is an idempotent of a real block if the field is a splitting field
                      c![999] := true;
                  fi;
