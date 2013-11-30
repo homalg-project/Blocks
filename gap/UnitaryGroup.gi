@@ -138,9 +138,9 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
     S := Antipode( M );
     
     if IsBound( M!.UnitOfAlgebraicGroup ) then
-        a := x * ( x * S ) - One( x );
+        a := ( x * S ) * x - One( x );
     else
-        a := x + ( x * S ) + x * ( x * S );
+        a := x + ( x * S ) + ( x * S ) * x;
     fi;
     
     I := ExtractDefiningIdeal( a );
@@ -195,7 +195,7 @@ InstallMethod( DefiningIdealOfUnitaryGroupOfHead,
     S := Antipode( M );
     S := GradedPartsOfFilteredMorphism( S, filt )[1];
     
-    a := x * ( x * S ) - One( x );
+    a := ( x * S ) * x - One( x );
     
     return ExtractDefiningIdeal( a );
     
