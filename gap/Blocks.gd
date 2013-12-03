@@ -178,9 +178,19 @@ DeclareAttribute( "CartanMatricesOfBlocks",
 #! @InsertSystem CartanMatricesOfBlocks
 
 #! @Description
-#!  Computes the central character for each <A>p</A>-block of the group <A>G</A>
+#!  Computes the central character <M>\omega</M> for each <A>p</A>-block of the group <A>G</A>
 #!  with <A>p</A>-modular character table <A>modtbl</A>
 #!  and underlying ordinary character table <A>ordtbl</A>.
+#!  The method simply applies <C>FrobeniusCharacterValue</C>
+#!  to <C>CentralCharacter</C> of an ordinary character (any one) per block
+#!  <Cite Key="GM00" Where="p. 457"/>:
+#!  <Display>
+#!    \omega(K) = \omega_\chi(K)^*
+#!  </Display>
+#!  (see <Ref Attr="FrobeniusCharacterValue" BookName="Reference"/> and
+#!   <Ref Attr="CentralCharacter" BookName="Reference"/>).
+#!  The order of the list corresponds to the order in <C>BlocksInfo</C>(<A>modtbl</A>)
+#!  (see <Ref Attr="BlocksInfo" BookName="Reference"/>).
 #! @Arguments modtbl
 #! @Returns a list
 #! @Group CentralCharactersOfBlocks

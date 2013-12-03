@@ -347,7 +347,7 @@ InstallMethod( CartanMatricesOfBlocks,
     
 end );
 
-## the notion is used in [Gow] and the algorithm in [GM00]
+## the notion is used in [Gow]
 InstallMethod( CentralCharactersOfBlocks,
         [ IsBrauerTable ],
         
