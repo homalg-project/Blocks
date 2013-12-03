@@ -404,6 +404,16 @@ InstallMethod( BlocksInfo,
     
 end );
 
+##
+InstallMethod( BlocksInfo,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return BlocksInfo( One( B ) );
+    
+end );
+
 ##  <#GAPDoc Label="DefectClasses_code">
 ##  <Listing Type="Code"><![CDATA[
 InstallMethod( DefectClasses,

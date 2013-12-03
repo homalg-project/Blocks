@@ -189,8 +189,8 @@ DeclareAttribute( "CentralCharactersOfBlocks",
 #! @InsertSystem CentralCharactersOfBlocks
 
 #! @Description
-#!  Associates to a <M>p</M>-block idempotent <A>b</A> of a group <M>G</M>
-#!  with <A>p</A>-modular character table <M>modtbl</M>
+#!  Associates to a <M>p</M>-block idempotent <A>b</A> of a block <A>B</A>
+#!  of a group <M>G</M> with <A>p</A>-modular character table <M>modtbl</M>
 #!  the corresponding record in <C>BlocksInfo</C>(<M>modtbl</M>)
 #!  (see <Ref Attr="BlocksInfo" BookName="Reference"/>).
 #! @Arguments b
@@ -198,6 +198,11 @@ DeclareAttribute( "CentralCharactersOfBlocks",
 #! @Group BlocksInfo
 DeclareAttribute( "BlocksInfo",
         IsElementOfFreeMagmaRing, "mutable" );
+
+#! @Arguments B
+#! @Group BlocksInfo
+DeclareAttribute( "BlocksInfo",
+        IsAlgebra, "mutable" );
 
 #! @Description
 #!  Computes the list of defect classes of the <M>p</M>-block idempotent <A>b</A>
