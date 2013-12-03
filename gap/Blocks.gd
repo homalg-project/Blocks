@@ -150,10 +150,10 @@ DeclareAttribute( "CharacterDegreesOfBlocks",
 #!  and underlying ordinary character table <A>ordtbl</A>.
 #! @Arguments modtbl
 #! @Returns a list
-#! @Group BrauerCharacterDegreesOfBlocks
-DeclareAttribute( "BrauerCharacterDegreesOfBlocks",
+#! @Group BrauerCharactersDegrees
+DeclareAttribute( "BrauerCharactersDegrees",
         IsBrauerTable );
-#! @InsertSystem BrauerCharacterDegreesOfBlocks
+#! @InsertSystem BrauerCharactersDegrees
 
 #! @Description
 #!  Computes the list of decomposition matrices of the <A>p</A>-blocks of the group <A>G</A>
@@ -305,13 +305,13 @@ DeclareOperation( "CharacterDegreesOfBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
-#! @Group BrauerCharacterDegreesOfBlocks
-DeclareOperation( "BrauerCharacterDegreesOfBlocks",
+#! @Group BrauerCharactersDegrees
+DeclareOperation( "BrauerCharactersDegrees",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Group BrauerCharacterDegreesOfBlocks
-DeclareOperation( "BrauerCharacterDegreesOfBlocks",
+#! @Group BrauerCharactersDegrees
+DeclareOperation( "BrauerCharactersDegrees",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p

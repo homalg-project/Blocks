@@ -309,7 +309,7 @@ InstallMethod( CharacterDegreesOfBlocks,
 end );
 
 ##
-InstallMethod( BrauerCharacterDegreesOfBlocks,
+InstallMethod( BrauerCharactersDegrees,
         [ IsBrauerTable ],
         
   function( modtbl )
@@ -603,22 +603,22 @@ InstallMethod( CharacterDegreesOfBlocks,
 end );
 
 ##
-InstallMethod( BrauerCharacterDegreesOfBlocks,
+InstallMethod( BrauerCharactersDegrees,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
     
-    return BrauerCharacterDegreesOfBlocks( ordtbl mod p );
+    return BrauerCharactersDegrees( ordtbl mod p );
     
 end );
 
 ##
-InstallMethod( BrauerCharacterDegreesOfBlocks,
+InstallMethod( BrauerCharactersDegrees,
         [ IsGroup, IsInt ],
         
   function( G, p )
     
-    return BrauerCharacterDegreesOfBlocks( CharacterTable( G ), p );
+    return BrauerCharactersDegrees( CharacterTable( G ), p );
     
 end );
 
