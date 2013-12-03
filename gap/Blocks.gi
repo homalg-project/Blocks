@@ -457,6 +457,16 @@ end );
 ##  ]]></Listing>
 ##  <#/GAPDoc>
 
+##
+InstallMethod( DefectClasses,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return DefectClasses( One( B ) );
+    
+end );
+
 ##  <#GAPDoc Label="DefectGroup_code">
 ##  <Listing Type="Code"><![CDATA[
 InstallMethod( DefectGroup,

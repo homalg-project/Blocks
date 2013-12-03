@@ -227,6 +227,11 @@ DeclareAttribute( "BlocksInfo",
 DeclareAttribute( "DefectClasses",
         IsElementOfFreeMagmaRing );
 
+#! @Arguments B
+#! @Group DefectClasses
+DeclareAttribute( "DefectClasses",
+        IsAlgebra );
+
 #! @Description
 #!  Computes the list of defect classes for each <A>p</A>-block of the group <A>G</A>
 #!  with <A>p</A>-modular character table <A>modtbl</A>
