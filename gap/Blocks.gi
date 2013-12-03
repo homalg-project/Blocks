@@ -393,6 +393,7 @@ InstallMethod( BlocksInfo,
     
     prod := List( omegas, omega -> omega * coeffs );
     
+    ## omega( b ) = 1 if omega <-> b otherwise omega( b ) = 0
     pos := PositionProperty( prod, a -> not IsZero( a ) );
     
     Assert( 0, IsOne( prod[pos] ) );
