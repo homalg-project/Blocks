@@ -352,7 +352,7 @@ InstallMethod( CentralCharactersOfBlocks,
         [ IsBrauerTable ],
         
   function( modtbl )
-    local ordtbl, blocks, omegas;
+    local ordtbl, blocks, c, omegas;
     
     ordtbl := OrdinaryCharacterTable( modtbl );
     
@@ -363,9 +363,11 @@ InstallMethod( CentralCharactersOfBlocks,
     omegas := List( blocks,
                     B -> CentralCharacter( Irr( ordtbl )[B.ordchars[1]] ) );
     
+    c := UnderlyingCharacteristic( modtbl );
+    
     ## for each block B compute its central character omega
     omegas := List( omegas,
-                    o -> List( o, b -> FrobeniusCharacterValue( b, 2 ) ) );
+                    o -> List( o, b -> FrobeniusCharacterValue( b, c ) ) );
     
     Perform( [ 1 .. Length( blocks ) ],
             function( i )
