@@ -138,10 +138,10 @@ DeclareAttribute( "DefectsOfBlocks",
 #!  and underlying ordinary character table <A>ordtbl</A>.
 #! @Arguments modtbl
 #! @Returns a list
-#! @Group CharacterDegreesOfBlocks
-DeclareAttribute( "CharacterDegreesOfBlocks",
+#! @Group OrdinaryCharactersDegrees
+DeclareAttribute( "OrdinaryCharactersDegrees",
         IsBrauerTable );
-#! @InsertSystem CharacterDegreesOfBlocks
+#! @InsertSystem OrdinaryCharactersDegrees
 
 #! @Description
 #!  Computes the list of lists of degrees of Brauer characters
@@ -295,13 +295,13 @@ DeclareOperation( "DefectsOfBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
-#! @Group CharacterDegreesOfBlocks
-DeclareOperation( "CharacterDegreesOfBlocks",
+#! @Group OrdinaryCharactersDegrees
+DeclareOperation( "OrdinaryCharactersDegrees",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Group CharacterDegreesOfBlocks
-DeclareOperation( "CharacterDegreesOfBlocks",
+#! @Group OrdinaryCharactersDegrees
+DeclareOperation( "OrdinaryCharactersDegrees",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p

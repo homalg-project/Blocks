@@ -294,7 +294,7 @@ InstallMethod( DefectsOfBlocks,
 end );
 
 ##
-InstallMethod( CharacterDegreesOfBlocks,
+InstallMethod( OrdinaryCharactersDegrees,
         [ IsBrauerTable ],
         
   function( modtbl )
@@ -583,22 +583,22 @@ InstallMethod( DefectsOfBlocks,
 end );
 
 ##
-InstallMethod( CharacterDegreesOfBlocks,
+InstallMethod( OrdinaryCharactersDegrees,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
     
-    return CharacterDegreesOfBlocks( ordtbl mod p );
+    return OrdinaryCharactersDegrees( ordtbl mod p );
     
 end );
 
 ##
-InstallMethod( CharacterDegreesOfBlocks,
+InstallMethod( OrdinaryCharactersDegrees,
         [ IsGroup, IsInt ],
         
   function( G, p )
     
-    return CharacterDegreesOfBlocks( CharacterTable( G ), p );
+    return OrdinaryCharactersDegrees( CharacterTable( G ), p );
     
 end );
 
