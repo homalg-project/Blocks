@@ -322,7 +322,7 @@ InstallMethod( BrauerCharacterDegreesOfBlocks,
 end );
 
 ##
-InstallMethod( DecompositionMatricesOfBlocks,
+InstallMethod( DecompositionMatrixPerBlock,
         [ IsBrauerTable ],
         
   function( modtbl )
@@ -341,7 +341,7 @@ InstallMethod( CartanMatricesOfBlocks,
   function( modtbl )
     local decmats;
     
-    decmats := DecompositionMatricesOfBlocks( modtbl );
+    decmats := DecompositionMatrixPerBlock( modtbl );
     
     return List( decmats, decmat -> TransposedMat( decmat ) * decmat );
     
@@ -623,22 +623,22 @@ InstallMethod( BrauerCharacterDegreesOfBlocks,
 end );
 
 ##
-InstallMethod( DecompositionMatricesOfBlocks,
+InstallMethod( DecompositionMatrixPerBlock,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
     
-    return DecompositionMatricesOfBlocks( ordtbl mod p );
+    return DecompositionMatrixPerBlock( ordtbl mod p );
     
 end );
 
 ##
-InstallMethod( DecompositionMatricesOfBlocks,
+InstallMethod( DecompositionMatrixPerBlock,
         [ IsGroup, IsInt ],
         
   function( G, p )
     
-    return DecompositionMatricesOfBlocks( CharacterTable( G ), p );
+    return DecompositionMatrixPerBlock( CharacterTable( G ), p );
     
 end );
 
