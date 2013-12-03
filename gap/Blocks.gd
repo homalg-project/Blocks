@@ -220,7 +220,11 @@ DeclareAttribute( "BlocksInfo",
 
 #! @Description
 #!  Computes the list of defect classes of the <M>p</M>-block idempotent <A>b</A>
-#!  of a group <M>G</M>.
+#!  of a <M>p</M>-block <A>B</A> of a group <M>G</M>
+#!  with <A>p</A>-modular character table <A>modtbl</A>
+#!  and underlying ordinary character table <A>ordtbl</A>.
+#!  The following code implements <Cite Key="GM00" Where="Lemma 2.1"/>:
+#!  <#Include Label="DefectClasses_code">
 #! @Arguments b
 #! @Returns a list
 #! @Group DefectClasses
@@ -232,14 +236,7 @@ DeclareAttribute( "DefectClasses",
 DeclareAttribute( "DefectClasses",
         IsAlgebra );
 
-#! @Description
-#!  Computes the list of defect classes for each <A>p</A>-block of the group <A>G</A>
-#!  with <A>p</A>-modular character table <A>modtbl</A>
-#!  and underlying ordinary character table <A>ordtbl</A>.
-#!  The following code implements <Cite Key="GM00" Where="Lemma 2.1"/>.
-#!  <#Include Label="DefectClasses_code">
 #! @Arguments modtbl
-#! @Returns a list
 #! @Group DefectClasses
 DeclareAttribute( "DefectClasses",
         IsBrauerTable );
