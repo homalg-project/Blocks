@@ -389,7 +389,7 @@ InstallMethod( BlocksInfo,
     
     coeffs := Coefficients( b );
     
-    prod := List( omegas, omega -> Sum( ListN( omega, coeffs, \* ) ) );
+    prod := List( omegas, omega -> omega * coeffs );
     
     pos := PositionProperty( prod, a -> not IsZero( a ) );
     
