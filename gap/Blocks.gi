@@ -377,7 +377,7 @@ InstallMethod( CentralCharactersOfBlocks,
 end );
 
 ##
-InstallMethod( BlockIdempotentInfo,
+InstallMethod( BlocksInfo,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
@@ -421,7 +421,7 @@ InstallMethod( DefectClasses,
     ## trigger computing all central characters of which one is needed below
     CentralCharactersOfBlocks( modtbl );
     
-    block := BlockIdempotentInfo( b );
+    block := BlocksInfo( b );
     
     omega := block!.CentralCharacterOfBlock;
     

@@ -195,8 +195,8 @@ DeclareAttribute( "CentralCharactersOfBlocks",
 #!  (see <Ref Attr="BlocksInfo" BookName="Reference"/>).
 #! @Arguments b
 #! @Returns a record
-#! @Group BlockIdempotentInfo
-DeclareAttribute( "BlockIdempotentInfo",
+#! @Group BlocksInfo
+DeclareAttribute( "BlocksInfo",
         IsElementOfFreeMagmaRing, "mutable" );
 
 #! @Description
