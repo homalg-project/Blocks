@@ -681,23 +681,3 @@ InstallMethod( CentralCharactersOfBlocks,
     return CentralCharactersOfBlocks( CharacterTable( G ), p );
     
 end );
-
-##
-InstallMethod( DefectClasses,
-        [ IsCharacterTable, IsInt ],
-        
-  function( ordtbl, p )
-    
-    return DefectClasses( ordtbl mod p );
-    
-end );
-
-##
-InstallMethod( DefectClasses,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return DefectClasses( CharacterTable( G ), p );
-    
-end );

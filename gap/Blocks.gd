@@ -221,8 +221,8 @@ DeclareAttribute( "BlocksInfo",
 #! @Description
 #!  Computes the list of defect classes of the <M>p</M>-block idempotent <A>b</A>
 #!  of a <M>p</M>-block <A>B</A> of a group <M>G</M>
-#!  with <A>p</A>-modular character table <A>modtbl</A>
-#!  and underlying ordinary character table <A>ordtbl</A>.
+#!  with <A>p</A>-modular character table <M>modtbl</M>
+#!  and underlying ordinary character table <M>ordtbl</M>.
 #!  The following code implements <Cite Key="GM00" Where="Lemma 2.1"/>:
 #!  <#Include Label="DefectClasses_code">
 #! @Arguments b
@@ -230,17 +230,12 @@ DeclareAttribute( "BlocksInfo",
 #! @Group DefectClasses
 DeclareAttribute( "DefectClasses",
         IsElementOfFreeMagmaRing );
+#! @InsertSystem DefectClasses
 
 #! @Arguments B
 #! @Group DefectClasses
 DeclareAttribute( "DefectClasses",
         IsAlgebra );
-
-#! @Arguments modtbl
-#! @Group DefectClasses
-DeclareAttribute( "DefectClasses",
-        IsBrauerTable );
-#! @InsertSystem DefectClasses
 
 #! @Description
 #!  Computes a defect group of the <M>p</M>-block idempotent <A>b</A>
@@ -342,14 +337,4 @@ DeclareOperation( "CentralCharactersOfBlocks",
 #! @Arguments G, p
 #! @Group CentralCharactersOfBlocks
 DeclareOperation( "CentralCharactersOfBlocks",
-        [ IsGroup, IsInt ] );
-
-#! @Arguments ordtbl, p
-#! @Group DefectClasses
-DeclareOperation( "DefectClasses",
-        [ IsCharacterTable, IsInt ] );
-
-#! @Arguments G, p
-#! @Group DefectClasses
-DeclareOperation( "DefectClasses",
         [ IsGroup, IsInt ] );
