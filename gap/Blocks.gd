@@ -172,10 +172,10 @@ DeclareAttribute( "DecompositionMatrixPerBlock",
 #!  and underlying ordinary character table <A>ordtbl</A>.
 #! @Arguments modtbl
 #! @Returns a list
-#! @Group CartanMatricesOfBlocks
-DeclareAttribute( "CartanMatricesOfBlocks",
+#! @Group CartanMatrixPerBlock
+DeclareAttribute( "CartanMatrixPerBlock",
         IsBrauerTable );
-#! @InsertSystem CartanMatricesOfBlocks
+#! @InsertSystem CartanMatrixPerBlock
 
 #! @Description
 #!  Computes the central character <M>\omega</M> for each <A>p</A>-block of the group <A>G</A>
@@ -325,13 +325,13 @@ DeclareOperation( "DecompositionMatrixPerBlock",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
-#! @Group CartanMatricesOfBlocks
-DeclareOperation( "CartanMatricesOfBlocks",
+#! @Group CartanMatrixPerBlock
+DeclareOperation( "CartanMatrixPerBlock",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Group CartanMatricesOfBlocks
-DeclareOperation( "CartanMatricesOfBlocks",
+#! @Group CartanMatrixPerBlock
+DeclareOperation( "CartanMatrixPerBlock",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p

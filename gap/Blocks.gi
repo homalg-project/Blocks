@@ -335,7 +335,7 @@ InstallMethod( DecompositionMatrixPerBlock,
 end );
 
 ##
-InstallMethod( CartanMatricesOfBlocks,
+InstallMethod( CartanMatrixPerBlock,
         [ IsBrauerTable ],
         
   function( modtbl )
@@ -643,22 +643,22 @@ InstallMethod( DecompositionMatrixPerBlock,
 end );
 
 ##
-InstallMethod( CartanMatricesOfBlocks,
+InstallMethod( CartanMatrixPerBlock,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
     
-    return CartanMatricesOfBlocks( ordtbl mod p );
+    return CartanMatrixPerBlock( ordtbl mod p );
     
 end );
 
 ##
-InstallMethod( CartanMatricesOfBlocks,
+InstallMethod( CartanMatrixPerBlock,
         [ IsGroup, IsInt ],
         
   function( G, p )
     
-    return CartanMatricesOfBlocks( CharacterTable( G ), p );
+    return CartanMatrixPerBlock( CharacterTable( G ), p );
     
 end );
 
