@@ -44,35 +44,6 @@ DeclareProperty( "IsReal",
 ####################################
 
 #! @Description
-#!  The group algebra <M>kG</M> containing the algebra <A>B</A> as an ideal of which <A>b</A> is an element
-#!  (e.g., <A>B</A> is a block of <M>kG</M> and <A>b</A> its block idempotent).
-#! @Arguments B
-#! @Returns a group algebra
-#! @Label for IsAlgebra
-#! @Group UnderlyingGroupAlgebra
-DeclareAttribute( "UnderlyingGroupAlgebra",
-        IsAlgebra );
-
-#! @Arguments b
-#! @Group UnderlyingGroupAlgebra
-DeclareAttribute( "UnderlyingGroupAlgebra",
-        IsElementOfFreeMagmaRing );
-
-#! @Description
-#!  The Brauer table of the modular group algebra <M>kG :=</M><C>UnderlyingGroupAlgebra</C>(<A>B</A>)
-#!  containing the algebra <M>B</M> as with <A>b</A><M>=</M><C>One</C>(<A>b</A>).
-#! @Arguments B
-#! @Group BrauerTable
-#! @Returns a Brauer table
-DeclareAttribute( "BrauerTable",
-        IsAlgebra );
-
-#! @Arguments b
-#! @Group BrauerTable
-DeclareAttribute( "BrauerTable",
-        IsElementOfFreeMagmaRing );
-
-#! @Description
 #!  Computes the block of the idempotent <A>e</A> of a group algebra <M>kG</M>.
 #! @Arguments e
 #! @Returns an algebra with one
