@@ -121,6 +121,26 @@ DeclareAttribute( "AssociatedProjection",
 #! @InsertSystem AssociatedProjection
 
 #! @Description
+#!  Associates to a <M>p</M>-block idempotent <A>b</A> of a <M>p</M>-block <A>B</A>
+#!  of a group <M>G</M> with <A>p</A>-modular character table <M>modtbl</M>
+#!  the corresponding record in <C>BlocksInfo</C>(<M>modtbl</M>)
+#!  (see <Ref Attr="BlocksInfo" BookName="Reference"/>).
+#!  The method computes the central characters of all blocks using <C>CentralCharacters</C>(<M>modtbl</M>)
+#!  and searches for the unique central character <M>\omega</M> with <M>\omega</M>(<A>b</A>)<M>=1</M>.
+#!  For all other central characters <M>\omega</M>(<A>b</A>)<M>=0</M>
+#!  (see <Ref Attr="CentralCharacters"/>).
+#! @Arguments b
+#! @Returns a record
+#! @Group BlocksInfo
+DeclareAttribute( "BlocksInfo",
+        IsElementOfFreeMagmaRing, "mutable" );
+
+#! @Arguments B
+#! @Group BlocksInfo
+DeclareAttribute( "BlocksInfo",
+        IsAlgebra, "mutable" );
+
+#! @Description
 #!  Computes the list of defects of the <A>p</A>-blocks of the group <A>G</A>
 #!  with <A>p</A>-modular character table <A>modtbl</A>
 #!  and underlying ordinary character table <A>ordtbl</A>.
@@ -197,26 +217,6 @@ DeclareAttribute( "CartanMatrixPerBlock",
 DeclareAttribute( "CentralCharacters",
         IsBrauerTable );
 #! @InsertSystem CentralCharacters
-
-#! @Description
-#!  Associates to a <M>p</M>-block idempotent <A>b</A> of a <M>p</M>-block <A>B</A>
-#!  of a group <M>G</M> with <A>p</A>-modular character table <M>modtbl</M>
-#!  the corresponding record in <C>BlocksInfo</C>(<M>modtbl</M>)
-#!  (see <Ref Attr="BlocksInfo" BookName="Reference"/>).
-#!  The method computes the central characters of all blocks using <C>CentralCharacters</C>(<M>modtbl</M>)
-#!  and searches for the unique central character <M>\omega</M> with <M>\omega</M>(<A>b</A>)<M>=1</M>.
-#!  For all other central characters <M>\omega</M>(<A>b</A>)<M>=0</M>
-#!  (see <Ref Attr="CentralCharacters"/>).
-#! @Arguments b
-#! @Returns a record
-#! @Group BlocksInfo
-DeclareAttribute( "BlocksInfo",
-        IsElementOfFreeMagmaRing, "mutable" );
-
-#! @Arguments B
-#! @Group BlocksInfo
-DeclareAttribute( "BlocksInfo",
-        IsAlgebra, "mutable" );
 
 #! @Description
 #!  Computes the list of defect classes of the <M>p</M>-block idempotent <A>b</A>

@@ -281,6 +281,47 @@ InstallMethod( AssociatedProjection,
 end );
 
 ##
+InstallMethod( BlocksInfo,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local modtbl, omegas, coeffs, prod, pos, block;
+    
+    modtbl := UnderlyingBrauerTable( b );
+    
+    omegas := CentralCharacters( modtbl );
+    
+    coeffs := Coefficients( b );
+    
+    prod := List( omegas, omega -> omega * coeffs );
+    
+    ## omega( b ) = 1 if omega <-> b otherwise omega( b ) = 0
+    pos := PositionProperty( prod, a -> not IsZero( a ) );
+    
+    ## otherwise b is not a block idempotent
+    ## (e.g., it is the sum of the block idempotents of two conjugate complex blocks)
+    Assert( 0, IsOne( prod[pos] ) );
+    Assert( 0, PositionProperty( prod, a -> not IsZero( a ), pos + 1 ) = fail );
+    
+    block := BlocksInfo( modtbl )[pos];
+    
+    block!.BlockIdempotent := b;
+    
+    return block;
+    
+end );
+
+##
+InstallMethod( BlocksInfo,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return BlocksInfo( One( B ) );
+    
+end );
+
+##
 InstallMethod( DefectsOfBlocks,
         [ IsBrauerTable ],
         
@@ -375,45 +416,6 @@ InstallMethod( CentralCharacters,
             end );
     
     return omegas;
-    
-end );
-
-##
-InstallMethod( BlocksInfo,
-        [ IsElementOfFreeMagmaRing ],
-        
-  function( b )
-    local modtbl, omegas, coeffs, prod, pos, block;
-    
-    modtbl := UnderlyingBrauerTable( b );
-    
-    omegas := CentralCharacters( modtbl );
-    
-    coeffs := Coefficients( b );
-    
-    prod := List( omegas, omega -> omega * coeffs );
-    
-    ## omega( b ) = 1 if omega <-> b otherwise omega( b ) = 0
-    pos := PositionProperty( prod, a -> not IsZero( a ) );
-    
-    Assert( 0, IsOne( prod[pos] ) );
-    Assert( 0, PositionProperty( prod, a -> not IsZero( a ), pos + 1 ) = fail );
-    
-    block := BlocksInfo( modtbl )[pos];
-    
-    block!.BlockIdempotent := b;
-    
-    return block;
-    
-end );
-
-##
-InstallMethod( BlocksInfo,
-        [ IsAlgebra and HasOne ],
-        
-  function( B )
-    
-    return BlocksInfo( One( B ) );
     
 end );
 
