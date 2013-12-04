@@ -106,15 +106,13 @@ InstallMethod( BrauerTable,
         [ IsAlgebra ],
         
   function( B )
-    local kG, G, p;
+    local kG, p;
     
     kG := UnderlyingGroupAlgebra( B );
     
-    G := UnderlyingMagma( kG );
-    
     p := Characteristic( kG );
     
-    return BrauerTable( G, p );
+    return OrdinaryCharacterTable( kG ) mod p;
     
 end );
 
