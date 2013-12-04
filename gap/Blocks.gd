@@ -57,8 +57,6 @@ DeclareAttribute( "UnderlyingGroupAlgebra",
 #! @Group UnderlyingGroupAlgebra
 DeclareAttribute( "UnderlyingGroupAlgebra",
         IsElementOfFreeMagmaRing );
-## IsElementOfFreeMagmaRing is not an IsAttributeStoringRep but
-## UnderlyingGroupAlgebra was declared as an attribute
 
 #! @Description
 #!  The Brauer table of the modular group algebra <M>kG :=</M><C>UnderlyingGroupAlgebra</C>(<A>b</A>)
@@ -67,8 +65,6 @@ DeclareAttribute( "UnderlyingGroupAlgebra",
 #! @Returns a Brauer table
 DeclareAttribute( "UnderlyingBrauerTable",
         IsElementOfFreeMagmaRing );
-## IsElementOfFreeMagmaRing is not an IsAttributeStoringRep but
-## we want to declare UnderlyingBrauerTable as an attribute
 
 #! @Description
 #!  Computes the block of the idempotent <A>e</A> of a group algebra <M>kG</M>.
