@@ -94,7 +94,6 @@ DeclareAttribute( "ConjugacyInvolutoryClassesOfComplementOfNormalSubgroup",
 #! @Returns <C>true</C> or <C>false</C>
 DeclareOperation( "IsRegular",
         [ IsMultiplicativeElementWithInverse, IsInt ] );
-#! @InsertSystem IsRegular
 
 #! @Description
 #!  Checks whether a representative <M>g=</M><C>Representative</C><M>(</M><A>K</A><M>)</M>
