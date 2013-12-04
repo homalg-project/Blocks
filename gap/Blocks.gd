@@ -193,20 +193,20 @@ DeclareAttribute( "CartanMatrixPerBlock",
 #!  (see <Ref Attr="BlocksInfo" BookName="Reference"/>).
 #! @Arguments modtbl
 #! @Returns a list
-#! @Group CentralCharactersOfBlocks
-DeclareAttribute( "CentralCharactersOfBlocks",
+#! @Group CentralCharacters
+DeclareAttribute( "CentralCharacters",
         IsBrauerTable );
-#! @InsertSystem CentralCharactersOfBlocks
+#! @InsertSystem CentralCharacters
 
 #! @Description
 #!  Associates to a <M>p</M>-block idempotent <A>b</A> of a <M>p</M>-block <A>B</A>
 #!  of a group <M>G</M> with <A>p</A>-modular character table <M>modtbl</M>
 #!  the corresponding record in <C>BlocksInfo</C>(<M>modtbl</M>)
 #!  (see <Ref Attr="BlocksInfo" BookName="Reference"/>).
-#!  The method computes the central characters of all blocks using <C>CentralCharactersOfBlocks</C>(<M>modtbl</M>)
+#!  The method computes the central characters of all blocks using <C>CentralCharacters</C>(<M>modtbl</M>)
 #!  and searches for the unique central character <M>\omega</M> with <M>\omega</M>(<A>b</A>)<M>=1</M>.
 #!  For all other central characters <M>\omega</M>(<A>b</A>)<M>=0</M>
-#!  (see <Ref Attr="CentralCharactersOfBlocks"/>).
+#!  (see <Ref Attr="CentralCharacters"/>).
 #! @Arguments b
 #! @Returns a record
 #! @Group BlocksInfo
@@ -330,11 +330,11 @@ DeclareOperation( "CartanMatrixPerBlock",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
-#! @Group CentralCharactersOfBlocks
-DeclareOperation( "CentralCharactersOfBlocks",
+#! @Group CentralCharacters
+DeclareOperation( "CentralCharacters",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Group CentralCharactersOfBlocks
-DeclareOperation( "CentralCharactersOfBlocks",
+#! @Group CentralCharacters
+DeclareOperation( "CentralCharacters",
         [ IsGroup, IsInt ] );

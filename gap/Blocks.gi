@@ -348,7 +348,7 @@ InstallMethod( CartanMatrixPerBlock,
 end );
 
 ## the notion is used in [Gow]
-InstallMethod( CentralCharactersOfBlocks,
+InstallMethod( CentralCharacters,
         [ IsBrauerTable ],
         
   function( modtbl )
@@ -387,7 +387,7 @@ InstallMethod( BlocksInfo,
     
     modtbl := UnderlyingBrauerTable( b );
     
-    omegas := CentralCharactersOfBlocks( modtbl );
+    omegas := CentralCharacters( modtbl );
     
     coeffs := Coefficients( b );
     
@@ -432,7 +432,7 @@ InstallMethod( DefectClasses,
     classes := ConjugacyClasses( ordtbl );
     
     ## trigger computing all central characters of which one is needed below
-    CentralCharactersOfBlocks( modtbl );
+    CentralCharacters( modtbl );
     
     block := BlocksInfo( b );
     
@@ -663,21 +663,21 @@ InstallMethod( CartanMatrixPerBlock,
 end );
 
 ##
-InstallMethod( CentralCharactersOfBlocks,
+InstallMethod( CentralCharacters,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
     
-    return CentralCharactersOfBlocks( ordtbl mod p );
+    return CentralCharacters( ordtbl mod p );
     
 end );
 
 ##
-InstallMethod( CentralCharactersOfBlocks,
+InstallMethod( CentralCharacters,
         [ IsGroup, IsInt ],
         
   function( G, p )
     
-    return CentralCharactersOfBlocks( CharacterTable( G ), p );
+    return CentralCharacters( CharacterTable( G ), p );
     
 end );
