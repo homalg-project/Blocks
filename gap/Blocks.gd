@@ -191,6 +191,20 @@ DeclareAttribute( "BrauerCharactersDegrees",
 #! @InsertSystem BrauerCharactersDegrees
 
 #! @Description
+#!  Computes the decomposition matrix of the <A>p</A>-block <A>B</A>
+#!  with block idempotent <A>b</A>.
+#! @Arguments b
+#! @Returns a matrix
+#! @Group DecompositionMatrix
+DeclareAttribute( "DecompositionMatrix",
+        IsElementOfFreeMagmaRing );
+
+#! @Arguments B
+#! @Group DecompositionMatrix
+DeclareAttribute( "DecompositionMatrix",
+        IsAlgebra );
+
+#! @Description
 #!  Computes the list of decomposition matrices of the <A>p</A>-blocks of the group <A>G</A>
 #!  with <A>p</A>-modular character table <A>modtbl</A>
 #!  and underlying ordinary character table <A>ordtbl</A>.

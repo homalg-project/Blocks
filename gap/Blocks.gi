@@ -359,6 +359,33 @@ InstallMethod( BrauerCharactersDegrees,
 end );
 
 ##
+InstallMethod( DecompositionMatrix,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local modtbl, info, pos;
+    
+    modtbl := BrauerTable( b );
+    
+    info := BlocksInfo( b );
+    
+    pos := info.PositionOfBlock;
+    
+    return DecompositionMatrix( modtbl, pos );
+    
+end );
+
+##
+InstallMethod( DecompositionMatrix,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return DecompositionMatrix( One( B ) );
+    
+end );
+
+##
 InstallMethod( DecompositionMatrixPerBlock,
         [ IsBrauerTable ],
         
