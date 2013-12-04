@@ -310,13 +310,8 @@ InstallMethod( OrdinaryCharactersDegrees,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local ordtbl, info;
     
-    ordtbl := OrdinaryCharacterTable( b );
-    
-    info := BlocksInfo( b );
-    
-    return List( Irr( ordtbl ){info.ordchars}, Degree );
+    return List( Irr( b ), Degree );
     
 end );
 
