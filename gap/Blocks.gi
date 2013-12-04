@@ -209,7 +209,7 @@ InstallMethod( BlocksInfo,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local modtbl, omegas, coeffs, prod, pos, block;
+    local modtbl, omegas, coeffs, prod, pos, info;
     
     modtbl := BrauerTable( b );
     
@@ -227,11 +227,11 @@ InstallMethod( BlocksInfo,
     Assert( 0, IsOne( prod[pos] ) );
     Assert( 0, PositionProperty( prod, a -> not IsZero( a ), pos + 1 ) = fail );
     
-    block := BlocksInfo( modtbl )[pos];
+    info := BlocksInfo( modtbl )[pos];
     
-    block!.BlockIdempotent := b;
+    info!.BlockIdempotent := b;
     
-    return block;
+    return info;
     
 end );
 
@@ -270,11 +270,11 @@ InstallMethod( DefectsOfBlocks,
         [ IsBrauerTable ],
         
   function( modtbl )
-    local blocks;
+    local infos;
     
-    blocks := BlocksInfo( modtbl );
+    infos := BlocksInfo( modtbl );
     
-    return List( blocks, b -> b.defect );
+    return List( infos, b -> b.defect );
     
 end );
 
@@ -308,13 +308,13 @@ InstallMethod( OrdinaryCharactersDegrees,
         [ IsBrauerTable ],
         
   function( modtbl )
-    local ordtbl, blocks;
+    local ordtbl, infos;
     
     ordtbl := OrdinaryCharacterTable( modtbl );
     
-    blocks := BlocksInfo( modtbl );
+    infos := BlocksInfo( modtbl );
     
-    return List( blocks, b -> List( Irr( ordtbl ){b.ordchars}, Degree ) );
+    return List( infos, b -> List( Irr( ordtbl ){b.ordchars}, Degree ) );
     
 end );
 
@@ -348,11 +348,11 @@ InstallMethod( BrauerCharactersDegrees,
         [ IsBrauerTable ],
         
   function( modtbl )
-    local blocks;
+    local infos;
     
-    blocks := BlocksInfo( modtbl );
+    infos := BlocksInfo( modtbl );
     
-    return List( blocks, b -> List( Irr( modtbl ){b.modchars}, Degree ) );
+    return List( infos, b -> List( Irr( modtbl ){b.modchars}, Degree ) );
     
 end );
 
@@ -361,11 +361,11 @@ InstallMethod( DecompositionMatrixPerBlock,
         [ IsBrauerTable ],
         
   function( modtbl )
-    local blocks, decmats;
+    local infos, decmats;
     
-    blocks := BlocksInfo( modtbl );
+    infos := BlocksInfo( modtbl );
     
-    return List( [ 1 .. Length( blocks ) ], i -> DecompositionMatrix( modtbl, i ) );
+    return List( [ 1 .. Length( infos ) ], i -> DecompositionMatrix( modtbl, i ) );
     
 end );
 
@@ -387,15 +387,15 @@ InstallMethod( CentralCharacters,
         [ IsBrauerTable ],
         
   function( modtbl )
-    local ordtbl, blocks, c, omegas;
+    local ordtbl, infos, c, omegas;
     
     ordtbl := OrdinaryCharacterTable( modtbl );
     
-    blocks := BlocksInfo( modtbl );
+    infos := BlocksInfo( modtbl );
     
     ## for each block B compute the central character omega_chi,
     ## where chi is some ordinary character belonging to B
-    omegas := List( blocks,
+    omegas := List( infos,
                     B -> CentralCharacter( Irr( ordtbl )[B.ordchars[1]] ) );
     
     c := UnderlyingCharacteristic( modtbl );
@@ -404,9 +404,9 @@ InstallMethod( CentralCharacters,
     omegas := List( omegas,
                     o -> List( o, b -> FrobeniusCharacterValue( b, c ) ) );
     
-    Perform( [ 1 .. Length( blocks ) ],
+    Perform( [ 1 .. Length( infos ) ],
             function( i )
-              blocks[i]!.CentralCharacterOfBlock := omegas[i];
+              infos[i]!.CentralCharacterOfBlock := omegas[i];
             end );
     
     return omegas;
@@ -419,7 +419,7 @@ InstallMethod( DefectClasses,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local modtbl, ordtbl, classes, block, omega, pos;
+    local modtbl, ordtbl, classes, info, omega, pos;
     
     modtbl := BrauerTable( b );
     
@@ -430,9 +430,9 @@ InstallMethod( DefectClasses,
     ## trigger computing all central characters of which one is needed below
     CentralCharacters( modtbl );
     
-    block := BlocksInfo( b );
+    info := BlocksInfo( b );
     
-    omega := block!.CentralCharacterOfBlock;
+    omega := info!.CentralCharacterOfBlock;
     
     pos := Filtered( [ 1 .. Length( classes ) ],
                    function( K )
@@ -445,7 +445,7 @@ InstallMethod( DefectClasses,
     
     classes := classes{pos};
     
-    block!.DefectClassesOfBlock := classes;
+    info!.DefectClassesOfBlock := classes;
     
     return classes;
     
