@@ -115,19 +115,32 @@ InstallMethod( UnderlyingGroupAlgebra,
 end );
 
 ##
-InstallMethod( UnderlyingBrauerTable,
-        [ IsElementOfFreeMagmaRing ],
+InstallMethod( BrauerTable,
+        [ IsAlgebra ],
         
-  function( b )
+  function( B )
     local kG, G, p;
     
-    kG := UnderlyingGroupAlgebra( b );
+    kG := UnderlyingGroupAlgebra( B );
     
     G := UnderlyingMagma( kG );
     
     p := Characteristic( kG );
     
     return BrauerTable( G, p );
+    
+end );
+
+##
+InstallMethod( BrauerTable,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local kG, G;
+    
+    kG := UnderlyingGroupAlgebra( b );
+    
+    return BrauerTable( kG );
     
 end );
 
@@ -287,7 +300,7 @@ InstallMethod( BlocksInfo,
   function( b )
     local modtbl, omegas, coeffs, prod, pos, block;
     
-    modtbl := UnderlyingBrauerTable( b );
+    modtbl := BrauerTable( b );
     
     omegas := CentralCharacters( modtbl );
     
@@ -427,7 +440,7 @@ InstallMethod( DefectClasses,
   function( b )
     local modtbl, ordtbl, classes, block, omega, pos;
     
-    modtbl := UnderlyingBrauerTable( b );
+    modtbl := BrauerTable( b );
     
     ordtbl := OrdinaryCharacterTable( modtbl );
     

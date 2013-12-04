@@ -220,7 +220,7 @@ InstallMethod( Coefficients,
   function( b )
     local modtbl, classes;
     
-    modtbl := UnderlyingBrauerTable( b );
+    modtbl := BrauerTable( b );
     
     classes := ConjugacyClasses( OrdinaryCharacterTable( modtbl ) );
     
