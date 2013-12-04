@@ -370,13 +370,8 @@ InstallMethod( BrauerCharactersDegrees,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local modtbl, info;
     
-    modtbl := BrauerTable( b );
-    
-    info := BlocksInfo( b );
-    
-    return List( Irr( modtbl ){info.modchars}, Degree );
+    return List( IBr( b ), Degree );
     
 end );
 
