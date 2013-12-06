@@ -419,6 +419,27 @@ InstallMethod( NrInvolutionsPerBlock,
 end );
 
 ##
+InstallMethod( SpecialBlocks,
+        [ IsGroupAlgebra ],
+        
+  function( kG )
+    local blocks;
+    
+    if not ( HasIsDefinedOverSplittingField( kG ) and IsDefinedOverSplittingField( kG ) ) then
+        Error( "the group algebra is not known to be defined over a splitting field\n" );
+    fi;
+    
+    if not 0 in NrInvolutionsPerBlock( kG ) then
+        return [ ];
+    fi;
+    
+    blocks := List( CentralNonPrincipalIdempotentsOfGroupAlgebra( kG ), BlockOfIdempotent );
+    
+    return Filtered( blocks, B -> IsBlock( B ) and IsReal( B ) and NrInvolutions( B ) = 0 );
+    
+end );
+
+##
 InstallMethod( IBr,
         [ IsElementOfFreeMagmaRing ],
         
@@ -838,6 +859,16 @@ InstallMethod( NrInvolutionsPerBlock,
   function( G, p )
     
     return NrInvolutionsPerBlock( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( SpecialBlocks,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    
+    return SpecialBlocks( GroupRingOverSplittingField( p, G ) );
     
 end );
 

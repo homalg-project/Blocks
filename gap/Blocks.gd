@@ -237,6 +237,17 @@ DeclareAttribute( "NrInvolutionsPerBlock",
         IsGroupAlgebra );
 
 #! @Description
+#!  Computes the special <A>p</A>-blocks of the group <A>G</A>
+#!  with <A>p</A>-modular character table <A>modtbl</A>
+#!  and underlying ordinary character table <A>ordtbl</A>.
+#!  A special <A>p</A>-block is real, non-stronly real block.
+#! @Arguments kG
+#! @Returns a list
+#! @Group SpecialBlocks
+DeclareAttribute( "SpecialBlocks",
+        IsGroupAlgebra );
+
+#! @Description
 #!  Computes the list of degrees of Brauer characters
 #!  associated to the <A>p</A>-block <A>B</A> with block idempotent <A>b</A>.
 #! @Arguments b
@@ -464,6 +475,11 @@ DeclareOperation( "NrInvolutionsPerBlock",
 #! @Arguments G, p
 #! @Group NrInvolutionsPerBlock
 DeclareOperation( "NrInvolutionsPerBlock",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments G, p
+#! @Group SpecialBlocks
+DeclareOperation( "SpecialBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
