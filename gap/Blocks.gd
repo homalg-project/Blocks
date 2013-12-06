@@ -331,7 +331,7 @@ DeclareAttribute( "CentralCharacters",
 #!  with <A>p</A>-modular character table <M>modtbl</M>
 #!  and underlying ordinary character table <M>ordtbl</M>.
 #!  The following code implements <Cite Key="GM00" Where="Lemma 2.1"/>:
-#!  <#Include Label="DefectClasses_code">
+#! @InsertCode DefectClasses_code
 #! @Arguments b
 #! @Returns a list
 #! @Group DefectClasses

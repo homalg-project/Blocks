@@ -119,8 +119,7 @@ end );
 #
 ####################################
 
-##  <#GAPDoc Label="IsRegular_code">
-##  <Listing Type="Code"><![CDATA[
+#! @Code IsRegular_code
 InstallMethod( IsRegular,
         [ IsMultiplicativeElementWithInverse, IsInt ],
         
@@ -133,8 +132,7 @@ InstallMethod( IsRegular,
     return Gcd( Order( g ), p ) in [ 1, -1 ];
     
 end );
-##  ]]></Listing>
-##  <#/GAPDoc>
+#! @EndCode
 
 ##
 InstallMethod( IsRegular,
@@ -149,8 +147,7 @@ InstallMethod( IsRegular,
     
 end );
 
-##  <#GAPDoc Label="DefectGroup_code:cc">
-##  <Listing Type="Code"><![CDATA[
+#! @Code DefectGroup_code:cc
 InstallMethod( DefectGroup,
         [ CategoryCollections(IsMultiplicativeElementWithInverse), IsInt ],
         
@@ -167,8 +164,7 @@ InstallMethod( DefectGroup,
     return SylowSubgroup( Centralizer( G, g ), p );
     
 end );
-##  ]]></Listing>
-##  <#/GAPDoc>
+#! @EndCode
 
 ##
 InstallMethod( Involution,

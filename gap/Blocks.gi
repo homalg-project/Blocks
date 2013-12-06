@@ -553,8 +553,7 @@ InstallMethod( CentralCharacters,
     
 end );
 
-##  <#GAPDoc Label="DefectClasses_code">
-##  <Listing Type="Code"><![CDATA[
+#! @Code DefectClasses_code
 InstallMethod( DefectClasses,
         [ IsElementOfFreeMagmaRing ],
         
@@ -590,8 +589,7 @@ InstallMethod( DefectClasses,
     return classes;
     
 end );
-##  ]]></Listing>
-##  <#/GAPDoc>
+#! @EndCode
 
 ##
 InstallMethod( DefectClasses,

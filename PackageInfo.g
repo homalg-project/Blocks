@@ -56,7 +56,7 @@ PackageDoc := rec(
 Dependencies := rec(
   GAP := ">=4.4",
   NeededOtherPackages := [
-                   [ "AutoDoc", ">= 2013.11.05" ],
+                   [ "AutoDoc", ">= 2013.12.04" ],
                    [ "homalg", ">= 2013.09.03" ],
                    [ "Modules", ">= 2013.10.27" ],
                    [ "RingsForHomalg", ">= 2013.08.22" ],
