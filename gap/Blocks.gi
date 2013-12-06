@@ -229,6 +229,8 @@ InstallMethod( BlocksInfo,
     
     info := BlocksInfo( modtbl )[pos];
     
+    info!.PositionOfBlock := pos;
+    
     info!.BlockIdempotent := b;
     
     return info;
