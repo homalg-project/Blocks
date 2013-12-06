@@ -193,6 +193,20 @@ DeclareAttribute( "BrauerCharactersDegrees",
         IsAlgebra );
 
 #! @Description
+#!  Computes the list of Brauer characters
+#!  of the <A>p</A>-block <A>B</A> with block idempotent <A>b</A>.
+#! @Arguments b
+#! @Returns a list
+#! @Group BIr
+DeclareAttribute( "IBr",
+        IsElementOfFreeMagmaRing );
+
+#! @Arguments B
+#! @Group BIr
+DeclareAttribute( "IBr",
+        IsAlgebra );
+
+#! @Description
 #!  Computes the list of lists of degrees of Brauer characters
 #!  associated to the <A>p</A>-blocks of the group <A>G</A>
 #!  with <A>p</A>-modular character table <A>modtbl</A>

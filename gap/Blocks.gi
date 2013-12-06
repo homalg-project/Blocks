@@ -341,6 +341,31 @@ InstallMethod( OrdinaryCharactersDegrees,
 end );
 
 ##
+InstallMethod( IBr,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local ordtbl, info;
+    
+    ordtbl := OrdinaryCharacterTable( b );
+    
+    info := BlocksInfo( b );
+    
+    return Irr( ordtbl ){info.modchars};
+    
+end );
+
+##
+InstallMethod( IBr,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return IBr( One( B ) );
+    
+end );
+
+##
 InstallMethod( BrauerCharactersDegrees,
         [ IsElementOfFreeMagmaRing ],
         
