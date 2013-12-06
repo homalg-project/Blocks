@@ -670,6 +670,21 @@ end );
 ####################################
 
 ##
+InstallMethod( GroupRingOverSplittingField,
+        [ IsInt, IsGroup ],
+        
+  function( p, G )
+    local kG;
+    
+    kG := GroupRing( SplittingField( G, p ), G );
+    
+    SetIsDefinedOverSplittingField( kG, true );
+    
+    return kG;
+    
+end );
+
+##
 InstallMethod( CorrespondingMaximalIdeal,
         [ IsMultiplicativeElementWithInverse, IsHomalgModule ],
         

@@ -393,6 +393,14 @@ DeclareAttribute( "DefectGroup",
 ####################################
 
 #! @Description
+#!  Construct the group ring of .
+#! @Arguments p, G
+#! @Returns a group ring
+#! @Label for IsGroup, IsInt
+DeclareOperation( "GroupRingOverSplittingField",
+        [ IsInt, IsGroup ] );
+
+#! @Description
 #!  Compute the maximal ideal corresponding to the group element <A>g</A>.
 #! @Arguments g, M
 #! @Returns a &homalg; ideal
