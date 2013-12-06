@@ -114,6 +114,20 @@ DeclareAttribute( "BlocksInfo",
         IsAlgebra, "mutable" );
 
 #! @Description
+#!  Computes the defect of the <A>p</A>-block <A>B</A> with block idempotent <A>b</A>.
+#! @Arguments b
+#! @Returns a nonnegative integer
+#! @Group Defect
+DeclareAttribute( "Defect",
+        IsElementOfFreeMagmaRing );
+#! @InsertSystem Defect
+
+#! @Arguments B
+#! @Group Defect
+DeclareAttribute( "Defect",
+        IsAlgebra );
+
+#! @Description
 #!  Computes the list of defects of the <A>p</A>-blocks of the group <A>G</A>
 #!  with <A>p</A>-modular character table <A>modtbl</A>
 #!  and underlying ordinary character table <A>ordtbl</A>.

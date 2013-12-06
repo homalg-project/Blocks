@@ -246,6 +246,26 @@ InstallMethod( BlocksInfo,
 end );
 
 ##
+InstallMethod( Defect,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    
+    return BlocksInfo( b ).defect;
+    
+end );
+
+##
+InstallMethod( Defect,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return Defect( One( B ) );
+    
+end );
+
+##
 InstallMethod( DefectsOfBlocks,
         [ IsBrauerTable ],
         
