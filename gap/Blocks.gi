@@ -341,6 +341,54 @@ InstallMethod( OrdinaryCharactersDegrees,
 end );
 
 ##
+InstallMethod( NrInvolutions,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local ordtbl;
+    
+    ordtbl := OrdinaryCharacterTable( b );
+    
+    return Sum( Irr( b ), chi -> Indicator( ordtbl, [ chi ], 2 )[1] * DegreeOfCharacter( chi ) );
+    
+end );
+
+##
+InstallMethod( NrInvolutions,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return NrInvolutions( One( B ) );
+    
+end );
+
+##
+InstallMethod( NrInvolutionsPerBlock,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    local ordtbl, infos;
+    
+    ordtbl := OrdinaryCharacterTable( modtbl );
+    
+    infos := BlocksInfo( modtbl );
+    
+    return List( infos, b -> Sum( Irr( ordtbl ){b.ordchars}, chi -> Indicator( ordtbl, [ chi ], 2 )[1] * DegreeOfCharacter( chi ) ) );
+    
+end );
+
+##
+InstallMethod( NrInvolutionsPerBlock,
+        [ IsGroupAlgebra ],
+        
+  function( kG )
+    
+    return NrInvolutionsPerBlock( BrauerTable( kG ) );
+    
+end );
+
+##
 InstallMethod( IBr,
         [ IsElementOfFreeMagmaRing ],
         
@@ -687,6 +735,26 @@ InstallMethod( OrdinaryCharactersDegrees,
   function( G, p )
     
     return OrdinaryCharactersDegrees( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( NrInvolutionsPerBlock,
+        [ IsCharacterTable, IsInt ],
+        
+  function( ordtbl, p )
+    
+    return NrInvolutionsPerBlock( ordtbl mod p );
+    
+end );
+
+##
+InstallMethod( NrInvolutionsPerBlock,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    
+    return NrInvolutionsPerBlock( CharacterTable( G ), p );
     
 end );
 

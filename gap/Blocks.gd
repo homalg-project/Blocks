@@ -179,6 +179,42 @@ DeclareAttribute( "OrdinaryCharactersDegrees",
 #! @InsertSystem OrdinaryCharactersDegrees
 
 #! @Description
+#!  Computes the <E>virtual</E> number of involutions
+#!  of the <A>p</A>-block <A>B</A> of a group <M>G</M> with block idempotent <A>b</A>, i.e.,
+#!  <Display>
+#!    \sum_{\chi \in Irr(B)} \nu( \chi ) \chi( 1 ).
+#!  </Display>
+#!  The sum over all such numbers over all blocks is the number of involutions in the group <M>G</M>.
+#! @Arguments b
+#! @Returns an integer
+#! @Group Irr
+DeclareAttribute( "NrInvolutions",
+        IsElementOfFreeMagmaRing );
+
+#! @Arguments B
+#! @Group Irr
+DeclareAttribute( "NrInvolutions",
+        IsAlgebra );
+
+#! @Description
+#!  Computes the <E>virtual</E> number of involutions
+#!  associated to the <A>p</A>-blocks of the group <A>G</A>
+#!  with <A>p</A>-modular character table <A>modtbl</A>
+#!  and underlying ordinary character table <A>ordtbl</A>
+#!  (see <Ref Attr="NrInvolutions" Label="for IsAlgebra"/>).
+#! @Arguments modtbl
+#! @Returns a list
+#! @Group NrInvolutionsPerBlock
+DeclareAttribute( "NrInvolutionsPerBlock",
+        IsBrauerTable );
+
+#! @Arguments kG
+#! @Returns a list
+#! @Group NrInvolutionsPerBlock
+DeclareAttribute( "NrInvolutionsPerBlock",
+        IsGroupAlgebra );
+
+#! @Description
 #!  Computes the list of degrees of Brauer characters
 #!  associated to the <A>p</A>-block <A>B</A> with block idempotent <A>b</A>.
 #! @Arguments b
@@ -368,6 +404,16 @@ DeclareOperation( "OrdinaryCharactersDegrees",
 #! @Arguments G, p
 #! @Group OrdinaryCharactersDegrees
 DeclareOperation( "OrdinaryCharactersDegrees",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments ordtbl, p
+#! @Group NrInvolutionsPerBlock
+DeclareOperation( "NrInvolutionsPerBlock",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group NrInvolutionsPerBlock
+DeclareOperation( "NrInvolutionsPerBlock",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
