@@ -74,6 +74,34 @@ InstallMethod( UnderlyingGroupAlgebra,
 end );
 
 ##
+InstallMethod( OrdinaryCharacterTable,
+        [ IsAlgebra ],
+        
+  function( B )
+    local kG, G;
+    
+    kG := UnderlyingGroupAlgebra( B );
+    
+    G := UnderlyingMagma( kG );
+    
+    return OrdinaryCharacterTable( G );
+    
+end );
+
+##
+InstallMethod( OrdinaryCharacterTable,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local kG;
+    
+    kG := UnderlyingGroupAlgebra( b );
+    
+    return OrdinaryCharacterTable( kG );
+    
+end );
+
+##
 InstallMethod( BrauerTable,
         [ IsAlgebra ],
         

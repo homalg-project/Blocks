@@ -46,6 +46,20 @@ DeclareAttribute( "UnderlyingGroupAlgebra",
         IsElementOfFreeMagmaRing );
 
 #! @Description
+#!  The ordinary character table of the modular group algebra <M>kG :=</M><C>UnderlyingGroupAlgebra</C>(<A>B</A>)
+#!  containing the algebra <M>B</M> as with <A>b</A><M>=</M><C>One</C>(<A>b</A>).
+#! @Arguments B
+#! @Group OrdinaryCharacterTable
+#! @Returns a character table
+DeclareAttribute( "OrdinaryCharacterTable",
+        IsAlgebra );
+
+#! @Arguments b
+#! @Group OrdinaryCharacterTable
+DeclareAttribute( "OrdinaryCharacterTable",
+        IsElementOfFreeMagmaRing );
+
+#! @Description
 #!  The Brauer table of the modular group algebra <M>kG :=</M><C>UnderlyingGroupAlgebra</C>(<A>B</A>)
 #!  containing the algebra <M>B</M> as with <A>b</A><M>=</M><C>One</C>(<A>b</A>).
 #! @Arguments B
