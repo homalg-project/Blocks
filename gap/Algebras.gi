@@ -302,7 +302,7 @@ InstallMethod( CentralIdempotentsOfInvolutiveAlgebra,
                      ## now this redefined c cannot be an idempotent of a block
                      c![999] := false;
                  elif b then
-                     ## c is an idempotent of a real block if the field is a splitting field
+                     ## c is an idempotent of a block, even a real block if the field is a splitting field
                      c![999] := true;
                  fi;
                  return c;
