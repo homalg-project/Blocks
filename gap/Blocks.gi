@@ -767,8 +767,11 @@ InstallMethod( NrBlocks,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
+    local modtbl;
     
-    return NrBlocks( ordtbl mod p );
+    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
+    
+    return NrBlocks( modtbl );
     
 end );
 
@@ -787,8 +790,11 @@ InstallMethod( SplittingField,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
+    local modtbl;
     
-    return SplittingField( ordtbl mod p );
+    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
+    
+    return SplittingField( modtbl );
     
 end );
 
@@ -807,8 +813,11 @@ InstallMethod( DefectsOfBlocks,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
+    local modtbl;
     
-    return DefectsOfBlocks( ordtbl mod p );
+    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
+    
+    return DefectsOfBlocks( modtbl );
     
 end );
 
@@ -827,8 +836,11 @@ InstallMethod( OrdinaryCharactersDegrees,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
+    local modtbl;
     
-    return OrdinaryCharactersDegrees( ordtbl mod p );
+    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
+    
+    return OrdinaryCharactersDegrees( modtbl );
     
 end );
 
@@ -847,8 +859,11 @@ InstallMethod( NrInvolutionsPerBlock,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
+    local modtbl;
     
-    return NrInvolutionsPerBlock( ordtbl mod p );
+    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
+    
+    return NrInvolutionsPerBlock( modtbl );
     
 end );
 
@@ -877,8 +892,11 @@ InstallMethod( BrauerCharactersDegrees,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
+    local modtbl;
     
-    return BrauerCharactersDegrees( ordtbl mod p );
+    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
+    
+    return BrauerCharactersDegrees( modtbl );
     
 end );
 
@@ -897,8 +915,11 @@ InstallMethod( DecompositionMatrixPerBlock,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
+    local modtbl;
     
-    return DecompositionMatrixPerBlock( ordtbl mod p );
+    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
+    
+    return DecompositionMatrixPerBlock( modtbl );
     
 end );
 
@@ -917,8 +938,11 @@ InstallMethod( CartanMatrixPerBlock,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
+    local modtbl;
     
-    return CartanMatrixPerBlock( ordtbl mod p );
+    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
+    
+    return CartanMatrixPerBlock( modtbl );
     
 end );
 
@@ -937,8 +961,11 @@ InstallMethod( CentralCharacters,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
+    local modtbl;
     
-    return CentralCharacters( ordtbl mod p );
+    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
+    
+    return CentralCharacters( modtbl );
     
 end );
 
