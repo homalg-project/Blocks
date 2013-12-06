@@ -76,6 +76,16 @@ InstallMethod( NrBlocks,
 end );
 
 ##
+InstallMethod( SplittingField,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    
+    return Field( Flat( CentralCharacters( modtbl ) ) );
+    
+end );
+
+##
 InstallMethod( BlockOfIdempotent,
         [ IsElementOfFreeMagmaRing ],
         
@@ -733,6 +743,26 @@ InstallMethod( NrBlocks,
   function( G, p )
     
     return NrBlocks( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( SplittingField,
+        [ IsCharacterTable, IsInt ],
+        
+  function( ordtbl, p )
+    
+    return SplittingField( ordtbl mod p );
+    
+end );
+
+##
+InstallMethod( SplittingField,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    
+    return SplittingField( CharacterTable( G ), p );
     
 end );
 

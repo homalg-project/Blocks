@@ -58,6 +58,14 @@ DeclareAttribute( "NrBlocks",
         IsGroupAlgebra );
 
 #! @Description
+#!  Computes the splitting field of the <A>p</A>-modular character table <A>modtbl</A>
+#!  of the group <A>G</A> with ordinary character table <A>ordtbl</A>.
+#! @Arguments modtbl
+#! @Returns a positive integer
+DeclareAttribute( "SplittingField",
+        IsBrauerTable );
+
+#! @Description
 #!  Computes the block of the idempotent <A>e</A> of a group algebra <M>kG</M>.
 #! @Arguments e
 #! @Returns an algebra with one
@@ -408,6 +416,16 @@ DeclareOperation( "NrBlocks",
 #! @Arguments G, p
 #! @Group NrBlocks
 DeclareOperation( "NrBlocks",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments ordtbl, p
+#! @Group SplittingField
+DeclareOperation( "SplittingField",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group SplittingField
+DeclareOperation( "SplittingField",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
