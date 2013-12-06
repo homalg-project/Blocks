@@ -374,7 +374,7 @@ DeclareAttribute( "DefectGroup",
 #!  Compute the maximal ideal corresponding to the group element <A>g</A>.
 #! @Arguments g, M
 #! @Returns a &homalg; ideal
-#! @Label IsMultiplicativeElementWithInverse, IsHomalgModule
+#! @Label for IsMultiplicativeElementWithInverse, IsHomalgModule
 DeclareOperation( "CorrespondingMaximalIdeal",
         [ IsMultiplicativeElementWithInverse, IsHomalgModule ] );
 
