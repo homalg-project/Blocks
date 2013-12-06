@@ -44,6 +44,20 @@ DeclareProperty( "IsReal",
 ####################################
 
 #! @Description
+#!  Computes the number of <A>p</A>-blocks of the group <A>G</A> with
+#!  <A>p</A>-modular group ring <A>kG</A>, ordinary character table <A>ordtbl</A>,
+#!  and <A>p</A>-modular character table <A>modtbl</A>.
+#! @Arguments modtbl
+#! @Returns a positive integer
+DeclareAttribute( "NrBlocks",
+        IsBrauerTable );
+
+#! @Arguments kG
+#! @Group NrBlocks
+DeclareAttribute( "NrBlocks",
+        IsGroupAlgebra );
+
+#! @Description
 #!  Computes the block of the idempotent <A>e</A> of a group algebra <M>kG</M>.
 #! @Arguments e
 #! @Returns an algebra with one
@@ -385,6 +399,16 @@ DeclareOperation( "CorrespondingMaximalIdeal",
 #! @Label for IsMultiplicativeElementWithInverse, IsHomalgFiltration
 DeclareOperation( "CorrespondingMaximalIdeal",
         [ IsMultiplicativeElementWithInverse, IsHomalgFiltration ] );
+
+#! @Arguments ordtbl, p
+#! @Group NrBlocks
+DeclareOperation( "NrBlocks",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group NrBlocks
+DeclareOperation( "NrBlocks",
+        [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
 #! @Group DefectsOfBlocks
