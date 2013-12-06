@@ -281,6 +281,31 @@ InstallMethod( DefectsOfBlocks,
 end );
 
 ##
+InstallMethod( Irr,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local ordtbl, info;
+    
+    ordtbl := OrdinaryCharacterTable( b );
+    
+    info := BlocksInfo( b );
+    
+    return Irr( ordtbl ){info.ordchars};
+    
+end );
+
+##
+InstallMethod( Irr,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return Irr( One( B ) );
+    
+end );
+
+##
 InstallMethod( OrdinaryCharactersDegrees,
         [ IsElementOfFreeMagmaRing ],
         

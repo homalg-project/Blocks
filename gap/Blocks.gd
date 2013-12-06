@@ -139,6 +139,20 @@ DeclareAttribute( "DefectsOfBlocks",
 #! @InsertSystem DefectsOfBlocks
 
 #! @Description
+#!  Computes the list of ordinary characters
+#!  of the <A>p</A>-block <A>B</A> with block idempotent <A>b</A>.
+#! @Arguments b
+#! @Returns a list
+#! @Group Irr
+DeclareAttribute( "Irr",
+        IsElementOfFreeMagmaRing );
+
+#! @Arguments B
+#! @Group Irr
+DeclareAttribute( "Irr",
+        IsAlgebra );
+
+#! @Description
 #!  Computes the list of degrees of ordinary characters
 #!  associated to the <A>p</A>-block <A>B</A> with block idempotent <A>b</A>.
 #! @Arguments b
