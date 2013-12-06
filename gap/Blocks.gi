@@ -320,6 +320,31 @@ end );
 
 ##
 InstallMethod( BrauerCharactersDegrees,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local modtbl, info;
+    
+    modtbl := BrauerTable( b );
+    
+    info := BlocksInfo( b );
+    
+    return List( Irr( modtbl ){info.modchars}, Degree );
+    
+end );
+
+##
+InstallMethod( BrauerCharactersDegrees,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return BrauerCharactersDegrees( One( B ) );
+    
+end );
+
+##
+InstallMethod( BrauerCharactersDegrees,
         [ IsBrauerTable ],
         
   function( modtbl )
