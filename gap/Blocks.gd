@@ -216,6 +216,20 @@ DeclareAttribute( "DecompositionMatrixPerBlock",
 #! @InsertSystem DecompositionMatrixPerBlock
 
 #! @Description
+#!  Computes the Cartan matrix of the <A>p</A>-block <A>B</A>
+#!  with block idempotent <A>b</A>.
+#! @Arguments b
+#! @Returns a matrix
+#! @Group CartanMatrix
+DeclareAttribute( "CartanMatrix",
+        IsElementOfFreeMagmaRing );
+
+#! @Arguments B
+#! @Group CartanMatrix
+DeclareAttribute( "CartanMatrix",
+        IsAlgebra );
+
+#! @Description
 #!  Computes the list of Cartan matrices of the <A>p</A>-blocks of the group <A>G</A>
 #!  with <A>p</A>-modular character table <A>modtbl</A>
 #!  and underlying ordinary character table <A>ordtbl</A>.

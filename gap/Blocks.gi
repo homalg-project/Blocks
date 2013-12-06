@@ -399,6 +399,29 @@ InstallMethod( DecompositionMatrixPerBlock,
 end );
 
 ##
+InstallMethod( CartanMatrix,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local decmat;
+    
+    decmat := DecompositionMatrix( b );
+    
+    return TransposedMat( decmat ) * decmat;
+    
+end );
+
+##
+InstallMethod( CartanMatrix,
+        [ IsAlgebra and HasOne ],
+        
+  function( B )
+    
+    return CartanMatrix( One( B ) );
+    
+end );
+
+##
 InstallMethod( CartanMatrixPerBlock,
         [ IsBrauerTable ],
         
