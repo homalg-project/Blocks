@@ -119,6 +119,73 @@ end );
 #
 ####################################
 
+##
+InstallMethod( BrauerTableOfSmallGroup,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    local t, tmodp, fus, ccl, cclreps, cclrepsorders, lcm, q, reps, irr;
+    
+    t:= CharacterTable( G );
+    
+    tmodp := BrauerTable( G, p );
+    
+    if not tmodp = fail then
+        return tmodp;
+    fi;
+    
+    tmodp:= CharacterTableRegular( t, p );
+    
+    fus:= FusionConjugacyClasses( tmodp, t );
+    
+    ccl:= ConjugacyClasses( t ){ fus };
+    
+    cclreps:= List( ccl, Representative );
+    
+    cclrepsorders:= List( cclreps, Order );
+    
+    lcm:= Lcm( cclrepsorders );
+    
+    q:= p;
+    
+    while not ( q-1 ) mod lcm = 0 do
+        q:= p * q;
+    od;
+    
+    reps:= IrreducibleRepresentations( G, GF(q) );
+    
+    irr:= List( reps,
+                rho -> List( cclreps, x -> BrauerCharacterValue( x^rho ) ) );
+    
+    SetIrr( tmodp, List( irr, chi -> Character( tmodp, chi ) ) );
+    
+    ComputedBrauerTables( t )[p] := tmodp;
+    
+    return tmodp;
+    
+end );
+
+##
+InstallMethod( BrauerTableOfSmallGroup,
+        [ IsCharacterTable, IsInt ],
+        
+  function( ordtbl, p )
+    local tmodp, G;
+    
+    tmodp := ordtbl mod p;
+    
+    if not tmodp = fail then
+        return tmodp;
+    elif not HasUnderlyingGroup( ordtbl ) then
+        TryNextMethod( );
+    fi;
+    
+    G := UnderlyingGroup( ordtbl );
+    
+    return BrauerTableOfSmallGroup( G, p );
+    
+end );
+
 #! @Code IsRegular_code
 InstallMethod( IsRegular,
         [ IsMultiplicativeElementWithInverse, IsInt ],
