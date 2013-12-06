@@ -33,14 +33,16 @@ end );
     
 ##
 InstallMethod( UnderlyingGroupAlgebra,
-        [ IsAlgebra and HasOne ],
+        [ IsAlgebra ],
         
   function( B )
     local kG;
     
     kG := B;
     
-    if HasLeftActingRingOfIdeal( kG ) then
+    if HasIsGroupAlgebra( kG ) and IsGroupAlgebra( kG ) then
+        return kG;
+    elif HasLeftActingRingOfIdeal( kG ) then
         kG := LeftActingRingOfIdeal( kG );
         if HasLeftActingRingOfIdeal( kG ) then
             kG := LeftActingRingOfIdeal( kG );
