@@ -371,7 +371,7 @@ InstallMethod( OrdinaryCharactersDegrees,
 end );
 
 ##
-InstallMethod( NrInvolutions,
+InstallMethod( FrobeniusSchurNumber,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
@@ -384,17 +384,17 @@ InstallMethod( NrInvolutions,
 end );
 
 ##
-InstallMethod( NrInvolutions,
+InstallMethod( FrobeniusSchurNumber,
         [ IsAlgebra and HasOne ],
         
   function( B )
     
-    return NrInvolutions( One( B ) );
+    return FrobeniusSchurNumber( One( B ) );
     
 end );
 
 ##
-InstallMethod( NrInvolutionsPerBlock,
+InstallMethod( FrobeniusSchurNumberPerBlock,
         [ IsBrauerTable ],
         
   function( modtbl )
@@ -409,12 +409,12 @@ InstallMethod( NrInvolutionsPerBlock,
 end );
 
 ##
-InstallMethod( NrInvolutionsPerBlock,
+InstallMethod( FrobeniusSchurNumberPerBlock,
         [ IsGroupAlgebra ],
         
   function( kG )
     
-    return NrInvolutionsPerBlock( BrauerTable( kG ) );
+    return FrobeniusSchurNumberPerBlock( BrauerTable( kG ) );
     
 end );
 
@@ -429,13 +429,13 @@ InstallMethod( SpecialBlocks,
         Error( "the group algebra is not known to be defined over a splitting field\n" );
     fi;
     
-    if not 0 in NrInvolutionsPerBlock( kG ) then
+    if not 0 in FrobeniusSchurNumberPerBlock( kG ) then
         return [ ];
     fi;
     
     blocks := List( CentralNonPrincipalIdempotentsOfGroupAlgebra( kG ), BlockOfIdempotent );
     
-    return Filtered( blocks, B -> IsBlock( B ) and IsReal( B ) and NrInvolutions( B ) = 0 );
+    return Filtered( blocks, B -> IsBlock( B ) and IsReal( B ) and FrobeniusSchurNumber( B ) = 0 );
     
 end );
 
@@ -855,7 +855,7 @@ InstallMethod( OrdinaryCharactersDegrees,
 end );
 
 ##
-InstallMethod( NrInvolutionsPerBlock,
+InstallMethod( FrobeniusSchurNumberPerBlock,
         [ IsCharacterTable, IsInt ],
         
   function( ordtbl, p )
@@ -863,17 +863,17 @@ InstallMethod( NrInvolutionsPerBlock,
     
     modtbl := BrauerTableOfSmallGroup( ordtbl, p );
     
-    return NrInvolutionsPerBlock( modtbl );
+    return FrobeniusSchurNumberPerBlock( modtbl );
     
 end );
 
 ##
-InstallMethod( NrInvolutionsPerBlock,
+InstallMethod( FrobeniusSchurNumberPerBlock,
         [ IsGroup, IsInt ],
         
   function( G, p )
     
-    return NrInvolutionsPerBlock( CharacterTable( G ), p );
+    return FrobeniusSchurNumberPerBlock( CharacterTable( G ), p );
     
 end );
 

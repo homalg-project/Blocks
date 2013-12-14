@@ -210,12 +210,12 @@ DeclareAttribute( "OrdinaryCharactersDegrees",
 #! @Arguments b
 #! @Returns an integer
 #! @Group Irr
-DeclareAttribute( "NrInvolutions",
+DeclareAttribute( "FrobeniusSchurNumber",
         IsElementOfFreeMagmaRing );
 
 #! @Arguments B
 #! @Group Irr
-DeclareAttribute( "NrInvolutions",
+DeclareAttribute( "FrobeniusSchurNumber",
         IsAlgebra );
 
 #! @Description
@@ -223,17 +223,17 @@ DeclareAttribute( "NrInvolutions",
 #!  associated to the <A>p</A>-blocks of the group <A>G</A>
 #!  with <A>p</A>-modular character table <A>modtbl</A>
 #!  and underlying ordinary character table <A>ordtbl</A>
-#!  (see <Ref Attr="NrInvolutions" Label="for IsAlgebra"/>).
+#!  (see <Ref Attr="FrobeniusSchurNumber" Label="for IsAlgebra"/>).
 #! @Arguments modtbl
 #! @Returns a list
-#! @Group NrInvolutionsPerBlock
-DeclareAttribute( "NrInvolutionsPerBlock",
+#! @Group FrobeniusSchurNumberPerBlock
+DeclareAttribute( "FrobeniusSchurNumberPerBlock",
         IsBrauerTable );
 
 #! @Arguments kG
 #! @Returns a list
-#! @Group NrInvolutionsPerBlock
-DeclareAttribute( "NrInvolutionsPerBlock",
+#! @Group FrobeniusSchurNumberPerBlock
+DeclareAttribute( "FrobeniusSchurNumberPerBlock",
         IsGroupAlgebra );
 
 #! @Description
@@ -468,13 +468,13 @@ DeclareOperation( "OrdinaryCharactersDegrees",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
-#! @Group NrInvolutionsPerBlock
-DeclareOperation( "NrInvolutionsPerBlock",
+#! @Group FrobeniusSchurNumberPerBlock
+DeclareOperation( "FrobeniusSchurNumberPerBlock",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Group NrInvolutionsPerBlock
-DeclareOperation( "NrInvolutionsPerBlock",
+#! @Group FrobeniusSchurNumberPerBlock
+DeclareOperation( "FrobeniusSchurNumberPerBlock",
         [ IsGroup, IsInt ] );
 
 #! @Arguments G, p
