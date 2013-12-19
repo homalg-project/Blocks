@@ -4,6 +4,7 @@ doc: doc/manual.six
 
 doc/manual.six: makedoc.g \
 		PackageInfo.g \
+		doc/Intros.g \
 		doc/Blocks.bib \
 		gap/*.gd gap/*.gi examples/*.g examples/doc/*.g
 	        gap makedoc.g
