@@ -209,12 +209,12 @@ DeclareAttribute( "OrdinaryCharactersDegrees",
 #!  The sum over all such numbers over all blocks is the number of involutions in the group <M>G</M>.
 #! @Arguments b
 #! @Returns an integer
-#! @Group Irr
+#! @Group FrobeniusSchurNumber
 DeclareAttribute( "FrobeniusSchurNumber",
         IsElementOfFreeMagmaRing );
 
 #! @Arguments B
-#! @Group Irr
+#! @Group FrobeniusSchurNumber
 DeclareAttribute( "FrobeniusSchurNumber",
         IsAlgebra );
 
