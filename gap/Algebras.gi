@@ -10,6 +10,15 @@
 
 ####################################
 #
+# methods for properties:
+#
+####################################
+
+InstallTrueMethod( IsDefinedOverInvolutionSplittingField,
+        IsAlgebra and IsDefinedOverSplittingField );
+
+####################################
+#
 # methods for attributes:
 #
 ####################################

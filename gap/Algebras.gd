@@ -24,6 +24,14 @@
 DeclareProperty( "IsDefinedOverSplittingField",
         IsAlgebra );
 
+#! @Description
+#!  Check if the algebra <A>A</A> is defined over an involution-splitting field, i.e.,
+#!  <C>CentralIdempotentsOfInvolutiveAlgebra</C>(<A>A</A>) is not altered by base field extensions.
+#! @Arguments A
+#! @Label for IsAlgebra
+DeclareProperty( "IsDefinedOverInvolutionSplittingField",
+        IsAlgebra );
+
 ####################################
 #
 #! @Section Attributes
