@@ -61,7 +61,7 @@ DeclareAttribute( "OrdinaryCharacterTable",
 
 #! @Description
 #!  The Brauer table of the modular group algebra <M>kG :=</M><C>UnderlyingGroupAlgebra</C>(<A>B</A>)
-#!  containing the algebra <M>B</M> as with <A>b</A><M>=</M><C>One</C>(<A>b</A>).
+#!  containing the algebra <M>B</M> as with <A>b</A><M>=</M><C>One</C>(<A>B</A>).
 #! @Arguments B
 #! @Group BrauerTable
 #! @Returns a Brauer table
