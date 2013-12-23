@@ -676,6 +676,21 @@ InstallMethod( GroupRingOverSplittingField,
 end );
 
 ##
+InstallMethod( GroupRingOverInvolutionSplittingField,
+        [ IsInt, IsGroup ],
+        
+  function( p, G )
+    local kG;
+    
+    kG := GroupRing( InvolutionSplittingField( G, p ), G );
+    
+    SetIsDefinedOverInvolutionSplittingField( kG, true );
+    
+    return kG;
+    
+end );
+
+##
 InstallMethod( CorrespondingMaximalIdeal,
         [ IsMultiplicativeElementWithInverse, IsHomalgModule ],
         

@@ -391,6 +391,15 @@ DeclareOperation( "GroupRingOverSplittingField",
         [ IsInt, IsGroup ] );
 
 #! @Description
+#!  Construct the group ring of <A>G</A> over a involution-splitting field
+#!  of characteristic <A>p</A>.
+#! @Arguments p, G
+#! @Returns a group ring
+#! @Label for IsGroup, IsInt
+DeclareOperation( "GroupRingOverInvolutionSplittingField",
+        [ IsInt, IsGroup ] );
+
+#! @Description
 #!  Compute the maximal ideal corresponding to the group element <A>g</A>.
 #! @Arguments g, M
 #! @Returns a &homalg; ideal
