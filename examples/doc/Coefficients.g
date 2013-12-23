@@ -1,5 +1,7 @@
 #! @System Coefficients
 
+LoadPackage( "Blocks" );
+
 #! @Example
 G := SmallGroup( 20, 1 );; StructureDescription( G );; G;
 #! C5 : C4

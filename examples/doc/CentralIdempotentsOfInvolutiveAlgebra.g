@@ -1,5 +1,7 @@
 #! @System CentralIdempotentsOfInvolutiveAlgebra
 
+LoadPackage( "Blocks" );
+
 #! @Example
 G := CyclicGroup( 6 );; StructureDescription( G );; G;
 #! C6

@@ -1,5 +1,7 @@
 #! @System DecompositionMatrixPerBlock
 
+LoadPackage( "Blocks" );
+
 #! @Example
 ordtbl := CharacterTable( "A5" );
 #! CharacterTable( "A5" )

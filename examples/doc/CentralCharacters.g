@@ -1,5 +1,7 @@
 #! @System CentralCharacters
 
+LoadPackage( "Blocks" );
+
 #! @Example
 G := SmallGroup( 12, 1 );; StructureDescription( G );; G;
 #! C3 : C4
