@@ -87,7 +87,7 @@ end );
 
 ##
 InstallMethod( BlockOfIdempotent,
-        [ IsElementOfFreeMagmaRing ],
+        [ "IsElementOfFreeMagmaRing" ],
         
   function( e )
     local kG, B;
@@ -130,7 +130,7 @@ end );
 
 ##
 InstallMethod( PrincipalBlockIdempotent,
-        [ IsGroupAlgebra ],
+        [ "IsGroupAlgebra" ],
         
   function( kG )
     local e;
@@ -144,7 +144,7 @@ end );
 
 ##
 InstallMethod( PrincipalBlock,
-        [ IsGroupAlgebra ],
+        [ "IsGroupAlgebra" ],
         
   function( kG )
     local b0, B0;
@@ -162,7 +162,7 @@ end );
 
 ##
 InstallMethod( CentralNonPrincipalIdempotentsOfGroupAlgebra,
-        [ IsGroupAlgebra ],
+        [ "IsGroupAlgebra" ],
         
   function( kG )
     local e, pos;
