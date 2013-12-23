@@ -296,10 +296,6 @@ InstallMethod( CentralIdempotentsOfInvolutiveAlgebra,
     
     b := HasIsDefinedOverSplittingField( A ) and IsDefinedOverSplittingField( A );
     
-    if b and HasIsGroupAlgebra( A ) and IsGroupAlgebra( A ) and not BrauerTable( A ) = fail then
-        Assert( 0, Length( e ) = NrBlocks( A ) );
-    fi;
-    
     e := List( e,
                function( c )
                  if not c = Involution( c ) then
