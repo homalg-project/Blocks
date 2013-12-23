@@ -382,7 +382,8 @@ DeclareAttribute( "DefectGroup",
 ####################################
 
 #! @Description
-#!  Construct the group ring of .
+#!  Construct the group ring of <A>G</A> over a splitting field
+#!  of characteristic <A>p</A>.
 #! @Arguments p, G
 #! @Returns a group ring
 #! @Label for IsGroup, IsInt
