@@ -56,36 +56,6 @@ end );
 ####################################
 
 ##
-InstallMethod( NrBlocks,
-        [ IsBrauerTable ],
-        
-  function( modtbl )
-    
-    return Size( Filtered( BlocksInfo( modtbl ), r -> IsBound( r.modchars ) ) );
-    
-end );
-
-##
-InstallMethod( NrBlocks,
-        [ IsGroupAlgebra ],
-        
-  function( kG )
-    
-    return NrBlocks( BrauerTable( kG ) );
-    
-end );
-
-##
-InstallMethod( SplittingField,
-        [ IsBrauerTable ],
-        
-  function( modtbl )
-    
-    return Field( Flat( CentralCharacters( modtbl ) ) );
-    
-end );
-
-##
 InstallMethod( BlockOfIdempotent,
         [ "IsElementOfFreeMagmaRing" ],
         
@@ -759,52 +729,6 @@ InstallMethod( CorrespondingMaximalIdeal,
     n := Indeterminates( N!.AffineCoordinateRing );
     
     return LeftSubmodule( n - g );
-    
-end );
-
-##
-InstallMethod( NrBlocks,
-        [ IsCharacterTable, IsInt ],
-        
-  function( ordtbl, p )
-    local modtbl;
-    
-    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
-    
-    return NrBlocks( modtbl );
-    
-end );
-
-##
-InstallMethod( NrBlocks,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return NrBlocks( CharacterTable( G ), p );
-    
-end );
-
-##
-InstallMethod( SplittingField,
-        [ IsCharacterTable, IsInt ],
-        
-  function( ordtbl, p )
-    local modtbl;
-    
-    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
-    
-    return SplittingField( modtbl );
-    
-end );
-
-##
-InstallMethod( SplittingField,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return SplittingField( CharacterTable( G ), p );
     
 end );
 

@@ -12,6 +12,8 @@ ReadPackage( "Blocks", "gap/Groups.gd" );
 
 ReadPackage( "Blocks", "gap/Algebras.gd" );
 
+ReadPackage( "Blocks", "gap/TableBlocks.gd" );
+
 ReadPackage( "Blocks", "gap/Blocks.gd" );
 
 ReadPackage( "Blocks", "gap/Tools.gd" );
