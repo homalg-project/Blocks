@@ -182,6 +182,7 @@ DeclareAttribute( "DefiningIdealOfLowerPartOfUnitaryGroup",
 ####################################
 
 #! @Arguments kG
+#! @Returns a group
 #! @Group NormalizedUnitaryGroup
 DeclareOperation( "NormalizedUnitaryGroup",
         [ IsGroupRing ] );
@@ -197,10 +198,12 @@ DeclareOperation( "DefiningIdealOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
 #! @Arguments k, G
+#! @Returns a positive integer
 DeclareOperation( "SizeOfUnitaryGroupOfGroupRing",
         [ IsRing, IsGroup ] );
 
 #! @Arguments k, G
+#! @Returns a positive integer
 DeclareOperation( "ExpectedSizeOfUnitaryGroupOfGroupRingOf2Group",
         [ IsRing, IsGroup ] );
 
