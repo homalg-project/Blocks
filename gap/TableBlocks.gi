@@ -358,6 +358,76 @@ InstallMethod( TableBlocks,
     
 end );
 
+##
+InstallMethod( TableBlocks,
+        [ "IsGroupAlgebra" ],
+        
+  function( kG )
+    
+    return TableBlocks( UnderlyingGroup( kG ), Characteristic( kG ) );
+    
+end );
+
+##
+InstallMethod( RealTableBlocks,
+        [ "IsCharacterTable", "IsInt" ],
+        
+  function( ordtbl, p )
+    
+    return Filtered( TableBlocks( ordtbl, p ), IsReal );
+    
+end );
+
+##
+InstallMethod( RealTableBlocks,
+        [ "IsGroup", "IsInt" ],
+        
+  function( G, p )
+    
+    return RealTableBlocks( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( RealTableBlocks,
+        [ "IsGroupAlgebra" ],
+        
+  function( kG )
+    
+    return RealTableBlocks( UnderlyingGroup( kG ), Characteristic( kG ) );
+    
+end );
+
+##
+InstallMethod( RealNonPrincipalTableBlocks,
+        [ "IsCharacterTable", "IsInt" ],
+        
+  function( ordtbl, p )
+    
+    return Filtered( RealTableBlocks( ordtbl, p ), b -> not IsPrincipal( b ) );
+    
+end );
+
+##
+InstallMethod( RealNonPrincipalTableBlocks,
+        [ "IsGroup", "IsInt" ],
+        
+  function( G, p )
+    
+    return RealNonPrincipalTableBlocks( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( RealNonPrincipalTableBlocks,
+        [ "IsGroupAlgebra" ],
+        
+  function( kG )
+    
+    return RealNonPrincipalTableBlocks( UnderlyingGroup( kG ), Characteristic( kG ) );
+    
+end );
+
 ####################################
 #
 # View, Print, and Display methods:

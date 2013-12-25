@@ -36,6 +36,53 @@ DeclareOperation( "TableBlocks",
 DeclareOperation( "TableBlocks",
         [ IsGroup, IsInt ] );
 
+#! @Arguments kG
+#! @Group TableBlocks
+DeclareAttribute( "TableBlocks",
+        IsGroupAlgebra );
+
+#! @Description
+#!  Computes the list of real table <A>p</A>-blocks
+#!  of the ordinary character table <A>ordtbl</A>
+#!  of the group <A>G</A>.
+#!  (see <Ref Attr="PrimeBlocks" BookName="Reference"/>).
+#! @Arguments ordtbl, p
+#! @Returns a list of table blocks
+#! @Group TableBlocks
+DeclareOperation( "RealTableBlocks",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group TableBlocks
+DeclareOperation( "RealTableBlocks",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments kG
+#! @Group TableBlocks
+DeclareAttribute( "RealTableBlocks",
+        IsGroupAlgebra );
+
+#! @Description
+#!  Computes the list of nonprincipal real table <A>p</A>-blocks
+#!  of the ordinary character table <A>ordtbl</A>
+#!  of the group <A>G</A>.
+#!  (see <Ref Attr="PrimeBlocks" BookName="Reference"/>).
+#! @Arguments ordtbl, p
+#! @Returns a list of table blocks
+#! @Group TableBlocks
+DeclareOperation( "RealNonPrincipalTableBlocks",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group TableBlocks
+DeclareOperation( "RealNonPrincipalTableBlocks",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments kG
+#! @Group TableBlocks
+DeclareAttribute( "RealNonPrincipalTableBlocks",
+        IsGroupAlgebra );
+
 ####################################
 #
 #! @Section Properties
