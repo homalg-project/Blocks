@@ -12,6 +12,8 @@
 
 DeclareFilter( "IsManagedByPackageBlocks" );
 
+DeclareGlobalVariable( "LogicalImplicationsForTableBlocks" );
+
 ####################################
 #
 #! @Section Constructors

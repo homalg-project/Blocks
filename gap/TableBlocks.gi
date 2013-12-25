@@ -8,6 +8,17 @@
 ##
 #############################################################################
 
+InstallValue( LogicalImplicationsForTableBlocks,
+        [
+         
+         [ IsPrincipal,
+           "implies", IsReal ],
+         
+         [ IsSpecial,
+           "implies", IsReal ],
+         
+         ] );
+
 ####################################
 #
 # methods for properties:
@@ -15,7 +26,9 @@
 ####################################
 
 ##
-InstallTrueMethod( IsReal, IsBlockOfCharacterTable and IsPrincipal );
+InstallLogicalImplicationsForHomalgObjects(
+        LogicalImplicationsForTableBlocks,
+        IsBlockOfCharacterTable );
 
 ##
 InstallMethod( IsReal,
