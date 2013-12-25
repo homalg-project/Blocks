@@ -339,6 +339,7 @@ InstallMethod( TableBlocks,
         #SetDefect( B, Maximum( coheights ) );
         Defect( B );
         B!.DefectClassesOrder := MakeImmutable( orders{ClassPositionsOfDefectClasses( B )} );
+        B!.SplittingField :=  Field( PCoefficientsOfOsimaIdempotent( B ) );
     od;
     
     MakeImmutable( blocks );
@@ -394,6 +395,10 @@ InstallMethod( ViewObj,
             Print( "non" );
         fi;
         Print( "real" );
+    fi;
+    
+    if not ( HasIsPrincipal( B ) and IsPrincipal( B ) ) then
+        Print( ", ", B!.SplittingField );
     fi;
     
     if not ( HasIsReal( B ) and not IsReal( B ) )
