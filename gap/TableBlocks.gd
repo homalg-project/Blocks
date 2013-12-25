@@ -22,7 +22,7 @@ DeclareFilter( "IsManagedByPackageBlocks" );
 #!  Computes the list of table <A>p</A>-blocks
 #!  of the ordinary character table <A>ordtbl</A>
 #!  of the group <A>G</A>.
-#!  (see <Ref Attr="BlocksInfo" BookName="Reference"/>).
+#!  (see <Ref Attr="PrimeBlocks" BookName="Reference"/>).
 #! @Arguments ordtbl, p
 #! @Returns a list of table blocks
 #! @Group TableBlocks
