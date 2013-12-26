@@ -278,6 +278,16 @@ InstallMethod( RealBlocksOfGroupAlgebra,
 end );
 
 ##
+InstallMethod( RealNonPrincipalBlocksOfGroupAlgebra,
+        [ "IsGroupAlgebra" ],
+        
+  function( kG )
+    
+    return Filtered( RealBlocksOfGroupAlgebra( kG ), B -> not IsPrincipal( B ) );
+    
+end );
+
+##
 InstallMethod( AssociatedProjectionMatrix,
         [ IsAlgebra and HasOne ],
         
