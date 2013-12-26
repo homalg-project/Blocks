@@ -411,6 +411,18 @@ InstallMethod( RealTableBlocks,
 end );
 
 ##
+InstallMethod( RealTableBlocks,
+        [ "IsBrauerTable" ],
+        
+  function( modtbl )
+    
+    return RealTableBlocks(
+                   OrdinaryCharacterTable( modtbl ),
+                   UnderlyingCharacteristic( modtbl ) );
+    
+end );
+
+##
 InstallMethod( RealNonPrincipalTableBlocks,
         [ "IsCharacterTable", "IsInt" ],
         
@@ -437,6 +449,18 @@ InstallMethod( RealNonPrincipalTableBlocks,
   function( kG )
     
     return RealNonPrincipalTableBlocks( UnderlyingGroup( kG ), Characteristic( kG ) );
+    
+end );
+
+##
+InstallMethod( RealNonPrincipalTableBlocks,
+        [ "IsBrauerTable" ],
+        
+  function( modtbl )
+    
+    return RealNonPrincipalTableBlocks(
+                   OrdinaryCharacterTable( modtbl ),
+                   UnderlyingCharacteristic( modtbl ) );
     
 end );
 

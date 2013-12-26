@@ -51,8 +51,9 @@ DeclareAttribute( "TableBlocks",
 #! @Description
 #!  Computes the list of real table <A>p</A>-blocks
 #!  of the ordinary character table <A>ordtbl</A>
+#!  (with <A>p</A>-modular group algebra <A>kG</A>
+#!   and <A>p</A>-modular character table <A>modtbl</A>)
 #!  of the group <A>G</A>.
-#!  (see <Ref Attr="PrimeBlocks" BookName="Reference"/>).
 #! @Arguments ordtbl, p
 #! @Returns a list of table blocks
 #! @Group RealTableBlocks
@@ -69,11 +70,17 @@ DeclareOperation( "RealTableBlocks",
 DeclareAttribute( "RealTableBlocks",
         IsGroupAlgebra );
 
+#! @Arguments modtbl
+#! @Group RealTableBlocks
+DeclareAttribute( "RealTableBlocks",
+        IsBrauerTable );
+
 #! @Description
 #!  Computes the list of nonprincipal real table <A>p</A>-blocks
 #!  of the ordinary character table <A>ordtbl</A>
+#!  (with <A>p</A>-modular group algebra <A>kG</A>
+#!   and <A>p</A>-modular character table <A>modtbl</A>)
 #!  of the group <A>G</A>.
-#!  (see <Ref Attr="PrimeBlocks" BookName="Reference"/>).
 #! @Arguments ordtbl, p
 #! @Returns a list of table blocks
 #! @Group RealNonPrincipalTableBlocks
@@ -89,6 +96,11 @@ DeclareOperation( "RealNonPrincipalTableBlocks",
 #! @Group RealNonPrincipalTableBlocks
 DeclareAttribute( "RealNonPrincipalTableBlocks",
         IsGroupAlgebra );
+
+#! @Arguments modtbl
+#! @Group RealNonPrincipalTableBlocks
+DeclareAttribute( "RealNonPrincipalTableBlocks",
+        IsBrauerTable );
 
 ####################################
 #
