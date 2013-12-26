@@ -23,6 +23,8 @@ DeclareGlobalVariable( "LogicalImplicationsForTableBlocks" );
 #! @Description
 #!  Computes the list of table <A>p</A>-blocks
 #!  of the ordinary character table <A>ordtbl</A>
+#!  (with <A>p</A>-modular group algebra <A>kG</A>
+#!   and <A>p</A>-modular character table <A>modtbl</A>)
 #!  of the group <A>G</A>.
 #!  (see <Ref Attr="PrimeBlocks" BookName="Reference"/>).
 #! @Arguments ordtbl, p
@@ -40,6 +42,11 @@ DeclareOperation( "TableBlocks",
 #! @Group TableBlocks
 DeclareAttribute( "TableBlocks",
         IsGroupAlgebra );
+
+#! @Arguments modtbl
+#! @Group TableBlocks
+DeclareAttribute( "TableBlocks",
+        IsBrauerTable );
 
 #! @Description
 #!  Computes the list of real table <A>p</A>-blocks

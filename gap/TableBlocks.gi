@@ -369,6 +369,18 @@ InstallMethod( TableBlocks,
 end );
 
 ##
+InstallMethod( TableBlocks,
+        [ "IsBrauerTable" ],
+        
+  function( modtbl )
+    
+    return TableBlocks(
+                   OrdinaryCharacterTable( modtbl ),
+                   UnderlyingCharacteristic( modtbl ) );
+    
+end );
+
+##
 InstallMethod( RealTableBlocks,
         [ "IsCharacterTable", "IsInt" ],
         
