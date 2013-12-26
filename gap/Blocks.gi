@@ -268,6 +268,16 @@ InstallMethod( InvolutoryBlocksOfGroupAlgebra,
 end );
 
 ##
+InstallMethod( RealBlocksOfGroupAlgebra,
+        [ "IsGroupAlgebra" ],
+        
+  function( kG )
+    
+    return Filtered( InvolutoryBlocksOfGroupAlgebra( kG ), B -> IsBlock( B ) and IsReal( B ) );
+    
+end );
+
+##
 InstallMethod( AssociatedProjectionMatrix,
         [ IsAlgebra and HasOne ],
         
