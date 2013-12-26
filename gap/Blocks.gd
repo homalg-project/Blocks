@@ -421,6 +421,15 @@ DeclareOperation( "GroupRingOverInvolutionSplittingField",
         [ IsInt, IsGroup ] );
 
 #! @Description
+#!  Computes the list of blocks of the group algebra <A>kG</A>
+#!  corresponding to the list (of lists) of table blocks <A>bs</A>.
+#! @Arguments bs, kG
+#! @Returns a list
+#! @Label for IsList, IsGroupAlgebra
+DeclareOperation( "BlocksOfTableBlocks",
+        [ IsList, IsGroupAlgebra ] );
+
+#! @Description
 #!  Compute the maximal ideal corresponding to the group element <A>g</A>.
 #! @Arguments g, M
 #! @Returns a &homalg; ideal

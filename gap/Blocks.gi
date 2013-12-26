@@ -767,6 +767,80 @@ InstallMethod( GroupRingOverInvolutionSplittingField,
     
 end );
 
+## a technical operation to avoid code duplication
+InstallMethod( BlocksOfTableBlocks,
+        [ "IsList", "IsGroupAlgebra" ],
+        
+  function( bs, kG )
+    local b, G, one, KK, Bs, n, B0;
+    
+    bs := List( bs,
+                function( b )
+                  if IsBlockOfCharacterTable( b ) then
+                      return [ b ];
+                  elif IsList( b ) and ForAll( b, IsBlockOfCharacterTable ) then
+                      return b;
+                  fi;
+                  
+                  Error( "the first argument must be a list (of lists) of table blocks\n" );
+                  
+              end );
+    
+    if bs = [ ] then
+        return bs;
+    fi;
+    
+    b := bs[1][1];
+    
+    G := UnderlyingGroup( UnderlyingCharacterTable( b ) );
+    
+    Assert( 0, IsIdenticalObj( G, UnderlyingGroup( kG ) ) );
+    
+    one := One( kG );
+    
+    KK := ConjugacyClasses( G ){b!.pregular};
+    
+    KK := List( KK, K -> Sum( List( K, g -> one * g ) ) );
+    
+    Bs := List( bs, L -> Sum( L, b -> PCoefficientsOfOsimaIdempotent( b ) ) );
+    
+    Bs := List( Bs, b -> b * KK );
+    
+    n := Length( Bs );
+    
+    Perform( [ 1 .. n ], function( i ) Bs[i]![1001] := kG; end );
+    
+    Bs := List( Bs, BlockOfIdempotent );
+    
+    Perform( [ 1 .. n ],
+            function( i )
+              if Length( bs[i] ) = 1 then
+                  SetAssociatedTableBlock( Bs[i], bs[i][1] );
+                  SetIsBlock( Bs[i], true );
+              else
+                  SetAssociatedTableBlock( Bs[i], bs[i] );
+                  SetIsBlock( Bs[i], false );
+              fi;
+          end );
+    
+    List( Bs, B -> [ Dimension( B ), IsPrincipal( B ), IsReal( B ) ] );
+    
+    if not HasPrincipalBlock( kG ) then
+        B0 := First( Bs, IsPrincipal );
+        if IsAlgebra( B0 ) then
+            SetPrincipalBlock( kG, B0 );
+            Assert( 0, IsOne( Sum( CoefficientsBySupport( One( B0 ) ) ) ) );
+        fi;
+    fi;
+    
+    if UnderlyingCharacteristic( b ) = 2 then
+        List( Bs, IsSpecial );
+    fi;
+    
+    return Bs;
+    
+end );
+
 ##
 InstallMethod( CorrespondingMaximalIdeal,
         [ IsMultiplicativeElementWithInverse, IsHomalgModule ],
