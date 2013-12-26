@@ -55,17 +55,17 @@ DeclareAttribute( "TableBlocks",
 #!  (see <Ref Attr="PrimeBlocks" BookName="Reference"/>).
 #! @Arguments ordtbl, p
 #! @Returns a list of table blocks
-#! @Group TableBlocks
+#! @Group RealTableBlocks
 DeclareOperation( "RealTableBlocks",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Group TableBlocks
+#! @Group RealTableBlocks
 DeclareOperation( "RealTableBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments kG
-#! @Group TableBlocks
+#! @Group RealTableBlocks
 DeclareAttribute( "RealTableBlocks",
         IsGroupAlgebra );
 
@@ -76,17 +76,17 @@ DeclareAttribute( "RealTableBlocks",
 #!  (see <Ref Attr="PrimeBlocks" BookName="Reference"/>).
 #! @Arguments ordtbl, p
 #! @Returns a list of table blocks
-#! @Group TableBlocks
+#! @Group RealNonPrincipalTableBlocks
 DeclareOperation( "RealNonPrincipalTableBlocks",
         [ IsCharacterTable, IsInt ] );
 
 #! @Arguments G, p
-#! @Group TableBlocks
+#! @Group RealNonPrincipalTableBlocks
 DeclareOperation( "RealNonPrincipalTableBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments kG
-#! @Group TableBlocks
+#! @Group RealNonPrincipalTableBlocks
 DeclareAttribute( "RealNonPrincipalTableBlocks",
         IsGroupAlgebra );
 
