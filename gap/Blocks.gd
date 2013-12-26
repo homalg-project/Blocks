@@ -76,6 +76,13 @@ DeclareAttribute( "CentralNonPrincipalIdempotentsOfGroupAlgebra",
         IsGroupAlgebra );
 
 #! @Description
+#!  Computes the table <M>p</M>-block of the <M>p</M>-block <A>B</A>.
+#! @Arguments B
+#! @Returns a table block
+DeclareAttribute( "AssociatedTableBlock",
+        IsAlgebra );
+
+#! @Description
 #!  Computes the canonical projection matrix of the
 #!  group algebra <M>kG</M> onto the <M>p</M>-block <A>B</A>.
 #! @Arguments B
