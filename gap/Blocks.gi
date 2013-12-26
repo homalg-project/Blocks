@@ -180,30 +180,8 @@ InstallMethod( PrincipalBlockIdempotent,
         [ "IsGroupAlgebra" ],
         
   function( kG )
-    local e;
     
-    ## CentralIdempotentsOfAlgebra does not store kG in the e's
-    e := CentralIdempotentsOfInvolutiveAlgebra( kG );
-    
-    return First( e, b -> IsOne( Sum( CoefficientsBySupport( b ) ) ) );
-    
-end );
-
-##
-InstallMethod( PrincipalBlock,
-        [ "IsGroupAlgebra" ],
-        
-  function( kG )
-    local b0, B0;
-    
-    b0 := PrincipalBlockIdempotent( kG );
-    
-    B0 := BlockOfIdempotent( b0 );
-    
-    SetIsBlock( B0, true );
-    SetIsReal( B0, true );
-    
-    return B0;
+    return One( PrincipalBlock( kG ) );
     
 end );
 
@@ -284,6 +262,45 @@ InstallMethod( RealNonPrincipalBlocksOfGroupAlgebra,
   function( kG )
     
     return Filtered( RealBlocksOfGroupAlgebra( kG ), B -> not IsPrincipal( B ) );
+    
+end );
+
+##
+InstallMethod( PrincipalBlock,
+        [ "IsGroupAlgebra" ],
+        
+  function( kG )
+    local b0, B0;
+    
+    b0 := First( TableBlocks( kG ), IsPrincipal );
+    
+    Assert( 0, IsBlockOfCharacterTable( b0 ) );
+    
+    B0 := BlocksOfTableBlocks( [ b0 ], kG )[1];
+    
+    Assert( 0, IsPrincipal( B0 ) );
+    Assert( 0, IsReal( B0 ) );
+    
+    if Characteristic( kG ) = 2 then
+        Assert( 0, not IsSpecial( B0 ) );
+    fi;
+    
+    return B0;
+    
+end );
+
+##
+InstallMethod( PrincipalBlock,
+        [ IsGroupAlgebra and IsDefinedOverInvolutionSplittingField ],
+        
+  function( kG )
+    
+    ## this call sets PrincipalBlock;
+    RealBlocksOfGroupAlgebra( kG );
+    
+    Assert( 0, HasPrincipalBlock( kG ) );
+    
+    return PrincipalBlock( kG );
     
 end );
 

@@ -12,7 +12,7 @@ k := HomalgRingOfIntegersInSingular( 2 );
 SetCoefficientsRingForPolynomialAlgebra( kG, k );
 B0 := PrincipalBlock( kG );
 #! <two-sided ideal in <algebra-with-one over GF(2), with 3 generators>,
-#!  (1 generators)>
+#!  (dimension 4)>
 M0 := UnderlyingModule( B0 );
 #! <A free left module of rank 4 on free generators>
 pi := AssociatedProjection( M0 );

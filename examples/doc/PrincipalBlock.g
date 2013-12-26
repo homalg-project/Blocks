@@ -11,7 +11,7 @@ b0 := PrincipalBlockIdempotent( kG );
 #! (Z(2)^0)*<identity> of ...+(Z(2)^0)*f3+(Z(2)^0)*f3^2
 B0 := PrincipalBlock( kG );
 #! <two-sided ideal in <algebra-with-one over GF(2), with 3 generators>,
-#!  (1 generators)>
+#!  (dimension 4)>
 One( B0 ) = b0;
 #! true
 Dimension( B0 );
