@@ -37,6 +37,20 @@ DeclareProperty( "IsBlock",
 DeclareProperty( "IsReal",
         IsAlgebra );
 
+#! @Description
+#!  Check if the block <A>B</A> is principal.
+#! @Arguments B
+#! @Label for IsAlgebra
+DeclareProperty( "IsPrincipal",
+        IsAlgebra );
+
+#! @Description
+#!  Check if the <M>2</M>-block <A>B</A> is special.
+#! @Arguments B
+#! @Label for IsAlgebra
+DeclareProperty( "IsSpecial",
+        IsAlgebra );
+
 ####################################
 #
 #! @Section Attributes

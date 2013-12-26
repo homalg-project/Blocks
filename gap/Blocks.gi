@@ -49,11 +49,88 @@ InstallMethod( IsReal,
     
 end );
 
+##
+InstallMethod( IsReal,
+        [ IsAlgebra and HasAssociatedTableBlock ],
+        
+  function( B )
+    local b;
+    
+    b := AssociatedTableBlock( B );
+    
+    if IsList( b ) then
+        if Length( b ) > 1 then
+            return false;
+        fi;
+        b := b[1];
+    fi;
+    
+    return IsReal( b );
+    
+end );
+
+##
+InstallMethod( IsPrincipal,
+        [ IsAlgebra and HasAssociatedTableBlock ],
+        
+  function( B )
+    local b;
+    
+    b := AssociatedTableBlock( B );
+    
+    if IsList( b ) then
+        if Length( b ) > 1 then
+            return false;
+        fi;
+        b := b[1];
+    fi;
+    
+    return IsPrincipal( b );
+    
+end );
+
+##
+InstallMethod( IsSpecial,
+        [ IsAlgebra and HasAssociatedTableBlock ],
+        
+  function( B )
+    local b;
+    
+    b := AssociatedTableBlock( B );
+    
+    if IsList( b ) then
+        if Length( b ) > 1 then
+            return false;
+        fi;
+        b := b[1];
+    fi;
+    
+    return IsSpecial( b );
+    
+end );
+
 ####################################
 #
 # methods for attributes:
 #
 ####################################
+
+##
+InstallMethod( Dimension,
+        [ IsAlgebra and HasAssociatedTableBlock ],
+        
+  function( B )
+    local b;
+    
+    b := AssociatedTableBlock( B );
+    
+    if IsList( b ) then
+        return Sum( b, Dimension );
+    fi;
+    
+    return Dimension( b );
+    
+end );
 
 ##
 InstallMethod( BlockOfIdempotent,
