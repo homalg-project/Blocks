@@ -97,6 +97,14 @@ DeclareAttribute( "AssociatedTableBlock",
         IsAlgebra );
 
 #! @Description
+#!  Computes the list of blocks of the group algebra <A>kG</A>.
+#! @Arguments kG
+#! @Returns a list
+#! @Label for IsGroupAlgebra
+DeclareAttribute( "BlocksOfGroupAlgebra",
+        IsGroupAlgebra );
+
+#! @Description
 #!  Computes the canonical projection matrix of the
 #!  group algebra <M>kG</M> onto the <M>p</M>-block <A>B</A>.
 #! @Arguments B

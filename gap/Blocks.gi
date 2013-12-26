@@ -228,6 +228,23 @@ InstallMethod( CentralNonPrincipalIdempotentsOfGroupAlgebra,
 end );
 
 ##
+InstallMethod( BlocksOfGroupAlgebra,
+        [ IsGroupAlgebra and IsDefinedOverSplittingField ],
+        
+  function( kG )
+    local bs, Bs;
+    
+    bs := TableBlocks( kG );
+    
+    Bs := BlocksOfTableBlocks( bs, kG );
+    
+    Assert( 0, HasPrincipalBlock( kG ) );
+    
+    return Bs;
+    
+end );
+
+##
 InstallMethod( AssociatedProjectionMatrix,
         [ IsAlgebra and HasOne ],
         
