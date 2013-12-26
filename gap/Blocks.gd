@@ -105,6 +105,15 @@ DeclareAttribute( "BlocksOfGroupAlgebra",
         IsGroupAlgebra );
 
 #! @Description
+#!  Computes the list of involutory blocks of the group algebra <A>kG</A>.
+#!  These are the real blocks and the direct sums of each nonreal block with its dual.
+#! @Arguments kG
+#! @Returns a list
+#! @Label for IsGroupAlgebra
+DeclareAttribute( "InvolutoryBlocksOfGroupAlgebra",
+        IsGroupAlgebra );
+
+#! @Description
 #!  Computes the canonical projection matrix of the
 #!  group algebra <M>kG</M> onto the <M>p</M>-block <A>B</A>.
 #! @Arguments B

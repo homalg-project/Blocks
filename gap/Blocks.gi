@@ -245,6 +245,29 @@ InstallMethod( BlocksOfGroupAlgebra,
 end );
 
 ##
+InstallMethod( InvolutoryBlocksOfGroupAlgebra,
+        [ IsGroupAlgebra and IsDefinedOverInvolutionSplittingField ],
+        
+  function( kG )
+    local bs, orb, Bs, B0;
+    
+    bs := TableBlocks( kG );
+    
+    Assert( 0, List( bs, NumberOfBlock ) = [ 1 .. Length( bs ) ] );
+    
+    orb := Orbits( Group( PermList( List( List( bs, ComplexConjugate ), NumberOfBlock ) ) ), [ 1 .. Length( bs ) ] );
+    
+    bs := List( orb, L -> bs{L} );
+    
+    Bs := BlocksOfTableBlocks( bs, kG );
+    
+    Assert( 0, HasPrincipalBlock( kG ) );
+    
+    return Bs;
+    
+end );
+
+##
 InstallMethod( AssociatedProjectionMatrix,
         [ IsAlgebra and HasOne ],
         
