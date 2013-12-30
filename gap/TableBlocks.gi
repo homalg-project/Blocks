@@ -277,6 +277,20 @@ InstallMethod( CartanMatrix,
     
 end );
 
+## IsManagedByPackageBlocks avoids changing the behavior of CTBlocks
+InstallMethod( IBr,
+        [ IsBlockOfCharacterTable and IsManagedByPackageBlocks ],
+        
+  function( B )
+    
+    ## this triggers the computation of the BrauerTable
+    ## using BrauerTableOfSmallGroup, otherwise it might fail
+    BrauerTable( B );
+    
+    TryNextMethod( );
+    
+end );
+
 ####################################
 #
 # methods for operations:
