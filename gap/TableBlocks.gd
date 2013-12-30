@@ -231,6 +231,14 @@ DeclareAttribute( "ComplexConjugate",
         IsBlockOfCharacterTable );
 
 #! @Description
+#!  Computes the list of degrees of irreducible ordinary characters
+#!  associated to the table <A>p</A>-block <A>B</A>.
+#! @Arguments B
+#! @Returns a list
+DeclareAttribute( "OrdinaryCharactersDegrees",
+        IsBlockOfCharacterTable );
+
+#! @Description
 #!  Computes the Brauer table of the table block <A>B</A>.
 #! @Arguments B
 #! @Returns a Brauer table

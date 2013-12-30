@@ -229,6 +229,16 @@ InstallMethod( ComplexConjugate,
 end );
 
 ##
+InstallMethod( OrdinaryCharactersDegrees,
+        [ IsBlockOfCharacterTable ],
+        
+  function( B )
+    
+    return List( Irr( B ), Degree );
+    
+end );
+
+##
 InstallMethod( BrauerTable,
         [ "IsBlockOfCharacterTable" ],
         
