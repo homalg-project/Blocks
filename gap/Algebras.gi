@@ -8,14 +8,24 @@
 ##
 #############################################################################
 
+InstallValue( LogicalImplicationsForInvolutiveAlgebras,
+        [
+         
+         [ IsDefinedOverSplittingField,
+           "implies", IsDefinedOverInvolutionSplittingField ],
+         
+         ] );
+
 ####################################
 #
 # methods for properties:
 #
 ####################################
 
-InstallTrueMethod( IsDefinedOverInvolutionSplittingField,
-        IsAlgebra and IsDefinedOverSplittingField );
+##
+InstallLogicalImplicationsForHomalgObjects(
+        LogicalImplicationsForInvolutiveAlgebras,
+        IsAlgebra );
 
 ####################################
 #

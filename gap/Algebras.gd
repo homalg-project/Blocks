@@ -10,6 +10,8 @@
 
 #! @Chapter Algebras
 
+DeclareGlobalVariable( "LogicalImplicationsForInvolutiveAlgebras" );
+
 ####################################
 #
 #! @Section Properties
