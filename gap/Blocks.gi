@@ -250,8 +250,15 @@ InstallMethod( RealBlocksOfGroupAlgebra,
         [ "IsGroupAlgebra" ],
         
   function( kG )
+    local bs, Bs;
     
-    return Filtered( InvolutoryBlocksOfGroupAlgebra( kG ), B -> IsBlock( B ) and IsReal( B ) );
+    bs := RealTableBlocks( kG );
+    
+    Bs := BlocksOfTableBlocks( bs, kG );
+    
+    Assert( 0, HasPrincipalBlock( kG ) );
+    
+    return Bs;
     
 end );
 
