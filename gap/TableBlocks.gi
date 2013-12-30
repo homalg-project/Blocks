@@ -291,6 +291,16 @@ InstallMethod( IBr,
     
 end );
 
+##
+InstallMethod( BrauerCharactersDegrees,
+        [ IsBlockOfCharacterTable ],
+        
+  function( B )
+    
+    return List( IBr( B ), Degree );
+    
+end );
+
 ####################################
 #
 # methods for operations:

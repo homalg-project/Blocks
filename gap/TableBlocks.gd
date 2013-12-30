@@ -252,6 +252,14 @@ DeclareAttribute( "BrauerTable",
 DeclareAttribute( "CartanMatrix",
         IsBlockOfCharacterTable );
 
+#! @Description
+#!  Computes the list of degrees of Brauer characters
+#!  associated to the table <A>p</A>-block <A>B</A>.
+#! @Arguments B
+#! @Returns a list
+DeclareAttribute( "BrauerCharactersDegrees",
+        IsBlockOfCharacterTable );
+
 ####################################
 #
 #! @Section Operations
