@@ -214,11 +214,9 @@ InstallMethod( Coefficients,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local modtbl, classes;
+    local classes;
     
-    modtbl := BrauerTable( b );
-    
-    classes := ConjugacyClasses( OrdinaryCharacterTable( modtbl ) );
+    classes := ConjugacyClasses( OrdinaryCharacterTable( b ) );
     
     return List( classes, K -> Coefficient( b, K ) );
     
