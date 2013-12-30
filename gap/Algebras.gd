@@ -34,6 +34,14 @@ DeclareProperty( "IsDefinedOverSplittingField",
 DeclareProperty( "IsDefinedOverInvolutionSplittingField",
         IsAlgebra );
 
+#! @Description
+#!  Check if the algebra <A>A</A> of characteristic <M>2</M> is defined over a special splitting field
+#!  (&see; <Ref Attr="SpecialSplittingField"/>).
+#! @Arguments A
+#! @Label for IsAlgebra
+DeclareProperty( "IsDefinedOverSpecialSplittingField",
+        IsAlgebra );
+
 ####################################
 #
 #! @Section Attributes

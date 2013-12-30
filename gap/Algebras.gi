@@ -14,6 +14,9 @@ InstallValue( LogicalImplicationsForInvolutiveAlgebras,
          [ IsDefinedOverSplittingField,
            "implies", IsDefinedOverInvolutionSplittingField ],
          
+         [ IsDefinedOverInvolutionSplittingField,
+           "implies", IsDefinedOverSpecialSplittingField ],
+         
          ] );
 
 ####################################
