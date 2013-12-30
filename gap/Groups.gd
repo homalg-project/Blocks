@@ -88,22 +88,6 @@ DeclareAttribute( "ConjugacyInvolutoryClassesOfComplementOfNormalSubgroup",
 ####################################
 
 #! @Description
-#!  Computes the <A>p</A>-modular character table
-#!  of the ordinary character table <A>ordtbl</A> of the small group <A>G</A>.
-#!  Thomas Breuer sent to me the code of this method. Thank you very much Thomas.
-#! @Arguments G, p
-#! @Returns Brauer table
-#! @Label for IsGroup, IsInt
-#! @Group BrauerTableOfSmallGroup
-DeclareOperation( "BrauerTableOfSmallGroup",
-        [ IsGroup, IsInt ] );
-
-#! @Arguments ordtbl, p
-#! @Group BrauerTableOfSmallGroup
-DeclareOperation( "BrauerTableOfSmallGroup",
-        [ IsCharacterTable, IsInt ] );
-
-#! @Description
 #!  Checks if the group element <A>g</A> is <A>p</A>-regular.
 #! @InsertCode IsRegular_code
 #! @Arguments g, p

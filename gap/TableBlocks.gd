@@ -290,3 +290,19 @@ DeclareOperation( "InvolutionSplittingField",
 #! @Group InvolutionSplittingField
 DeclareOperation( "InvolutionSplittingField",
         [ IsGroup, IsInt ] );
+
+#! @Description
+#!  Computes the <A>p</A>-modular character table
+#!  of the ordinary character table <A>ordtbl</A> of the small group <A>G</A>.
+#!  Thomas Breuer sent to me the code of this method. Thank you very much Thomas.
+#! @Arguments G, p
+#! @Returns Brauer table
+#! @Label for IsGroup, IsInt
+#! @Group BrauerTableOfSmallGroup
+DeclareOperation( "BrauerTableOfSmallGroup",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments ordtbl, p
+#! @Group BrauerTableOfSmallGroup
+DeclareOperation( "BrauerTableOfSmallGroup",
+        [ IsCharacterTable, IsInt ] );
