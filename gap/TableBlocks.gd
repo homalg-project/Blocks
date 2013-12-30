@@ -231,12 +231,35 @@ DeclareAttribute( "ComplexConjugate",
         IsBlockOfCharacterTable );
 
 #! @Description
+#!  Computes the list of defects of the table <A>p</A>-blocks of the group <A>G</A>
+#!  with ordinary character table <A>ordtbl</A>
+#!  and <A>p</A>-modular character table <A>modtbl</A>.
+#! @Arguments modtbl
+#! @Returns a list
+#! @Group DefectsOfBlocks
+DeclareAttribute( "DefectsOfBlocks",
+        IsBrauerTable );
+#! @InsertSystem DefectsOfBlocks
+
+#! @Description
 #!  Computes the list of degrees of irreducible ordinary characters
 #!  associated to the table <A>p</A>-block <A>B</A>.
 #! @Arguments B
 #! @Returns a list
 DeclareAttribute( "OrdinaryCharactersDegrees",
         IsBlockOfCharacterTable );
+
+#! @Description
+#!  Computes the list of lists of degrees of irreducible ordinary characters
+#!  associated to the table <A>p</A>-blocks of the group <A>G</A>
+#!  with ordinary character table <A>ordtbl</A>
+#!  and <A>p</A>-modular character table <A>modtbl</A>.
+#! @Arguments modtbl
+#! @Returns a list
+#! @Group OrdinaryCharactersDegrees
+DeclareAttribute( "OrdinaryCharactersDegrees",
+        IsBrauerTable );
+#! @InsertSystem OrdinaryCharactersDegrees
 
 #! @Description
 #!  Computes the Brauer table of the table block <A>B</A>.
@@ -246,11 +269,33 @@ DeclareAttribute( "BrauerTable",
         IsBlockOfCharacterTable );
 
 #! @Description
+#!  Computes the list of decomposition matrices of the <A>p</A>-blocks of the group <A>G</A>
+#!  with ordinary character table <A>ordtbl</A>
+#!  and <A>p</A>-modular character table <A>modtbl</A>.
+#! @Arguments modtbl
+#! @Returns a list
+#! @Group DecompositionMatrixPerBlock
+DeclareAttribute( "DecompositionMatrixPerBlock",
+        IsBrauerTable );
+#! @InsertSystem DecompositionMatrixPerBlock
+
+#! @Description
 #!  Computes the Cartan matrix of the table <A>p</A>-block <A>B</A>.
 #! @Arguments B
 #! @Returns a list
 DeclareAttribute( "CartanMatrix",
         IsBlockOfCharacterTable );
+
+#! @Description
+#!  Computes the list of Cartan matrices of the <A>p</A>-blocks of the group <A>G</A>
+#!  with ordinary character table <A>ordtbl</A>
+#!  and <A>p</A>-modular character table <A>modtbl</A>.
+#! @Arguments modtbl
+#! @Returns a list
+#! @Group CartanMatrixPerBlock
+DeclareAttribute( "CartanMatrixPerBlock",
+        IsBrauerTable );
+#! @InsertSystem CartanMatrixPerBlock
 
 #! @Description
 #!  Computes the list of degrees of Brauer characters
@@ -259,6 +304,18 @@ DeclareAttribute( "CartanMatrix",
 #! @Returns a list
 DeclareAttribute( "BrauerCharactersDegrees",
         IsBlockOfCharacterTable );
+
+#! @Description
+#!  Computes the list of lists of degrees of Brauer characters
+#!  associated to the table <A>p</A>-blocks of the group <A>G</A>
+#!  with ordinary character table <A>ordtbl</A>
+#!  and <A>p</A>-modular character table <A>modtbl</A>.
+#! @Arguments modtbl
+#! @Returns a list
+#! @Group BrauerCharactersDegrees
+DeclareAttribute( "BrauerCharactersDegrees",
+        IsBrauerTable );
+#! @InsertSystem BrauerCharactersDegrees
 
 ####################################
 #
@@ -299,6 +356,26 @@ DeclareOperation( "SplittingField",
 DeclareOperation( "SplittingField",
         [ IsGroup, IsInt ] );
 
+#! @Arguments ordtbl, p
+#! @Group DefectsOfBlocks
+DeclareOperation( "DefectsOfBlocks",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group DefectsOfBlocks
+DeclareOperation( "DefectsOfBlocks",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments ordtbl, p
+#! @Group OrdinaryCharactersDegrees
+DeclareOperation( "OrdinaryCharactersDegrees",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group OrdinaryCharactersDegrees
+DeclareOperation( "OrdinaryCharactersDegrees",
+        [ IsGroup, IsInt ] );
+
 #! @Description
 #!  Computes the finite splitting field
 #!  of the <M>p</M>-modular <E>involutive</E> group algebra
@@ -329,3 +406,33 @@ DeclareOperation( "BrauerTableOfSmallGroup",
 #! @Group BrauerTableOfSmallGroup
 DeclareOperation( "BrauerTableOfSmallGroup",
         [ IsCharacterTable, IsInt ] );
+
+#! @Arguments ordtbl, p
+#! @Group BrauerCharactersDegrees
+DeclareOperation( "BrauerCharactersDegrees",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group BrauerCharactersDegrees
+DeclareOperation( "BrauerCharactersDegrees",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments ordtbl, p
+#! @Group DecompositionMatrixPerBlock
+DeclareOperation( "DecompositionMatrixPerBlock",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group DecompositionMatrixPerBlock
+DeclareOperation( "DecompositionMatrixPerBlock",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments ordtbl, p
+#! @Group CartanMatrixPerBlock
+DeclareOperation( "CartanMatrixPerBlock",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group CartanMatrixPerBlock
+DeclareOperation( "CartanMatrixPerBlock",
+        [ IsGroup, IsInt ] );

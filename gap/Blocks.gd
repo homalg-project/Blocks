@@ -207,17 +207,6 @@ DeclareAttribute( "Defect",
         IsAlgebra );
 
 #! @Description
-#!  Computes the list of defects of the <A>p</A>-blocks of the group <A>G</A>
-#!  with <A>p</A>-modular character table <A>modtbl</A>
-#!  and underlying ordinary character table <A>ordtbl</A>.
-#! @Arguments modtbl
-#! @Returns a list
-#! @Group DefectsOfBlocks
-DeclareAttribute( "DefectsOfBlocks",
-        IsBrauerTable );
-#! @InsertSystem DefectsOfBlocks
-
-#! @Description
 #!  Computes the list of ordinary characters
 #!  of the <A>p</A>-block <A>B</A> with block idempotent <A>b</A>.
 #! @Arguments b
@@ -246,18 +235,6 @@ DeclareAttribute( "OrdinaryCharactersDegrees",
         IsAlgebra );
 
 #! @Description
-#!  Computes the list of lists of degrees of ordinary characters
-#!  associated to the <A>p</A>-blocks of the group <A>G</A>
-#!  with <A>p</A>-modular character table <A>modtbl</A>
-#!  and underlying ordinary character table <A>ordtbl</A>.
-#! @Arguments modtbl
-#! @Returns a list
-#! @Group OrdinaryCharactersDegrees
-DeclareAttribute( "OrdinaryCharactersDegrees",
-        IsBrauerTable );
-#! @InsertSystem OrdinaryCharactersDegrees
-
-#! @Description
 #!  Computes the <E>virtual</E> number of involutions
 #!  of the <A>p</A>-block <A>B</A> of a group <M>G</M> with block idempotent <A>b</A>, i.e.,
 #!  <Display>
@@ -274,24 +251,6 @@ DeclareAttribute( "FrobeniusSchurNumber",
 #! @Group FrobeniusSchurNumber
 DeclareAttribute( "FrobeniusSchurNumber",
         IsAlgebra );
-
-#! @Description
-#!  Computes the <E>virtual</E> number of involutions
-#!  associated to the <A>p</A>-blocks of the group <A>G</A>
-#!  with <A>p</A>-modular character table <A>modtbl</A>
-#!  and underlying ordinary character table <A>ordtbl</A>
-#!  (see <Ref Attr="FrobeniusSchurNumber" Label="for IsAlgebra"/>).
-#! @Arguments modtbl
-#! @Returns a list
-#! @Group FrobeniusSchurNumberPerBlock
-DeclareAttribute( "FrobeniusSchurNumberPerBlock",
-        IsBrauerTable );
-
-#! @Arguments kG
-#! @Returns a list
-#! @Group FrobeniusSchurNumberPerBlock
-DeclareAttribute( "FrobeniusSchurNumberPerBlock",
-        IsGroupAlgebra );
 
 #! @Description
 #!  Computes the list of degrees of Brauer characters
@@ -322,18 +281,6 @@ DeclareAttribute( "IBr",
         IsAlgebra );
 
 #! @Description
-#!  Computes the list of lists of degrees of Brauer characters
-#!  associated to the <A>p</A>-blocks of the group <A>G</A>
-#!  with <A>p</A>-modular character table <A>modtbl</A>
-#!  and underlying ordinary character table <A>ordtbl</A>.
-#! @Arguments modtbl
-#! @Returns a list
-#! @Group BrauerCharactersDegrees
-DeclareAttribute( "BrauerCharactersDegrees",
-        IsBrauerTable );
-#! @InsertSystem BrauerCharactersDegrees
-
-#! @Description
 #!  Computes the decomposition matrix of the <A>p</A>-block <A>B</A>
 #!  with block idempotent <A>b</A>.
 #! @Arguments b
@@ -348,17 +295,6 @@ DeclareAttribute( "DecompositionMatrix",
         IsAlgebra );
 
 #! @Description
-#!  Computes the list of decomposition matrices of the <A>p</A>-blocks of the group <A>G</A>
-#!  with <A>p</A>-modular character table <A>modtbl</A>
-#!  and underlying ordinary character table <A>ordtbl</A>.
-#! @Arguments modtbl
-#! @Returns a list
-#! @Group DecompositionMatrixPerBlock
-DeclareAttribute( "DecompositionMatrixPerBlock",
-        IsBrauerTable );
-#! @InsertSystem DecompositionMatrixPerBlock
-
-#! @Description
 #!  Computes the Cartan matrix of the <A>p</A>-block <A>B</A>
 #!  with block idempotent <A>b</A>.
 #! @Arguments b
@@ -371,17 +307,6 @@ DeclareAttribute( "CartanMatrix",
 #! @Group CartanMatrix
 DeclareAttribute( "CartanMatrix",
         IsAlgebra );
-
-#! @Description
-#!  Computes the list of Cartan matrices of the <A>p</A>-blocks of the group <A>G</A>
-#!  with <A>p</A>-modular character table <A>modtbl</A>
-#!  and underlying ordinary character table <A>ordtbl</A>.
-#! @Arguments modtbl
-#! @Returns a list
-#! @Group CartanMatrixPerBlock
-DeclareAttribute( "CartanMatrixPerBlock",
-        IsBrauerTable );
-#! @InsertSystem CartanMatrixPerBlock
 
 #! @Description
 #!  Computes the central character <M>\omega</M> for each <A>p</A>-block of the group <A>G</A>
@@ -491,66 +416,6 @@ DeclareOperation( "CorrespondingMaximalIdeal",
 #! @Label for IsMultiplicativeElementWithInverse, IsHomalgFiltration
 DeclareOperation( "CorrespondingMaximalIdeal",
         [ IsMultiplicativeElementWithInverse, IsHomalgFiltration ] );
-
-#! @Arguments ordtbl, p
-#! @Group DefectsOfBlocks
-DeclareOperation( "DefectsOfBlocks",
-        [ IsCharacterTable, IsInt ] );
-
-#! @Arguments G, p
-#! @Group DefectsOfBlocks
-DeclareOperation( "DefectsOfBlocks",
-        [ IsGroup, IsInt ] );
-
-#! @Arguments ordtbl, p
-#! @Group OrdinaryCharactersDegrees
-DeclareOperation( "OrdinaryCharactersDegrees",
-        [ IsCharacterTable, IsInt ] );
-
-#! @Arguments G, p
-#! @Group OrdinaryCharactersDegrees
-DeclareOperation( "OrdinaryCharactersDegrees",
-        [ IsGroup, IsInt ] );
-
-#! @Arguments ordtbl, p
-#! @Group FrobeniusSchurNumberPerBlock
-DeclareOperation( "FrobeniusSchurNumberPerBlock",
-        [ IsCharacterTable, IsInt ] );
-
-#! @Arguments G, p
-#! @Group FrobeniusSchurNumberPerBlock
-DeclareOperation( "FrobeniusSchurNumberPerBlock",
-        [ IsGroup, IsInt ] );
-
-#! @Arguments ordtbl, p
-#! @Group BrauerCharactersDegrees
-DeclareOperation( "BrauerCharactersDegrees",
-        [ IsCharacterTable, IsInt ] );
-
-#! @Arguments G, p
-#! @Group BrauerCharactersDegrees
-DeclareOperation( "BrauerCharactersDegrees",
-        [ IsGroup, IsInt ] );
-
-#! @Arguments ordtbl, p
-#! @Group DecompositionMatrixPerBlock
-DeclareOperation( "DecompositionMatrixPerBlock",
-        [ IsCharacterTable, IsInt ] );
-
-#! @Arguments G, p
-#! @Group DecompositionMatrixPerBlock
-DeclareOperation( "DecompositionMatrixPerBlock",
-        [ IsGroup, IsInt ] );
-
-#! @Arguments ordtbl, p
-#! @Group CartanMatrixPerBlock
-DeclareOperation( "CartanMatrixPerBlock",
-        [ IsCharacterTable, IsInt ] );
-
-#! @Arguments G, p
-#! @Group CartanMatrixPerBlock
-DeclareOperation( "CartanMatrixPerBlock",
-        [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p
 #! @Group CentralCharacters

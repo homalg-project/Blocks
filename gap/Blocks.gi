@@ -463,19 +463,6 @@ InstallMethod( Defect,
 end );
 
 ##
-InstallMethod( DefectsOfBlocks,
-        [ IsBrauerTable ],
-        
-  function( modtbl )
-    local infos;
-    
-    infos := BlocksInfo( modtbl );
-    
-    return List( infos, b -> b.defect );
-    
-end );
-
-##
 InstallMethod( Irr,
         [ IsElementOfFreeMagmaRing ],
         
@@ -521,21 +508,6 @@ InstallMethod( OrdinaryCharactersDegrees,
 end );
 
 ##
-InstallMethod( OrdinaryCharactersDegrees,
-        [ IsBrauerTable ],
-        
-  function( modtbl )
-    local ordtbl, infos;
-    
-    ordtbl := OrdinaryCharacterTable( modtbl );
-    
-    infos := BlocksInfo( modtbl );
-    
-    return List( infos, b -> List( Irr( ordtbl ){b.ordchars}, Degree ) );
-    
-end );
-
-##
 InstallMethod( FrobeniusSchurNumber,
         [ IsElementOfFreeMagmaRing ],
         
@@ -555,31 +527,6 @@ InstallMethod( FrobeniusSchurNumber,
   function( B )
     
     return FrobeniusSchurNumber( One( B ) );
-    
-end );
-
-##
-InstallMethod( FrobeniusSchurNumberPerBlock,
-        [ IsBrauerTable ],
-        
-  function( modtbl )
-    local ordtbl, infos;
-    
-    ordtbl := OrdinaryCharacterTable( modtbl );
-    
-    infos := BlocksInfo( modtbl );
-    
-    return List( infos, b -> Sum( Irr( ordtbl ){b.ordchars}, chi -> Indicator( ordtbl, [ chi ], 2 )[1] * DegreeOfCharacter( chi ) ) );
-    
-end );
-
-##
-InstallMethod( FrobeniusSchurNumberPerBlock,
-        [ IsGroupAlgebra ],
-        
-  function( kG )
-    
-    return FrobeniusSchurNumberPerBlock( BrauerTable( kG ) );
     
 end );
 
@@ -629,19 +576,6 @@ InstallMethod( BrauerCharactersDegrees,
 end );
 
 ##
-InstallMethod( BrauerCharactersDegrees,
-        [ IsBrauerTable ],
-        
-  function( modtbl )
-    local infos;
-    
-    infos := BlocksInfo( modtbl );
-    
-    return List( infos, b -> List( Irr( modtbl ){b.modchars}, Degree ) );
-    
-end );
-
-##
 InstallMethod( DecompositionMatrix,
         [ IsElementOfFreeMagmaRing ],
         
@@ -669,19 +603,6 @@ InstallMethod( DecompositionMatrix,
 end );
 
 ##
-InstallMethod( DecompositionMatrixPerBlock,
-        [ IsBrauerTable ],
-        
-  function( modtbl )
-    local infos, decmats;
-    
-    infos := BlocksInfo( modtbl );
-    
-    return List( [ 1 .. Length( infos ) ], i -> DecompositionMatrix( modtbl, i ) );
-    
-end );
-
-##
 InstallMethod( CartanMatrix,
         [ IsElementOfFreeMagmaRing ],
         
@@ -701,19 +622,6 @@ InstallMethod( CartanMatrix,
   function( B )
     
     return CartanMatrix( One( B ) );
-    
-end );
-
-##
-InstallMethod( CartanMatrixPerBlock,
-        [ IsBrauerTable ],
-        
-  function( modtbl )
-    local decmats;
-    
-    decmats := DecompositionMatrixPerBlock( modtbl );
-    
-    return List( decmats, decmat -> TransposedMat( decmat ) * decmat );
     
 end );
 
@@ -992,144 +900,6 @@ InstallMethod( CorrespondingMaximalIdeal,
     n := Indeterminates( N!.AffineCoordinateRing );
     
     return LeftSubmodule( n - g );
-    
-end );
-
-##
-InstallMethod( DefectsOfBlocks,
-        [ IsCharacterTable, IsInt ],
-        
-  function( ordtbl, p )
-    local modtbl;
-    
-    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
-    
-    return DefectsOfBlocks( modtbl );
-    
-end );
-
-##
-InstallMethod( DefectsOfBlocks,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return DefectsOfBlocks( CharacterTable( G ), p );
-    
-end );
-
-##
-InstallMethod( OrdinaryCharactersDegrees,
-        [ IsCharacterTable, IsInt ],
-        
-  function( ordtbl, p )
-    local modtbl;
-    
-    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
-    
-    return OrdinaryCharactersDegrees( modtbl );
-    
-end );
-
-##
-InstallMethod( OrdinaryCharactersDegrees,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return OrdinaryCharactersDegrees( CharacterTable( G ), p );
-    
-end );
-
-##
-InstallMethod( FrobeniusSchurNumberPerBlock,
-        [ IsCharacterTable, IsInt ],
-        
-  function( ordtbl, p )
-    local modtbl;
-    
-    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
-    
-    return FrobeniusSchurNumberPerBlock( modtbl );
-    
-end );
-
-##
-InstallMethod( FrobeniusSchurNumberPerBlock,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return FrobeniusSchurNumberPerBlock( CharacterTable( G ), p );
-    
-end );
-
-##
-InstallMethod( BrauerCharactersDegrees,
-        [ IsCharacterTable, IsInt ],
-        
-  function( ordtbl, p )
-    local modtbl;
-    
-    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
-    
-    return BrauerCharactersDegrees( modtbl );
-    
-end );
-
-##
-InstallMethod( BrauerCharactersDegrees,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return BrauerCharactersDegrees( CharacterTable( G ), p );
-    
-end );
-
-##
-InstallMethod( DecompositionMatrixPerBlock,
-        [ IsCharacterTable, IsInt ],
-        
-  function( ordtbl, p )
-    local modtbl;
-    
-    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
-    
-    return DecompositionMatrixPerBlock( modtbl );
-    
-end );
-
-##
-InstallMethod( DecompositionMatrixPerBlock,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return DecompositionMatrixPerBlock( CharacterTable( G ), p );
-    
-end );
-
-##
-InstallMethod( CartanMatrixPerBlock,
-        [ IsCharacterTable, IsInt ],
-        
-  function( ordtbl, p )
-    local modtbl;
-    
-    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
-    
-    return CartanMatrixPerBlock( modtbl );
-    
-end );
-
-##
-InstallMethod( CartanMatrixPerBlock,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return CartanMatrixPerBlock( CharacterTable( G ), p );
     
 end );
 

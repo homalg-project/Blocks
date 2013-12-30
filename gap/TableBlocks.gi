@@ -229,12 +229,32 @@ InstallMethod( ComplexConjugate,
 end );
 
 ##
+InstallMethod( DefectsOfBlocks,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    
+    return List( TableBlocks( modtbl ), Defect );
+    
+end );
+
+##
 InstallMethod( OrdinaryCharactersDegrees,
         [ IsBlockOfCharacterTable ],
         
   function( B )
     
     return List( Irr( B ), Degree );
+    
+end );
+
+##
+InstallMethod( OrdinaryCharactersDegrees,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    
+    return List( TableBlocks( modtbl ), OrdinaryCharactersDegrees );
     
 end );
 
@@ -261,6 +281,16 @@ InstallMethod( DecompositionMatrix,
     BrauerTable( B );
     
     TryNextMethod( );
+    
+end );
+
+##
+InstallMethod( DecompositionMatrixPerBlock,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    
+    return List( TableBlocks( modtbl ), DecompositionMatrix );
     
 end );
 
@@ -292,12 +322,32 @@ InstallMethod( IBr,
 end );
 
 ##
+InstallMethod( CartanMatrixPerBlock,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    
+    return List( TableBlocks( modtbl ), CartanMatrix );
+    
+end );
+
+##
 InstallMethod( BrauerCharactersDegrees,
         [ IsBlockOfCharacterTable ],
         
   function( B )
     
     return List( IBr( B ), Degree );
+    
+end );
+
+##
+InstallMethod( BrauerCharactersDegrees,
+        [ IsBrauerTable ],
+        
+  function( modtbl )
+    
+    return List( TableBlocks( modtbl ), BrauerCharactersDegrees );
     
 end );
 
@@ -387,6 +437,46 @@ InstallMethod( InvolutionSplittingField,
 end );
 
 ##
+InstallMethod( DefectsOfBlocks,
+        [ IsCharacterTable, IsInt ],
+        
+  function( ordtbl, p )
+    
+    return List( TableBlocks( ordtbl, p ), Defect );
+    
+end );
+
+##
+InstallMethod( DefectsOfBlocks,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    
+    return DefectsOfBlocks( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( OrdinaryCharactersDegrees,
+        [ IsCharacterTable, IsInt ],
+        
+  function( ordtbl, p )
+    
+    return List( TableBlocks( ordtbl, p ), OrdinaryCharactersDegrees );
+    
+end );
+
+##
+InstallMethod( OrdinaryCharactersDegrees,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    
+    return OrdinaryCharactersDegrees( CharacterTable( G ), p );
+    
+end );
+
+##
 InstallMethod( BrauerTableOfSmallGroup,
         [ IsGroup, IsInt ],
         
@@ -450,6 +540,66 @@ InstallMethod( BrauerTableOfSmallGroup,
     G := UnderlyingGroup( ordtbl );
     
     return BrauerTableOfSmallGroup( G, p );
+    
+end );
+
+##
+InstallMethod( DecompositionMatrixPerBlock,
+        [ IsCharacterTable, IsInt ],
+        
+  function( ordtbl, p )
+    
+    return List( TableBlocks( ordtbl, p ), DecompositionMatrix );
+    
+end );
+
+##
+InstallMethod( DecompositionMatrixPerBlock,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    
+    return DecompositionMatrixPerBlock( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( CartanMatrixPerBlock,
+        [ IsCharacterTable, IsInt ],
+        
+  function( ordtbl, p )
+    
+    return List( TableBlocks( ordtbl, p ), CartanMatrix );
+    
+end );
+
+##
+InstallMethod( CartanMatrixPerBlock,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    
+    return CartanMatrixPerBlock( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( BrauerCharactersDegrees,
+        [ IsCharacterTable, IsInt ],
+        
+  function( ordtbl, p )
+    
+    return List( TableBlocks( ordtbl, p ), BrauerCharactersDegrees );
+    
+end );
+
+##
+InstallMethod( BrauerCharactersDegrees,
+        [ IsGroup, IsInt ],
+        
+  function( G, p )
+    
+    return BrauerCharactersDegrees( CharacterTable( G ), p );
     
 end );
 
