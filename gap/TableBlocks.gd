@@ -200,6 +200,13 @@ DeclareAttribute( "FrobeniusSchurNumber",
 DeclareAttribute( "ComplexConjugate",
         IsBlockOfCharacterTable );
 
+#! @Description
+#!  Computes the Brauer table of the table block <A>B</A>.
+#! @Arguments B
+#! @Returns a Brauer table
+DeclareAttribute( "BrauerTable",
+        IsBlockOfCharacterTable );
+
 ####################################
 #
 #! @Section Operations

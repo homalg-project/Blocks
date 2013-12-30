@@ -199,6 +199,18 @@ InstallMethod( ComplexConjugate,
     
 end );
 
+##
+InstallMethod( BrauerTable,
+        [ "IsBlockOfCharacterTable" ],
+        
+  function( B )
+    
+    return BrauerTableOfSmallGroup(
+                   UnderlyingCharacterTable( B ),
+                   UnderlyingCharacteristic( B ) );
+    
+end );
+
 ####################################
 #
 # methods for operations:
