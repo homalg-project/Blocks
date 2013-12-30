@@ -167,8 +167,6 @@ InstallMethod( ComplexConjugate,
     
     if IsReal( B ) then
         return B;
-    elif IsBound( B!.Involution ) then
-        return B!.Involution;
     fi;
     
     chi := Irr( B )[1];
@@ -188,10 +186,8 @@ InstallMethod( ComplexConjugate,
     
     Assert( 0, IsBlockOfCharacterTable( _B ) );
     
-    B!.Involution := _B;
-    
-    if not IsBound( _B!.Involution ) then
-        _B!.Involution := B;
+    if not HasComplexConjugate( _B ) then
+        SetComplexConjugate( _B, B );
     fi;
     
     return _B;
