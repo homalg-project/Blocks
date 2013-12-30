@@ -130,6 +130,17 @@ DeclareAttribute( "RealNonPrincipalBlocksOfGroupAlgebra",
         IsGroupAlgebra );
 
 #! @Description
+#!  Computes the special <M>2</M>-blocks of the group <A>G</A>
+#!  with ordinary character table <A>ordtbl</A>
+#!  and <M>2</M>-modular character table <A>modtbl</A>.
+#!  A special <M>2</M>-block is a real, non-stronly real block.
+#! @Arguments kG
+#! @Returns a list
+#! @Group SpecialBlocks
+DeclareAttribute( "SpecialBlocks",
+        IsGroupAlgebra );
+
+#! @Description
 #!  Computes the canonical projection matrix of the
 #!  group algebra <M>kG</M> onto the <M>p</M>-block <A>B</A>.
 #! @Arguments B
@@ -266,17 +277,6 @@ DeclareAttribute( "FrobeniusSchurNumberPerBlock",
 #! @Returns a list
 #! @Group FrobeniusSchurNumberPerBlock
 DeclareAttribute( "FrobeniusSchurNumberPerBlock",
-        IsGroupAlgebra );
-
-#! @Description
-#!  Computes the special <A>p</A>-blocks of the group <A>G</A>
-#!  with <A>p</A>-modular character table <A>modtbl</A>
-#!  and underlying ordinary character table <A>ordtbl</A>.
-#!  A special <A>p</A>-block is real, non-stronly real block.
-#! @Arguments kG
-#! @Returns a list
-#! @Group SpecialBlocks
-DeclareAttribute( "SpecialBlocks",
         IsGroupAlgebra );
 
 #! @Description

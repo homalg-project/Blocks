@@ -280,6 +280,23 @@ InstallMethod( RealNonPrincipalBlocksOfGroupAlgebra,
 end );
 
 ##
+InstallMethod( SpecialBlocks,
+        [ IsGroupAlgebra ],
+        
+  function( kG )
+    local bs, Bs;
+    
+    bs := SpecialTableBlocks( UnderlyingGroup( kG ) );
+    
+    Bs := BlocksOfTableBlocks( bs, kG );
+    
+    Assert( 0, ForAll( Bs, IsSpecial ) );
+    
+    return Bs;
+    
+end );
+
+##
 InstallMethod( PrincipalBlock,
         [ "IsGroupAlgebra" ],
         
@@ -553,27 +570,6 @@ InstallMethod( FrobeniusSchurNumberPerBlock,
   function( kG )
     
     return FrobeniusSchurNumberPerBlock( BrauerTable( kG ) );
-    
-end );
-
-##
-InstallMethod( SpecialBlocks,
-        [ IsGroupAlgebra ],
-        
-  function( kG )
-    local blocks;
-    
-    if not ( HasIsDefinedOverSplittingField( kG ) and IsDefinedOverSplittingField( kG ) ) then
-        Error( "the group algebra is not known to be defined over a splitting field\n" );
-    fi;
-    
-    if not 0 in FrobeniusSchurNumberPerBlock( kG ) then
-        return [ ];
-    fi;
-    
-    blocks := List( CentralNonPrincipalIdempotentsOfGroupAlgebra( kG ), BlockOfIdempotent );
-    
-    return Filtered( blocks, B -> IsBlock( B ) and IsReal( B ) and FrobeniusSchurNumber( B ) = 0 );
     
 end );
 
