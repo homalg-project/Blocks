@@ -450,7 +450,7 @@ DeclareAttribute( "DefectGroup",
 ####################################
 
 #! @Description
-#!  Construct the group ring of <A>G</A> over a splitting field
+#!  Construct the group ring of <A>G</A> over the splitting field
 #!  of characteristic <A>p</A>.
 #! @Arguments p, G
 #! @Returns a group ring
@@ -459,7 +459,7 @@ DeclareOperation( "GroupRingOverSplittingField",
         [ IsInt, IsGroup ] );
 
 #! @Description
-#!  Construct the group ring of <A>G</A> over a involution-splitting field
+#!  Construct the group ring of <A>G</A> over the involution-splitting field
 #!  of characteristic <A>p</A>.
 #! @Arguments p, G
 #! @Returns a group ring
