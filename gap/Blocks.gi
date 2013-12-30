@@ -26,7 +26,7 @@ InstallMethod( IsBlock,
     if IsBound( b![999] ) then
         ## if block then real;
         ## see CentralIdempotentsOfInvolutiveAlgebra
-        if b![999] then
+        if b![999] = true then
             SetIsReal( B, true );
         fi;
         return b![999];
