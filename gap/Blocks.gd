@@ -58,6 +58,15 @@ DeclareProperty( "IsSpecial",
 ####################################
 
 #! @Description
+#!  Construct the group ring of <A>G</A> over the special splitting field
+#!  of characteristic <M>2</M> (&see; <Ref Attr="SpecialSplittingField"/>).
+#! @Arguments G
+#! @Returns a group ring
+#! @Label for IsGroup, IsInt
+DeclareAttribute( "GroupRingOverSpecialSplittingField",
+        IsGroup );
+
+#! @Description
 #!  Computes the block of the idempotent <A>e</A> of a group algebra <M>kG</M>.
 #! @Arguments e
 #! @Returns an algebra with one

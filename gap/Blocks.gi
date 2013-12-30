@@ -116,6 +116,21 @@ end );
 ####################################
 
 ##
+InstallMethod( GroupRingOverSpecialSplittingField,
+        [ IsGroup ],
+        
+  function( p, G )
+    local kG;
+    
+    kG := GroupRing( SpecialSplittingField( G ), G );
+    
+    SetIsDefinedOverSpecialSplittingField( kG, true );
+    
+    return kG;
+    
+end );
+
+##
 InstallMethod( Dimension,
         [ IsAlgebra and HasAssociatedTableBlock ],
         
