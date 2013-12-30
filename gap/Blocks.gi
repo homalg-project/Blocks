@@ -346,21 +346,6 @@ InstallMethod( PrincipalBlock,
 end );
 
 ##
-InstallMethod( PrincipalBlock,
-        [ IsGroupAlgebra and IsDefinedOverInvolutionSplittingField ],
-        
-  function( kG )
-    
-    ## this call sets PrincipalBlock;
-    RealBlocksOfGroupAlgebra( kG );
-    
-    Assert( 0, HasPrincipalBlock( kG ) );
-    
-    return PrincipalBlock( kG );
-    
-end );
-
-##
 InstallMethod( AssociatedProjectionMatrix,
         [ IsAlgebra and HasOne ],
         

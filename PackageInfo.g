@@ -62,7 +62,7 @@ Dependencies := rec(
                    [ "RingsForHomalg", ">= 2013.08.22" ],
                    [ "GaussForHomalg", ">= 2013.06.26" ],
                    [ "MatricesForHomalg", ">= 2013.10.27" ],
-                   [ "ctblocks", ">= 0.9.0" ],
+                   [ "ctblocks", ">= 0.9.1" ],
                    [ "LAGUNA", ">= 3.6.3" ],
                    [ "GAPDoc", ">= 1.1" ]
                    ],
