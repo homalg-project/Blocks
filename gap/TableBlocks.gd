@@ -176,7 +176,7 @@ DeclareAttribute( "Dimension",
 
 #! @Description
 #!  Computes the O-central character of the table <M>p</M>-block <A>B</A>
-#!  as a list indexed by the <M>p</M>-regular classes.
+#!  as a list indexed by the conjugacy classes of the underlying group <M>G</M>.
 #! @Arguments B
 #! @Returns a list of finite field elements
 DeclareAttribute( "OCentralCharacter",
