@@ -416,13 +416,3 @@ DeclareOperation( "CorrespondingMaximalIdeal",
 #! @Label for IsMultiplicativeElementWithInverse, IsHomalgFiltration
 DeclareOperation( "CorrespondingMaximalIdeal",
         [ IsMultiplicativeElementWithInverse, IsHomalgFiltration ] );
-
-#! @Arguments ordtbl, p
-#! @Group CentralCharacters
-DeclareOperation( "CentralCharacters",
-        [ IsCharacterTable, IsInt ] );
-
-#! @Arguments G, p
-#! @Group CentralCharacters
-DeclareOperation( "CentralCharacters",
-        [ IsGroup, IsInt ] );

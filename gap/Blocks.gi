@@ -902,26 +902,3 @@ InstallMethod( CorrespondingMaximalIdeal,
     return LeftSubmodule( n - g );
     
 end );
-
-##
-InstallMethod( CentralCharacters,
-        [ IsCharacterTable, IsInt ],
-        
-  function( ordtbl, p )
-    local modtbl;
-    
-    modtbl := BrauerTableOfSmallGroup( ordtbl, p );
-    
-    return CentralCharacters( modtbl );
-    
-end );
-
-##
-InstallMethod( CentralCharacters,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return CentralCharacters( CharacterTable( G ), p );
-    
-end );
