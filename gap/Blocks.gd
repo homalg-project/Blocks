@@ -149,6 +149,11 @@ DeclareAttribute( "RealNonPrincipalBlocksOfGroupAlgebra",
 DeclareAttribute( "SpecialBlocks",
         IsGroupAlgebra );
 
+#! @Arguments G
+#! @Group SpecialBlocks
+DeclareAttribute( "SpecialBlocks",
+        IsGroup );
+
 #! @Description
 #!  Computes the canonical projection matrix of the
 #!  group algebra <M>kG</M> onto the <M>p</M>-block <A>B</A>.
@@ -515,11 +520,6 @@ DeclareOperation( "FrobeniusSchurNumberPerBlock",
 #! @Arguments G, p
 #! @Group FrobeniusSchurNumberPerBlock
 DeclareOperation( "FrobeniusSchurNumberPerBlock",
-        [ IsGroup, IsInt ] );
-
-#! @Arguments G, p
-#! @Group SpecialBlocks
-DeclareOperation( "SpecialBlocks",
         [ IsGroup, IsInt ] );
 
 #! @Arguments ordtbl, p

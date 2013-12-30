@@ -119,7 +119,7 @@ end );
 InstallMethod( GroupRingOverSpecialSplittingField,
         [ IsGroup ],
         
-  function( p, G )
+  function( G )
     local kG;
     
     kG := GroupRing( SpecialSplittingField( G ), G );
@@ -308,6 +308,16 @@ InstallMethod( SpecialBlocks,
     Assert( 0, ForAll( Bs, IsSpecial ) );
     
     return Bs;
+    
+end );
+
+##
+InstallMethod( SpecialBlocks,
+        [ IsGroup ],
+        
+  function( G )
+    
+    return SpecialBlocks( GroupRingOverSpecialSplittingField( G ) );
     
 end );
 
@@ -1066,16 +1076,6 @@ InstallMethod( FrobeniusSchurNumberPerBlock,
   function( G, p )
     
     return FrobeniusSchurNumberPerBlock( CharacterTable( G ), p );
-    
-end );
-
-##
-InstallMethod( SpecialBlocks,
-        [ IsGroup, IsInt ],
-        
-  function( G, p )
-    
-    return SpecialBlocks( GroupRingOverSplittingField( p, G ) );
     
 end );
 
