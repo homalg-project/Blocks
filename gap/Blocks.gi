@@ -267,8 +267,15 @@ InstallMethod( RealNonPrincipalBlocksOfGroupAlgebra,
         [ "IsGroupAlgebra" ],
         
   function( kG )
+    local bs, Bs;
     
-    return Filtered( RealBlocksOfGroupAlgebra( kG ), B -> not IsPrincipal( B ) );
+    bs := RealNonPrincipalTableBlocks( kG );
+    
+    Bs := BlocksOfTableBlocks( bs, kG );
+    
+    Assert( 0, not ForAny( Bs, IsPrincipal ) );
+    
+    return Bs;
     
 end );
 
