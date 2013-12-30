@@ -164,6 +164,35 @@ InstallMethod( FrobeniusSchurNumber,
 end );
 
 ##
+InstallMethod( SpecialSplittingField,
+        [ IsCharacterTable ],
+        
+  function( ordtbl )
+    local L;
+    
+    L := SpecialTableBlocks( ordtbl );
+    
+    if L = [ ] then
+        L := [ Z(2) ];
+    else
+        L := Flat( List( L, PCoefficientsOfOsimaIdempotent ) );
+    fi;
+    
+    return Field( L );
+    
+end );
+
+##
+InstallMethod( SpecialSplittingField,
+        [ IsGroup ],
+        
+  function( G )
+    
+    return SpecialSplittingField( CharacterTable( G ) );
+    
+end );
+
+##
 InstallMethod( ComplexConjugate,
         [ "IsBlockOfCharacterTable" ],
         

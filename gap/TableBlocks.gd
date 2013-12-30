@@ -208,6 +208,21 @@ DeclareAttribute( "FrobeniusSchurNumber",
         IsBlockOfCharacterTable );
 
 #! @Description
+#!  Computes the finite splitting field
+#!  of all special <M>2</M>-blocks of the of the group <A>G</A>
+#!  with ordinary character table <A>ordtbl</A>.
+#! @Arguments ordtbl
+#! @Returns a finite field
+#! @Group SpecialSplittingField
+DeclareAttribute( "SpecialSplittingField",
+        IsCharacterTable );
+
+#! @Arguments G
+#! @Group SpecialSplittingField
+DeclareAttribute( "SpecialSplittingField",
+        IsGroup );
+
+#! @Description
 #!  Computes the dual table block of <A>B</A>.
 #! @Arguments B
 #! @Returns a table block
