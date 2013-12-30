@@ -250,6 +250,20 @@ InstallMethod( BrauerTable,
     
 end );
 
+## IsManagedByPackageBlocks avoids changing the behavior of CTBlocks
+InstallMethod( DecompositionMatrix,
+        [ IsBlockOfCharacterTable and IsManagedByPackageBlocks ],
+        
+  function( B )
+    
+    ## this triggers the computation of the BrauerTable
+    ## using BrauerTableOfSmallGroup, otherwise it might fail
+    BrauerTable( B );
+    
+    TryNextMethod( );
+    
+end );
+
 ####################################
 #
 # methods for operations:
