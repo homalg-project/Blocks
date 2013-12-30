@@ -126,8 +126,13 @@ InstallMethod( PCentralCharacter,
         [ "IsBlockOfCharacterTable" ],
         
   function( B )
+    local omega, p;
     
-    return CentralCharacter( B ){B!.pregular};
+    omega := OCentralCharacter( B ){B!.pregular};
+    
+    p := UnderlyingCharacteristic( B );
+    
+    return List( omega, a -> FrobeniusCharacterValue( a, p ) );
     
 end );
 
