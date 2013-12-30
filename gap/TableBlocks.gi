@@ -477,6 +477,26 @@ InstallMethod( RealNonPrincipalTableBlocks,
     
 end );
 
+##
+InstallMethod( SpecialTableBlocks,
+        [ "IsCharacterTable" ],
+        
+  function( ordtbl )
+    
+    return Filtered( RealNonPrincipalTableBlocks( ordtbl, 2 ), IsSpecial );
+    
+end );
+
+##
+InstallMethod( SpecialTableBlocks,
+        [ "IsGroup" ],
+        
+  function( G )
+    
+    return SpecialTableBlocks( CharacterTable( G ) );
+    
+end );
+
 ####################################
 #
 # View, Print, and Display methods:

@@ -102,6 +102,21 @@ DeclareAttribute( "RealNonPrincipalTableBlocks",
 DeclareAttribute( "RealNonPrincipalTableBlocks",
         IsBrauerTable );
 
+#! @Description
+#!  Computes the list special table <M>2</M>-blocks
+#!  of the ordinary character table <A>ordtbl</A>
+#!  of the group <A>G</A>.
+#! @Arguments ordtbl
+#! @Returns a list of table blocks
+#! @Group SpecialTableBlocks
+DeclareOperation( "SpecialTableBlocks",
+        [ IsCharacterTable ] );
+
+#! @Arguments G
+#! @Group SpecialTableBlocks
+DeclareOperation( "SpecialTableBlocks",
+        [ IsGroup ] );
+
 ####################################
 #
 #! @Section Properties
