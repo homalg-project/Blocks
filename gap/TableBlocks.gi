@@ -264,6 +264,19 @@ InstallMethod( DecompositionMatrix,
     
 end );
 
+##
+InstallMethod( CartanMatrix,
+        [ IsBlockOfCharacterTable ],
+        
+  function( B )
+    local decmat;
+    
+    decmat := DecompositionMatrix( B );
+    
+    return TransposedMat( decmat ) * decmat;
+    
+end );
+
 ####################################
 #
 # methods for operations:

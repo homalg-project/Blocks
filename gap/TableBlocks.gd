@@ -245,6 +245,13 @@ DeclareAttribute( "OrdinaryCharactersDegrees",
 DeclareAttribute( "BrauerTable",
         IsBlockOfCharacterTable );
 
+#! @Description
+#!  Computes the Cartan matrix of the table <A>p</A>-block <A>B</A>.
+#! @Arguments B
+#! @Returns a list
+DeclareAttribute( "CartanMatrix",
+        IsBlockOfCharacterTable );
+
 ####################################
 #
 #! @Section Operations
