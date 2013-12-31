@@ -54,7 +54,7 @@ InstallMethod( Coerce,
     
     r := ListToListList( r, Length( r ) / 2, 2 );
     
-    return Sum( r, s -> ( s[2] / F ) * ( o * s[1] ) );
+    return Sum( r, s -> ( s[2] / F ) * ( Coerce( o, s[1] ) ) );
     
 end );
 
