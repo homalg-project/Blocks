@@ -805,7 +805,7 @@ InstallMethod( BlocksOfTableBlocks,
     
     KK := ConjugacyClasses( G ){b!.pregular};
     
-    KK := List( KK, K -> Sum( List( K, g -> one * g ) ) );
+    KK := List( KK, K -> Sum( List( K, g -> Coerce( one, g ) ) ) );
     
     Bs := List( bs, L -> Sum( L, b -> PCoefficientsOfOsimaIdempotent( b ) ) );
     
