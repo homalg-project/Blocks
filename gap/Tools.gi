@@ -25,6 +25,22 @@ end );
 ##
 InstallMethod( Coerce,
         [ IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep,
+          IsMultiplicativeElement ],
+        
+  function( o, r )
+    local z;
+    
+    o := One( o );
+    
+    z := ZeroCoefficient( o );
+    
+    return ElementOfMagmaRing( FamilyObj( o ), z, [ One( z ) ], [ r ] );
+    
+end );
+
+##
+InstallMethod( Coerce,
+        [ IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep,
           IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep ],
         
   function( o, r )

@@ -33,7 +33,7 @@ DeclareOperation( "FieldOfGroupRingElements",
 
 #! @Arguments o, r
 DeclareOperation( "Coerce",
-        [ IsRingElement, IsElementOfFreeMagmaRing ] );
+        [ IsRingElement, IsMultiplicativeElement ] );
 
 #! @Arguments M, c
 DeclareOperation( "Coefficients",
