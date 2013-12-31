@@ -99,11 +99,20 @@ DeclareAttribute( "CentralNonPrincipalIdempotentsOfGroupAlgebra",
         IsGroupAlgebra );
 
 #! @Description
-#!  Computes the table <M>p</M>-block of the <M>p</M>-block <A>B</A>.
+#!  Computes the table <M>p</M>-block of the <M>p</M>-block <A>B</A>
+#!  with <M>p</M>-block idempotent <A>b</A>
+#!  of a group <M>G</M> with character table <M>ordtbl</M>.
+#! @InsertChunk AssociatedTableBlock_method
 #! @Arguments B
 #! @Returns a table block
+#! @Group AssociatedTableBlock
 DeclareAttribute( "AssociatedTableBlock",
         IsAlgebra );
+
+#! @Arguments b
+#! @Group AssociatedTableBlock
+DeclareAttribute( "AssociatedTableBlock",
+        IsElementOfFreeMagmaRing );
 
 #! @Description
 #!  Computes the list of blocks of the group algebra <A>kG</A>.
@@ -171,26 +180,6 @@ DeclareAttribute( "AssociatedProjectionMatrix",
 DeclareAttribute( "AssociatedProjection",
         IsHomalgModule );
 #! @InsertSystem AssociatedProjection
-
-#! @Description
-#!  Associates to a <M>p</M>-block idempotent <A>b</A> of a <M>p</M>-block <A>B</A>
-#!  of a group <M>G</M> with <A>p</A>-modular character table <M>modtbl</M>
-#!  the corresponding record in <C>BlocksInfo</C>(<M>modtbl</M>)
-#!  (see <Ref Attr="BlocksInfo" BookName="Reference"/>).
-#!  The method computes the central characters of all blocks using <C>CentralCharacters</C>(<M>modtbl</M>)
-#!  and searches for the unique central character <M>\omega</M> with <M>\omega</M>(<A>b</A>)<M>=1</M>.
-#!  For all other central characters <M>\omega</M>(<A>b</A>)<M>=0</M>
-#!  (see <Ref Attr="CentralCharacters"/>).
-#! @Arguments b
-#! @Returns a record
-#! @Group BlocksInfo
-DeclareAttribute( "BlocksInfo",
-        IsElementOfFreeMagmaRing, "mutable" );
-
-#! @Arguments B
-#! @Group BlocksInfo
-DeclareAttribute( "BlocksInfo",
-        IsAlgebra, "mutable" );
 
 #! @Description
 #!  Computes the defect of the <A>p</A>-block <A>B</A> with block idempotent <A>b</A>.
@@ -309,33 +298,10 @@ DeclareAttribute( "CartanMatrix",
         IsAlgebra );
 
 #! @Description
-#!  Computes the central character <M>\omega</M> for each <A>p</A>-block of the group <A>G</A>
-#!  with <A>p</A>-modular character table <A>modtbl</A>
-#!  and underlying ordinary character table <A>ordtbl</A>.
-#!  The method simply applies <C>FrobeniusCharacterValue</C>
-#!  to <C>CentralCharacter</C> of an ordinary character (any one) per block
-#!  <Cite Key="GM00" Where="p. 457"/>:
-#!  <Display>
-#!    \omega(K) = \omega_\chi(K)^*
-#!  </Display>
-#!  (see <Ref Attr="FrobeniusCharacterValue" BookName="Reference"/> and
-#!   <Ref Attr="CentralCharacter" BookName="Reference"/>).
-#!  The order of the list corresponds to the order in <C>BlocksInfo</C>(<A>modtbl</A>)
-#!  (see <Ref Attr="BlocksInfo" BookName="Reference"/>).
-#! @Arguments modtbl
-#! @Returns a list
-#! @Group CentralCharacters
-DeclareAttribute( "CentralCharacters",
-        IsBrauerTable );
-#! @InsertSystem CentralCharacters
-
-#! @Description
 #!  Computes the list of defect classes of the <M>p</M>-block idempotent <A>b</A>
 #!  of a <M>p</M>-block <A>B</A> of a group <M>G</M>
 #!  with <A>p</A>-modular character table <M>modtbl</M>
 #!  and underlying ordinary character table <M>ordtbl</M>.
-#!  The following code implements <Cite Key="GM00" Where="Lemma 2.1"/>:
-#! @InsertCode DefectClasses_code
 #! @Arguments b
 #! @Returns a list
 #! @Group DefectClasses
@@ -351,7 +317,7 @@ DeclareAttribute( "DefectClasses",
 #! @Description
 #!  Computes a defect group of the <M>p</M>-block idempotent <A>b</A>
 #!  of a group <M>G</M> as a subgroup of <M>G</M>.
-#!  <#Include Label="DefectGroup_code">
+#! @InsertCode DefectGroup_code
 #! @Arguments b
 #! @Returns a subgroup
 #! @Group DefectGroup

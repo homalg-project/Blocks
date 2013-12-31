@@ -399,16 +399,23 @@ InstallMethod( AssociatedProjection,
     
 end );
 
-##
-InstallMethod( BlocksInfo,
+#! @Chunk AssociatedTableBlock_method
+#!  The fallback method computes the central characters of all <M>p</M>-blocks
+#!  and searches for the unique central character <M>\omega</M> with <M>\omega</M>(<A>b</A>)<M>=1</M>.
+#!  For all other central characters <M>\omega</M>(<A>b</A>)<M>=0</M>.
+#! @EndChunk
+#
+InstallMethod( AssociatedTableBlock,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local modtbl, omegas, coeffs, prod, pos, info;
+    local ordtbl, blocks, omegas, coeffs, prod, pos;
     
-    modtbl := BrauerTable( b );
+    ordtbl := OrdinaryCharacterTable( b );
     
-    omegas := CentralCharacters( modtbl );
+    blocks := TableBlocks( ordtbl, Characteristic( b ) );
+    
+    omegas := List( blocks, CentralCharacter );
     
     coeffs := Coefficients( b );
     
@@ -422,23 +429,34 @@ InstallMethod( BlocksInfo,
     Assert( 0, IsOne( prod[pos] ) );
     Assert( 0, PositionProperty( prod, a -> not IsZero( a ), pos + 1 ) = fail );
     
-    info := BlocksInfo( modtbl )[pos];
-    
-    info!.PositionOfBlock := pos;
-    
-    info!.BlockIdempotent := b;
-    
-    return info;
+    return blocks[pos];
     
 end );
 
 ##
-InstallMethod( BlocksInfo,
+InstallMethod( AssociatedTableBlock,
+        [ IsElementOfFreeMagmaRing ],
+        
+  function( b )
+    local B;
+    
+    B := BlockOfIdempotent( b );
+    
+    if not HasAssociatedTableBlock( B ) then
+        TryNextMethod( );
+    fi;
+    
+    return AssociatedTableBlock( B );
+    
+end );
+
+##
+InstallMethod( AssociatedTableBlock,
         [ IsAlgebra and HasOne ],
         
   function( B )
     
-    return BlocksInfo( One( B ) );
+    return AssociatedTableBlock( One( B ) );
     
 end );
 
@@ -448,7 +466,7 @@ InstallMethod( Defect,
         
   function( b )
     
-    return BlocksInfo( b ).defect;
+    return Defect( AssociatedTableBlock( b ) );
     
 end );
 
@@ -467,13 +485,8 @@ InstallMethod( Irr,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local ordtbl, info;
     
-    ordtbl := OrdinaryCharacterTable( b );
-    
-    info := BlocksInfo( b );
-    
-    return Irr( ordtbl ){info.ordchars};
+    return Irr( AssociatedTableBlock( b ) );
     
 end );
 
@@ -493,7 +506,7 @@ InstallMethod( OrdinaryCharactersDegrees,
         
   function( b )
     
-    return List( Irr( b ), Degree );
+    return OrdinaryCharactersDegrees( AssociatedTableBlock( b ) );
     
 end );
 
@@ -512,11 +525,8 @@ InstallMethod( FrobeniusSchurNumber,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local ordtbl;
     
-    ordtbl := OrdinaryCharacterTable( b );
-    
-    return Sum( Irr( b ), chi -> Indicator( ordtbl, [ chi ], 2 )[1] * DegreeOfCharacter( chi ) );
+    return FrobeniusSchurNumber( AssociatedTableBlock( b ) );
     
 end );
 
@@ -535,13 +545,8 @@ InstallMethod( IBr,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local ordtbl, info;
     
-    ordtbl := OrdinaryCharacterTable( b );
-    
-    info := BlocksInfo( b );
-    
-    return Irr( ordtbl ){info.modchars};
+    return IBr( AssociatedTableBlock( b ) );
     
 end );
 
@@ -561,7 +566,7 @@ InstallMethod( BrauerCharactersDegrees,
         
   function( b )
     
-    return List( IBr( b ), Degree );
+    return BrauerCharactersDegrees( AssociatedTableBlock( b ) );
     
 end );
 
@@ -580,15 +585,8 @@ InstallMethod( DecompositionMatrix,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local modtbl, info, pos;
     
-    modtbl := BrauerTable( b );
-    
-    info := BlocksInfo( b );
-    
-    pos := info.PositionOfBlock;
-    
-    return DecompositionMatrix( modtbl, pos );
+    return DecompositionMatrix( AssociatedTableBlock( b ) );
     
 end );
 
@@ -607,11 +605,8 @@ InstallMethod( CartanMatrix,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local decmat;
     
-    decmat := DecompositionMatrix( b );
-    
-    return TransposedMat( decmat ) * decmat;
+    return CartanMatrix( AssociatedTableBlock( b ) );
     
 end );
 
@@ -625,74 +620,22 @@ InstallMethod( CartanMatrix,
     
 end );
 
-## the notion is used in [Gow]
-InstallMethod( CentralCharacters,
-        [ IsBrauerTable ],
-        
-  function( modtbl )
-    local ordtbl, infos, c, omegas;
-    
-    ordtbl := OrdinaryCharacterTable( modtbl );
-    
-    infos := BlocksInfo( modtbl );
-    
-    ## for each block B compute the central character omega_chi,
-    ## where chi is some ordinary character belonging to B
-    omegas := List( infos,
-                    B -> CentralCharacter( Irr( ordtbl )[B.ordchars[1]] ) );
-    
-    c := UnderlyingCharacteristic( modtbl );
-    
-    ## for each block B compute its central character omega
-    omegas := List( omegas,
-                    o -> List( o, b -> FrobeniusCharacterValue( b, c ) ) );
-    
-    Perform( [ 1 .. Length( infos ) ],
-            function( i )
-              infos[i]!.CentralCharacterOfBlock := omegas[i];
-            end );
-    
-    return omegas;
-    
-end );
-
-#! @Code DefectClasses_code
+##
 InstallMethod( DefectClasses,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local modtbl, ordtbl, classes, info, omega, pos;
+    local kG, classes, defclasses;
     
-    modtbl := BrauerTable( b );
+    kG := UnderlyingGroupAlgebra( b );
     
-    ordtbl := OrdinaryCharacterTable( modtbl );
+    classes := ConjugacyClasses( OrdinaryCharacterTable( kG ) );
     
-    classes := ConjugacyClasses( ordtbl );
+    defclasses := ClassPositionsOfDefectClasses( AssociatedTableBlock( b ) );
     
-    ## trigger computing all central characters of which one is needed below
-    CentralCharacters( modtbl );
-    
-    info := BlocksInfo( b );
-    
-    omega := info!.CentralCharacterOfBlock;
-    
-    pos := Filtered( [ 1 .. Length( classes ) ],
-                   function( K )
-                     if IsZero( omega[K] ) or
-                        IsZero( Coefficient( b, classes[K] ) ) then
-                         return false;
-                     fi;
-                     return true;
-                   end );
-    
-    classes := classes{pos};
-    
-    info!.DefectClassesOfBlock := classes;
-    
-    return classes;
+    return classes{defclasses};
     
 end );
-#! @EndCode
 
 ##
 InstallMethod( DefectClasses,
@@ -704,27 +647,18 @@ InstallMethod( DefectClasses,
     
 end );
 
-##  <#GAPDoc Label="DefectGroup_code">
-##  <Listing Type="Code"><![CDATA[
+#! @Code DefectGroup_code
 InstallMethod( DefectGroup,
         [ IsElementOfFreeMagmaRing ],
         
   function( b )
-    local kG, p, classes, K;
     
-    kG := UnderlyingGroupAlgebra( b );
-    
-    p := Characteristic( kG );
-    
-    classes := DefectClasses( b );
-    
-    K := classes[1];
-    
-    return DefectGroup( K, p );
+    return DefectGroup(
+                   DefectClasses( b )[1],
+                   Characteristic( b ) );
     
 end );
-##  ]]></Listing>
-##  <#/GAPDoc>
+#! @EndCode
 
 ##
 InstallMethod( DefectGroup,
