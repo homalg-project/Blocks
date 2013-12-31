@@ -701,6 +701,53 @@ InstallMethod( TableBlocks,
 end );
 
 ##
+InstallMethod( PrincipalTableBlock,
+        [ "IsCharacterTable", "IsInt" ],
+        
+  function( ordtbl, p )
+    local B0;
+    
+    B0 := Filtered( TableBlocks( ordtbl, p ), IsPrincipal );
+    
+    Assert( 0, Length( B0 ) = 1 );
+    
+    return B0[1];
+    
+end );
+
+##
+InstallMethod( PrincipalTableBlock,
+        [ "IsGroup", "IsInt" ],
+        
+  function( G, p )
+    
+    return PrincipalTableBlock( CharacterTable( G ), p );
+    
+end );
+
+##
+InstallMethod( PrincipalTableBlock,
+        [ "IsGroupAlgebra" ],
+        
+  function( kG )
+    
+    return PrincipalTableBlock( UnderlyingGroup( kG ), Characteristic( kG ) );
+    
+end );
+
+##
+InstallMethod( PrincipalTableBlock,
+        [ "IsBrauerTable" ],
+        
+  function( modtbl )
+    
+    return PrincipalTableBlock(
+                   OrdinaryCharacterTable( modtbl ),
+                   UnderlyingCharacteristic( modtbl ) );
+    
+end );
+
+##
 InstallMethod( RealTableBlocks,
         [ "IsCharacterTable", "IsInt" ],
         

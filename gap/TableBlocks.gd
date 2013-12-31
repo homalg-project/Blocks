@@ -49,6 +49,33 @@ DeclareAttribute( "TableBlocks",
         IsBrauerTable );
 
 #! @Description
+#!  Computes the principal table <A>p</A>-block
+#!  of the ordinary character table <A>ordtbl</A>
+#!  (with <A>p</A>-modular group algebra <A>kG</A>
+#!   and <A>p</A>-modular character table <A>modtbl</A>)
+#!  of the group <A>G</A>.
+#! @Arguments ordtbl, p
+#! @Returns a list of table blocks
+#! @Group PrincipalTableBlock
+DeclareOperation( "PrincipalTableBlock",
+        [ IsCharacterTable, IsInt ] );
+
+#! @Arguments G, p
+#! @Group PrincipalTableBlock
+DeclareOperation( "PrincipalTableBlock",
+        [ IsGroup, IsInt ] );
+
+#! @Arguments kG
+#! @Group PrincipalTableBlock
+DeclareAttribute( "PrincipalTableBlock",
+        IsGroupAlgebra );
+
+#! @Arguments modtbl
+#! @Group PrincipalTableBlock
+DeclareAttribute( "PrincipalTableBlock",
+        IsBrauerTable );
+
+#! @Description
 #!  Computes the list of real table <A>p</A>-blocks
 #!  of the ordinary character table <A>ordtbl</A>
 #!  (with <A>p</A>-modular group algebra <A>kG</A>
