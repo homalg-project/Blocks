@@ -24,7 +24,7 @@ end );
 
 ##
 InstallMethod( Coerce,
-        [ IsRingElement,
+        [ IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep,
           IsPositionalObjectRep and IsElementOfFreeMagmaRing and IsMagmaRingObjDefaultRep ],
         
   function( o, r )
