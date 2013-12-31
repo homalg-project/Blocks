@@ -117,7 +117,7 @@ end );
 
 ##
 InstallMethod( GroupRingOverSpecialSplittingField,
-        [ IsGroup ],
+        [ "IsGroup" ],
         
   function( G )
     local kG;
