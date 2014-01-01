@@ -670,7 +670,7 @@ InstallMethod( TableBlocks,
         B!.heights := MakeImmutable( Defect( B ) - coheights );
         #SetDefect( B, Maximum( coheights ) );
         Defect( B );
-        B!.DefectClassesOrder := MakeImmutable( orders{ClassPositionsOfDefectClasses( B )} );
+        #B!.DefectClassesOrder := MakeImmutable( orders{ClassPositionsOfDefectClasses( B )} );
         B!.SplittingField :=  Field( PCoefficientsOfOsimaIdempotent( B ) );
     od;
     
