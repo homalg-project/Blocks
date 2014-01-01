@@ -289,6 +289,14 @@ DeclareAttribute( "OrdinaryCharactersDegrees",
 #! @InsertSystem OrdinaryCharactersDegrees
 
 #! @Description
+#!  Computes the number <M>|IBr(</M><A>B</A><M>)|</M> of Brauer characters
+#!  associated to the table <A>p</A>-block <A>B</A>.
+#! @Arguments B
+#! @Returns a list
+DeclareAttribute( "NrIBr",
+        IsBlockOfCharacterTable );
+
+#! @Description
 #!  Computes the Brauer table of the table block <A>B</A>.
 #! @Arguments B
 #! @Returns a Brauer table

@@ -259,6 +259,16 @@ InstallMethod( OrdinaryCharactersDegrees,
 end );
 
 ##
+InstallMethod( NrIBr,
+        [ IsBlockOfCharacterTable ],
+        
+  function( B )
+    
+    return DimensionsOfDecompositionMatrix( B )[2];
+    
+end );
+
+##
 InstallMethod( BrauerTable,
         [ "IsBlockOfCharacterTable" ],
         
@@ -650,7 +660,9 @@ InstallMethod( TableBlocks,
         fi;
         Dimension( B );
         if p = 2 then
-            IsSpecial( B );
+            if IsSpecial( B ) then
+                NrIBr( B );
+            fi;
         else
             IsReal( B );
         fi;
@@ -904,6 +916,9 @@ InstallMethod( ViewObj,
                 Print( "nonspecial" );
             fi;
         else
+            if HasNrIBr( B ) then
+                Print( "|IBr|=", NrIBr( B ), ", " );
+            fi;
             Print( "special" );
         fi;
     fi;
