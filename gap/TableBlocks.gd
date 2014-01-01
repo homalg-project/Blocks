@@ -188,6 +188,27 @@ DeclareProperty( "IsSpecial",
 DeclareProperty( "IsSpecial",
         IsGroup );
 
+#! @Description
+#!  Check if the table <M>2</M>-block <A>B</A> is multi-special, i.e.,
+#!  if <M>|IBr</M>(<A>B</A>)<M>| > 1</M>.
+#!  The underlying ordinary character table <A>ordtbl</A>
+#!  of the group <A>G</A> is multi-special if at least one table <M>2</M>-block is multi-special.
+#! @Arguments B
+#! @Group IsMultiSpecial
+DeclareProperty( "IsMultiSpecial",
+        IsBlockOfCharacterTable );
+
+#! @Arguments ordtbl
+#! @Group IsMultiSpecial
+DeclareProperty( "IsMultiSpecial",
+        IsCharacterTable );
+
+#! @Arguments G
+#! @Label for IsGroup
+#! @Group IsMultiSpecial
+DeclareProperty( "IsMultiSpecial",
+        IsGroup );
+
 ####################################
 #
 #! @Section Attributes

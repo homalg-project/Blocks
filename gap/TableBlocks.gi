@@ -95,6 +95,42 @@ InstallMethod( IsSpecial,
     
 end );
 
+##
+InstallMethod( IsMultiSpecial,
+        [ "IsBlockOfCharacterTable" ],
+        
+  function( B )
+    
+    if not HasUnderlyingCharacteristic( B ) then
+        Error( "the characteristic of the table block is not set\n" );
+    elif not UnderlyingCharacteristic( B ) = 2 then
+        Error( "the characteristic of the table block is not 2\n" );
+    fi;
+    
+    return IsSpecial( B ) and NrIBr( B ) > 1;
+    
+end );
+
+##
+InstallMethod( IsMultiSpecial,
+        [ "IsCharacterTable" ],
+        
+  function( ordtbl )
+    
+    return ForAny( SpecialTableBlocks( ordtbl ), IsMultiSpecial );
+    
+end );
+
+##
+InstallMethod( IsMultiSpecial,
+        [ "IsGroup" ],
+        
+  function( G )
+    
+    return IsMultiSpecial( CharacterTable( G ) );
+    
+end );
+
 ####################################
 #
 # methods for attributes:
