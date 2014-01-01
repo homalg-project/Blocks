@@ -75,6 +75,48 @@ InstallMethod( NrInvolutions,
 end );
 
 ##
+InstallMethod( NrCentralInvolutions,
+        [ "IsCharacterTable" ],
+        
+  function( ordtbl )
+    local orders, pos;
+    
+    orders := OrdersClassRepresentatives( ordtbl );
+    
+    pos := PositionsProperty( orders, i -> i = 2 );
+    
+    return Sum( Filtered( SizesConjugacyClasses( ordtbl ){pos}, i -> i = 1 ) );
+    
+end );
+
+##
+InstallMethod( NrCentralInvolutions,
+        [ "IsGroup" ],
+        
+  function( G )
+    local classes, orders, pos;
+    
+    classes := ConjugacyClasses( G );
+    
+    orders := List( List( classes, Representative ), Order );
+    
+    pos := PositionsProperty( orders, i -> i = 2 );
+    
+    return Sum( Filtered( List( classes, Size ){pos}, i -> i = 1 ) );
+    
+end );
+
+##
+InstallMethod( NrCentralInvolutions,
+        [ "IsGroup and HasOrdinaryCharacterTable" ],
+        
+  function( G )
+    
+    return NrCentralInvolutions( CharacterTable( G ) );
+    
+end );
+
+##
 InstallMethod( SerreCharacteristicSubgroup,
         [ IsGroup ],
         
