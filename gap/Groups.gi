@@ -33,6 +33,48 @@ end );
 ####################################
 
 ##
+InstallMethod( NrInvolutions,
+        [ "IsCharacterTable" ],
+        
+  function( ordtbl )
+    local orders, pos;
+    
+    orders := OrdersClassRepresentatives( ordtbl );
+    
+    pos := PositionsProperty( orders, i -> i = 2 );
+    
+    return Sum( SizesConjugacyClasses( ordtbl ){pos} );
+    
+end );
+
+##
+InstallMethod( NrInvolutions,
+        [ "IsGroup" ],
+        
+  function( G )
+    local classes, orders, pos;
+    
+    classes := ConjugacyClasses( G );
+    
+    orders := List( List( classes, Representative ), Order );
+    
+    pos := PositionsProperty( orders, i -> i = 2 );
+    
+    return Sum( List( classes, Size ){pos} );
+    
+end );
+
+##
+InstallMethod( NrInvolutions,
+        [ "IsGroup and HasOrdinaryCharacterTable" ],
+        
+  function( G )
+    
+    return NrInvolutions( CharacterTable( G ) );
+    
+end );
+
+##
 InstallMethod( SerreCharacteristicSubgroup,
         [ IsGroup ],
         
