@@ -189,6 +189,20 @@ DeclareProperty( "IsSpecial",
         IsGroup );
 
 #! @Description
+#!  Check if the underlying ordinary character table <A>ordtbl</A>
+#!  of the group <A>G</A> is special with exactly one central involution.
+#! @Arguments ordtbl
+#! @Group IsVerySpecial
+DeclareProperty( "IsVerySpecial",
+        IsCharacterTable );
+
+#! @Arguments G
+#! @Label for IsGroup
+#! @Group IsVerySpecial
+DeclareProperty( "IsVerySpecial",
+        IsGroup );
+
+#! @Description
 #!  Check if the table <M>2</M>-block <A>B</A> is multi-special, i.e.,
 #!  if <M>|IBr</M>(<A>B</A>)<M>| > 1</M>.
 #!  The underlying ordinary character table <A>ordtbl</A>

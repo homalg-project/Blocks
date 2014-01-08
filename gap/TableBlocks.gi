@@ -96,6 +96,36 @@ InstallMethod( IsSpecial,
 end );
 
 ##
+InstallMethod( IsVerySpecial,
+        [ "IsCharacterTable" ],
+        
+  function( ordtbl )
+    
+    return NrCentralInvolutions( ordtbl ) = 1 and IsSpecial( ordtbl );
+    
+end );
+
+##
+InstallMethod( IsVerySpecial,
+        [ "IsGroup" ],
+        
+  function( G )
+    
+    return NrCentralInvolutions( G ) = 1 and IsSpecial( G );
+    
+end );
+
+##
+InstallMethod( IsVerySpecial,
+        [ "IsGroup and HasOrdinaryCharacterTable" ],
+        
+  function( G )
+    
+    return IsVerySpecial( CharacterTable( G ) );
+    
+end );
+
+##
 InstallMethod( IsMultiSpecial,
         [ "IsBlockOfCharacterTable" ],
         
