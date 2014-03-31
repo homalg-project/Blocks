@@ -204,7 +204,7 @@ DeclareProperty( "IsVerySpecial",
 
 #! @Description
 #!  Check if the table <M>2</M>-block <A>B</A> is multi-special, i.e.,
-#!  if <M>|IBr</M>(<A>B</A>)<M>| > 1</M>.
+#!  if <A>B</A> is special and <M>|IBr</M>(<A>B</A>)<M>| > 1</M>.
 #!  The underlying ordinary character table <A>ordtbl</A>
 #!  of the group <A>G</A> is multi-special if at least one table <M>2</M>-block is multi-special.
 #! @Arguments B
