@@ -116,11 +116,19 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsHomalgModule and IsZero ],
         
   function( M )
-    local I;
+    local gens, I;
+    
+    gens := GeneratorsOfModule( M );
+    
+    if IsBound( gens!.DefiningIdealOfUnitaryGroup ) then
+        return gens!.DefiningIdealOfUnitaryGroup;
+    fi;
     
     I := ZeroLeftSubmodule( HomalgRing( M ) );
     
     I!.HomalgModule := M;
+    
+    gens!.DefiningIdealOfUnitaryGroup := I;
     
     return I;
     
@@ -131,7 +139,13 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
         [ IsHomalgModule and HasBasis ],
         
   function( M )
-    local x, S, a, I;
+    local gens, x, S, a, I;
+    
+    gens := GeneratorsOfModule( M );
+    
+    if IsBound( gens!.DefiningIdealOfUnitaryGroup ) then
+        return gens!.DefiningIdealOfUnitaryGroup;
+    fi;
     
     x := GeneralElement( M );
     
@@ -146,6 +160,8 @@ InstallMethod( DefiningIdealOfUnitaryGroup,
     I := ExtractDefiningIdeal( a );
     
     I!.HomalgModule := M;
+    
+    gens!.DefiningIdealOfUnitaryGroup := I;
     
     return I;
     

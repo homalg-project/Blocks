@@ -82,18 +82,18 @@ DeclareAttribute( "DimensionOfUnitaryGroup",
 #! @Returns an ideal
 #! @Label for IsAlgebra
 #! @Group DefiningIdealOfUnitaryGroup
-DeclareAttribute( "DefiningIdealOfUnitaryGroup",
-        IsAlgebra );
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
+        [ IsAlgebra ] );
 
 #! @Arguments M
 #! @Group DefiningIdealOfUnitaryGroup
-DeclareAttribute( "DefiningIdealOfUnitaryGroup",
-        IsHomalgModule );
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
+        [ IsHomalgModule ] );
 
 #! @Arguments filt
 #! @Group DefiningIdealOfUnitaryGroup
-DeclareAttribute( "DefiningIdealOfUnitaryGroup",
-        IsHomalgFiltration );
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
+        [ IsHomalgFiltration ] );
 
 #! @Arguments filt
 #! @Group DefiningIdealOfUnitaryGroup

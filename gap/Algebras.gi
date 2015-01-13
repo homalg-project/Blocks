@@ -516,7 +516,7 @@ InstallMethod( InducedFiltration,
         [ IsRing, IsList ],
         
   function( F, L )
-    local l, J, M, n, k, R, bas, prefilt, gens, degrees, filt, N, S;
+    local l, J, M, n, k, R, bas, prefilt, gens, degrees, filt, I, N, S;
     
     l := Length( L );
     
@@ -529,6 +529,7 @@ InstallMethod( InducedFiltration,
     J := L[1];
     
     M := UnderlyingModule( F, J );
+    OnOriginalPresentation( M );	## is necessary
     
     n := Rank( M );
     
@@ -565,6 +566,8 @@ InstallMethod( InducedFiltration,
     
     OnPresentationAdaptedToFiltration( filt );
     
+    I := DefiningIdealOfUnitaryGroup( M );
+    
     N := CertainObject( filt, 0 );
     
     if IsBound( M!.UnitOfAlgebraicGroup ) then
@@ -577,7 +580,7 @@ InstallMethod( InducedFiltration,
     
     N!.RingMap :=
       function( )
-        local R, map, indets, I;
+        local R, map, indets;
         
         R := HomalgRing( M );
         
@@ -592,8 +595,6 @@ InstallMethod( InducedFiltration,
         else
             indets := [ ];
         fi;
-        
-        I := DefiningIdealOfUnitaryGroup( M );
         
         map := RingMap( indets, S, R / I );
         SetIsMorphism( map, true );

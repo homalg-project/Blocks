@@ -17,8 +17,8 @@
 ####################################
 
 #! @Arguments M
-DeclareAttribute( "GeneralElement",
-        IsHomalgModule );
+DeclareOperation( "GeneralElement",
+        [ IsHomalgModule ] );
 
 #! @Arguments filt
 DeclareAttribute( "GeneralElementsOfFiltration",

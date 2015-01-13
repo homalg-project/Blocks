@@ -17,7 +17,9 @@ InstallMethod( GeneralElement,
     
     gens := GeneratorsOfModule( M );
     
-    if not IsBound( M!.AffineCoordinateRing ) then
+    if IsBound( gens!.GeneralElement ) then
+        return gens!.GeneralElement;
+    elif not IsBound( M!.AffineCoordinateRing ) then
         TryNextMethod( );
     fi;
     
@@ -30,6 +32,8 @@ InstallMethod( GeneralElement,
     if IsBound( M!.UnitOfAlgebraicGroup ) then
         SetOneImmutable( indets, M!.UnitOfAlgebraicGroup );
     fi;
+    
+    gens!.GeneralElement := indets;
     
     return indets;
     
