@@ -167,6 +167,22 @@ DeclareAttribute( "DefiningIdealOfRadicalPartOfUnitaryGroup",
         IsAlgebra );
 
 #! @Description
+#!  Computes the defining ideal of the <Q>higher part</Q> of the unitary group of the involutive algebra <A>A</A>
+#!  as the kernel of <M>\varphi_{A / \mathfrak{r}^2} :=</M> <C>DefiningIdealOfHigherPartOfUnitaryGroup</C>( <A>A</A> ),
+#!  where <M>\mathfrak{r}</M> denotes the radical of <A>A</A>.
+#! @Arguments A
+#! @Returns an ideal
+#! @Label for IsAlgebra
+#! @Group DefiningIdealOfHigherPartOfUnitaryGroup
+DeclareAttribute( "DefiningIdealOfHigherPartOfUnitaryGroup",
+        IsAlgebra );
+
+#! @Arguments A
+#! @Group DefiningIdealOfHigherPartOfUnitaryGroup
+DeclareAttribute( "DefiningMorphismOfHigherPartOfUnitaryGroup",
+        IsAlgebra );
+
+#! @Description
 #!  Computes the defining ideal of the <Q>lower part</Q> of the unitary group of the involutive algebra <A>A</A>.
 #! @Arguments A
 #! @Returns an ideal
@@ -260,6 +276,16 @@ DeclareOperation( "IsMiddlePartUnionOfAffineSpaces",
 #! @Arguments k, A
 #! @Group DefiningIdealOfRadicalPartOfUnitaryGroup
 DeclareOperation( "DefiningIdealOfRadicalPartOfUnitaryGroup",
+        [ IsRing, IsAlgebra ] );
+
+#! @Arguments k, A
+#! @Group DefiningIdealOfHigherPartOfUnitaryGroup
+DeclareOperation( "DefiningIdealOfHigherPartOfUnitaryGroup",
+        [ IsRing, IsAlgebra ] );
+
+#! @Arguments k, A
+#! @Group DefiningIdealOfHigherPartOfUnitaryGroup
+DeclareOperation( "DefiningMorphismOfHigherPartOfUnitaryGroup",
         [ IsRing, IsAlgebra ] );
 
 #! @Arguments k, A

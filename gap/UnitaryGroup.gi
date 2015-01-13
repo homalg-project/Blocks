@@ -311,6 +311,32 @@ InstallMethod( DefiningIdealOfRadicalPartOfUnitaryGroup,
 end );
 
 ##
+InstallMethod( DefiningIdealOfHigherPartOfUnitaryGroup,
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningIdealOfHigherPartOfUnitaryGroup( k, B );
+    
+end );
+
+##
+InstallMethod( DefiningMorphismOfHigherPartOfUnitaryGroup,
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningMorphismOfHigherPartOfUnitaryGroup( k, B );
+    
+end );
+
+##
 InstallMethod( DefiningIdealOfLowerPartOfUnitaryGroup,
         [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
         
@@ -686,6 +712,66 @@ InstallMethod( IsMiddlePartUnionOfAffineSpaces,
     fi;
     
     return Set( d ) = [ 1 ];
+    
+end );
+
+##
+InstallMethod( DefiningMorphismOfHigherPartOfUnitaryGroup,
+        [ IsRing, IsAlgebra ],
+        
+  function( F, A )
+    local r, filt, phi;
+    
+    if IsBound( A!._DefiningMorphismOfHigherPartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningMorphismOfHigherPartOfUnitaryGroup[1], F ) then
+        return A!._DefiningMorphismOfHigherPartOfUnitaryGroup[2];
+    fi;
+    
+    if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
+        Error( "the algebra does not contain a one\n" );
+    fi;
+    
+    r := RadicalOfAlgebraPowersAsIntersection( A );
+    
+    if not IsBound( r.2 ) then
+        if not Dimension( r.1 ) = 0 then
+            Error( "the zero ideal is missing\n" );
+        fi;
+        filt := InducedFiltration( F, [ r.0, r.1 ] );
+    else
+        filt := InducedFiltration( F, [ r.0, r.2 ] );
+    fi;
+    
+    phi := DefiningMorphismOfUnitaryGroup( filt );
+    
+    A!._DefiningMorphismOfHigherPartOfUnitaryGroup := [ F, phi ];
+    
+    return phi;
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfHigherPartOfUnitaryGroup,
+        [ IsRing, IsAlgebra ],
+        
+  function( F, A )
+    local phi, I;
+    
+    if IsBound( A!._DefiningIdealOfHigherPartOfUnitaryGroup ) and
+       IsIdenticalObj( A!._DefiningIdealOfHigherPartOfUnitaryGroup[1], F ) then
+        return A!._DefiningIdealOfHigherPartOfUnitaryGroup[2];
+    fi;
+    
+    phi := DefiningMorphismOfHigherPartOfUnitaryGroup( F, A );
+    
+    ## I := KernelSubobject( phi );
+    I := IdealContainedInKernelViaEliminateOverBaseRing( phi );
+    
+    OnBasisOfPresentation( I );
+    
+    A!._DefiningIdealOfHigherPartOfUnitaryGroup := [ F, I ];
+    
+    return I;
     
 end );
 
