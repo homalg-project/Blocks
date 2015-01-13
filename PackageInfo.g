@@ -5,7 +5,7 @@ PackageName := "Blocks",
 Subtitle := "Tools for block theory",
 
 Version := Maximum( [
-                   "2015.01.09", ## Mohamed's version
+                   "2015.01.13", ## Mohamed's version
                    ## this line prevents merge conflicts
                    ] ),
 
@@ -58,7 +58,7 @@ Dependencies := rec(
   NeededOtherPackages := [
                    [ "AutoDoc", ">= 2013.12.04" ],
                    [ "homalg", ">= 2013.09.03" ],
-                   [ "Modules", ">= 2013.10.27" ],
+                   [ "Modules", ">= 2015.01.13" ],
                    [ "RingsForHomalg", ">= 2013.08.22" ],
                    [ "GaussForHomalg", ">= 2013.06.26" ],
                    [ "MatricesForHomalg", ">= 2013.10.27" ],

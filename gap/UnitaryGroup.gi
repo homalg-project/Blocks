@@ -518,7 +518,10 @@ InstallMethod( DefiningIdealOfUpperPartOfUnitaryGroup,
     
     phi := DefiningMorphismOfUpperPartOfUnitaryGroup( F, A );
     
-    I := KernelSubobject( phi );
+    ## I := KernelSubobject( phi );
+    I := IdealContainedInKernelViaEliminateOverBaseRing( phi );
+    
+    OnBasisOfPresentation( I );
     
     A!._DefiningIdealOfUpperPartOfUnitaryGroup := [ F, I ];
     
@@ -610,7 +613,10 @@ InstallMethod( DefiningIdealOfMiddlePartOfUnitaryGroup,
     
     phi := DefiningMorphismOfMiddlePartOfUnitaryGroup( F, A );
     
-    I := KernelSubobject( phi );
+    ## I := KernelSubobject( phi );
+    I := IdealContainedInKernelViaEliminateOverBaseRing( phi );
+    
+    OnBasisOfPresentation( I );
     
     A!._DefiningIdealOfMiddlePartOfUnitaryGroup := [ F, I ];
     
