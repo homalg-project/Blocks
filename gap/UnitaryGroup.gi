@@ -810,7 +810,7 @@ InstallMethod( IsLowerPartExtensionOfAffineSpaces,
         [ IsRing, IsAlgebra ],
         
   function( F, A )
-    local r, powers, i, l, I, d;
+    local r, powers, i, l, I, d, dim;
     
     if not ( IsAlgebraWithOne( A ) or ( HasOne( A ) and not One( A ) = fail ) ) then
         Error( "the algebra does not contain a one\n" );
@@ -843,6 +843,8 @@ InstallMethod( IsLowerPartExtensionOfAffineSpaces,
     
     Unbind( r.0 );
     
+    dim := 0;
+    
     for i in powers{[ 2 .. l - 1 ]} do
         
         ## instead of:
@@ -860,16 +862,23 @@ InstallMethod( IsLowerPartExtensionOfAffineSpaces,
         elif d > 1 then
             return false;
         fi;
+        
+        dim := dim + AffineDimension( I );
+        
     od;
     
     I := DefiningIdealOfUnitaryGroup( F, r.(l) );
     d := AffineDegree( I );
+    
+    dim := dim + AffineDimension( I );
     
     if d = 0 then
         Error( "affine degree is zero, something went wrong\n" );
     elif d > 1 then
         return false;
     fi;
+    
+    A!.DimensionOfLowerPartOfUnitaryGroup := dim;
     
     return true;
     
