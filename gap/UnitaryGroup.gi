@@ -376,19 +376,6 @@ InstallMethod( NormalizedUnitaryGroup,
 end );
 
 ##
-InstallMethod( DefiningIdealOfUnitaryGroup,
-        [ IsRing, IsAlgebra ],
-        
-  function( F, I )
-    local M;
-    
-    M := UnderlyingModule( F, I );
-    
-    return DefiningIdealOfUnitaryGroup( M );
-    
-end );
-
-##
 InstallMethod( SizeOfUnitaryGroupOfGroupRing,
         [ IsRing, IsGroup ],
 
@@ -425,6 +412,19 @@ InstallMethod( ExpectedSizeOfUnitaryGroupOfGroupRingOf2Group,
     K := c^DegreeOverPrimeField( F );
     
     return G_G0 * K^dim;
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsRing, IsAlgebra ],
+        
+  function( F, I )
+    local M;
+    
+    M := UnderlyingModule( F, I );
+    
+    return DefiningIdealOfUnitaryGroup( M );
     
 end );
 
