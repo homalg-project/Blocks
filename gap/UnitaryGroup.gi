@@ -849,7 +849,7 @@ InstallMethod( IsLowerPartExtensionOfAffineSpaces,
         #I := DefiningIdealOfUnitaryGroup( F, r.(i), r.(i + 1) );
         
         ## a basis adapted to the complete filtration
-        ## leads to much faster computations than the one
+        ## leads to much faster kernel computations than the one
         ## adapted to the 2-step subfiltration
         Unbind( r.(i - 1) );
         I := DefiningIdealOfUnitaryGroup( F, r );
