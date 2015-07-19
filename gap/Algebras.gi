@@ -469,6 +469,10 @@ InstallMethod( UnderlyingModule,
     
     LockObjectOnCertainPresentation( M );
     
+    if HasIsGroupRing( J ) and IsGroupRing( J ) then
+        One( J ); ## automatically sets the one
+    fi;
+    
     if HasOne( J ) then
         
         M!.UnitOfAlgebra := One( J );
