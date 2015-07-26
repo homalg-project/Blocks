@@ -226,7 +226,7 @@ InstallMethod( RadicalOfAlgebraPowersAsIntersection,
     
     powers := List( powers, Int );
     
-    powers := Filtered( powers, i -> i >= 0 );
+    powers := Filtered( powers, i -> i > 0 );
     
     Sort( powers );
     
