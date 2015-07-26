@@ -4,7 +4,7 @@
 ##
 ##  Copyright 2013,      Mohamed Barakat, University of Kaiserslautern
 ##
-##  Declaration stuff for tools.
+##  Declaration stuff for unitary groups.
 ##
 #############################################################################
 

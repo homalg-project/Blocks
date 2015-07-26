@@ -4,7 +4,7 @@
 ##
 ##  Copyright 2013,      Mohamed Barakat, University of Kaiserslautern
 ##
-##  Implementation stuff for tools.
+##  Implementation stuff for unitary groups.
 ##
 #############################################################################
 
