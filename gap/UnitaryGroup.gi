@@ -99,105 +99,6 @@ InstallMethod( DimensionOfUnitaryGroup,
 end );
 
 ##
-InstallMethod( DefiningIdealOfUnitaryGroup,
-        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
-        
-  function( B )
-    local k;
-    
-    k := CoefficientsRingForPolynomialAlgebra( B );
-    
-    return DefiningIdealOfUnitaryGroup( k, B );
-    
-end );
-
-##
-InstallMethod( DefiningIdealOfUnitaryGroup,
-        [ IsHomalgModule and IsZero ],
-        
-  function( M )
-    local gens, I;
-    
-    gens := GeneratorsOfModule( M );
-    
-    if IsBound( gens!.DefiningIdealOfUnitaryGroup ) then
-        return gens!.DefiningIdealOfUnitaryGroup;
-    fi;
-    
-    I := ZeroLeftSubmodule( HomalgRing( M ) );
-    
-    I!.HomalgModule := M;
-    
-    gens!.DefiningIdealOfUnitaryGroup := I;
-    
-    return I;
-    
-end );
-
-##
-InstallMethod( DefiningIdealOfUnitaryGroup,
-        [ IsHomalgModule and HasBasis ],
-        
-  function( M )
-    local gens, x, S, a, I;
-    
-    gens := GeneratorsOfModule( M );
-    
-    if IsBound( gens!.DefiningIdealOfUnitaryGroup ) then
-        return gens!.DefiningIdealOfUnitaryGroup;
-    fi;
-    
-    x := GeneralElement( M );
-    
-    S := Antipode( M );
-    
-    if IsBound( M!.UnitOfAlgebraicGroup ) then
-        a := ( x * S ) * x - One( x );
-    else
-        a := x + ( x * S ) + ( x * S ) * x;
-    fi;
-    
-    I := ExtractDefiningIdeal( a );
-    
-    I!.HomalgModule := M;
-    
-    gens!.DefiningIdealOfUnitaryGroup := I;
-    
-    return I;
-    
-end );
-
-##
-InstallMethod( DefiningMorphismOfUnitaryGroup,
-        [ IsHomalgFiltration ],
-        
-  function( filt )
-    local N;
-    
-    N := CertainObject( filt, 0 );
-    
-    return N!.RingMap( );
-    
-end );
-
-##
-InstallMethod( DefiningIdealOfUnitaryGroup,
-        [ IsHomalgFiltration ],
-        
-  function( filt )
-    local phi, I;
-    
-    phi := DefiningMorphismOfUnitaryGroup( filt );
-    
-    I := KernelSubobject( phi );
-    
-    I!.HomalgFiltration := filt;
-    
-    return I;
-    
-end );
-
-##
 InstallMethod( DefiningIdealOfUnitaryGroupOfHead,
         [ IsHomalgFiltration ],
         
@@ -412,6 +313,105 @@ InstallMethod( ExpectedSizeOfUnitaryGroupOfGroupRingOf2Group,
     K := c^DegreeOverPrimeField( F );
     
     return G_G0 * K^dim;
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsAlgebra and HasCoefficientsRingForPolynomialAlgebra ],
+        
+  function( B )
+    local k;
+    
+    k := CoefficientsRingForPolynomialAlgebra( B );
+    
+    return DefiningIdealOfUnitaryGroup( k, B );
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsHomalgModule and IsZero ],
+        
+  function( M )
+    local gens, I;
+    
+    gens := GeneratorsOfModule( M );
+    
+    if IsBound( gens!.DefiningIdealOfUnitaryGroup ) then
+        return gens!.DefiningIdealOfUnitaryGroup;
+    fi;
+    
+    I := ZeroLeftSubmodule( HomalgRing( M ) );
+    
+    I!.HomalgModule := M;
+    
+    gens!.DefiningIdealOfUnitaryGroup := I;
+    
+    return I;
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsHomalgModule and HasBasis ],
+        
+  function( M )
+    local gens, x, S, a, I;
+    
+    gens := GeneratorsOfModule( M );
+    
+    if IsBound( gens!.DefiningIdealOfUnitaryGroup ) then
+        return gens!.DefiningIdealOfUnitaryGroup;
+    fi;
+    
+    x := GeneralElement( M );
+    
+    S := Antipode( M );
+    
+    if IsBound( M!.UnitOfAlgebraicGroup ) then
+        a := ( x * S ) * x - One( x );
+    else
+        a := x + ( x * S ) + ( x * S ) * x;
+    fi;
+    
+    I := ExtractDefiningIdeal( a );
+    
+    I!.HomalgModule := M;
+    
+    gens!.DefiningIdealOfUnitaryGroup := I;
+    
+    return I;
+    
+end );
+
+##
+InstallMethod( DefiningMorphismOfUnitaryGroup,
+        [ IsHomalgFiltration ],
+        
+  function( filt )
+    local N;
+    
+    N := CertainObject( filt, 0 );
+    
+    return N!.RingMap( );
+    
+end );
+
+##
+InstallMethod( DefiningIdealOfUnitaryGroup,
+        [ IsHomalgFiltration ],
+        
+  function( filt )
+    local phi, I;
+    
+    phi := DefiningMorphismOfUnitaryGroup( filt );
+    
+    I := KernelSubobject( phi );
+    
+    I!.HomalgFiltration := filt;
+    
+    return I;
     
 end );
 

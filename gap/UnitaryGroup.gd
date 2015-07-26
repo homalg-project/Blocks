@@ -61,45 +61,6 @@ DeclareAttribute( "DimensionOfUnitaryGroup",
         IsGroupAlgebra );
 #! @InsertSystem DimensionOfUnitaryGroup
 
-#! @Description
-#!  Computes the defining ideal of the unitary group of the involutive algebra <A>A</A>
-#!  (with or without one, in the latter case it has to be a two-sided ideal in an involutive algebra with one)
-#!  with <C>CoefficientsRingForPolynomialAlgebra</C>( <A>A</A> ) set to <A>k</A> and
-#!  <A>M</A> := <C>UnderlyingModule</C>( <A>k</A>, <A>A</A> ),
-#!  the underlying &homalg; module <A>M</A> (over the polynomial <A>k</A>-algebra
-#!  in as many indeterminates as <M>\dim</M><A>A</A> and which still knows about <A>A</A>).
-#!  In the other cases it computes the relative unitary group
-#!  of <A>A</A> relative to a involution-stable two-side ideal <A>J</A>
-#!  (caution: the latter is in characteristic <M>2</M> generally <E>not</E> the unitary group of <A>A</A><M>/</M><A>J</A>).
-#!  If one specifies a chain of stable ideals as a list <A>L</A>,
-#!  or a filtration <A>filt</A> (with <A>M</A> = <C>UnderlyingObject</C>( <A>filt</A> )),
-#!  or a record <A>r</A> with successive nonnegative integers, then <A>A</A>
-#!  is set to the first entry and <A>J</A> to the second and the basis of <A>A</A> and <A>J</A> is adapted to the whole chain,
-#!  which occasionally provides a big computational advantage.
-#!  The defining ideal in the relative case is computed as the kernel of the ring morphism
-#!  <M>\varphi_{A/J} :=</M> <C>DefiningMorphismOfUnitaryGroup</C>( <A>filt</A> ).
-#! @Arguments A
-#! @Returns an ideal
-#! @Label for IsAlgebra
-#! @Group DefiningIdealOfUnitaryGroup
-DeclareOperation( "DefiningIdealOfUnitaryGroup",
-        [ IsAlgebra ] );
-
-#! @Arguments M
-#! @Group DefiningIdealOfUnitaryGroup
-DeclareOperation( "DefiningIdealOfUnitaryGroup",
-        [ IsHomalgModule ] );
-
-#! @Arguments filt
-#! @Group DefiningIdealOfUnitaryGroup
-DeclareOperation( "DefiningIdealOfUnitaryGroup",
-        [ IsHomalgFiltration ] );
-
-#! @Arguments filt
-#! @Group DefiningIdealOfUnitaryGroup
-DeclareAttribute( "DefiningMorphismOfUnitaryGroup",
-        IsHomalgFiltration );
-
 #! @Arguments filt
 #! @Returns an ideal
 DeclareAttribute( "DefiningIdealOfUnitaryGroupOfHead",
@@ -207,6 +168,45 @@ DeclareOperation( "NormalizedUnitaryGroup",
 #! @Group NormalizedUnitaryGroup
 DeclareOperation( "NormalizedUnitaryGroup",
         [ IsField, IsGroup ] );
+
+#! @Description
+#!  Computes the defining ideal of the unitary group of the involutive algebra <A>A</A>
+#!  (with or without one, in the latter case it has to be a two-sided ideal in an involutive algebra with one)
+#!  with <C>CoefficientsRingForPolynomialAlgebra</C>( <A>A</A> ) set to <A>k</A> and
+#!  <A>M</A> := <C>UnderlyingModule</C>( <A>k</A>, <A>A</A> ),
+#!  the underlying &homalg; module <A>M</A> (over the polynomial <A>k</A>-algebra
+#!  in as many indeterminates as <M>\dim</M><A>A</A> and which still knows about <A>A</A>).
+#!  In the other cases it computes the relative unitary group
+#!  of <A>A</A> relative to a involution-stable two-side ideal <A>J</A>
+#!  (caution: the latter is in characteristic <M>2</M> generally <E>not</E> the unitary group of <A>A</A><M>/</M><A>J</A>).
+#!  If one specifies a chain of stable ideals as a list <A>L</A>,
+#!  or a filtration <A>filt</A> (with <A>M</A> = <C>UnderlyingObject</C>( <A>filt</A> )),
+#!  or a record <A>r</A> with successive nonnegative integers, then <A>A</A>
+#!  is set to the first entry and <A>J</A> to the second and the basis of <A>A</A> and <A>J</A> is adapted to the whole chain,
+#!  which occasionally provides a big computational advantage.
+#!  The defining ideal in the relative case is computed as the kernel of the ring morphism
+#!  <M>\varphi_{A/J} :=</M> <C>DefiningMorphismOfUnitaryGroup</C>( <A>filt</A> ).
+#! @Arguments A
+#! @Returns an ideal
+#! @Label for IsAlgebra
+#! @Group DefiningIdealOfUnitaryGroup
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
+        [ IsAlgebra ] );
+
+#! @Arguments M
+#! @Group DefiningIdealOfUnitaryGroup
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
+        [ IsHomalgModule ] );
+
+#! @Arguments filt
+#! @Group DefiningIdealOfUnitaryGroup
+DeclareOperation( "DefiningMorphismOfUnitaryGroup",
+        [ IsHomalgFiltration ] );
+
+#! @Arguments filt
+#! @Group DefiningIdealOfUnitaryGroup
+DeclareOperation( "DefiningIdealOfUnitaryGroup",
+        [ IsHomalgFiltration ] );
 
 #! @Arguments k, A
 #! @Group DefiningIdealOfUnitaryGroup
