@@ -88,7 +88,7 @@ DeclareAttribute( "PrincipalBlockIdempotent",
 #! @Returns an algebra with one
 DeclareAttribute( "PrincipalBlock",
         IsGroupAlgebra );
-#! @InsertSystem PrincipalBlock
+#! @InsertChunk PrincipalBlock
 
 #! @Description
 #!  Computes the list of central non-principle primitive idempotents of the group algebra <A>kG</A>,
@@ -179,7 +179,7 @@ DeclareAttribute( "AssociatedProjectionMatrix",
 #! @Returns a homalg morphism
 DeclareAttribute( "AssociatedProjection",
         IsHomalgModule );
-#! @InsertSystem AssociatedProjection
+#! @InsertChunk AssociatedProjection
 
 #! @Description
 #!  Computes the defect of the <A>p</A>-block <A>B</A> with block idempotent <A>b</A>.
@@ -188,7 +188,7 @@ DeclareAttribute( "AssociatedProjection",
 #! @Group Defect
 DeclareAttribute( "Defect",
         IsElementOfFreeMagmaRing );
-#! @InsertSystem Defect
+#! @InsertChunk Defect
 
 #! @Arguments B
 #! @Group Defect
@@ -307,7 +307,7 @@ DeclareAttribute( "CartanMatrix",
 #! @Group DefectClasses
 DeclareAttribute( "DefectClasses",
         IsElementOfFreeMagmaRing );
-#! @InsertSystem DefectClasses
+#! @InsertChunk DefectClasses
 
 #! @Arguments B
 #! @Group DefectClasses

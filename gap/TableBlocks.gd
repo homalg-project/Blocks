@@ -301,7 +301,7 @@ DeclareAttribute( "ComplexConjugate",
 #! @Group DefectsOfBlocks
 DeclareAttribute( "DefectsOfBlocks",
         IsBrauerTable );
-#! @InsertSystem DefectsOfBlocks
+#! @InsertChunk DefectsOfBlocks
 
 #! @Description
 #!  Computes the list of degrees of irreducible ordinary characters
@@ -321,7 +321,7 @@ DeclareAttribute( "OrdinaryCharactersDegrees",
 #! @Group OrdinaryCharactersDegrees
 DeclareAttribute( "OrdinaryCharactersDegrees",
         IsBrauerTable );
-#! @InsertSystem OrdinaryCharactersDegrees
+#! @InsertChunk OrdinaryCharactersDegrees
 
 #! @Description
 #!  Computes the number <M>|IBr(</M><A>B</A><M>)|</M> of Brauer characters
@@ -347,7 +347,7 @@ DeclareAttribute( "BrauerTable",
 #! @Group DecompositionMatrixPerBlock
 DeclareAttribute( "DecompositionMatrixPerBlock",
         IsBrauerTable );
-#! @InsertSystem DecompositionMatrixPerBlock
+#! @InsertChunk DecompositionMatrixPerBlock
 
 #! @Description
 #!  Computes the Cartan matrix of the table <A>p</A>-block <A>B</A>.
@@ -365,7 +365,7 @@ DeclareAttribute( "CartanMatrix",
 #! @Group CartanMatrixPerBlock
 DeclareAttribute( "CartanMatrixPerBlock",
         IsBrauerTable );
-#! @InsertSystem CartanMatrixPerBlock
+#! @InsertChunk CartanMatrixPerBlock
 
 #! @Description
 #!  Computes the list of degrees of Brauer characters
@@ -385,7 +385,7 @@ DeclareAttribute( "BrauerCharactersDegrees",
 #! @Group BrauerCharactersDegrees
 DeclareAttribute( "BrauerCharactersDegrees",
         IsBrauerTable );
-#! @InsertSystem BrauerCharactersDegrees
+#! @InsertChunk BrauerCharactersDegrees
 
 ####################################
 #

@@ -107,7 +107,7 @@ DeclareAttribute( "CoefficientsRingForPolynomialAlgebra",
 #! @Label for IsAlgebra
 DeclareAttribute( "RadicalOfAlgebraPowers",
         IsAlgebra );
-#! @InsertSystem RadicalOfAlgebraPowers
+#! @InsertChunk RadicalOfAlgebraPowers
 
 #! @Description
 #!  Computes the list of powers <M>rad^i</M> of the radical <M>rad</M> of the subalgebra <A>A</A>
@@ -127,7 +127,7 @@ DeclareAttribute( "RadicalOfAlgebraPowersAsIntersection",
 #! @Label for IsAlgebraWithOne
 DeclareAttribute( "AugmentationIdealPowers",
         IsAlgebraWithOne );
-#! @InsertSystem AugmentationIdealPowers
+#! @InsertChunk AugmentationIdealPowers
 
 #! @Description
 #!  Computes <M>I^i</M> such that <M>I^{{i+1}} = I^i</M>
@@ -138,7 +138,7 @@ DeclareAttribute( "AugmentationIdealPowers",
 #! @Label for IsAlgebraWithOne
 DeclareAttribute( "HighestPowerOfAugmentationIdeal",
         IsAlgebraWithOne );
-#! @InsertSystem HighestPowerOfAugmentationIdeal
+#! @InsertChunk HighestPowerOfAugmentationIdeal
 
 #! @Description
 #!  Computes the list of central primitive idempotents of the <E>involutive</E> algebra <A>A</A>.
@@ -147,7 +147,7 @@ DeclareAttribute( "HighestPowerOfAugmentationIdeal",
 #! @Label for IsAlgebraWithOne
 DeclareAttribute( "CentralIdempotentsOfInvolutiveAlgebra",
         IsAlgebraWithOne );
-#! @InsertSystem CentralIdempotentsOfInvolutiveAlgebra
+#! @InsertChunk CentralIdempotentsOfInvolutiveAlgebra
 
 #! @Description
 #!  Computes the underlying module of the (not necessarily unitial) <A>k</A>-algbra <A>J</A>

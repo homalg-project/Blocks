@@ -29,7 +29,7 @@
 #! @Returns a field
 DeclareOperation( "FieldOfGroupRingElements",
         [ IsList ] );
-#! @InsertSystem FieldOfGroupRingElements
+#! @InsertChunk FieldOfGroupRingElements
 
 #! @Arguments o, r
 DeclareOperation( "Coerce",

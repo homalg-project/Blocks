@@ -23,7 +23,7 @@
 #! @Arguments K
 DeclareProperty( "IsReal",
         CategoryCollections(IsMultiplicativeElementWithInverse) );
-#! @InsertSystem IsReal:cc
+#! @InsertChunk IsReal:cc
 
 ####################################
 #
@@ -39,7 +39,7 @@ DeclareProperty( "IsReal",
 #! @Group NrInvolutions
 DeclareAttribute( "NrInvolutions",
         IsCharacterTable );
-#! @InsertSystem NrInvolutions
+#! @InsertChunk NrInvolutions
 
 #! @Arguments G
 #! @Label for IsGroup
@@ -55,7 +55,7 @@ DeclareAttribute( "NrInvolutions",
 #! @Group NrCentralInvolutions
 DeclareAttribute( "NrCentralInvolutions",
         IsCharacterTable );
-#! @InsertSystem NrCentralInvolutions
+#! @InsertChunk NrCentralInvolutions
 
 #! @Arguments G
 #! @Label for IsGroup
@@ -71,7 +71,7 @@ DeclareAttribute( "NrCentralInvolutions",
 #! @Label for IsGroup
 DeclareAttribute( "SerreCharacteristicSubgroup",
         IsGroup );
-#! @InsertSystem SerreCharacteristicSubgroup
+#! @InsertChunk SerreCharacteristicSubgroup
 
 #! @Description
 #!  Computes the factor group modulo of <A>G</A>
@@ -82,7 +82,7 @@ DeclareAttribute( "SerreCharacteristicSubgroup",
 #! @Label for IsGroup
 DeclareAttribute( "SerreFactorGroup",
         IsGroup );
-#! @InsertSystem SerreFactorGroup
+#! @InsertChunk SerreFactorGroup
 
 #! @Description
 #!  Computes the list of conjugacy classes of the group <M>G</M>
@@ -92,7 +92,7 @@ DeclareAttribute( "SerreFactorGroup",
 #! @Label for IsGroup
 DeclareAttribute( "ConjugacyClassesOfNormalSubgroup",
         IsGroup );
-#! @InsertSystem ConjugacyClassesOfNormalSubgroup
+#! @InsertChunk ConjugacyClassesOfNormalSubgroup
 
 #! @Description
 #!  Computes the list of conjugacy classes of the group <M>G</M>
@@ -135,7 +135,7 @@ DeclareOperation( "IsRegular",
 #! @Returns <C>true</C> or <C>false</C>
 DeclareOperation( "IsRegular",
         [ CategoryCollections(IsMultiplicativeElementWithInverse), IsInt ] );
-#! @InsertSystem IsRegular
+#! @InsertChunk IsRegular
 
 #! @Description
 #!  Computes the defect <A>p</A>-group of a representative
@@ -147,7 +147,7 @@ DeclareOperation( "IsRegular",
 #! @Returns a subgroup of <M>G</M>
 DeclareOperation( "DefectGroup",
         [ CategoryCollections(IsMultiplicativeElementWithInverse), IsInt ] );
-#! @InsertSystem DefectGroup:cc
+#! @InsertChunk DefectGroup:cc
 
 #! @Description
 #!  Computes the conjugacy class of <M>g^{-1}</M>
@@ -158,7 +158,7 @@ DeclareOperation( "DefectGroup",
 #! @Returns a conjugacy class in <M>G</M>
 DeclareOperation( "Involution",
         [ CategoryCollections(IsMultiplicativeElementWithInverse) ] );
-#! @InsertSystem DefectGroup:cc
+#! @InsertChunk DefectGroup:cc
 
 #! @Description
 #!  Computes the coefficient of the group element <A>g</A>
@@ -167,7 +167,7 @@ DeclareOperation( "Involution",
 #! @Returns a ring element
 DeclareOperation( "Coefficient",
         [ IsElementOfFreeMagmaRing, IsMultiplicativeElementWithInverse ] );
-#! @InsertSystem DefectGroup:cc
+#! @InsertChunk DefectGroup:cc
 
 #! @Description
 #!  Computes the coefficient of the conjugacy class <A>K</A>

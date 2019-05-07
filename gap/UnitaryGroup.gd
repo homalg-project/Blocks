@@ -49,7 +49,7 @@ DeclareProperty( "IsLowerPartExtensionOfAffineSpaces",
 #! @Label for IsGroupAlgebra
 DeclareAttribute( "NumberOfQuadraticEquationsOfUnitaryGroup",
         IsGroupAlgebra );
-#! @InsertSystem NumberOfQuadraticEquationsOfUnitaryGroup
+#! @InsertChunk NumberOfQuadraticEquationsOfUnitaryGroup
 
 #! @Description
 #!  Computes the dimension of the unitary group
@@ -59,7 +59,7 @@ DeclareAttribute( "NumberOfQuadraticEquationsOfUnitaryGroup",
 #! @Label for IsGroupAlgebra
 DeclareAttribute( "DimensionOfUnitaryGroup",
         IsGroupAlgebra );
-#! @InsertSystem DimensionOfUnitaryGroup
+#! @InsertChunk DimensionOfUnitaryGroup
 
 #! @Arguments filt
 #! @Returns an ideal
