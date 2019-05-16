@@ -1,4 +1,4 @@
-#! @System NumberOfQuadraticEquationsOfUnitaryGroup
+#! @Chunk NumberOfQuadraticEquationsOfUnitaryGroup
 
 LoadPackage( "Blocks" );
 

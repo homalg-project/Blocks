@@ -1,4 +1,4 @@
-#! @System DefectsOfBlocks
+#! @Chunk DefectsOfBlocks
 
 LoadPackage( "Blocks" );
 

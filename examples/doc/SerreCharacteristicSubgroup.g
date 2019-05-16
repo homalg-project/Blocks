@@ -1,4 +1,4 @@
-#! @System SerreCharacteristicSubgroup
+#! @Chunk SerreCharacteristicSubgroup
 
 LoadPackage( "Blocks" );
 

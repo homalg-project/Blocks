@@ -1,4 +1,4 @@
-#! @System NrInvolutions
+#! @Chunk NrInvolutions
 
 LoadPackage( "Blocks" );
 

@@ -1,4 +1,4 @@
-#! @System PrincipalBlock
+#! @Chunk PrincipalBlock
 
 LoadPackage( "Blocks" );
 

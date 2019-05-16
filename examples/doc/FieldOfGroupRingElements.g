@@ -1,4 +1,4 @@
-#! @System FieldOfGroupRingElements
+#! @Chunk FieldOfGroupRingElements
 
 LoadPackage( "Blocks" );
 

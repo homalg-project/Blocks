@@ -1,4 +1,4 @@
-#! @System BrauerCharactersDegrees
+#! @Chunk BrauerCharactersDegrees
 
 LoadPackage( "Blocks" );
 

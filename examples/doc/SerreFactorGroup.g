@@ -1,4 +1,4 @@
-#! @System SerreFactorGroup
+#! @Chunk SerreFactorGroup
 
 LoadPackage( "Blocks" );
 

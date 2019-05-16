@@ -1,4 +1,4 @@
-#! @System Coefficients
+#! @Chunk Coefficients
 
 LoadPackage( "Blocks" );
 

@@ -1,4 +1,4 @@
-#! @System AssociatedProjection
+#! @Chunk AssociatedProjection
 
 LoadPackage( "Blocks" );
 

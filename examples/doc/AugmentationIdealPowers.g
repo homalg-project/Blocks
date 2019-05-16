@@ -1,4 +1,4 @@
-#!  @System AugmentationIdealPowers
+#!  @Chunk AugmentationIdealPowers
 
 LoadPackage( "Blocks" );
 

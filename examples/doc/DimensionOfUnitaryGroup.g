@@ -1,4 +1,4 @@
-#! @System DimensionOfUnitaryGroup
+#! @Chunk DimensionOfUnitaryGroup
 
 LoadPackage( "Blocks" );
 

@@ -1,4 +1,4 @@
-#! @System RadicalOfAlgebraPowers
+#! @Chunk RadicalOfAlgebraPowers
 
 LoadPackage( "Blocks" );
 

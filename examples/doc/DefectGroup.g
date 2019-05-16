@@ -1,4 +1,4 @@
-#! @System DefectGroup:cc
+#! @Chunk DefectGroup:cc
 
 LoadPackage( "Blocks" );
 

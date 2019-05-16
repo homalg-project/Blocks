@@ -1,4 +1,4 @@
-#! @System IsReal:cc
+#! @Chunk IsReal:cc
 
 LoadPackage( "Blocks" );
 

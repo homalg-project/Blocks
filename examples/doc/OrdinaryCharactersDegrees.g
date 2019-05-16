@@ -1,4 +1,4 @@
-#! @System OrdinaryCharactersDegrees
+#! @Chunk OrdinaryCharactersDegrees
 
 LoadPackage( "Blocks" );
 

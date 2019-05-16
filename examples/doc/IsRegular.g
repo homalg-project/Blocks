@@ -1,4 +1,4 @@
-#! @System IsRegular
+#! @Chunk IsRegular
 
 LoadPackage( "Blocks" );
 

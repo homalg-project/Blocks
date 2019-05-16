@@ -1,4 +1,4 @@
-#! @System CentralIdempotentsOfInvolutiveAlgebra
+#! @Chunk CentralIdempotentsOfInvolutiveAlgebra
 
 LoadPackage( "Blocks" );
 

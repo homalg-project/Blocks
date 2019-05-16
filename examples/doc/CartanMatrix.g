@@ -1,4 +1,4 @@
-#! @System CartanMatrixPerBlock
+#! @Chunk CartanMatrixPerBlock
 
 LoadPackage( "Blocks" );
 

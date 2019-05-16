@@ -1,4 +1,4 @@
-#! @System ConjugacyClassesOfNormalSubgroup
+#! @Chunk ConjugacyClassesOfNormalSubgroup
 
 LoadPackage( "Blocks" );
 
