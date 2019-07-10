@@ -100,7 +100,7 @@ InstallMethod( AsElementOfAlgebra,
     a := MatrixOfMap( a ) * GeneratorsOfModule( Range( a ) );
     a := MatrixOfGenerators( a );
     
-    return MatElm( a, 1, 1 );
+    return a[ 1, 1 ];
     
 end );
     
