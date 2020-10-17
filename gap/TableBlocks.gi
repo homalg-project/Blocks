@@ -696,6 +696,8 @@ InstallMethod( TableBlocks,
     pexp := PrimePowerExponent( Size( ordtbl ), p );
     
     pb := PrimeBlocks( ordtbl, p );
+
+    pb := ShallowCopy( pb );
     
     orders := OrdersClassRepresentatives( ordtbl );
     
