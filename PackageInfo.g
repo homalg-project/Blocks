@@ -50,7 +50,6 @@ PackageDoc := rec(
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "Tools for block theory",
-  Autoload  := false
 ),
 
 Dependencies := rec(
@@ -70,11 +69,7 @@ Dependencies := rec(
   ExternalConditions := [ ]
 ),
 
-AvailabilityTest := function( )
-    return true;
-  end,
-
-Autoload := false,
+AvailabilityTest := ReturnTrue,
 
 Keywords := [ "block", "defect group" ]
 
